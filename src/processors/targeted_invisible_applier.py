@@ -51,7 +51,11 @@ import docx
 import random
 from typing import List, Dict, Any
 
-from invisible_manipulator import InvisibleManipulator
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+from core.invisible_manipulator import InvisibleManipulator
 
 # Reuse logic but allow overriding rates transiently
 
@@ -144,8 +148,8 @@ def main():
         out_path = Path(args.output)
         out_path.parent.mkdir(parents=True, exist_ok=True)
         doc.save(str(out_path))
-        print(f"✅ Dokumen tersimpan: {out_path}
-Total segmen terpengaruh: {len(manipulated_ids)}")
+        print(f"✅ Dokumen tersimpan: {out_path}")
+        print(f"Total segmen terpengaruh: {len(manipulated_ids)}")
     else:
         print(f"[DRY-RUN] Perubahan tidak disimpan. Segmen terpengaruh: {len(manipulated_ids)}")
 

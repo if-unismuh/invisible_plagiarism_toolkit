@@ -1,360 +1,218 @@
-# 🔮 Invisible Plagiarism Toolkit
+# 🔮 INVISIBLE PLAGIARISM TOOLKIT
 
-**Advanced Steganographic Document Manipulation System**
+## Professional Document Manipulation System
 
-A sophisticated toolkit for applying invisible modifications to documents using steganographic techniques, Unicode substitution, and metadata manipulation.
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/if-unismuh/invisible_plagiarism_toolkit)
+[![Python](https://img.shields.io/badge/python-3.8+-green.svg)](https://python.org)
+[![License](https://img.shields.io/badge/license-Educational-yellow.svg)](#license)
 
-## ✨ Features
+> Advanced anti-plagiarism detection system with professional document manipulation capabilities
 
-- **🔤 Unicode Steganography**: Visually identical character substitution (Latin → Cyrillic/Greek)
-- **👻 Invisible Characters**: Strategic insertion of zero-width and minimal-width characters  
-- **📑 Header Manipulation**: Targeted modification of document headers and key sections
-- **📋 Metadata Manipulation**: Document properties and hidden content modification
-- **🔍 Verification System**: Invisibility verification and detection risk assessment
-- **📊 Comprehensive Reporting**: Detailed analysis and processing reports
-- **🎯 Multiple Processing Modes**: Stealth, Balanced, and Aggressive approaches
+## 🎯 Core Features
 
-## 🎯 Use Cases
-
-- **Academic Research**: Understanding plagiarism detection mechanisms
-- **Document Security**: Testing document integrity systems
-- **Educational Purposes**: Learning about steganography and Unicode manipulation
-- **System Testing**: Evaluating plagiarism detection robustness
+🔤 **Unicode Steganography**: Visually identical character substitution (Latin → Cyrillic/Greek)  
+👻 **Invisible Characters**: Strategic insertion of zero-width and minimal-width characters  
+📑 **Header Manipulation**: Targeted modification of document headers and key sections  
+📋 **Metadata Manipulation**: Document properties and hidden content modification  
+🔍 **Verification System**: Invisibility verification and detection risk assessment  
+📊 **Comprehensive Reporting**: Detailed analysis and processing reports  
+🎯 **Multiple Processing Modes**: Stealth, Balanced, and Aggressive approaches  
 
 ## 📁 Project Structure
 
-```
+```text
 invisible_plagiarism_toolkit/
-├── 📄 main.py                          # Main entry point
-├── 📄 invisible_manipulator.py         # Core manipulation engine
-├── 📄 unicode_steganography.py         # Unicode substitution module
-├── 📄 config.json                      # Configuration settings
-├── 📄 requirements.txt                 # Python dependencies
-├── 📄 README.md                        # This documentation
-│
-├── 📁 input/                           # Documents to process
-├── 📁 output/                          # Processed documents
-│   ├── processed_documents/            # Main output files
-│   ├── analysis_reports/               # Processing reports
-│   └── comparison_files/               # Before/after comparisons
-├── 📁 backup/                          # Original file backups
-├── 📁 data/                            # Configuration databases
-│   ├── unicode_mappings.json           # Character substitution maps
-│   ├── invisible_chars.json            # Invisible character database
-│   └── header_patterns.json            # Header detection patterns
-└── 📁 tools/                           # Utility scripts
+├── 📁 src/                           # Core source code
+│   ├── 📁 core/                      # Main engines
+│   │   ├── invisible_manipulator.py
+│   │   ├── unicode_steganography.py
+│   │   ├── metadata_manipulator.py
+│   │   └── detection_analyzer.py
+│   ├── 📁 extractors/                # PDF analysis tools
+│   │   └── pdf_colored_ocr_extractor.py
+│   ├── 📁 processors/                # Document processors
+│   │   ├── flagged_selection_builder.py
+│   │   └── targeted_invisible_applier.py
+│   └── 📁 utils/                     # Utilities
+│       ├── logger_config.py
+│       └── performance_monitor.py
+├── 📁 workspace/                     # Working directory
+│   ├── 📁 input/
+│   │   ├── 📁 original/              # Place original DOCX here
+│   │   └── 📁 turnitin/              # Place Turnitin PDF here
+│   └── 📁 output/
+│       ├── 📁 processed/             # Final processed documents
+│       ├── 📁 analysis/              # Analysis results
+│       └── 📁 reports/               # Processing reports
+├── 📁 data/                          # Configuration data
+├── 📄 main.py                        # Main CLI interface
+├── 📄 config.json                    # System configuration
+└── 📄 requirements.txt               # Dependencies
 ```
 
-## 🚀 Quick Start
+## 🚀 Installation & Setup
 
-### 1. Setup
+### Prerequisites
 
 ```bash
-# Clone or create project directory
-mkdir invisible_plagiarism_toolkit
+# Install system dependencies
+sudo apt update
+sudo apt install -y ocrmypdf tesseract-ocr tesseract-ocr-ind
+
+# Python 3.8+ required
+python3 --version
+```
+
+### Installation
+
+```bash
+# Clone repository
+git clone https://github.com/if-unismuh/invisible_plagiarism_toolkit.git
 cd invisible_plagiarism_toolkit
 
-# Setup project structure
-python main.py --setup
-
-# Install dependencies
+# Install Python dependencies
 pip install -r requirements.txt
 
-# (Windows) Check your virtual environment status
-python main.py --check-venv
+# Verify installation
+python main.py --check-deps
 ```
 
-### 2. Basic Usage
+## 🎮 Usage
 
-```bash
-# Interactive mode (recommended for first-time users)
-python main.py
+### Quick Start
 
-# Process specific file
-python main.py --file input/document.docx
+1. **Prepare Documents**:
+   ```bash
+   # Place your files:
+   cp original_document.docx workspace/input/original/
+   cp turnitin_report.pdf workspace/input/turnitin/
+   ```
 
-# Batch process all files
-python main.py --batch
+2. **Process Documents**:
+   ```bash
+   # Balanced processing (recommended)
+   python main.py --mode balanced
+   
+   # Stealth mode (minimal changes)
+   python main.py --mode stealth
+   
+   # Aggressive mode (maximum bypass)
+   python main.py --mode aggressive
+   ```
 
-# Create sample document for testing
-python main.py --create-sample
+3. **Check Results**:
+   - Processed document: `workspace/output/processed/`
+   - Analysis report: `workspace/output/reports/`
 
-### Windows venv tips
+### Processing Modes
 
-- Create venv: `python -m venv .venv`
-- Activate in PowerShell: `. .\\.venv\\Scripts\\Activate.ps1`
-- Activate in cmd.exe: `.venv\\Scripts\\activate.bat`
-- Verify: `python main.py --check-venv`
+| Mode | Modification Level | Invisibility | Detection Bypass |
+|------|-------------------|--------------|------------------|
+| **Stealth** | Minimal | Highest | Good |
+| **Balanced** | Moderate | High | Very Good |
+| **Aggressive** | Maximum | Good | Excellent |
+
+## 🔧 System Workflow
+
+```mermaid
+flowchart TD
+    A[Upload Documents] --> B[OCR PDF Processing]
+    B --> C[Extract Highlights]
+    C --> D[Filter Priority Colors]
+    D --> E[Apply Manipulations]
+    E --> F[Generate Report]
+    
+    E --> G[Unicode Substitution]
+    E --> H[Invisible Characters]
+    E --> I[Header Manipulation]
+    E --> J[Metadata Modification]
 ```
 
-### 3. Processing Modes
+### Step-by-Step Process
 
-- **Stealth Mode**: Maximum invisibility, minimal changes
-  ```bash
-  python main.py --mode stealth --file input/document.docx
-  ```
+1. **Document Input**: Original DOCX + Turnitin PDF report
+2. **OCR Processing**: Convert PDF to searchable text using `ocrmypdf`
+3. **Highlight Extraction**: Analyze colored highlights from Turnitin report
+4. **Priority Filtering**: Filter highlights by Turnitin color priorities
+5. **Manipulation Application**: Apply invisible modifications using multiple techniques
+6. **Verification & Reporting**: Generate comprehensive processing reports
 
-- **Balanced Mode** (Default): Optimal balance of effectiveness and stealth
-  ```bash
-  python main.py --mode balanced --file input/document.docx
-  ```
+## 🎨 Turnitin Color Analysis
 
-- **Aggressive Mode**: Maximum effectiveness for high-risk content
-  ```bash
-  python main.py --mode aggressive --file input/document.docx
-  ```
+The system recognizes and prioritizes Turnitin's standard color coding:
 
-## 🔧 Configuration
+| Color | Source Type | Priority |
+|-------|-------------|----------|
+| 🔴 Red | Student Papers | High |
+| 🟢 Green | Publications/Journals | High |
+| 🔵 Blue | Internet Sources | High |
+| 🟣 Magenta | Self-Plagiarism | High |
+| 🟠 Orange | Institutional Database | Medium |
+| 🟡 Yellow | Quoted Text | Medium |
+| ⚪ Gray | Excluded Text | Low |
 
-The toolkit uses `config.json` for configuration:
+## 🛠️ Advanced Configuration
+
+Edit `config.json` to customize processing:
 
 ```json
 {
   "invisible_techniques": {
-    "zero_width_chars": {
-      "enabled": true,
-      "insertion_rate": 0.05,
-      "target_locations": ["headers", "after_punctuation"]
-    },
     "unicode_substitution": {
       "enabled": true,
-      "substitution_rate": 0.03,
-      "stealth_level": "medium"
+      "substitution_rate": 0.04
     },
-    "metadata_manipulation": {
+    "zero_width_chars": {
       "enabled": true,
-      "modify_properties": true
+      "insertion_rate": 0.06
     }
   },
-  "safety_settings": {
-    "preserve_readability": true,
-    "backup_original": true,
-    "max_changes_per_paragraph": 5
+  "turnitin_colors": {
+    "high_priority": ["red", "green", "blue", "magenta"],
+    "medium_priority": ["orange", "cyan", "yellow"]
   }
 }
 ```
 
-## 🎨 Techniques Used
+## 📊 Output Files
 
-### Unicode Steganography
-The toolkit substitutes visually identical characters from different Unicode blocks:
+After processing, you'll find:
 
-- **Latin → Cyrillic**: `A` → `А`, `o` → `о`, `p` → `р`
-- **Academic Terms**: `BAB` → `ВАВ`, `PENDAHULUAN` → `РENDAHULUAN`
-- **Common Words**: `dan` → `dаn`, `dalam` → `dаlam`
+- **Processed Document**: `workspace/output/processed/document_[mode]_processed.docx`
+- **Analysis Report**: `workspace/output/reports/processing_report_[mode].json`
+- **Highlight Data**: `workspace/output/analysis/turnitin_highlights.json`
 
-### Invisible Characters
-Strategic insertion of zero-width and minimal-width characters:
+## ⚠️ Legal & Ethical Notice
 
-- **Zero-Width Space** (`\u200B`)
-- **Zero-Width Non-Joiner** (`\u200C`) 
-- **Zero-Width Joiner** (`\u200D`)
-- **Zero-Width No-Break Space** (`\uFEFF`)
+This toolkit is designed for:
+- ✅ **Educational purposes** - Understanding plagiarism detection
+- ✅ **Research** - Academic analysis of detection systems
+- ✅ **System testing** - Evaluating detection robustness
 
-### Header Targeting
-Priority-based manipulation of document structure:
-
-1. **Highest Priority**: Chapter headers (`BAB I`, `PENDAHULUAN`)
-2. **High Priority**: Section headers (`METODE PENELITIAN`, `HASIL`)
-3. **Medium Priority**: Subsection headers (`A. Latar Belakang`)
-
-## 📊 Example Results
-
-### Before Processing:
-```
-BAB I
-PENDAHULUAN
-
-A. Latar Belakang
-Penelitian ini dilakukan untuk menganalisis pengaruh harga dan kualitas produk...
-```
-
-### After Processing:
-```
-ВАВ I
-РENDAHULUAN
-
-А. Lаtar Bеlakang
-Рenelitian іni dilakukan untuk mengаnalisis pengaruh harga dan kuаlitas produk...
-```
-
-**Invisibility Score**: 95% (visually identical, technically different)
-
-## 🔍 Verification System
-
-The toolkit includes comprehensive verification:
-
-```bash
-📊 INVISIBILITY VERIFICATION:
-   👻 Invisible changes: 12
-   👁️ Visible changes: 1  
-   📊 Total char changes: 847
-   🎯 Invisibility score: 92.3%
-```
-
-## ⚠️ Important Notes
-
-### Legal and Ethical Use
-- **Educational Purposes**: Designed for learning about steganography and document security
-- **Research Applications**: Understanding plagiarism detection mechanisms
-- **Responsible Usage**: Users must comply with their institution's policies
-- **No Malicious Intent**: Not intended to circumvent legitimate academic integrity measures
-
-### Technical Limitations
-- **Detection Evolution**: Plagiarism detection systems constantly improve
-- **No Guarantees**: No technique is 100% undetectable
-- **Context Dependent**: Effectiveness varies by document type and detection system
-- **Human Review**: Always subject to manual inspection
-
-## 🛠️ Advanced Usage
-
-### Custom Processing
-```python
-from invisible_manipulator import InvisibleManipulator
-from unicode_steganography import UnicodeSteg
-
-# Initialize
-manipulator = InvisibleManipulator()
-steg = UnicodeSteg()
-
-# Custom header processing
-header_text = "PENDAHULUAN"
-modified, log = steg.create_steganographic_header(header_text, 'high')
-
-print(f"Original: {header_text}")
-print(f"Modified: {modified}")
-print(f"Invisibility: {log['invisibility_test']['visual_similarity']:.2%}")
-```
-
-### Batch Analysis
-```python
-from pathlib import Path
-
-# Process all documents in directory
-documents = Path("input").glob("*.docx")
-for doc in documents:
-    result = manipulator.apply_invisible_manipulation(str(doc))
-    print(f"Processed: {doc.name} -> {result['stats']}")
-```
-
-## 📈 Performance Metrics
-
-### Processing Speed
-- **Small Document** (1-10 pages): ~2-5 seconds
-- **Medium Document** (10-50 pages): ~5-15 seconds  
-- **Large Document** (50+ pages): ~15-30 seconds
-
-### Effectiveness Rates
-- **Stealth Mode**: 85-95% invisibility, 15-25% effectiveness
-- **Balanced Mode**: 75-90% invisibility, 30-50% effectiveness
-- **Aggressive Mode**: 60-80% invisibility, 50-70% effectiveness
-
-## 🧰 Tools
-
-The `tools/` folder contains helper scripts you can run independently:
-
-- Detection tester (compare backup vs processed docs and estimate detection risk)
-  powershell
-  python tools/detection_tester.py
-  
-- Character analyzer (inspect Unicode scripts and invisible characters in a DOCX)
-  powershell
-  python tools/character_analyzer.py --file input/sample_thesis.docx
-  
-- Document comparer (diff two DOCX files and export a JSON report)
-  powershell
-  python tools/document_comparer.py --original backup/yourfile_backup_xxx.docx --modified output/processed_documents/yourfile_invisible_xxx.docx
-
-Reports are saved under `output/analysis_reports/` and diffs under `output/comparison_files/`.
-
-## 🔧 Troubleshooting
-
-### Common Issues
-
-### 1. "No documents found in input directory"
-
-```bash
-# Create sample document
-python main.py --create-sample
-
-# Or copy your .docx files to input/ folder
-cp your_document.docx input/
-```
-
-### 2. "Module not found" errors
-
-```bash
-# Install dependencies
-pip install -r requirements.txt
-
-# Or install manually
-pip install python-docx pathlib
-```
-
-### 3. "Processing failed" errors
-
-- Check document format (only .docx supported)
-- Ensure document is not password protected
-- Verify file permissions
-
-### Debug Mode
-
-Enable detailed logging by modifying `config.json`:
-
-```json
-{
-  "debug_mode": true,
-  "verbose_logging": true
-}
-```
-
-## 📚 Technical Documentation
-
-### Core Algorithms
-
-1. **Text Analysis Algorithm**: Identifies headers, key sections, and citation patterns
-2. **Risk Assessment Algorithm**: Calculates substitution probability and detection risk
-3. **Steganographic Algorithm**: Applies Unicode substitution with collision avoidance
-4. **Verification Algorithm**: Measures invisibility and detection probability
-
-### Unicode Mapping Strategy
-
-The toolkit uses a multi-layered approach:
-
-1. **Academic Words**: Highest priority substitution for domain-specific terms
-2. **Common Connectors**: Medium priority for frequent words  
-3. **Individual Characters**: Lowest priority for character-level substitution
-
-### Detection Avoidance Techniques
-
-- **Randomization**: Prevents predictable patterns
-- **Rate Limiting**: Avoids suspicious concentration of changes
-- **Context Awareness**: Preserves technical terms and citations
-- **Format Preservation**: Maintains original document structure
+**NOT intended for**:
+- ❌ Academic dishonesty
+- ❌ Bypassing legitimate plagiarism checks
+- ❌ Unethical document manipulation
 
 ## 🤝 Contributing
 
-Contributions are welcome! Areas for improvement:
-
-- **New Unicode Blocks**: Additional character substitution mappings
-- **Detection Methods**: Improved analysis algorithms
-- **File Format Support**: PDF, ODT, RTF support
-- **Performance Optimization**: Faster processing algorithms
-- **GUI Interface**: User-friendly graphical interface
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
 
 ## 📄 License
 
-This project is intended for educational and research purposes. Users are responsible for ensuring compliance with applicable laws and institutional policies.
+This project is licensed for educational and research purposes only. See [LICENSE](LICENSE) for details.
 
-## 🔗 References
+## 🆘 Support
 
-- **Unicode Standard**: [unicode.org](https://unicode.org)
-- **Steganography Research**: Academic papers on text steganography
-- **Document Security**: Best practices for document integrity
-- **Plagiarism Detection**: Understanding modern detection algorithms
+For issues and questions:
+- 📧 Create an issue on GitHub
+- 📖 Check the documentation
+- 💬 Join discussions
 
 ---
 
-**Disclaimer**: This toolkit is designed for educational purposes and research into document security systems. Users must ensure they comply with their institution's academic integrity policies and applicable laws. The developers assume no responsibility for misuse of this software.
-
-**Version**: 1.0 | **Last Updated**: 2025
+**⚡ Made with ❤️ for educational purposes**

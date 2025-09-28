@@ -18,9 +18,9 @@ from pathlib import Path
 import logging
 import docx
 import unicodedata
-from metadata_manipulator import MetadataManipulator, MetadataOptions
-from unicode_steganography import UnicodeSteg
-from detection_analyzer import compare_docx_invisibility
+from .metadata_manipulator import MetadataManipulator, MetadataOptions
+from .unicode_steganography import UnicodeSteg
+from .detection_analyzer import compare_docx_invisibility
 
 class InvisibleManipulator:
     def __init__(self, config_file='config.json', verbose: bool = False):

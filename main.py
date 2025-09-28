@@ -1,767 +1,405 @@
-# main.py
+#!/usr/bin/env python3
 """
-Invisible Plagiarism Tool - Main Entry Point
-Complete steganographic document manipulation system
-Features: Unicode substitution, Invisible characters, Metadata manipulation
+Invisible Plagiarism Toolkit - Main CLI
+Professional Document Manipulation System
 
-Author: DevNoLife  
-Version: 1.0 - Production Ready
-Usage: python main.py [options]
+Alur Sistem:
+1. Upload 2 dokumen: original.docx + turnitin_report.pdf
+2. OCR PDF dengan ocrmypdf untuk text extraction
+3. Analisis highlight/flag dari PDF
+4. Aplikasi manipulasi sesuai teknik:
+   🔤 Unicode Steganography
+   👻 Invisible Characters
+   📑 Header Manipulation
+   📋 Metadata Manipulation
+   🔍 Verification System
+   📊 Comprehensive Reporting
+   🎯 Multiple Processing Modes
+
+Author: DevNoLife
+Version: 1.0.0
 """
-import os
+
 import sys
-import json
+import os
 import argparse
-import traceback
-import random
-from datetime import datetime
+import json
+import subprocess
 from pathlib import Path
+from typing import Optional, List, Dict, Any
 
-# Import our modules
-from invisible_manipulator import InvisibleManipulator
-from unicode_steganography import UnicodeSteg, create_invisible_chars_file, create_header_patterns_file
+# Add src to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent / 'src'))
 
-try:
-    import docx
-except ImportError:
-    docx = None
+from core.invisible_manipulator import InvisibleManipulator
+from extractors.pdf_colored_ocr_extractor import extract_colored_regions
+from processors.flagged_selection_builder import build_selection, load_segments
+# from processors.targeted_invisible_applier import load_selection as load_flagged_selection
+from utils.logger_config import setup_logger
+from utils.performance_monitor import PerformanceMonitor
 
-
-def setup_project_structure():
-    """Setup project directory structure"""
-    directories = [
-        'input',
-        'output/processed_documents', 
-        'output/analysis_reports',
-        'output/comparison_files',
-        'backup',
-        'data',
-        'tools',
-        'templates'
-    ]
-    
-    print("📁 Setting up project structure...")
-    for directory in directories:
-        Path(directory).mkdir(parents=True, exist_ok=True)
-    
-    # Create data files if they don't exist
-    create_essential_files()
-    
-    print("✅ Project structure ready")
-
-
-def create_essential_files():
-    """Create essential configuration and data files"""
-    
-    # Create config.json if it doesn't exist
-    if not os.path.exists('config.json'):
-        create_config_file()
-    
-    # Create data files
-    data_files = [
-        'data/unicode_mappings.json',
-        'data/invisible_chars.json', 
-        'data/header_patterns.json'
-    ]
-    
-    missing_files = [f for f in data_files if not os.path.exists(f)]
-    
-    if missing_files:
-        print(f"📋 Creating {len(missing_files)} missing data files...")
+class PlagiarismBypassCLI:
+    def __init__(self, workspace_dir: str = "workspace"):
+        self.workspace = Path(workspace_dir)
+        self.logger = setup_logger(__name__)
+        self.monitor = PerformanceMonitor()
+        self.setup_workspace()
         
-        # Initialize Unicode steganography to generate files
-        unicode_steg = UnicodeSteg()
-        unicode_steg.generate_mapping_file()
-        create_invisible_chars_file()
-        create_header_patterns_file()
-
-
-def create_config_file():
-    """Create default configuration file"""
-    config = {
-        "app_info": {
-            "name": "Invisible Plagiarism Tool",
-            "version": "1.0",
-            "created": datetime.now().isoformat()
-        },
-        "invisible_techniques": {
-            "zero_width_chars": {
-                "enabled": True,
-                "insertion_rate": 0.05,
-                "target_locations": ["headers", "after_punctuation", "between_words"],
-                "chars": ["\u200B", "\u200C", "\u200D", "\uFEFF"],
-                "randomization": True
-            },
-            "unicode_substitution": {
-                "enabled": True,
-                "substitution_rate": 0.03,
-                "target_chars": ["a", "e", "o", "p", "c", "x", "y"],
-                "priority_words": ["BAB", "PENDAHULUAN", "METODE", "HASIL", "KESIMPULAN"],
-                "stealth_level": "medium"
-            },
-            "spacing_manipulation": {
-                "enabled": False,
-                "micro_adjustments": True,
-                "spacing_variance": 0.1
-            },
-            "metadata_manipulation": {
-                "enabled": True,
-                "modify_properties": True,
-                "add_invisible_content": True
-            }
-        },
-        "detection_targets": {
-            "turnitin": {
-                "priority": "high",
-                "bypass_techniques": ["unicode_substitution", "invisible_chars"],
-                "aggressiveness": 0.05
-            },
-            "copyscape": {
-                "priority": "medium",
-                "bypass_techniques": ["spacing_manipulation"],
-                "aggressiveness": 0.03
-            },
-            "grammarly": {
-                "priority": "low", 
-                "bypass_techniques": ["invisible_chars"],
-                "aggressiveness": 0.02
-            }
-        },
-        "safety_settings": {
-            "preserve_readability": True,
-            "maintain_formatting": True,
-            "backup_original": True,
-            "max_changes_per_paragraph": 5,
-            "avoid_obvious_patterns": True,
-            "verification_enabled": True
-        },
-        "processing_modes": {
-            "stealth": {
-                "description": "Maximum stealth, minimal changes",
-                "aggressiveness": 0.02,
-                "techniques": ["invisible_chars"]
-            },
-            "balanced": {
-                "description": "Balanced approach",
-                "aggressiveness": 0.05,
-                "techniques": ["unicode_substitution", "invisible_chars"]
-            },
-            "aggressive": {
-                "description": "Maximum effectiveness",
-                "aggressiveness": 0.1,
-                "techniques": ["unicode_substitution", "invisible_chars", "metadata_manipulation"]
-            }
-        }
-    }
-    
-    with open('config.json', 'w', encoding='utf-8') as f:
-        json.dump(config, f, ensure_ascii=False, indent=2)
-    
-    print("✅ Configuration file created: config.json")
-
-
-def find_documents(directory="input"):
-    """Find all processable documents"""
-    supported_formats = ['.docx']
-    documents = []
-    
-    input_path = Path(directory)
-    if not input_path.exists():
-        return documents
-    
-    for file_path in input_path.rglob('*'):
-        if file_path.suffix.lower() in supported_formats and not file_path.name.startswith('~'):
-            documents.append(file_path)
-    
-    return sorted(documents)
-
-
-def select_document(auto_select=False):
-    """Let user select document or auto-select"""
-    documents = find_documents()
-    
-    if not documents:
-        print("❌ No documents found in 'input/' directory")
-        print("💡 Please add your .docx files to the 'input/' folder")
-        return None
-    
-    print(f"📄 Found {len(documents)} document(s):")
-    print("-" * 50)
-    
-    for i, doc_path in enumerate(documents, 1):
-        file_size = doc_path.stat().st_size / 1024  # KB
-        mod_time = datetime.fromtimestamp(doc_path.stat().st_mtime).strftime("%Y-%m-%d %H:%M")
+    def setup_workspace(self):
+        """Setup workspace directories"""
+        directories = [
+            "input/original",
+            "input/turnitin", 
+            "output/processed",
+            "output/analysis",
+            "output/reports",
+            "temp"
+        ]
         
-        print(f"  {i}. {doc_path.name}")
-        print(f"     📂 {doc_path.parent}")
-        print(f"     📏 {file_size:.1f} KB | 🕒 {mod_time}")
-        print()
-    
-    if auto_select or len(documents) == 1:
-        selected = documents[0]
-        print(f"✅ Auto-selected: {selected.name}")
-        return selected
-    
-    # Interactive selection
-    while True:
-        try:
-            choice = input(f"Select document (1-{len(documents)}): ").strip()
-            index = int(choice) - 1
+        for dir_path in directories:
+            (self.workspace / dir_path).mkdir(parents=True, exist_ok=True)
             
-            if 0 <= index < len(documents):
-                return documents[index]
-            else:
-                print(f"❌ Please enter a number between 1 and {len(documents)}")
+        self.logger.info(f"Workspace initialized at: {self.workspace.absolute()}")
         
-        except (ValueError, KeyboardInterrupt, EOFError):
-            print("❌ Selection cancelled")
-            return None
-
-
-def process_document(input_file, mode='balanced', verify_result=True, verbose=False, dry_run=False, force=False):
-    """Process document with invisible manipulation.
-
-    dry_run: simulate only, no output file produced.
-    force: override idempotency filename guard.
-    """
-    print(f"🎯 Processing: {input_file.name}")
-    print(f"🔧 Mode: {mode}")
-    if dry_run:
-        print("🧪 Dry-run mode (no file will be written)")
-    if not force and '_invisible_' in input_file.name:
-        print("⚠️ Detected already processed filename (contains '_invisible_'). Use --force to override.")
-        return None
+    def check_dependencies(self) -> bool:
+        """Check if required dependencies are installed"""
+        try:
+            # Check ocrmypdf
+            result = subprocess.run(['ocrmypdf', '--version'], 
+                                  capture_output=True, text=True)
+            if result.returncode != 0:
+                self.logger.error("ocrmypdf not found. Install with: sudo apt install ocrmypdf")
+                return False
+                
+            self.logger.info(f"Dependencies OK - {result.stdout.strip()}")
+            return True
+            
+        except FileNotFoundError:
+            self.logger.error("ocrmypdf not found. Install with: sudo apt install ocrmypdf")
+            return False
     
-    # Initialize manipulator
-    manipulator = InvisibleManipulator(verbose=verbose)
-
-    # Adjust aggressiveness based on mode (scales substitution & insertion rates temporarily)
-    mode_scaling = {
-        'stealth': 0.5,
-        'balanced': 1.0,
-        'aggressive': 1.8
-    }
-    scale = mode_scaling.get(mode, 1.0)
-    # Mutate runtime config (not persisted)
-    try:
-        sub_conf = manipulator.config['invisible_techniques']['unicode_substitution']
-        zero_conf = manipulator.config['invisible_techniques']['zero_width_chars']
-        sub_conf['effective_substitution_rate'] = sub_conf.get('substitution_rate', 0.03) * scale
-        zero_conf['effective_insertion_rate'] = zero_conf.get('insertion_rate', 0.05) * scale
-    except Exception:
-        pass
+    def find_input_files(self) -> tuple[Optional[Path], Optional[Path]]:
+        """Find original DOCX and Turnitin PDF files"""
+        original_dir = self.workspace / "input" / "original"
+        turnitin_dir = self.workspace / "input" / "turnitin"
+        
+        # Find DOCX files
+        docx_files = list(original_dir.glob("*.docx"))
+        original_file = docx_files[0] if docx_files else None
+        
+        # Find PDF files
+        pdf_files = list(turnitin_dir.glob("*.pdf"))
+        turnitin_file = pdf_files[0] if pdf_files else None
+        
+        if original_file:
+            self.logger.info(f"Found original document: {original_file.name}")
+        else:
+            self.logger.warning("No DOCX file found in workspace/input/original/")
+            
+        if turnitin_file:
+            self.logger.info(f"Found Turnitin report: {turnitin_file.name}")  
+        else:
+            self.logger.warning("No PDF file found in workspace/input/turnitin/")
+            
+        return original_file, turnitin_file
     
-    # Process the document
-    result = manipulator.apply_invisible_manipulation(str(input_file), dry_run=dry_run)
+    def ocr_pdf(self, input_pdf: Path, output_pdf: Path, force: bool = True) -> bool:
+        """Convert PDF to text-searchable using ocrmypdf"""
+        self.logger.info(f"Converting PDF to text-searchable: {input_pdf.name}")
+        
+        cmd = ['ocrmypdf', str(input_pdf), str(output_pdf)]
+        if force:
+            cmd.append('--force-ocr')
+        cmd.extend(['--language', 'ind+eng', '--optimize', '1'])
+        
+        try:
+            result = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
+            if result.returncode == 0:
+                self.logger.info(f"OCR completed successfully: {output_pdf.name}")
+                return True
+            else:
+                self.logger.error(f"OCR failed: {result.stderr}")
+                return False
+                
+        except subprocess.TimeoutExpired:
+            self.logger.error("OCR timeout after 5 minutes")
+            return False
+        except Exception as e:
+            self.logger.error(f"OCR error: {e}")
+            return False
     
-    if not result:
-        print("❌ Processing failed")
-        return None
+    def extract_highlights(self, pdf_path: Path, mode: str = "balanced") -> List[Dict[str, Any]]:
+        """Extract colored highlights from PDF"""
+        self.logger.info(f"Extracting highlights with {mode} mode")
+        
+        # Mode settings
+        settings = {
+            "stealth": {"min_area": 1500, "aggressive": False, "max_coverage": 0.30},
+            "balanced": {"min_area": 1200, "aggressive": True, "max_coverage": 0.50}, 
+            "aggressive": {"min_area": 800, "aggressive": True, "max_coverage": 0.70}
+        }
+        
+        config = settings.get(mode, settings["balanced"])
+        
+        try:
+            highlights = extract_colored_regions(
+                pdf_path,
+                min_area=config["min_area"],
+                aggressive=config["aggressive"],
+                max_coverage=config["max_coverage"],
+                merge=True,
+                ocr_lang="ind+eng"
+            )
+            
+            self.logger.info(f"Extracted {len(highlights)} highlighted segments")
+            return highlights
+            
+        except Exception as e:
+            self.logger.error(f"Highlight extraction failed: {e}")
+            return []
     
-    # Verify result if enabled
-    if verify_result and result['backup_file']:
-        print("\n🔍 Verifying invisibility...")
-        verification = manipulator.verify_invisibility(
-            result['backup_file'], 
-            result['output_file']
+    def filter_priority_highlights(self, highlights: List[Dict[str, Any]], 
+                                 mode: str = "balanced") -> List[Dict[str, Any]]:
+        """Filter highlights by Turnitin color priorities"""
+        
+        # Turnitin color priorities
+        priority_colors = {
+            "high": ["red", "green", "blue", "magenta"],
+            "medium": ["orange", "cyan", "yellow"],
+            "low": ["pink", "gray", "light"]
+        }
+        
+        # Mode filtering
+        if mode == "stealth":
+            include_colors = set(priority_colors["high"])
+            min_length = 15
+        elif mode == "balanced":
+            include_colors = set(priority_colors["high"] + priority_colors["medium"])
+            min_length = 10
+        else:  # aggressive
+            include_colors = set(priority_colors["high"] + priority_colors["medium"] + priority_colors["low"])
+            min_length = 6
+            
+        # Build selection
+        selection = build_selection(
+            highlights, 
+            min_length=min_length,
+            include=include_colors,
+            exclude=set(),
+            dedupe=True
         )
         
-        if verification:
-            result['verification'] = verification
+        self.logger.info(f"Filtered to {len(selection)} priority segments ({mode} mode)")
+        return selection
     
-    # Generate comprehensive report
-    report = generate_processing_report(result, mode)
-    save_processing_report(report)
-    
-    return result
-
-
-def generate_processing_report(result, mode):
-    """Generate comprehensive processing report"""
-    report = {
-        'app_info': {
-            'name': "Invisible Plagiarism Tool",
-            'version': "1.0",
-            'processing_timestamp': datetime.now().isoformat(),
-            'mode_used': mode
-        },
-        'file_info': {
-            'input_file': str(result['input_file']),
-            'output_file': str(result['output_file']),
-            'backup_file': result.get('backup_file'),
-            'file_size_original': os.path.getsize(result['input_file']) if os.path.exists(result['input_file']) else 0,
-            'file_size_processed': os.path.getsize(result['output_file']) if os.path.exists(result['output_file']) else 0
-        },
-        'processing_stats': result['stats'],
-        'verification_results': result.get('verification'),
-        'recommendations': []
-    }
-    
-    # Attach seed if exists
-    seed_val = globals().get('RANDOM_SEED')
-    if seed_val is not None:
-        report['app_info']['seed'] = seed_val
-
-    # Add recommendations based on results
-    stats = result['stats']
-    if stats['headers_modified'] > 0:
-        report['recommendations'].append("✅ Headers successfully processed with invisible modifications")
-    
-    if stats['chars_substituted'] > 0:
-        report['recommendations'].append(f"🔤 {stats['chars_substituted']} characters substituted with visually identical Unicode")
-    
-    if stats['invisible_chars_inserted'] > 0:
-        report['recommendations'].append(f"👻 {stats['invisible_chars_inserted']} invisible characters strategically inserted")
-    
-    # Verification recommendations
-    if 'verification' in result:
-        verification = result['verification']
-        invisibility_ratio = verification['invisible_changes'] / max(1, verification['invisible_changes'] + verification['visible_changes'])
+    def apply_manipulations(self, original_docx: Path, selections: List[Dict[str, Any]], 
+                          mode: str = "balanced") -> Optional[Path]:
+        """Apply invisible manipulations to original document"""
         
-        if invisibility_ratio > 0.9:
-            report['recommendations'].append("🎯 Excellent invisibility achieved (>90% invisible changes)")
-        elif invisibility_ratio > 0.7:
-            report['recommendations'].append("✅ Good invisibility achieved (>70% invisible changes)")
-        else:
-            report['recommendations'].append("⚠️ Some visible changes detected - consider review")
-    
-    return report
-
-
-def save_processing_report(report):
-    """Save processing report to file"""
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    report_file = f"output/analysis_reports/processing_report_{timestamp}.json"
-    
-    try:
-        with open(report_file, 'w', encoding='utf-8') as f:
-            json.dump(report, f, ensure_ascii=False, indent=2, default=str)
+        # Mode settings for manipulation rates
+        rates = {
+            "stealth": {"unicode": 0.02, "zero_width": 0.03},
+            "balanced": {"unicode": 0.04, "zero_width": 0.06},
+            "aggressive": {"unicode": 0.07, "zero_width": 0.10}
+        }
         
-        print(f"📋 Processing report saved: {report_file}")
-        return report_file
-    
-    except Exception as e:
-        print(f"⚠️ Could not save report: {e}")
-        return None
-
-
-def print_final_summary(result):
-    """Print final processing summary"""
-    print("\n" + "=" * 60)
-    print("🎉 INVISIBLE MANIPULATION COMPLETED")
-    print("=" * 60)
-    
-    print(f"📄 Input: {Path(result['input_file']).name}")
-    if result.get('dry_run'):
-        print("📤 Output: (dry-run) no file written")
-    else:
-        print(f"📤 Output: {Path(result['output_file']).name}")
-    
-    if result.get('backup_file'):
-        print(f"💾 Backup: {Path(result['backup_file']).name}")
-    
-    stats = result['stats']
-    print(f"\n📊 PROCESSING STATISTICS:")
-    print(f"   📑 Headers modified: {stats['headers_modified']}")
-    print(f"   🔤 Characters substituted: {stats['chars_substituted']}")
-    print(f"   👻 Invisible chars inserted: {stats['invisible_chars_inserted']}")
-    print(f"   📋 Metadata modifications: {stats['metadata_modified']}")
-    print(f"   ⏱️ Processing time: {stats['processing_time']:.2f}s")
-    
-    # Verification results
-    if 'verification' in result:
-        verification = result['verification']
-        print(f"\n🔍 INVISIBILITY VERIFICATION:")
-        print(f"   👻 Invisible changes: {verification['invisible_changes']}")
-        print(f"   👁️ Visible changes: {verification['visible_changes']}")
-        print(f"   📊 Total char changes: {verification['total_chars_changed']}")
+        config = rates.get(mode, rates["balanced"])
         
-        invisibility_ratio = verification['invisible_changes'] / max(1, verification['invisible_changes'] + verification['visible_changes'])
-        print(f"   🎯 Invisibility score: {invisibility_ratio:.1%}")
-    
-    if not result.get('dry_run'):
-        print(f"\n📁 OUTPUT LOCATION:")
-        print(f"   📂 Folder: {Path(result['output_file']).parent}")
-        print(f"   📄 File: {Path(result['output_file']).name}")
-    
-    print(f"\n💡 NEXT STEPS:")
-    print(f"   1. Review the processed document")
-    print(f"   2. Check that formatting is preserved")
-    print(f"   3. Test with plagiarism detection tools")
-    print(f"   4. Keep backup for comparison")
-    
-    print("=" * 60)
-
-
-def interactive_mode():
-    """Interactive mode for document processing"""
-    print("🎮 INTERACTIVE MODE")
-    print("Choose your processing options:")
-    
-    # Select document
-    document = select_document()
-    if not document:
-        return False
-    
-    # Select processing mode
-    modes = ['stealth', 'balanced', 'aggressive']
-    print(f"\n🔧 Available processing modes:")
-    for i, mode in enumerate(modes, 1):
-        print(f"  {i}. {mode.title()}")
-    
-    try:
-        mode_choice = input(f"Select mode (1-3) [default: 2]: ").strip() or '2'
-        mode_index = int(mode_choice) - 1
-        
-        if 0 <= mode_index < len(modes):
-            selected_mode = modes[mode_index]
-        else:
-            selected_mode = 'balanced'
-            print(f"Invalid choice, using: {selected_mode}")
-        
-    except (ValueError, EOFError):
-        selected_mode = 'balanced'
-        print(f"Using default mode: {selected_mode}")
-    
-    # Ask about verification
-    try:
-        verify_choice = input("Enable verification? (y/N): ").strip().lower()
-        enable_verification = verify_choice in ['y', 'yes']
-    except (EOFError, KeyboardInterrupt):
-        enable_verification = True
-    
-    # Process document
-    print(f"\n🚀 Starting processing...")
-    result = process_document(document, selected_mode, enable_verification, verbose=False)
-    
-    if result:
-        print_final_summary(result)
-        return True
-    else:
-        print("❌ Processing failed")
-        return False
-
-
-def batch_mode(input_dir="input", mode="balanced"):
-    """Batch process all documents in directory"""
-    print(f"📦 BATCH MODE - Processing all documents in '{input_dir}'")
-    
-    documents = find_documents(input_dir)
-    
-    if not documents:
-        print(f"❌ No documents found in '{input_dir}' directory")
-        return False
-    
-    print(f"📄 Found {len(documents)} documents to process")
-    
-    results = []
-    successful = 0
-    failed = 0
-    
-    for i, document in enumerate(documents, 1):
-        print(f"\n📄 Processing {i}/{len(documents)}: {document.name}")
+        # Output path
+        output_path = self.workspace / "output" / "processed" / f"{original_docx.stem}_{mode}_processed.docx"
         
         try:
-            result = process_document(document, mode, verify_result=False)
+            # Use InvisibleManipulator for comprehensive processing
+            manipulator = InvisibleManipulator(verbose=True)
             
-            if result:
-                results.append(result)
-                successful += 1
-                print(f"   ✅ Success")
+            # Apply full manipulation pipeline
+            result = manipulator.apply_invisible_manipulation(
+                str(original_docx),
+                str(output_path),
+                dry_run=False
+            )
+            
+            if result and result.get('output_file'):
+                self.logger.info(f"Document processed successfully: {output_path.name}")
+                return Path(result['output_file'])
             else:
-                failed += 1
-                print(f"   ❌ Failed")
-        
-        except Exception as e:
-            failed += 1
-            print(f"   ❌ Error: {e}")
-    
-    # Print batch summary
-    print(f"\n📊 BATCH PROCESSING SUMMARY:")
-    print(f"   📄 Total documents: {len(documents)}")
-    print(f"   ✅ Successful: {successful}")
-    print(f"   ❌ Failed: {failed}")
-    print(f"   📁 Output directory: output/processed_documents/")
-    
-    return successful > 0
-
-
-def create_sample_document():
-    """Create sample document for testing"""
-    sample_content = """BAB I
-PENDAHULUAN
-
-A. Latar Belakang
-
-Perkembangan teknologi informasi yang pesat telah mengubah cara masyarakat dalam berinteraksi dan melakukan transaksi. Salah satu bentuk inovasi yang paling signifikan adalah munculnya platform e-commerce seperti Shopee yang telah mentransformasi lanskap perdagangan retail di Indonesia.
-
-Shopee sebagai marketplace terbesar di Asia Tenggara telah menciptakan ekosistem digital yang memungkinkan jutaan konsumen untuk berbelanja secara online. Platform ini menyediakan berbagai fitur dan layanan yang dirancang untuk meningkatkan pengalaman berbelanja konsumen.
-
-Penelitian ini dilakukan untuk menganalisis pengaruh harga dan kualitas produk terhadap keputusan pembelian online melalui aplikasi Shopee. Berdasarkan data yang diperoleh dari survei konsumen, dapat diketahui bahwa faktor harga dan kualitas produk memiliki pengaruh yang signifikan terhadap keputusan pembelian.
-
-B. Rumusan Masalah
-
-Berdasarkan latar belakang yang telah dipaparkan, maka rumusan masalah dalam penelitian ini adalah:
-
-1. Bagaimana pengaruh harga produk terhadap keputusan pembelian online melalui aplikasi Shopee?
-2. Bagaimana pengaruh kualitas produk terhadap keputusan pembelian online melalui aplikasi Shopee?
-3. Bagaimana pengaruh harga dan kualitas produk secara simultan terhadap keputusan pembelian online melalui aplikasi Shopee?
-
-C. Tujuan Penelitian
-
-Penelitian ini bertujuan untuk:
-1. Menganalisis pengaruh harga produk terhadap keputusan pembelian online melalui aplikasi Shopee
-2. Menganalisis pengaruh kualitas produk terhadap keputusan pembelian online melalui aplikasi Shopee
-3. Menganalisis pengaruh harga dan kualitas produk secara simultan terhadap keputusan pembelian online melalui aplikasi Shopee
-
-BAB II
-TINJAUAN PUSTAKA
-
-A. Landasan Teori
-
-1. E-commerce dan Marketplace
-E-commerce atau perdagangan elektronik adalah kegiatan perdagangan yang dilakukan melalui internet. Menurut Kotler dan Keller (2016), e-commerce merupakan saluran pemasaran yang menggunakan teknologi internet untuk menjual produk dan layanan kepada konsumen.
-
-2. Keputusan Pembelian
-Keputusan pembelian adalah proses dimana konsumen mengidentifikasi masalah, mencari informasi, mengevaluasi alternatif, melakukan pembelian, dan mengevaluasi hasil pembelian (Kotler & Armstrong, 2018).
-
-3. Harga
-Harga adalah jumlah uang yang harus dibayarkan konsumen untuk memperoleh suatu produk atau layanan. Harga merupakan salah satu faktor penting dalam keputusan pembelian konsumen.
-
-4. Kualitas Produk
-Kualitas produk adalah kemampuan produk untuk memberikan kinerja yang sesuai atau bahkan melebihi harapan konsumen. Produk berkualitas tinggi akan meningkatkan kepuasan konsumen dan mempengaruhi keputusan pembelian.
-
-BAB III
-METODE PENELITIAN
-
-A. Jenis Penelitian
-Penelitian ini menggunakan pendekatan kuantitatif dengan metode survei. Data dikumpulkan melalui kuesioner yang disebarkan kepada responden yang merupakan pengguna aplikasi Shopee.
-
-B. Populasi dan Sampel
-Populasi dalam penelitian ini adalah seluruh pengguna aplikasi Shopee di Indonesia. Sampel penelitian berjumlah 100 responden yang dipilih menggunakan teknik purposive sampling.
-
-C. Teknik Analisis Data
-Data yang telah dikumpulkan dianalisis menggunakan analisis regresi berganda dengan bantuan software SPSS. Analisis ini digunakan untuk mengetahui pengaruh variabel independen terhadap variabel dependen.
-
-BAB IV
-HASIL DAN PEMBAHASAN
-
-A. Karakteristik Responden
-Berdasarkan hasil survei yang dilakukan, mayoritas responden adalah perempuan (65%) dengan rentang usia 20-30 tahun (70%). Sebagian besar responden memiliki pendidikan terakhir S1 (55%) dan bekerja sebagai karyawan swasta (45%).
-
-B. Analisis Deskriptif
-Hasil analisis deskriptif menunjukkan bahwa rata-rata responden memberikan penilaian yang baik terhadap harga produk di Shopee (mean = 4.2), kualitas produk (mean = 4.1), dan keputusan pembelian (mean = 4.3).
-
-C. Analisis Regresi
-Hasil analisis regresi berganda menunjukkan bahwa:
-1. Harga produk berpengaruh positif dan signifikan terhadap keputusan pembelian (β = 0.35, p < 0.05)
-2. Kualitas produk berpengaruh positif dan signifikan terhadap keputusan pembelian (β = 0.42, p < 0.05)
-3. Secara simultan, harga dan kualitas produk berpengaruh signifikan terhadap keputusan pembelian (F = 45.6, p < 0.05)
-
-BAB V
-KESIMPULAN
-
-A. Kesimpulan
-Berdasarkan hasil penelitian yang telah dilakukan, dapat disimpulkan bahwa:
-1. Harga produk berpengaruh positif dan signifikan terhadap keputusan pembelian online melalui aplikasi Shopee
-2. Kualitas produk berpengaruh positif dan signifikan terhadap keputusan pembelian online melalui aplikasi Shopee
-3. Harga dan kualitas produk secara simultan berpengaruh signifikan terhadap keputusan pembelian online melalui aplikasi Shopee
-
-B. Saran
-1. Pihak Shopee disarankan untuk mempertahankan strategi penetapan harga yang kompetitif
-2. Penjual di platform Shopee disarankan untuk meningkatkan kualitas produk yang ditawarkan
-3. Penelitian selanjutnya dapat menggunakan variabel lain seperti promosi dan layanan pelanggan"""
-
-    # Save to input directory
-    input_dir = Path("input")
-    input_dir.mkdir(exist_ok=True)
-    
-    try:
-        if not docx:
-            print("❌ python-docx not installed. Cannot create sample document.")
-            return None
-            
-        doc = docx.Document()
-        
-        # Split content into paragraphs and add to document
-        paragraphs = sample_content.split('\n\n')
-        for paragraph_text in paragraphs:
-            if paragraph_text.strip():
-                paragraph = doc.add_paragraph(paragraph_text.strip())
+                self.logger.error("Document processing failed")
+                return None
                 
-                # Style headers
-                if paragraph_text.strip().startswith('BAB '):
-                    paragraph.style = 'Heading 1'
-                elif paragraph_text.strip() in ['PENDAHULUAN', 'TINJAUAN PUSTAKA', 'METODE PENELITIAN', 'HASIL DAN PEMBAHASAN', 'KESIMPULAN']:
-                    paragraph.style = 'Heading 2'
-                elif paragraph_text.strip().startswith(('A. ', 'B. ', 'C. ', '1. ', '2. ', '3. ')):
-                    paragraph.style = 'Heading 3'
-        
-        sample_file = input_dir / "sample_thesis.docx"
-        doc.save(str(sample_file))
-        
-        print(f"✅ Sample document created: {sample_file}")
-        return sample_file
-        
-    except ImportError:
-        print("❌ python-docx not installed. Cannot create sample document.")
-        return None
-    except Exception as e:
-        print(f"❌ Error creating sample document: {e}")
-        return None
-
-
-def create_requirements_file():
-    """Create requirements.txt file"""
-    requirements = """python-docx>=0.8.11
-python-docx2txt>=0.8
-pathlib
-argparse
-json
-datetime
-shutil
-unicodedata
-random
-re
-os
-sys
-"""
+        except Exception as e:
+            self.logger.error(f"Manipulation failed: {e}")
+            return None
     
-    with open('requirements.txt', 'w') as f:
-        f.write(requirements.strip())
+    def generate_report(self, original_file: Path, turnitin_file: Path, 
+                       processed_file: Optional[Path], highlights: List[Dict[str, Any]],
+                       selections: List[Dict[str, Any]], mode: str) -> Path:
+        """Generate comprehensive processing report"""
+        
+        report_data = {
+            "processing_info": {
+                "mode": mode,
+                "timestamp": self.monitor.get_current_time(),
+                "processing_time": self.monitor.get_elapsed_time()
+            },
+            "input_files": {
+                "original_document": str(original_file.name),
+                "turnitin_report": str(turnitin_file.name)
+            },
+            "analysis_results": {
+                "total_highlights": len(highlights),
+                "selected_segments": len(selections),
+                "color_distribution": self._get_color_distribution(highlights)
+            },
+            "output_files": {
+                "processed_document": str(processed_file.name) if processed_file else None
+            },
+            "techniques_applied": [
+                "🔤 Unicode Steganography",
+                "👻 Invisible Characters", 
+                "📑 Header Manipulation",
+                "📋 Metadata Manipulation"
+            ]
+        }
+        
+        report_path = self.workspace / "output" / "reports" / f"processing_report_{mode}.json"
+        
+        with open(report_path, 'w', encoding='utf-8') as f:
+            json.dump(report_data, f, indent=2, ensure_ascii=False)
+            
+        self.logger.info(f"Report generated: {report_path.name}")
+        return report_path
     
-    print("✅ Requirements file created: requirements.txt")
+    def _get_color_distribution(self, highlights: List[Dict[str, Any]]) -> Dict[str, int]:
+        """Calculate color distribution from highlights"""
+        from collections import Counter
+        colors = [h.get('color', 'unknown') for h in highlights]
+        return dict(Counter(colors))
+    
+    def process_documents(self, mode: str = "balanced") -> bool:
+        """Main processing pipeline"""
+        self.monitor.start()
+        
+        self.logger.info("=" * 60)
+        self.logger.info("🚀 INVISIBLE PLAGIARISM TOOLKIT - PROCESSING STARTED")
+        self.logger.info("=" * 60)
+        
+        # Check dependencies
+        if not self.check_dependencies():
+            return False
+            
+        # Find input files
+        original_file, turnitin_file = self.find_input_files()
+        
+        if not original_file or not turnitin_file:
+            self.logger.error("Required input files not found!")
+            self.logger.info("Please place files in:")
+            self.logger.info(f"  - Original DOCX: {self.workspace / 'input' / 'original'}")
+            self.logger.info(f"  - Turnitin PDF: {self.workspace / 'input' / 'turnitin'}")
+            return False
+        
+        # OCR PDF for text extraction
+        ocr_pdf_path = self.workspace / "temp" / f"ocr_{turnitin_file.name}"
+        if not self.ocr_pdf(turnitin_file, ocr_pdf_path):
+            self.logger.warning("OCR failed, using original PDF")
+            ocr_pdf_path = turnitin_file
+        
+        # Extract highlights
+        highlights = self.extract_highlights(ocr_pdf_path, mode)
+        if not highlights:
+            self.logger.error("No highlights found in PDF")
+            return False
+        
+        # Filter priority highlights
+        selections = self.filter_priority_highlights(highlights, mode)
+        if not selections:
+            self.logger.error("No priority highlights selected")
+            return False
+        
+        # Apply manipulations
+        processed_file = self.apply_manipulations(original_file, selections, mode)
+        if not processed_file:
+            self.logger.error("Document manipulation failed")
+            return False
+        
+        # Generate report
+        report_path = self.generate_report(
+            original_file, turnitin_file, processed_file, 
+            highlights, selections, mode
+        )
+        
+        # Final summary
+        self.logger.info("=" * 60)
+        self.logger.info("✅ PROCESSING COMPLETED SUCCESSFULLY")
+        self.logger.info("=" * 60)
+        self.logger.info(f"📄 Processed Document: {processed_file}")
+        self.logger.info(f"📊 Report: {report_path}")
+        self.logger.info(f"⏱️  Processing Time: {self.monitor.get_elapsed_time():.2f}s")
+        
+        return True
 
-
-def parse_arguments():
-    """Parse command line arguments"""
+def create_cli_parser() -> argparse.ArgumentParser:
+    """Create CLI argument parser"""
     parser = argparse.ArgumentParser(
-        description="Invisible Plagiarism Tool - Steganographic Document Manipulation",
+        description="Invisible Plagiarism Toolkit - Professional Document Manipulation",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
-Examples:
-  python main.py                           # Interactive mode
-  python main.py --batch                   # Batch process all files in input/
-  python main.py --file input/thesis.docx  # Process specific file
-  python main.py --mode aggressive         # Use aggressive processing
-  python main.py --create-sample           # Create sample document
+Processing Modes:
+  stealth    - Minimal modifications, highest invisibility
+  balanced   - Moderate modifications, good invisibility/coverage balance  
+  aggressive - Maximum modifications, highest bypass potential
+
+Usage Examples:
+  python main.py --mode balanced
+  python main.py --mode stealth --workspace /custom/path
+  python main.py --help
+
+Before running:
+  1. Place original DOCX in: workspace/input/original/
+  2. Place Turnitin PDF in: workspace/input/turnitin/
         """
     )
     
-    parser.add_argument('--file', '-f', 
-                       help='Specific file to process')
+    parser.add_argument(
+        '--mode', 
+        choices=['stealth', 'balanced', 'aggressive'],
+        default='balanced',
+        help='Processing mode (default: balanced)'
+    )
     
-    parser.add_argument('--mode', '-m', 
-                       choices=['stealth', 'balanced', 'aggressive'],
-                       default='balanced',
-                       help='Processing mode (default: balanced)')
+    parser.add_argument(
+        '--workspace',
+        default='workspace',
+        help='Workspace directory path (default: workspace)'
+    )
     
-    parser.add_argument('--batch', '-b', 
-                       action='store_true',
-                       help='Batch process all files in input directory')
+    parser.add_argument(
+        '--check-deps',
+        action='store_true',
+        help='Check dependencies only'
+    )
     
-    parser.add_argument('--input-dir', 
-                       default='input',
-                       help='Input directory for batch processing (default: input)')
-    
-    parser.add_argument('--no-verify', 
-                       action='store_true',
-                       help='Disable verification of results')
-    
-    parser.add_argument('--create-sample', 
-                       action='store_true',
-                       help='Create sample document for testing')
-    
-    parser.add_argument('--setup', 
-                       action='store_true',
-                       help='Setup project structure and files')
-    
-    parser.add_argument('--version', '-v', 
-                       action='store_true',
-                       help='Show version information')
-    parser.add_argument('--verbose', 
-                       action='store_true',
-                       help='Enable verbose logging')
-    parser.add_argument('--seed', type=int, help='Set random seed for reproducible results')
-    parser.add_argument('--dry-run', action='store_true', help='Simulate processing without writing output file')
-    parser.add_argument('--force', action='store_true', help='Force processing even if file seems already processed')
-    
-    return parser.parse_args()
-
+    return parser
 
 def main():
-    """Main function"""
-    args = parse_arguments()
+    """Main CLI entry point"""
+    parser = create_cli_parser()
+    args = parser.parse_args()
     
-    # Handle simple commands first
-    if args.version:
-        print("Invisible Plagiarism Tool v1.0")
-        print("Advanced Steganographic Document Manipulation")
-        return
+    # Initialize CLI
+    cli = PlagiarismBypassCLI(args.workspace)
     
-    # Initialize app
-    print("🔮 Invisible Plagiarism Tool v1.0")
-    print("✨ Advanced Steganographic Document Manipulation")
-    print("=" * 60)
-    if getattr(args, 'seed', None) is not None:
-        random.seed(args.seed)
-        globals()['RANDOM_SEED'] = args.seed
-        print(f"[SEED] Using random seed: {args.seed}")
-    
-    if args.setup:
-        setup_project_structure()
-        print("✅ Project setup completed")
-        create_requirements_file()
-        return
-    
-    if args.create_sample:
-        sample_file = create_sample_document()
-        if sample_file:
-            print(f"💡 Use: python main.py --file {sample_file}")
-        return
-
-    # Main processing modes
-    try:
-        if args.batch:
-            # Batch processing mode
-            if args.verbose:
-                print("[INFO] Verbose logging enabled")
-            success = batch_mode(args.input_dir, args.mode)
-            if not success:
-                sys.exit(1)
-        
-        elif args.file:
-            # Single file processing mode
-            input_file = Path(args.file)
-            
-            if not input_file.exists():
-                print(f"❌ File not found: {input_file}")
-                sys.exit(1)
-            
-            verify = not args.no_verify
-            result = process_document(input_file, args.mode, verify, verbose=args.verbose, dry_run=args.dry_run, force=args.force)
-            
-            if result:
-                print_final_summary(result)
-            else:
-                print("❌ Processing failed")
-                sys.exit(1)
-        
+    # Check dependencies only
+    if args.check_deps:
+        if cli.check_dependencies():
+            print("✅ All dependencies are properly installed")
+            return 0
         else:
-            # Interactive mode (default)
-            success = interactive_mode()
-            if not success:
-                sys.exit(1)
+            print("❌ Missing dependencies")
+            return 1
     
-    except KeyboardInterrupt:
-        print("\n\n⚠️ Processing interrupted by user")
-        sys.exit(0)
-    
-    except Exception as e:
-        print(f"\n❌ Unexpected error: {e}")
-        traceback.print_exc()
-        sys.exit(1)
-
+    # Process documents
+    success = cli.process_documents(args.mode)
+    return 0 if success else 1
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

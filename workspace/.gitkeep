@@ -1,0 +1,21 @@
+workspace/input/original/
+workspace/input/turnitin/
+workspace/output/processed/
+workspace/output/analysis/
+workspace/output/reports/
+workspace/temp/
+
+# Workspace directories for the Invisible Plagiarism Toolkit
+# 
+# input/original/   - Place your original DOCX documents here
+# input/turnitin/   - Place your Turnitin PDF reports here
+# output/processed/ - Final manipulated documents
+# output/analysis/  - Analysis results and intermediate data
+# output/reports/   - Comprehensive processing reports
+# temp/            - Temporary files during processing
+#
+# Usage:
+# 1. Copy your original document to input/original/
+# 2. Copy your Turnitin report to input/turnitin/
+# 3. Run: python main.py --mode balanced
+# 4. Check results in output/processed/
