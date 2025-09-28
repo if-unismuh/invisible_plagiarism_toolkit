@@ -23,6 +23,35 @@
       "add_invisible_content": true
     }
   },
+  "turnitin_colors": {
+    "high_priority": {
+      "colors": ["red", "green", "blue", "magenta"],
+      "descriptions": {
+        "red": "Student papers - kesamaan dengan tugas mahasiswa lain",
+        "green": "Publications - kesamaan dengan jurnal/publikasi", 
+        "blue": "Internet sources - kesamaan dengan web",
+        "magenta": "Self-plagiarism - submission sebelumnya dari penulis sama"
+      },
+      "manipulation_intensity": "aggressive"
+    },
+    "medium_priority": {
+      "colors": ["orange", "cyan"],
+      "descriptions": {
+        "orange": "Institutional database - database institusi",
+        "cyan": "Web variation - variasi sumber web"
+      },
+      "manipulation_intensity": "moderate"
+    },
+    "low_priority": {
+      "colors": ["yellow", "gray", "light"],
+      "descriptions": {
+        "yellow": "Quoted text - kutipan yang sudah proper",
+        "gray": "Excluded text - teks yang dikecualikan",
+        "light": "Uncertain classification - klasifikasi tidak pasti"
+      },
+      "manipulation_intensity": "minimal"
+    }
+  },
   "detection_targets": {
     "turnitin": {
       "priority": "high",
@@ -61,6 +90,27 @@
     "conclusion_paragraphs": {
       "priority": "high",
       "techniques": ["unicode_substitution"]
+    }
+  },
+  "flagged_selection": {
+    "auto_filter": {
+      "min_length": 10,
+      "dedupe": true,
+      "priority_colors_only": true
+    },
+    "manipulation_rates": {
+      "high_priority": {
+        "unicode_rate": 0.045,
+        "zero_width_rate": 0.065
+      },
+      "medium_priority": {
+        "unicode_rate": 0.035,
+        "zero_width_rate": 0.050
+      },
+      "low_priority": {
+        "unicode_rate": 0.020,
+        "zero_width_rate": 0.030
+      }
     }
   }
 }

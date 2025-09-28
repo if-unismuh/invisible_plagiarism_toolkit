@@ -75,6 +75,7 @@ def extract_colored_regions(
     aggressive: bool = False,
     max_coverage: float = 0.50,
     merge: bool = True,
+    ocr_lang: str = "ind+eng",
 ) -> List[Dict[str, Any]]:
     doc = fitz.open(pdf_path)
     results: List[Dict[str, Any]] = []
@@ -139,7 +140,11 @@ def extract_colored_regions(
             continue
 
         # OCR once (word-level)
-        ocr = pytesseract.image_to_data(img, output_type=pytesseract.Output.DICT, lang='ind+eng')
+        try:
+            ocr = pytesseract.image_to_data(img, output_type=pytesseract.Output.DICT, lang=ocr_lang)
+        except pytesseract.TesseractError:
+            # Fallback tanpa spesifikasi bahasa
+            ocr = pytesseract.image_to_data(img, output_type=pytesseract.Output.DICT)
         words = []
         for i in range(len(ocr['text'])):
             word = (ocr['text'][i] or '').strip()
@@ -228,6 +233,7 @@ def main():
     ap.add_argument('--aggressive', action='store_true', help='Aktifkan deteksi pastel')
     ap.add_argument('--no-merge', action='store_true', help='Nonaktifkan merge kotak overlap')
     ap.add_argument('--simple-dedupe', action='store_true', help='Deduplikasi teks akhir')
+    ap.add_argument('--lang', default='ind+eng', help='Bahasa OCR (default ind+eng, contoh: eng)')
     ap.add_argument('--pretty', action='store_true', help='Pretty print JSON')
     args = ap.parse_args()
 
@@ -238,6 +244,7 @@ def main():
         aggressive=args.aggressive,
         max_coverage=args.max_coverage,
         merge=not args.no_merge,
+        ocr_lang=args.lang,
     )
 
     if args.simple_dedupe:
