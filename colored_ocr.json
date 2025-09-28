@@ -1,0 +1,1047 @@
+[
+  {
+    "page_number": 2,
+    "text": "Era digital",
+    "color": "blue"
+  },
+  {
+    "page_number": 2,
+    "text": "A, Latar Belakang",
+    "color": "cyan"
+  },
+  {
+    "page_number": 3,
+    "text": "digunakan untuk",
+    "color": "light"
+  },
+  {
+    "page_number": 3,
+    "text": "Khir (bit paling tidak signifikan) dari data piksel yang (cover image) yang berpengaruh signifikan dengan bit dari gumbar salah satu yang ini merupakan sebelumnya, Metode teknik steganografi umum",
+    "color": "blue"
+  },
+  {
+    "page_number": 3,
+    "text": "Cara tidak signifikan) dari",
+    "color": "cyan"
+  },
+  {
+    "page_number": 3,
+    "text": "enkripsi dan dekripsi Seperti dinyatakan oleh (Nur yang Cara Aminullah 2022) kerja metode LSB yaitu mengubah bit Agsal al., et",
+    "color": "blue"
+  },
+  {
+    "page_number": 3,
+    "text": "Bit Least Significant (LSB) adalah teknik digunakan dalam yang umum",
+    "color": "light"
+  },
+  {
+    "page_number": 4,
+    "text": "digital. Penelitian",
+    "color": "yellow"
+  },
+  {
+    "page_number": 4,
+    "text": "penyisipan",
+    "color": "cyan"
+  },
+  {
+    "page_number": 4,
+    "text": "Quick Response (QR) Code sebagal dan metode steganograft Least Significant Bit (LSB)",
+    "color": "cyan"
+  },
+  {
+    "page_number": 4,
+    "text": "dalam penelitian ini adalah sebagai berikut:",
+    "color": "green"
+  },
+  {
+    "page_number": 4,
+    "text": "Berdasarkan latar belakang yang telah diuraikan, maka rumusan masalah",
+    "color": "green"
+  },
+  {
+    "page_number": 4,
+    "text": "dan ekstraksi watermark 8 B. Rumusan Masalah",
+    "color": "green"
+  },
+  {
+    "page_number": 5,
+    "text": "pembuatan sistem.",
+    "color": "green"
+  },
+  {
+    "page_number": 5,
+    "text": "Membabhas metode penelitian dan alat digunakan untuk tentang yang",
+    "color": "yellow"
+  },
+  {
+    "page_number": 5,
+    "text": "BAB II] METODE PENELITIAN",
+    "color": "green"
+  },
+  {
+    "page_number": 5,
+    "text": "melaksanakan",
+    "color": "yellow"
+  },
+  {
+    "page_number": 5,
+    "text": "Pada bab ini membahas tentang teori-teori yang penulis dalam melandasi",
+    "color": "green"
+  },
+  {
+    "page_number": 5,
+    "text": "BAB II TINJAUAN PUSTAKA",
+    "color": "green"
+  },
+  {
+    "page_number": 5,
+    "text": "permasalahan, metodologi yang digunakan dan sistematika penulisan,",
+    "color": "yellow"
+  },
+  {
+    "page_number": 5,
+    "text": "penulisan penelitian tugas akhir, rumusan masalah, tujuan dan manfaat, batasan",
+    "color": "yellow"
+  },
+  {
+    "page_number": 5,
+    "text": "Bab ini menerangkan singkat dan jelas mengenai latar secara",
+    "color": "yellow"
+  },
+  {
+    "page_number": 5,
+    "text": "bab yang sebagai BAB | PENDAHULUAN",
+    "color": "yellow"
+  },
+  {
+    "page_number": 5,
+    "text": "Secara garis besar penulisan laporan akhir ini terbagi menjadi tugas",
+    "color": "light"
+  },
+  {
+    "page_number": 5,
+    "text": "LSB tidak dapat dipertahankan",
+    "color": "yellow"
+  },
+  {
+    "page_number": 5,
+    "text": "Penelitian ini dibatasi pada",
+    "color": "blue"
+  },
+  {
+    "page_number": 5,
+    "text": "sieganografi dan QR Code. ‘Ruang Lingkup Penelitian",
+    "color": "magenta"
+  },
+  {
+    "page_number": 6,
+    "text": "Citra digital dua adalah gambar dimensi yang",
+    "color": "light"
+  },
+  {
+    "page_number": 6,
+    "text": "litian ini Digital",
+    "color": "cyan"
+  },
+  {
+    "page_number": 6,
+    "text": "dalam data digital (seperti citra, audio,",
+    "color": "green"
+  },
+  {
+    "page_number": 6,
+    "text": "teknik penyisipan informasi",
+    "color": "green"
+  },
+  {
+    "page_number": 6,
+    "text": "Bahan ajar",
+    "color": "magenta"
+  },
+  {
+    "page_number": 6,
+    "text": "Ajar 1. Bahan",
+    "color": "magenta"
+  },
+  {
+    "page_number": 6,
+    "text": "Landasan Teori A,",
+    "color": "magenta"
+  },
+  {
+    "page_number": 6,
+    "text": "PUSTAKA",
+    "color": "magenta"
+  },
+  {
+    "page_number": 7,
+    "text": "dan sederhana.",
+    "color": "light"
+  },
+  {
+    "page_number": 7,
+    "text": "paling yang",
+    "color": "light"
+  },
+  {
+    "page_number": 7,
+    "text": "metode steganografi",
+    "color": "light"
+  },
+  {
+    "page_number": 7,
+    "text": "Least Significant Bit (LSB)",
+    "color": "light"
+  },
+  {
+    "page_number": 7,
+    "text": "Metode Least Bit (LSB) Significant",
+    "color": "blue"
+  },
+  {
+    "page_number": 7,
+    "text": "tidak terdeteksi oleh",
+    "color": "orange"
+  },
+  {
+    "page_number": 7,
+    "text": "dalam lain (disebut object media cover sedemikian keberadaan rupa pesan",
+    "color": "yellow"
+  },
+  {
+    "page_number": 7,
+    "text": "seni menyembunyikan",
+    "color": "blue"
+  },
+  {
+    "page_number": 7,
+    "text": "Steganografi berasal dari bahasa Yunani yang berarti \"tulisan",
+    "color": "blue"
+  },
+  {
+    "page_number": 8,
+    "text": "al., 2021) et",
+    "color": "green"
+  },
+  {
+    "page_number": 8,
+    "text": "ke dalam bahan ajar digital.",
+    "color": "green"
+  },
+  {
+    "page_number": 8,
+    "text": "Keeil yang",
+    "color": "light"
+  },
+  {
+    "page_number": 8,
+    "text": "besar ruang",
+    "color": "light"
+  },
+  {
+    "page_number": 8,
+    "text": "dut (Harits M al., et jumlah yang",
+    "color": "blue"
+  },
+  {
+    "page_number": 8,
+    "text": "informasi",
+    "color": "yellow"
+  },
+  {
+    "page_number": 8,
+    "text": "‘menyimpan",
+    "color": "yellow"
+  },
+  {
+    "page_number": 8,
+    "text": "kode batang dua dimensi yang",
+    "color": "green"
+  },
+  {
+    "page_number": 8,
+    "text": "QR Code adalah",
+    "color": "green"
+  },
+  {
+    "page_number": 8,
+    "text": "(OR) Code",
+    "color": "yellow"
+  },
+  {
+    "page_number": 9,
+    "text": "Metode/Algoritma",
+    "color": "magenta"
+  },
+  {
+    "page_number": 9,
+    "text": "Peneliti",
+    "color": "magenta"
+  },
+  {
+    "page_number": 9,
+    "text": "Penelitian Terkait",
+    "color": "magenta"
+  },
+  {
+    "page_number": 9,
+    "text": "int dari dengan ini. Penelitian sebelumnya terkait meliputi: skripsi yang",
+    "color": "magenta"
+  },
+  {
+    "page_number": 9,
+    "text": "inspirasi dan",
+    "color": "magenta"
+  },
+  {
+    "page_number": 9,
+    "text": "Penelitian Terkait",
+    "color": "blue"
+  },
+  {
+    "page_number": 10,
+    "text": "(LSB) untuk",
+    "color": "light"
+  },
+  {
+    "page_number": 10,
+    "text": "Significant Bit",
+    "color": "light"
+  },
+  {
+    "page_number": 10,
+    "text": "steganografi Least",
+    "color": "light"
+  },
+  {
+    "page_number": 10,
+    "text": "Mengguyakan",
+    "color": "blue"
+  },
+  {
+    "page_number": 15,
+    "text": "ar 1:",
+    "color": "cyan"
+  },
+  {
+    "page_number": 16,
+    "text": "digunakan",
+    "color": "magenta"
+  },
+  {
+    "page_number": 16,
+    "text": "B. Alatdan Bahan",
+    "color": "magenta"
+  },
+  {
+    "page_number": 16,
+    "text": "Penulisan Laporan",
+    "color": "magenta"
+  },
+  {
+    "page_number": 16,
+    "text": "Desain Sistem",
+    "color": "magenta"
+  },
+  {
+    "page_number": 16,
+    "text": "Analisis Sistem",
+    "color": "magenta"
+  },
+  {
+    "page_number": 16,
+    "text": "JUNI JULI Iv",
+    "color": "magenta"
+  },
+  {
+    "page_number": 16,
+    "text": "bulan, yaitu dimulai pada",
+    "color": "blue"
+  },
+  {
+    "page_number": 16,
+    "text": "Informatika Fakultas Teknik. jangka waktu kurang lebih 2",
+    "color": "blue"
+  },
+  {
+    "page_number": 16,
+    "text": "dipilih peneliti adalah di yang",
+    "color": "orange"
+  },
+  {
+    "page_number": 16,
+    "text": "penelitian karena memudahkan peneliti untuk melakukan penelitian.",
+    "color": "yellow"
+  },
+  {
+    "page_number": 16,
+    "text": "penelitian.",
+    "color": "cyan"
+  },
+  {
+    "page_number": 16,
+    "text": "objek akan tempat atau yang",
+    "color": "cyan"
+  },
+  {
+    "page_number": 16,
+    "text": "‘Tempat Pengljtian adalah objek akan dilakukan suatu tempat atau yang Penentuan lokasi penelitian merupakan langkah penting dalam penelitian. suatu",
+    "color": "green"
+  },
+  {
+    "page_number": 16,
+    "text": "A. Tempat dan Waktu Penelitian",
+    "color": "cyan"
+  },
+  {
+    "page_number": 16,
+    "text": "METODE PENELITIAN",
+    "color": "cyan"
+  },
+  {
+    "page_number": 16,
+    "text": "BABIN",
+    "color": "green"
+  },
+  {
+    "page_number": 17,
+    "text": "(Embedding)",
+    "color": "green"
+  },
+  {
+    "page_number": 17,
+    "text": "(extracting)",
+    "color": "light"
+  },
+  {
+    "page_number": 17,
+    "text": "(embedding)",
+    "color": "light"
+  },
+  {
+    "page_number": 17,
+    "text": "o utama, yaitu tahapan",
+    "color": "green"
+  },
+  {
+    "page_number": 17,
+    "text": "Least Significant Bit (LSB). steganografi",
+    "color": "yellow"
+  },
+  {
+    "page_number": 17,
+    "text": "gh terihat (iwisible menggunakan algoritma",
+    "color": "green"
+  },
+  {
+    "page_number": 17,
+    "text": "Perancangan sistem dalam penelitian ini",
+    "color": "light"
+  },
+  {
+    "page_number": 17,
+    "text": "Perancangan Sistem",
+    "color": "magenta"
+  },
+  {
+    "page_number": 17,
+    "text": "dilakukan",
+    "color": "magenta"
+  },
+  {
+    "page_number": 17,
+    "text": "terdiri dari dan observasi telah yang telah diberikan. digital yang guru",
+    "color": "magenta"
+  },
+  {
+    "page_number": 17,
+    "text": "4 Ram GB",
+    "color": "blue"
+  },
+  {
+    "page_number": 18,
+    "text": "mengandung",
+    "color": "light"
+  },
+  {
+    "page_number": 18,
+    "text": "identik dengan",
+    "color": "light"
+  },
+  {
+    "page_number": 18,
+    "text": "(stego image) yang",
+    "color": "green"
+  },
+  {
+    "page_number": 21,
+    "text": "observasi Melakukan visual untuk antara citra asli (cover image) dan citra hasil penyisipan (stego image)",
+    "color": "light"
+  },
+  {
+    "page_number": 21,
+    "text": "Pengujian sistem bertujuan untuk mengetahui kinerja",
+    "color": "light"
+  },
+  {
+    "page_number": 21,
+    "text": "‘Sistem",
+    "color": "blue"
+  },
+  {
+    "page_number": 25,
+    "text": "Application",
+    "color": "green"
+  },
+  {
+    "page_number": 25,
+    "text": "Berbasis",
+    "color": "green"
+  },
+  {
+    "page_number": 25,
+    "text": "Cipher",
+    "color": "green"
+  },
+  {
+    "page_number": 25,
+    "text": "Enkripsi",
+    "color": "green"
+  },
+  {
+    "page_number": 25,
+    "text": "Vigenére",
+    "color": "green"
+  },
+  {
+    "page_number": 25,
+    "text": "Citra",
+    "color": "green"
+  },
+  {
+    "page_number": 25,
+    "text": "dengan",
+    "color": "green"
+  },
+  {
+    "page_number": 25,
+    "text": "Digital",
+    "color": "green"
+  },
+  {
+    "page_number": 25,
+    "text": "pada",
+    "color": "green"
+  },
+  {
+    "page_number": 25,
+    "text": "Significant",
+    "color": "green"
+  },
+  {
+    "page_number": 25,
+    "text": "Least",
+    "color": "green"
+  },
+  {
+    "page_number": 25,
+    "text": "Yuliana,",
+    "color": "green"
+  },
+  {
+    "page_number": 25,
+    "text": "\"Implementasi",
+    "color": "green"
+  },
+  {
+    "page_number": 25,
+    "text": "Yahya.",
+    "color": "green"
+  },
+  {
+    "page_number": 25,
+    "text": "Arif",
+    "color": "green"
+  },
+  {
+    "page_number": 25,
+    "text": "Moh",
+    "color": "green"
+  },
+  {
+    "page_number": 25,
+    "text": "Astuti,",
+    "color": "green"
+  },
+  {
+    "page_number": 25,
+    "text": "Dyah",
+    "color": "green"
+  },
+  {
+    "page_number": 25,
+    "text": "Rohmi",
+    "color": "green"
+  },
+  {
+    "page_number": 25,
+    "text": "Lailani,",
+    "color": "green"
+  },
+  {
+    "page_number": 25,
+    "text": "Ade",
+    "color": "green"
+  },
+  {
+    "page_number": 25,
+    "text": "Vidia,",
+    "color": "green"
+  },
+  {
+    "page_number": 25,
+    "text": "Vidia",
+    "color": "green"
+  },
+  {
+    "page_number": 25,
+    "text": "Utara",
+    "color": "blue"
+  },
+  {
+    "page_number": 25,
+    "text": "Sumatera",
+    "color": "blue"
+  },
+  {
+    "page_number": 25,
+    "text": "peas",
+    "color": "magenta"
+  },
+  {
+    "page_number": 25,
+    "text": "Negeri",
+    "color": "blue"
+  },
+  {
+    "page_number": 25,
+    "text": "Universitas",
+    "color": "blue"
+  },
+  {
+    "page_number": 25,
+    "text": "Islam",
+    "color": "blue"
+  },
+  {
+    "page_number": 25,
+    "text": "Submitted",
+    "color": "blue"
+  },
+  {
+    "page_number": 25,
+    "text": "peas",
+    "color": "cyan"
+  },
+  {
+    "page_number": 25,
+    "text": "text-id.123dok.com",
+    "color": "green"
+  },
+  {
+    "page_number": 25,
+    "text": "peas",
+    "color": "orange"
+  },
+  {
+    "page_number": 25,
+    "text": "Surabaya",
+    "color": "green"
+  },
+  {
+    "page_number": 25,
+    "text": "1945",
+    "color": "green"
+  },
+  {
+    "page_number": 25,
+    "text": "Agustus",
+    "color": "green"
+  },
+  {
+    "page_number": 25,
+    "text": "Universitas",
+    "color": "green"
+  },
+  {
+    "page_number": 25,
+    "text": "Submitted",
+    "color": "green"
+  },
+  {
+    "page_number": 25,
+    "text": "core.ac.uk",
+    "color": "green"
+  },
+  {
+    "page_number": 25,
+    "text": "eprints.iain-surakarta.ac.id",
+    "color": "green"
+  },
+  {
+    "page_number": 25,
+    "text": "&",
+    "color": "blue"
+  },
+  {
+    "page_number": 25,
+    "text": "123dok.com",
+    "color": "blue"
+  },
+  {
+    "page_number": 25,
+    "text": "Makassar",
+    "color": "blue"
+  },
+  {
+    "page_number": 25,
+    "text": "Muhammadiyah",
+    "color": "blue"
+  },
+  {
+    "page_number": 25,
+    "text": "digilibadmin.unismuh.ac.id",
+    "color": "green"
+  },
+  {
+    "page_number": 25,
+    "text": "PRIMARY SOURCES",
+    "color": "green"
+  },
+  {
+    "page_number": 25,
+    "text": "14,",
+    "color": "green"
+  },
+  {
+    "page_number": 25,
+    "text": "ORIGINALITY REPORT",
+    "color": "cyan"
+  },
+  {
+    "page_number": 26,
+    "text": "publikasiilmiah.unwahas.ac.id",
+    "color": "cyan"
+  },
+  {
+    "page_number": 26,
+    "text": "N",
+    "color": "green"
+  },
+  {
+    "page_number": 26,
+    "text": "jurnal.umt.ac.id",
+    "color": "green"
+  },
+  {
+    "page_number": 26,
+    "text": "=",
+    "color": "magenta"
+  },
+  {
+    "page_number": 26,
+    "text": "docplayer.info",
+    "color": "blue"
+  },
+  {
+    "page_number": 26,
+    "text": "N",
+    "color": "cyan"
+  },
+  {
+    "page_number": 26,
+    "text": "sinta.unud.ac.id",
+    "color": "green"
+  },
+  {
+    "page_number": 26,
+    "text": "ite} =",
+    "color": "orange"
+  },
+  {
+    "page_number": 26,
+    "text": "repository.unpkediri.ac.id",
+    "color": "yellow"
+  },
+  {
+    "page_number": 26,
+    "text": "=",
+    "color": "yellow"
+  },
+  {
+    "page_number": 26,
+    "text": "repository.um-palembang.ac.id",
+    "color": "green"
+  },
+  {
+    "page_number": 26,
+    "text": "=",
+    "color": "green"
+  },
+  {
+    "page_number": 26,
+    "text": "jurnal.untan.ac.id",
+    "color": "green"
+  },
+  {
+    "page_number": 26,
+    "text": "a",
+    "color": "green"
+  },
+  {
+    "page_number": 26,
+    "text": "journal.unismuh.ac.id",
+    "color": "green"
+  },
+  {
+    "page_number": 26,
+    "text": "=",
+    "color": "blue"
+  },
+  {
+    "page_number": 26,
+    "text": "ejournal.unjaya.ac.id",
+    "color": "blue"
+  },
+  {
+    "page_number": 26,
+    "text": "lib.unnes.ac.id",
+    "color": "blue"
+  },
+  {
+    "page_number": 26,
+    "text": "University",
+    "color": "green"
+  },
+  {
+    "page_number": 26,
+    "text": "= N",
+    "color": "cyan"
+  },
+  {
+    "page_number": 26,
+    "text": "journalpedia.com",
+    "color": "green"
+  },
+  {
+    "page_number": 26,
+    "text": "idoc.pub",
+    "color": "cyan"
+  },
+  {
+    "page_number": 26,
+    "text": "2025",
+    "color": "green"
+  },
+  {
+    "page_number": 26,
+    "text": "Teknik",
+    "color": "green"
+  },
+  {
+    "page_number": 26,
+    "text": "Observasi",
+    "color": "green"
+  },
+  {
+    "page_number": 26,
+    "text": "Informatika),",
+    "color": "green"
+  },
+  {
+    "page_number": 26,
+    "text": "Riset",
+    "color": "green"
+  },
+  {
+    "page_number": 26,
+    "text": "dan",
+    "color": "green"
+  },
+  {
+    "page_number": 26,
+    "text": "ProTekinfo(Pengembangan",
+    "color": "green"
+  },
+  {
+    "page_number": 26,
+    "text": "Programming",
+    "color": "green"
+  },
+  {
+    "page_number": 26,
+    "text": "Interface\",",
+    "color": "green"
+  },
+  {
+    "page_number": 27,
+    "text": "jurnal.pnk.ac.id",
+    "color": "yellow"
+  },
+  {
+    "page_number": 27,
+    "text": "30",
+    "color": "yellow"
+  },
+  {
+    "page_number": 27,
+    "text": "I. i.ac.id j",
+    "color": "green"
+  },
+  {
+    "page_number": 27,
+    "text": "2022",
+    "color": "green"
+  },
+  {
+    "page_number": 27,
+    "text": "Ekonomi),",
+    "color": "green"
+  },
+  {
+    "page_number": 27,
+    "text": "Pendidikan",
+    "color": "green"
+  },
+  {
+    "page_number": 27,
+    "text": "KEWIRAUSAHAAN\",",
+    "color": "green"
+  },
+  {
+    "page_number": 27,
+    "text": "(Jurnal",
+    "color": "green"
+  },
+  {
+    "page_number": 27,
+    "text": "KULIAH",
+    "color": "green"
+  },
+  {
+    "page_number": 27,
+    "text": "MATA",
+    "color": "green"
+  },
+  {
+    "page_number": 27,
+    "text": "PADA",
+    "color": "green"
+  },
+  {
+    "page_number": 27,
+    "text": "ISLAM",
+    "color": "green"
+  },
+  {
+    "page_number": 27,
+    "text": "NILAI-NILAI",
+    "color": "green"
+  },
+  {
+    "page_number": 27,
+    "text": "DISERTAI",
+    "color": "green"
+  },
+  {
+    "page_number": 27,
+    "text": "YANG",
+    "color": "green"
+  },
+  {
+    "page_number": 27,
+    "text": "KEWIRAUSAHAAN",
+    "color": "green"
+  },
+  {
+    "page_number": 27,
+    "text": "DIGITAL",
+    "color": "green"
+  },
+  {
+    "page_number": 27,
+    "text": "AJAR",
+    "color": "green"
+  },
+  {
+    "page_number": 27,
+    "text": "BAHAN",
+    "color": "green"
+  },
+  {
+    "page_number": 27,
+    "text": "\"IMPLEMENTAS!",
+    "color": "green"
+  },
+  {
+    "page_number": 27,
+    "text": "Sholiha.",
+    "color": "green"
+  },
+  {
+    "page_number": 27,
+    "text": "Sangidatus",
+    "color": "green"
+  },
+  {
+    "page_number": 27,
+    "text": "Vahlia,",
+    "color": "green"
+  },
+  {
+    "page_number": 27,
+    "text": "Afwan,",
+    "color": "green"
+  },
+  {
+    "page_number": 27,
+    "text": "Bahtiar",
+    "color": "green"
+  },
+  {
+    "page_number": 27,
+    "text": "hgate.net A",
+    "color": "green"
+  },
+  {
+    "page_number": 27,
+    "text": "mm",
+    "color": "blue"
+  },
+  {
+    "page_number": 27,
+    "text": "repository.poltekkes-tjk.ac.id P J",
+    "color": "blue"
+  },
+  {
+    "page_number": 27,
+    "text": "25",
+    "color": "yellow"
+  },
+  {
+    "page_number": 27,
+    "text": "jom.fti.budiluhur.ac.id",
+    "color": "green"
+  },
+  {
+    "page_number": 27,
+    "text": "jom.fti.budiluhur.ac.id Jom.",
+    "color": "green"
+  },
+  {
+    "page_number": 27,
+    "text": "acid",
+    "color": "green"
+  }
+]

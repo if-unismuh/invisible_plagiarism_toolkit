@@ -1,0 +1,4281 @@
+[
+  {
+    "page_number": 2,
+    "text": "A, Latar Belakang Era digital telah",
+    "color": "blue",
+    "position": {
+      "x0": 210,
+      "y0": 271,
+      "x1": 350,
+      "y1": 327
+    }
+  },
+  {
+    "page_number": 2,
+    "text": "Latar Belakang Era digital",
+    "color": "blue",
+    "position": {
+      "x0": 259,
+      "y0": 298,
+      "x1": 335,
+      "y1": 326
+    }
+  },
+  {
+    "page_number": 2,
+    "text": "budaya aset seperti",
+    "color": "light_gray",
+    "position": {
+      "x0": 390,
+      "y0": 849,
+      "x1": 490,
+      "y1": 866
+    }
+  },
+  {
+    "page_number": 2,
+    "text": "steganografi",
+    "color": "light_gray",
+    "position": {
+      "x0": 349,
+      "y0": 792,
+      "x1": 432,
+      "y1": 815
+    }
+  },
+  {
+    "page_number": 2,
+    "text": "algoritma",
+    "color": "light_gray",
+    "position": {
+      "x0": 237,
+      "y0": 740,
+      "x1": 362,
+      "y1": 761
+    }
+  },
+  {
+    "page_number": 2,
+    "text": "memungkinkan",
+    "color": "light_gray",
+    "position": {
+      "x0": 237,
+      "y0": 413,
+      "x1": 314,
+      "y1": 434
+    }
+  },
+  {
+    "page_number": 3,
+    "text": "Seperti dinyatakan oleh (Nur yang Cara 2022) kerja metode LSB yaitu mengubah bit tidak signifikan) dari data piksel berpengaruh signifikan dengan bit dari gumbar",
+    "color": "green",
+    "position": {
+      "x0": 401,
+      "y0": 404,
+      "x1": 741,
+      "y1": 474
+    }
+  },
+  {
+    "page_number": 3,
+    "text": "tidak signifikan)",
+    "color": "cyan",
+    "position": {
+      "x0": 405,
+      "y0": 450,
+      "x1": 512,
+      "y1": 471
+    }
+  },
+  {
+    "page_number": 3,
+    "text": "Cara",
+    "color": "cyan",
+    "position": {
+      "x0": 438,
+      "y0": 404,
+      "x1": 477,
+      "y1": 443
+    }
+  },
+  {
+    "page_number": 3,
+    "text": "Khir (bit paling tidak signifikan) dari data piksel yang (cover image) yang berpengaruh signifikan dengan bit dari gumbar salah satu yang ini merupakan sebelumnya, Metode teknik steganografi umum",
+    "color": "blue",
+    "position": {
+      "x0": 237,
+      "y0": 458,
+      "x1": 741,
+      "y1": 529
+    }
+  },
+  {
+    "page_number": 3,
+    "text": "Bit enkripsi dan dekripsi",
+    "color": "magenta",
+    "position": {
+      "x0": 236,
+      "y0": 394,
+      "x1": 496,
+      "y1": 419
+    }
+  },
+  {
+    "page_number": 3,
+    "text": "digunakan dalam yang umum",
+    "color": "magenta",
+    "position": {
+      "x0": 539,
+      "y0": 366,
+      "x1": 738,
+      "y1": 392
+    }
+  },
+  {
+    "page_number": 3,
+    "text": "(LSB) adalah teknik",
+    "color": "magenta",
+    "position": {
+      "x0": 402,
+      "y0": 366,
+      "x1": 538,
+      "y1": 389
+    }
+  },
+  {
+    "page_number": 3,
+    "text": "Bit Significant",
+    "color": "magenta",
+    "position": {
+      "x0": 300,
+      "y0": 366,
+      "x1": 401,
+      "y1": 391
+    }
+  },
+  {
+    "page_number": 3,
+    "text": "Least",
+    "color": "magenta",
+    "position": {
+      "x0": 256,
+      "y0": 350,
+      "x1": 299,
+      "y1": 390
+    }
+  },
+  {
+    "page_number": 3,
+    "text": "20: Bit Least Significant (LSB) adalah teknik digunakan dalam yang umum enkripsi dan dekripsi Seperti dinyatakan oleh (Nur yang Cara",
+    "color": "lavender",
+    "position": {
+      "x0": 234,
+      "y0": 350,
+      "x1": 741,
+      "y1": 420
+    }
+  },
+  {
+    "page_number": 3,
+    "text": "digunakan untuk",
+    "color": "red",
+    "position": {
+      "x0": 234,
+      "y0": 527,
+      "x1": 352,
+      "y1": 556
+    }
+  },
+  {
+    "page_number": 3,
+    "text": "berpengaruh signifikan salah satu ini merupakan",
+    "color": "red",
+    "position": {
+      "x0": 388,
+      "y0": 487,
+      "x1": 535,
+      "y1": 528
+    }
+  },
+  {
+    "page_number": 3,
+    "text": "watermarking",
+    "color": "light_gray",
+    "position": {
+      "x0": 301,
+      "y0": 994,
+      "x1": 390,
+      "y1": 1012
+    }
+  },
+  {
+    "page_number": 3,
+    "text": "berfungsi sebagai",
+    "color": "light_gray",
+    "position": {
+      "x0": 430,
+      "y0": 915,
+      "x1": 507,
+      "y1": 935
+    }
+  },
+  {
+    "page_number": 3,
+    "text": "Menggabungkan",
+    "color": "light_gray",
+    "position": {
+      "x0": 531,
+      "y0": 861,
+      "x1": 619,
+      "y1": 881
+    }
+  },
+  {
+    "page_number": 3,
+    "text": "signifikan dengan bit teknik steganografi",
+    "color": "light_gray",
+    "position": {
+      "x0": 543,
+      "y0": 507,
+      "x1": 639,
+      "y1": 528
+    }
+  },
+  {
+    "page_number": 3,
+    "text": "bit dari gumbar yang steganografi",
+    "color": "light_gray",
+    "position": {
+      "x0": 640,
+      "y0": 501,
+      "x1": 696,
+      "y1": 528
+    }
+  },
+  {
+    "page_number": 3,
+    "text": "Bit Least Significant (LSB) adalah teknik digunakan dalam yang umum",
+    "color": "light_gray",
+    "position": {
+      "x0": 260,
+      "y0": 365,
+      "x1": 738,
+      "y1": 392
+    }
+  },
+  {
+    "page_number": 3,
+    "text": "integritas tampilan",
+    "color": "light_gray",
+    "position": {
+      "x0": 523,
+      "y0": 291,
+      "x1": 630,
+      "y1": 311
+    }
+  },
+  {
+    "page_number": 3,
+    "text": "data tersembunyi secara",
+    "color": "light_gray",
+    "position": {
+      "x0": 244,
+      "y0": 263,
+      "x1": 379,
+      "y1": 280
+    }
+  },
+  {
+    "page_number": 3,
+    "text": "invisible watermarking",
+    "color": "light_gray",
+    "position": {
+      "x0": 319,
+      "y0": 237,
+      "x1": 413,
+      "y1": 253
+    }
+  },
+  {
+    "page_number": 4,
+    "text": "digital. Penelitian",
+    "color": "peach",
+    "position": {
+      "x0": 209,
+      "y0": 900,
+      "x1": 374,
+      "y1": 938
+    }
+  },
+  {
+    "page_number": 4,
+    "text": "penyisipan",
+    "color": "green",
+    "position": {
+      "x0": 355,
+      "y0": 776,
+      "x1": 429,
+      "y1": 805
+    }
+  },
+  {
+    "page_number": 4,
+    "text": "dengan dan metode watermark",
+    "color": "green",
+    "position": {
+      "x0": 383,
+      "y0": 736,
+      "x1": 425,
+      "y1": 775
+    }
+  },
+  {
+    "page_number": 4,
+    "text": "dalam penelitian ini adalah sebagai berikut: implementasi stem watermarking",
+    "color": "green",
+    "position": {
+      "x0": 235,
+      "y0": 477,
+      "x1": 517,
+      "y1": 531
+    }
+  },
+  {
+    "page_number": 4,
+    "text": "dan ekstraksi watermark akurat. secara 8 B. Rumusan Masalah Berdasarkan latar belakang yang telah diuraikan, maka rumusan masalah dalam penelitian ini adalah sebagai berikut: implementasi stem watermarking tak terlihat pada bahan ajar code",
+    "color": "green",
+    "position": {
+      "x0": 209,
+      "y0": 406,
+      "x1": 741,
+      "y1": 531
+    }
+  },
+  {
+    "page_number": 4,
+    "text": "Least Significant",
+    "color": "cyan",
+    "position": {
+      "x0": 566,
+      "y0": 754,
+      "x1": 670,
+      "y1": 775
+    }
+  },
+  {
+    "page_number": 4,
+    "text": "metode steganograft Least",
+    "color": "cyan",
+    "position": {
+      "x0": 456,
+      "y0": 754,
+      "x1": 559,
+      "y1": 776
+    }
+  },
+  {
+    "page_number": 4,
+    "text": "dengan Quick Response (QR) Code sebagal dan metode steganograft Least Significant Bit (LSB) watermark penyisipan teknik data",
+    "color": "cyan",
+    "position": {
+      "x0": 352,
+      "y0": 734,
+      "x1": 736,
+      "y1": 805
+    }
+  },
+  {
+    "page_number": 5,
+    "text": "Penelitian ini dibatasi pada",
+    "color": "blue",
+    "position": {
+      "x0": 268,
+      "y0": 341,
+      "x1": 443,
+      "y1": 367
+    }
+  },
+  {
+    "page_number": 5,
+    "text": "sieganografi dan QR Code. ‘Ruang Lingkup Penelitian Penelitian ini dibatasi pada 1.",
+    "color": "blue",
+    "position": {
+      "x0": 209,
+      "y0": 298,
+      "x1": 444,
+      "y1": 368
+    }
+  },
+  {
+    "page_number": 5,
+    "text": "Membabhas tentang",
+    "color": "red",
+    "position": {
+      "x0": 259,
+      "y0": 869,
+      "x1": 371,
+      "y1": 886
+    }
+  },
+  {
+    "page_number": 5,
+    "text": "Bab ini menerangkan singkat dan jelas mengenai latar secara penulisan penelitian tugas akhir, rumusan masalah, tujuan dan manfaat, batasan",
+    "color": "red",
+    "position": {
+      "x0": 260,
+      "y0": 677,
+      "x1": 741,
+      "y1": 697
+    }
+  },
+  {
+    "page_number": 5,
+    "text": "pembuatan sistem.",
+    "color": "red",
+    "position": {
+      "x0": 234,
+      "y0": 886,
+      "x1": 357,
+      "y1": 912
+    }
+  },
+  {
+    "page_number": 5,
+    "text": "BAB II] METODE PENELITIAN Membabhas metode penelitian dan alat digunakan untuk tentang yang",
+    "color": "red",
+    "position": {
+      "x0": 236,
+      "y0": 833,
+      "x1": 740,
+      "y1": 885
+    }
+  },
+  {
+    "page_number": 5,
+    "text": "BAB II] METODE PENELITIAN",
+    "color": "red",
+    "position": {
+      "x0": 237,
+      "y0": 836,
+      "x1": 461,
+      "y1": 858
+    }
+  },
+  {
+    "page_number": 5,
+    "text": "melaksanakan",
+    "color": "red",
+    "position": {
+      "x0": 236,
+      "y0": 805,
+      "x1": 333,
+      "y1": 831
+    }
+  },
+  {
+    "page_number": 5,
+    "text": "Pada bab ini membahas tentang teori-teori yang penulis dalam melandasi",
+    "color": "red",
+    "position": {
+      "x0": 261,
+      "y0": 779,
+      "x1": 740,
+      "y1": 802
+    }
+  },
+  {
+    "page_number": 5,
+    "text": "penulisan penelitian tugas akhir, rumusan masalah, tujuan dan manfaat, batasan permasalahan, metodologi yang digunakan dan sistematika penulisan, BAB II TINJAUAN PUSTAKA Pada bab ini membahas tentang teori-teori yang penulis dalam",
+    "color": "red",
+    "position": {
+      "x0": 234,
+      "y0": 696,
+      "x1": 740,
+      "y1": 776
+    }
+  },
+  {
+    "page_number": 5,
+    "text": "penulisan penelitian tugas akhir, rumusan masalah, tujuan dan manfaat, batasan",
+    "color": "red",
+    "position": {
+      "x0": 236,
+      "y0": 697,
+      "x1": 740,
+      "y1": 722
+    }
+  },
+  {
+    "page_number": 5,
+    "text": "LSB tidak dapat dipertahankan pada media non-digital. Secara garis besar penulisan laporan akhir ini terbagi menjadi tugas bab yang sebagai BAB | PENDAHULUAN Bab ini menerangkan singkat dan jelas mengenai latar secara",
+    "color": "red",
+    "position": {
+      "x0": 232,
+      "y0": 545,
+      "x1": 741,
+      "y1": 693
+    }
+  },
+  {
+    "page_number": 5,
+    "text": "Pada bab ini membahas tentang teori-teori yang penulis dalam melandasi melaksanakan penelitian,",
+    "color": "red",
+    "position": {
+      "x0": 234,
+      "y0": 779,
+      "x1": 740,
+      "y1": 832
+    }
+  },
+  {
+    "page_number": 5,
+    "text": "Secara garis besar penulisan laporan akhir ini terbagi menjadi tugas bab yang sebagai",
+    "color": "red",
+    "position": {
+      "x0": 260,
+      "y0": 588,
+      "x1": 739,
+      "y1": 614
+    }
+  },
+  {
+    "page_number": 5,
+    "text": "LSB tidak dapat dipertahankan",
+    "color": "red",
+    "position": {
+      "x0": 232,
+      "y0": 545,
+      "x1": 391,
+      "y1": 587
+    }
+  },
+  {
+    "page_number": 5,
+    "text": "bab yang sebagai",
+    "color": "orange",
+    "position": {
+      "x0": 236,
+      "y0": 616,
+      "x1": 517,
+      "y1": 641
+    }
+  },
+  {
+    "page_number": 5,
+    "text": "sieganografi",
+    "color": "light_gray",
+    "position": {
+      "x0": 259,
+      "y0": 288,
+      "x1": 346,
+      "y1": 311
+    }
+  },
+  {
+    "page_number": 5,
+    "text": "mengembangkan",
+    "color": "light_gray",
+    "position": {
+      "x0": 363,
+      "y0": 262,
+      "x1": 454,
+      "y1": 284
+    }
+  },
+  {
+    "page_number": 6,
+    "text": "dalam data digital",
+    "color": "green",
+    "position": {
+      "x0": 263,
+      "y0": 631,
+      "x1": 383,
+      "y1": 651
+    }
+  },
+  {
+    "page_number": 6,
+    "text": "teknik adalah",
+    "color": "green",
+    "position": {
+      "x0": 449,
+      "y0": 582,
+      "x1": 488,
+      "y1": 622
+    }
+  },
+  {
+    "page_number": 6,
+    "text": "dalam data digital (seperti citra, audio, cipta, autentikasi",
+    "color": "green",
+    "position": {
+      "x0": 259,
+      "y0": 625,
+      "x1": 516,
+      "y1": 653
+    }
+  },
+  {
+    "page_number": 6,
+    "text": "teknik penyisipan informasi adalah",
+    "color": "green",
+    "position": {
+      "x0": 449,
+      "y0": 582,
+      "x1": 637,
+      "y1": 625
+    }
+  },
+  {
+    "page_number": 6,
+    "text": "Watermarking teknik penyisipan informasi Watermarking adalah dalam data digital (seperti citra, audio, video) dengan atau cipta, autentikasi",
+    "color": "green",
+    "position": {
+      "x0": 258,
+      "y0": 582,
+      "x1": 638,
+      "y1": 653
+    }
+  },
+  {
+    "page_number": 6,
+    "text": "Citra digital dua adalah gambar dimensi yang",
+    "color": "blue",
+    "position": {
+      "x0": 306,
+      "y0": 896,
+      "x1": 612,
+      "y1": 923
+    }
+  },
+  {
+    "page_number": 6,
+    "text": "litian ini Digital",
+    "color": "blue",
+    "position": {
+      "x0": 256,
+      "y0": 853,
+      "x1": 347,
+      "y1": 895
+    }
+  },
+  {
+    "page_number": 6,
+    "text": "Ajar Bahan ajar",
+    "color": "magenta",
+    "position": {
+      "x0": 307,
+      "y0": 328,
+      "x1": 394,
+      "y1": 353
+    }
+  },
+  {
+    "page_number": 6,
+    "text": "Ajar 1. Bahan",
+    "color": "magenta",
+    "position": {
+      "x0": 236,
+      "y0": 300,
+      "x1": 339,
+      "y1": 326
+    }
+  },
+  {
+    "page_number": 6,
+    "text": "Landasan Teori A, Ajar",
+    "color": "magenta",
+    "position": {
+      "x0": 212,
+      "y0": 273,
+      "x1": 350,
+      "y1": 299
+    }
+  },
+  {
+    "page_number": 6,
+    "text": "PUSTAKA",
+    "color": "magenta",
+    "position": {
+      "x0": 392,
+      "y0": 230,
+      "x1": 560,
+      "y1": 256
+    }
+  },
+  {
+    "page_number": 6,
+    "text": "Landasan Teori A, Ajar 1. Bahan Digital Bahan ajar",
+    "color": "lavender",
+    "position": {
+      "x0": 210,
+      "y0": 272,
+      "x1": 396,
+      "y1": 354
+    }
+  },
+  {
+    "page_number": 6,
+    "text": "PUSTAKA",
+    "color": "lavender",
+    "position": {
+      "x0": 390,
+      "y0": 187,
+      "x1": 561,
+      "y1": 258
+    }
+  },
+  {
+    "page_number": 6,
+    "text": "litian ini berfokus invisible watermarking pada . Digital Citra digital dua adalah gambar dimensi yang analog sinyal menjadi bentuk digital melalui proses yang",
+    "color": "light_blue",
+    "position": {
+      "x0": 258,
+      "y0": 860,
+      "x1": 613,
+      "y1": 948
+    }
+  },
+  {
+    "page_number": 6,
+    "text": "menunjukkan",
+    "color": "light_gray",
+    "position": {
+      "x0": 597,
+      "y0": 984,
+      "x1": 673,
+      "y1": 1004
+    }
+  },
+  {
+    "page_number": 6,
+    "text": "watermarking",
+    "color": "light_gray",
+    "position": {
+      "x0": 511,
+      "y0": 850,
+      "x1": 591,
+      "y1": 869
+    }
+  },
+  {
+    "page_number": 6,
+    "text": "litian ini",
+    "color": "light_gray",
+    "position": {
+      "x0": 262,
+      "y0": 847,
+      "x1": 347,
+      "y1": 866
+    }
+  },
+  {
+    "page_number": 6,
+    "text": "mengganggu",
+    "color": "light_gray",
+    "position": {
+      "x0": 299,
+      "y0": 822,
+      "x1": 383,
+      "y1": 842
+    }
+  },
+  {
+    "page_number": 6,
+    "text": "teknik penyisipan",
+    "color": "light_gray",
+    "position": {
+      "x0": 457,
+      "y0": 603,
+      "x1": 527,
+      "y1": 625
+    }
+  },
+  {
+    "page_number": 7,
+    "text": "terdeteksi oleh",
+    "color": "yellow",
+    "position": {
+      "x0": 640,
+      "y0": 589,
+      "x1": 735,
+      "y1": 606
+    }
+  },
+  {
+    "page_number": 7,
+    "text": "keberadaan pesan",
+    "color": "yellow",
+    "position": {
+      "x0": 435,
+      "y0": 589,
+      "x1": 547,
+      "y1": 607
+    }
+  },
+  {
+    "page_number": 7,
+    "text": "dalam lain media rupa",
+    "color": "yellow",
+    "position": {
+      "x0": 366,
+      "y0": 567,
+      "x1": 432,
+      "y1": 607
+    }
+  },
+  {
+    "page_number": 7,
+    "text": "tidak terdeteksi oleh tersebut",
+    "color": "peach",
+    "position": {
+      "x0": 600,
+      "y0": 581,
+      "x1": 741,
+      "y1": 610
+    }
+  },
+  {
+    "page_number": 7,
+    "text": "dalam lain (disebut object media cover keberadaan rupa pesan",
+    "color": "peach",
+    "position": {
+      "x0": 365,
+      "y0": 567,
+      "x1": 552,
+      "y1": 610
+    }
+  },
+  {
+    "page_number": 7,
+    "text": "Steganografi berasal dari bahasa Yunani yang berarti \"tulisan Ini seni menyembunyikan adalah ilmu dan keberadaan pesan rahasia dalam lain (disebut di object media peaampung) atau media cover",
+    "color": "blue",
+    "position": {
+      "x0": 303,
+      "y0": 485,
+      "x1": 741,
+      "y1": 583
+    }
+  },
+  {
+    "page_number": 7,
+    "text": "Steganografi Ini dalam di",
+    "color": "cyan",
+    "position": {
+      "x0": 324,
+      "y0": 529,
+      "x1": 376,
+      "y1": 581
+    }
+  },
+  {
+    "page_number": 7,
+    "text": "dari bahasa Yunani yang seni menyembunyikan dan",
+    "color": "blue",
+    "position": {
+      "x0": 475,
+      "y0": 529,
+      "x1": 625,
+      "y1": 554
+    }
+  },
+  {
+    "page_number": 7,
+    "text": "dan sederhana. umum tidak",
+    "color": "blue",
+    "position": {
+      "x0": 481,
+      "y0": 825,
+      "x1": 583,
+      "y1": 854
+    }
+  },
+  {
+    "page_number": 7,
+    "text": "paling yang",
+    "color": "blue",
+    "position": {
+      "x0": 360,
+      "y0": 827,
+      "x1": 441,
+      "y1": 852
+    }
+  },
+  {
+    "page_number": 7,
+    "text": "metode steganografi",
+    "color": "blue",
+    "position": {
+      "x0": 599,
+      "y0": 799,
+      "x1": 741,
+      "y1": 827
+    }
+  },
+  {
+    "page_number": 7,
+    "text": "Metode Least Bit (LSB) Least Significant Bit (LSB)",
+    "color": "blue",
+    "position": {
+      "x0": 307,
+      "y0": 800,
+      "x1": 483,
+      "y1": 826
+    }
+  },
+  {
+    "page_number": 7,
+    "text": "Metode Least Bit (LSB) Significant",
+    "color": "blue",
+    "position": {
+      "x0": 308,
+      "y0": 756,
+      "x1": 489,
+      "y1": 798
+    }
+  },
+  {
+    "page_number": 7,
+    "text": "Metode Least Bit (LSB) Significant Least Significant Bit (LSB) domain spasial paling dan yang umum",
+    "color": "blue",
+    "position": {
+      "x0": 300,
+      "y0": 756,
+      "x1": 489,
+      "y1": 854
+    }
+  },
+  {
+    "page_number": 7,
+    "text": "steganografi",
+    "color": "light_gray",
+    "position": {
+      "x0": 455,
+      "y0": 723,
+      "x1": 542,
+      "y1": 745
+    }
+  },
+  {
+    "page_number": 7,
+    "text": "bertujuan agar Teknik",
+    "color": "light_gray",
+    "position": {
+      "x0": 412,
+      "y0": 671,
+      "x1": 497,
+      "y1": 691
+    }
+  },
+  {
+    "page_number": 7,
+    "text": "digital agar",
+    "color": "light_gray",
+    "position": {
+      "x0": 316,
+      "y0": 289,
+      "x1": 390,
+      "y1": 311
+    }
+  },
+  {
+    "page_number": 8,
+    "text": "bahan dalam",
+    "color": "green",
+    "position": {
+      "x0": 465,
+      "y0": 703,
+      "x1": 513,
+      "y1": 742
+    }
+  },
+  {
+    "page_number": 8,
+    "text": "al., 2021) M et",
+    "color": "green",
+    "position": {
+      "x0": 653,
+      "y0": 717,
+      "x1": 736,
+      "y1": 746
+    }
+  },
+  {
+    "page_number": 8,
+    "text": "ke dalam bahan ajar digital. dalam",
+    "color": "green",
+    "position": {
+      "x0": 465,
+      "y0": 702,
+      "x1": 589,
+      "y1": 746
+    }
+  },
+  {
+    "page_number": 8,
+    "text": "Keeil yang",
+    "color": "blue",
+    "position": {
+      "x0": 656,
+      "y0": 446,
+      "x1": 740,
+      "y1": 474
+    }
+  },
+  {
+    "page_number": 8,
+    "text": "besar ruang",
+    "color": "blue",
+    "position": {
+      "x0": 461,
+      "y0": 446,
+      "x1": 604,
+      "y1": 474
+    }
+  },
+  {
+    "page_number": 8,
+    "text": "dut (Harits M al., et jumlah yang",
+    "color": "blue",
+    "position": {
+      "x0": 256,
+      "y0": 432,
+      "x1": 407,
+      "y1": 474
+    }
+  },
+  {
+    "page_number": 8,
+    "text": "QR Code ‘menyimpan",
+    "color": "red",
+    "position": {
+      "x0": 260,
+      "y0": 311,
+      "x1": 341,
+      "y1": 338
+    }
+  },
+  {
+    "page_number": 8,
+    "text": "jenis kode batang dua dimensi yang informasi alfanumerik, jenis (numerik, biner)",
+    "color": "red",
+    "position": {
+      "x0": 431,
+      "y0": 285,
+      "x1": 685,
+      "y1": 338
+    }
+  },
+  {
+    "page_number": 8,
+    "text": "QR Code adalah",
+    "color": "red",
+    "position": {
+      "x0": 306,
+      "y0": 286,
+      "x1": 427,
+      "y1": 310
+    }
+  },
+  {
+    "page_number": 8,
+    "text": "(OR) Code",
+    "color": "red",
+    "position": {
+      "x0": 366,
+      "y0": 241,
+      "x1": 440,
+      "y1": 284
+    }
+  },
+  {
+    "page_number": 8,
+    "text": "al., 2021). et Quick Response (OR) Code QR Code adalah jenis ‘menyimpan informasi berbagai jenis",
+    "color": "red",
+    "position": {
+      "x0": 260,
+      "y0": 241,
+      "x1": 440,
+      "y1": 338
+    }
+  },
+  {
+    "page_number": 8,
+    "text": ". menggunakan steganografi",
+    "color": "light_gray",
+    "position": {
+      "x0": 517,
+      "y0": 506,
+      "x1": 677,
+      "y1": 528
+    }
+  },
+  {
+    "page_number": 9,
+    "text": "Metode/Algoritma Menggunakan",
+    "color": "lavender",
+    "position": {
+      "x0": 475,
+      "y0": 341,
+      "x1": 610,
+      "y1": 370
+    }
+  },
+  {
+    "page_number": 9,
+    "text": "Penelitian Terkait",
+    "color": "magenta",
+    "position": {
+      "x0": 444,
+      "y0": 312,
+      "x1": 564,
+      "y1": 337
+    }
+  },
+  {
+    "page_number": 9,
+    "text": "int dari dengan ini. Penelitian sebelumnya terkait meliputi: skripsi yang",
+    "color": "magenta",
+    "position": {
+      "x0": 283,
+      "y0": 257,
+      "x1": 629,
+      "y1": 311
+    }
+  },
+  {
+    "page_number": 9,
+    "text": "inspirasi dan",
+    "color": "magenta",
+    "position": {
+      "x0": 456,
+      "y0": 230,
+      "x1": 549,
+      "y1": 256
+    }
+  },
+  {
+    "page_number": 9,
+    "text": "Penelitian Terkait",
+    "color": "magenta",
+    "position": {
+      "x0": 209,
+      "y0": 187,
+      "x1": 365,
+      "y1": 229
+    }
+  },
+  {
+    "page_number": 9,
+    "text": "Peneliti (Alveda etal,",
+    "color": "lavender",
+    "position": {
+      "x0": 266,
+      "y0": 342,
+      "x1": 326,
+      "y1": 398
+    }
+  },
+  {
+    "page_number": 9,
+    "text": "Penelitian Terkait Peneliti memperolch banyak inspirasi dan referensi untuk int dari dengan ini. Penelitian sebelumnya terkait meliputi: pada skripsi yang Tabel Penelitian Terkait 1.",
+    "color": "lavender",
+    "position": {
+      "x0": 209,
+      "y0": 187,
+      "x1": 630,
+      "y1": 339
+    }
+  },
+  {
+    "page_number": 9,
+    "text": "mengganggu informasi",
+    "color": "light_gray",
+    "position": {
+      "x0": 369,
+      "y0": 568,
+      "x1": 453,
+      "y1": 588
+    }
+  },
+  {
+    "page_number": 9,
+    "text": "dengan baik",
+    "color": "light_gray",
+    "position": {
+      "x0": 624,
+      "y0": 457,
+      "x1": 703,
+      "y1": 479
+    }
+  },
+  {
+    "page_number": 9,
+    "text": "Menggunakan (Alveda etal, Menyisipkan Watermark",
+    "color": "light_gray",
+    "position": {
+      "x0": 241,
+      "y0": 368,
+      "x1": 739,
+      "y1": 395
+    }
+  },
+  {
+    "page_number": 9,
+    "text": "pada skripsi",
+    "color": "light_gray",
+    "position": {
+      "x0": 237,
+      "y0": 290,
+      "x1": 314,
+      "y1": 310
+    }
+  },
+  {
+    "page_number": 10,
+    "text": "(LSB) untuk",
+    "color": "blue",
+    "position": {
+      "x0": 498,
+      "y0": 436,
+      "x1": 586,
+      "y1": 462
+    }
+  },
+  {
+    "page_number": 10,
+    "text": "Significant Bit",
+    "color": "blue",
+    "position": {
+      "x0": 492,
+      "y0": 410,
+      "x1": 593,
+      "y1": 436
+    }
+  },
+  {
+    "page_number": 10,
+    "text": "steganografi Least",
+    "color": "blue",
+    "position": {
+      "x0": 480,
+      "y0": 382,
+      "x1": 605,
+      "y1": 409
+    }
+  },
+  {
+    "page_number": 10,
+    "text": "Mengguyakan",
+    "color": "blue",
+    "position": {
+      "x0": 547,
+      "y0": 339,
+      "x1": 603,
+      "y1": 381
+    }
+  },
+  {
+    "page_number": 10,
+    "text": "Mengguyakan steganografi Least Significant Bit (LSB) untuk menyisipkan",
+    "color": "blue",
+    "position": {
+      "x0": 479,
+      "y0": 339,
+      "x1": 607,
+      "y1": 490
+    }
+  },
+  {
+    "page_number": 10,
+    "text": "teknik steganografi",
+    "color": "light_gray",
+    "position": {
+      "x0": 481,
+      "y0": 972,
+      "x1": 583,
+      "y1": 994
+    }
+  },
+  {
+    "page_number": 10,
+    "text": "signifikan pada",
+    "color": "light_gray",
+    "position": {
+      "x0": 625,
+      "y0": 766,
+      "x1": 727,
+      "y1": 789
+    }
+  },
+  {
+    "page_number": 10,
+    "text": "sipkan yang",
+    "color": "light_gray",
+    "position": {
+      "x0": 625,
+      "y0": 658,
+      "x1": 727,
+      "y1": 677
+    }
+  },
+  {
+    "page_number": 11,
+    "text": "digabungkan",
+    "color": "light_gray",
+    "position": {
+      "x0": 639,
+      "y0": 291,
+      "x1": 716,
+      "y1": 312
+    }
+  },
+  {
+    "page_number": 11,
+    "text": "menyembunyikan",
+    "color": "light_gray",
+    "position": {
+      "x0": 513,
+      "y0": 263,
+      "x1": 596,
+      "y1": 283
+    }
+  },
+  {
+    "page_number": 12,
+    "text": "partisipasi dan",
+    "color": "light_gray",
+    "position": {
+      "x0": 634,
+      "y0": 660,
+      "x1": 723,
+      "y1": 677
+    }
+  },
+  {
+    "page_number": 12,
+    "text": "watermark dapat",
+    "color": "light_gray",
+    "position": {
+      "x0": 626,
+      "y0": 210,
+      "x1": 728,
+      "y1": 227
+    }
+  },
+  {
+    "page_number": 13,
+    "text": "kerentanan bahan ajar",
+    "color": "light_gray",
+    "position": {
+      "x0": 634,
+      "y0": 906,
+      "x1": 737,
+      "y1": 923
+    }
+  },
+  {
+    "page_number": 13,
+    "text": "terlihat) dalam konteks",
+    "color": "light_gray",
+    "position": {
+      "x0": 607,
+      "y0": 768,
+      "x1": 714,
+      "y1": 786
+    }
+  },
+  {
+    "page_number": 13,
+    "text": "steganograft",
+    "color": "light_gray",
+    "position": {
+      "x0": 318,
+      "y0": 765,
+      "x1": 403,
+      "y1": 788
+    }
+  },
+  {
+    "page_number": 13,
+    "text": "watermarking,",
+    "color": "light_gray",
+    "position": {
+      "x0": 645,
+      "y0": 561,
+      "x1": 733,
+      "y1": 582
+    }
+  },
+  {
+    "page_number": 13,
+    "text": "menggunakan",
+    "color": "light_gray",
+    "position": {
+      "x0": 273,
+      "y0": 479,
+      "x1": 347,
+      "y1": 501
+    }
+  },
+  {
+    "page_number": 15,
+    "text": "ar 1:",
+    "color": "green",
+    "position": {
+      "x0": 375,
+      "y0": 754,
+      "x1": 575,
+      "y1": 798
+    }
+  },
+  {
+    "page_number": 15,
+    "text": "ar 1:",
+    "color": "cyan",
+    "position": {
+      "x0": 375,
+      "y0": 755,
+      "x1": 447,
+      "y1": 795
+    }
+  },
+  {
+    "page_number": 15,
+    "text": "Perlindungan hak cipta kualitas visual",
+    "color": "light_gray",
+    "position": {
+      "x0": 438,
+      "y0": 702,
+      "x1": 496,
+      "y1": 731
+    }
+  },
+  {
+    "page_number": 15,
+    "text": "Kebutuhan",
+    "color": "light_gray",
+    "position": {
+      "x0": 365,
+      "y0": 330,
+      "x1": 587,
+      "y1": 354
+    }
+  },
+  {
+    "page_number": 16,
+    "text": "dipilih peneliti yang",
+    "color": "yellow",
+    "position": {
+      "x0": 354,
+      "y0": 386,
+      "x1": 477,
+      "y1": 405
+    }
+  },
+  {
+    "page_number": 16,
+    "text": "melakukan penelitian.",
+    "color": "yellow",
+    "position": {
+      "x0": 592,
+      "y0": 356,
+      "x1": 732,
+      "y1": 377
+    }
+  },
+  {
+    "page_number": 16,
+    "text": "memudahkan",
+    "color": "yellow",
+    "position": {
+      "x0": 405,
+      "y0": 356,
+      "x1": 486,
+      "y1": 377
+    }
+  },
+  {
+    "page_number": 16,
+    "text": "penelitian karena",
+    "color": "yellow",
+    "position": {
+      "x0": 291,
+      "y0": 355,
+      "x1": 402,
+      "y1": 377
+    }
+  },
+  {
+    "page_number": 16,
+    "text": "penting dalam",
+    "color": "yellow",
+    "position": {
+      "x0": 654,
+      "y0": 332,
+      "x1": 734,
+      "y1": 351
+    }
+  },
+  {
+    "page_number": 16,
+    "text": "lokasi penelitian merupakan langkah",
+    "color": "yellow",
+    "position": {
+      "x0": 417,
+      "y0": 332,
+      "x1": 647,
+      "y1": 352
+    }
+  },
+  {
+    "page_number": 16,
+    "text": "Pengljtian adalah Penentuan penelitian.",
+    "color": "yellow",
+    "position": {
+      "x0": 338,
+      "y0": 312,
+      "x1": 414,
+      "y1": 351
+    }
+  },
+  {
+    "page_number": 16,
+    "text": "‘Tempat Pengljtian adalah objek akan dilakukan suatu tempat atau yang Penentuan lokasi penelitian merupakan langkah penting dalam penelitian. penelitian karena memudahkan peneliti untuk melakukan penelitian. dipilih peneliti Lokusi penelitian adalah di Universitas Muhammadiyah yang",
+    "color": "peach",
+    "position": {
+      "x0": 281,
+      "y0": 312,
+      "x1": 741,
+      "y1": 408
+    }
+  },
+  {
+    "page_number": 16,
+    "text": "‘Tempat Pengljtian Penentuan",
+    "color": "green",
+    "position": {
+      "x0": 260,
+      "y0": 308,
+      "x1": 384,
+      "y1": 326
+    }
+  },
+  {
+    "page_number": 16,
+    "text": "objek akan tempat atau yang penelitian merupakan langkah penting",
+    "color": "green",
+    "position": {
+      "x0": 470,
+      "y0": 298,
+      "x1": 672,
+      "y1": 327
+    }
+  },
+  {
+    "page_number": 16,
+    "text": "‘Tempat Pengljtian Penentuan penelitian. suatu",
+    "color": "green",
+    "position": {
+      "x0": 258,
+      "y0": 299,
+      "x1": 385,
+      "y1": 354
+    }
+  },
+  {
+    "page_number": 16,
+    "text": "BABIN METODE PENELITIAN",
+    "color": "green",
+    "position": {
+      "x0": 385,
+      "y0": 202,
+      "x1": 567,
+      "y1": 257
+    }
+  },
+  {
+    "page_number": 16,
+    "text": "penelitian.",
+    "color": "cyan",
+    "position": {
+      "x0": 272,
+      "y0": 327,
+      "x1": 342,
+      "y1": 353
+    }
+  },
+  {
+    "page_number": 16,
+    "text": "A. Tempat dan Waktu Penelitian ‘Tempat Pengljtian adalah suatu Penentuan lokasi penelitian. suatu",
+    "color": "cyan",
+    "position": {
+      "x0": 210,
+      "y0": 272,
+      "x1": 448,
+      "y1": 354
+    }
+  },
+  {
+    "page_number": 16,
+    "text": "bulan, yaitu dimulai pada",
+    "color": "blue",
+    "position": {
+      "x0": 234,
+      "y0": 462,
+      "x1": 404,
+      "y1": 490
+    }
+  },
+  {
+    "page_number": 16,
+    "text": "Informatika Fakultas Teknik. jangka waktu kurang lebih 2 dilakukan",
+    "color": "blue",
+    "position": {
+      "x0": 497,
+      "y0": 419,
+      "x1": 741,
+      "y1": 463
+    }
+  },
+  {
+    "page_number": 16,
+    "text": "akan digunakan",
+    "color": "lavender",
+    "position": {
+      "x0": 513,
+      "y0": 873,
+      "x1": 589,
+      "y1": 902
+    }
+  },
+  {
+    "page_number": 16,
+    "text": "B. Alatdan Bahan ‘Alat penelitian",
+    "color": "lavender",
+    "position": {
+      "x0": 210,
+      "y0": 846,
+      "x1": 351,
+      "y1": 902
+    }
+  },
+  {
+    "page_number": 16,
+    "text": "Penulisan Laporan",
+    "color": "lavender",
+    "position": {
+      "x0": 243,
+      "y0": 777,
+      "x1": 409,
+      "y1": 806
+    }
+  },
+  {
+    "page_number": 16,
+    "text": "Desain Sistem",
+    "color": "lavender",
+    "position": {
+      "x0": 280,
+      "y0": 663,
+      "x1": 381,
+      "y1": 691
+    }
+  },
+  {
+    "page_number": 16,
+    "text": "Analisis Sistem",
+    "color": "lavender",
+    "position": {
+      "x0": 243,
+      "y0": 624,
+      "x1": 389,
+      "y1": 654
+    }
+  },
+  {
+    "page_number": 16,
+    "text": "JUNI JULI Iv",
+    "color": "lavender",
+    "position": {
+      "x0": 425,
+      "y0": 533,
+      "x1": 709,
+      "y1": 577
+    }
+  },
+  {
+    "page_number": 16,
+    "text": "Pengujian",
+    "color": "lavender",
+    "position": {
+      "x0": 347,
+      "y0": 740,
+      "x1": 401,
+      "y1": 768
+    }
+  },
+  {
+    "page_number": 16,
+    "text": "Intel(R) Processor",
+    "color": "light_gray",
+    "position": {
+      "x0": 309,
+      "y0": 1015,
+      "x1": 391,
+      "y1": 1034
+    }
+  },
+  {
+    "page_number": 17,
+    "text": "(Embedding)",
+    "color": "green",
+    "position": {
+      "x0": 390,
+      "y0": 641,
+      "x1": 460,
+      "y1": 665
+    }
+  },
+  {
+    "page_number": 17,
+    "text": "(extracting)",
+    "color": "green",
+    "position": {
+      "x0": 327,
+      "y0": 613,
+      "x1": 398,
+      "y1": 637
+    }
+  },
+  {
+    "page_number": 17,
+    "text": "(embedding)",
+    "color": "green",
+    "position": {
+      "x0": 655,
+      "y0": 584,
+      "x1": 741,
+      "y1": 612
+    }
+  },
+  {
+    "page_number": 17,
+    "text": "o utama, yaitu penyisipan tahapan",
+    "color": "green",
+    "position": {
+      "x0": 496,
+      "y0": 569,
+      "x1": 587,
+      "y1": 612
+    }
+  },
+  {
+    "page_number": 17,
+    "text": "dibagi menjadi dua tahapan (extracting) (Embedding) Penyisipan ini",
+    "color": "green",
+    "position": {
+      "x0": 324,
+      "y0": 590,
+      "x1": 474,
+      "y1": 667
+    }
+  },
+  {
+    "page_number": 17,
+    "text": "dan ckstraksi Proses 1. Penyisipan",
+    "color": "green",
+    "position": {
+      "x0": 235,
+      "y0": 612,
+      "x1": 312,
+      "y1": 666
+    }
+  },
+  {
+    "page_number": 17,
+    "text": "4 Ram GB",
+    "color": "blue",
+    "position": {
+      "x0": 371,
+      "y0": 201,
+      "x1": 449,
+      "y1": 230
+    }
+  },
+  {
+    "page_number": 17,
+    "text": "dilakukan yaitu",
+    "color": "lavender",
+    "position": {
+      "x0": 234,
+      "y0": 391,
+      "x1": 307,
+      "y1": 420
+    }
+  },
+  {
+    "page_number": 17,
+    "text": "terdiri dari dan observasi telah yang telah diberikan. digital yang guru",
+    "color": "lavender",
+    "position": {
+      "x0": 464,
+      "y0": 349,
+      "x1": 741,
+      "y1": 420
+    }
+  },
+  {
+    "page_number": 17,
+    "text": "Perancangan",
+    "color": "magenta",
+    "position": {
+      "x0": 260,
+      "y0": 450,
+      "x1": 348,
+      "y1": 477
+    }
+  },
+  {
+    "page_number": 17,
+    "text": "Perancangan Sistem",
+    "color": "magenta",
+    "position": {
+      "x0": 240,
+      "y0": 426,
+      "x1": 380,
+      "y1": 448
+    }
+  },
+  {
+    "page_number": 17,
+    "text": "telah C. Perancangan Sistem Perancangan sistem dalam penelitian ini",
+    "color": "lavender",
+    "position": {
+      "x0": 211,
+      "y0": 421,
+      "x1": 599,
+      "y1": 476
+    }
+  },
+  {
+    "page_number": 17,
+    "text": "gh terihat (iwisible menggunakan algoritma diterapkan",
+    "color": "red",
+    "position": {
+      "x0": 577,
+      "y0": 515,
+      "x1": 740,
+      "y1": 558
+    }
+  },
+  {
+    "page_number": 17,
+    "text": "Least Significant Bit (LSB). steganografi Proses dibagi menjadi dua tahapan ini",
+    "color": "red",
+    "position": {
+      "x0": 234,
+      "y0": 557,
+      "x1": 501,
+      "y1": 610
+    }
+  },
+  {
+    "page_number": 17,
+    "text": "sebuch gambar",
+    "color": "light_gray",
+    "position": {
+      "x0": 638,
+      "y0": 808,
+      "x1": 737,
+      "y1": 826
+    }
+  },
+  {
+    "page_number": 17,
+    "text": "penyisipan informasi",
+    "color": "light_gray",
+    "position": {
+      "x0": 393,
+      "y0": 483,
+      "x1": 489,
+      "y1": 501
+    }
+  },
+  {
+    "page_number": 17,
+    "text": "penelitian",
+    "color": "light_gray",
+    "position": {
+      "x0": 484,
+      "y0": 450,
+      "x1": 559,
+      "y1": 474
+    }
+  },
+  {
+    "page_number": 17,
+    "text": "telah diberikan. yang",
+    "color": "light_gray",
+    "position": {
+      "x0": 530,
+      "y0": 393,
+      "x1": 615,
+      "y1": 419
+    }
+  },
+  {
+    "page_number": 18,
+    "text": "mengandung",
+    "color": "green",
+    "position": {
+      "x0": 548,
+      "y0": 692,
+      "x1": 636,
+      "y1": 717
+    }
+  },
+  {
+    "page_number": 18,
+    "text": "identik dengan",
+    "color": "green",
+    "position": {
+      "x0": 281,
+      "y0": 690,
+      "x1": 389,
+      "y1": 719
+    }
+  },
+  {
+    "page_number": 18,
+    "text": "(stego image) yang secara mengandung telah data OR namun",
+    "color": "green",
+    "position": {
+      "x0": 466,
+      "y0": 648,
+      "x1": 694,
+      "y1": 718
+    }
+  },
+  {
+    "page_number": 18,
+    "text": "menggunakan Citra",
+    "color": "light_gray",
+    "position": {
+      "x0": 284,
+      "y0": 291,
+      "x1": 370,
+      "y1": 311
+    }
+  },
+  {
+    "page_number": 19,
+    "text": "ke dalam bentuk",
+    "color": "light_gray",
+    "position": {
+      "x0": 636,
+      "y0": 939,
+      "x1": 726,
+      "y1": 957
+    }
+  },
+  {
+    "page_number": 20,
+    "text": "bahwa \"ekstraksi",
+    "color": "light_gray",
+    "position": {
+      "x0": 377,
+      "y0": 696,
+      "x1": 458,
+      "y1": 715
+    }
+  },
+  {
+    "page_number": 21,
+    "text": "Pengujian sistem bertujuan untuk mengetahui kinerja",
+    "color": "blue",
+    "position": {
+      "x0": 261,
+      "y0": 679,
+      "x1": 599,
+      "y1": 703
+    }
+  },
+  {
+    "page_number": 21,
+    "text": "Gambar ‘Sistem Teknik",
+    "color": "blue",
+    "position": {
+      "x0": 285,
+      "y0": 635,
+      "x1": 410,
+      "y1": 675
+    }
+  },
+  {
+    "page_number": 21,
+    "text": "Gambar 3. Flowchart Proses Ekstraksi ‘Sistem Teknik Pengujian sistem bertujuan untuk mengetahui kinerja metode adalah diimplementasikan. Fokus pengujian pada aspek yang",
+    "color": "blue",
+    "position": {
+      "x0": 234,
+      "y0": 635,
+      "x1": 600,
+      "y1": 731
+    }
+  },
+  {
+    "page_number": 21,
+    "text": "observasi Melakukan visual untuk antara citra asli (cover image) dan citra hasil penyisipan (stego image)",
+    "color": "red",
+    "position": {
+      "x0": 279,
+      "y0": 851,
+      "x1": 736,
+      "y1": 894
+    }
+  },
+  {
+    "page_number": 22,
+    "text": "tingkat",
+    "color": "blue",
+    "position": {
+      "x0": 397,
+      "y0": 201,
+      "x1": 452,
+      "y1": 230
+    }
+  },
+  {
+    "page_number": 22,
+    "text": "Menghitung persentase",
+    "color": "light_gray",
+    "position": {
+      "x0": 357,
+      "y0": 890,
+      "x1": 457,
+      "y1": 911
+    }
+  },
+  {
+    "page_number": 22,
+    "text": "tidak \"gagal\"",
+    "color": "light_gray",
+    "position": {
+      "x0": 365,
+      "y0": 860,
+      "x1": 448,
+      "y1": 880
+    }
+  },
+  {
+    "page_number": 22,
+    "text": "Menganalisis",
+    "color": "light_gray",
+    "position": {
+      "x0": 308,
+      "y0": 672,
+      "x1": 398,
+      "y1": 694
+    }
+  },
+  {
+    "page_number": 22,
+    "text": "Kuantitatif (MSE",
+    "color": "light_gray",
+    "position": {
+      "x0": 333,
+      "y0": 644,
+      "x1": 425,
+      "y1": 663
+    }
+  },
+  {
+    "page_number": 22,
+    "text": "watermarking",
+    "color": "light_gray",
+    "position": {
+      "x0": 468,
+      "y0": 510,
+      "x1": 556,
+      "y1": 531
+    }
+  },
+  {
+    "page_number": 22,
+    "text": "penyisipan watermark",
+    "color": "light_gray",
+    "position": {
+      "x0": 385,
+      "y0": 427,
+      "x1": 493,
+      "y1": 443
+    }
+  },
+  {
+    "page_number": 23,
+    "text": "Manipulasi Menggunakan",
+    "color": "light_gray",
+    "position": {
+      "x0": 566,
+      "y0": 959,
+      "x1": 680,
+      "y1": 977
+    }
+  },
+  {
+    "page_number": 23,
+    "text": "Otentikasi pada",
+    "color": "light_gray",
+    "position": {
+      "x0": 390,
+      "y0": 959,
+      "x1": 480,
+      "y1": 977
+    }
+  },
+  {
+    "page_number": 23,
+    "text": "Tjahyaningtijas",
+    "color": "light_gray",
+    "position": {
+      "x0": 483,
+      "y0": 550,
+      "x1": 575,
+      "y1": 571
+    }
+  },
+  {
+    "page_number": 24,
+    "text": "MENGGUNAKAN",
+    "color": "light_gray",
+    "position": {
+      "x0": 390,
+      "y0": 505,
+      "x1": 473,
+      "y1": 524
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Surabaya Student Paper",
+    "color": "yellow",
+    "position": {
+      "x0": 150,
+      "y0": 904,
+      "x1": 289,
+      "y1": 946
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "17 Agustus",
+    "color": "yellow",
+    "position": {
+      "x0": 505,
+      "y0": 862,
+      "x1": 667,
+      "y1": 904
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Universitas",
+    "color": "peach",
+    "position": {
+      "x0": 342,
+      "y0": 863,
+      "x1": 505,
+      "y1": 897
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "1945",
+    "color": "peach",
+    "position": {
+      "x0": 668,
+      "y0": 862,
+      "x1": 743,
+      "y1": 897
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Submitted to",
+    "color": "yellow",
+    "position": {
+      "x0": 150,
+      "y0": 862,
+      "x1": 341,
+      "y1": 897
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Application",
+    "color": "green",
+    "position": {
+      "x0": 737,
+      "y0": 1449,
+      "x1": 791,
+      "y1": 1479
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Berbasis",
+    "color": "green",
+    "position": {
+      "x0": 504,
+      "y0": 1448,
+      "x1": 628,
+      "y1": 1480
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Cipher",
+    "color": "yellow",
+    "position": {
+      "x0": 448,
+      "y0": 1448,
+      "x1": 498,
+      "y1": 1480
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Enkripsi",
+    "color": "green",
+    "position": {
+      "x0": 187,
+      "y0": 1448,
+      "x1": 268,
+      "y1": 1486
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Vigenére",
+    "color": "green",
+    "position": {
+      "x0": 295,
+      "y0": 1447,
+      "x1": 399,
+      "y1": 1487
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "pada",
+    "color": "green",
+    "position": {
+      "x0": 351,
+      "y0": 1413,
+      "x1": 424,
+      "y1": 1440
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "dengan",
+    "color": "green",
+    "position": {
+      "x0": 597,
+      "y0": 1407,
+      "x1": 709,
+      "y1": 1448
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Citra",
+    "color": "green",
+    "position": {
+      "x0": 427,
+      "y0": 1407,
+      "x1": 499,
+      "y1": 1440
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Significant",
+    "color": "green",
+    "position": {
+      "x0": 152,
+      "y0": 1408,
+      "x1": 212,
+      "y1": 1447
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Digital",
+    "color": "green",
+    "position": {
+      "x0": 510,
+      "y0": 1407,
+      "x1": 595,
+      "y1": 1446
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Significant",
+    "color": "green",
+    "position": {
+      "x0": 219,
+      "y0": 1406,
+      "x1": 287,
+      "y1": 1439
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Least",
+    "color": "green",
+    "position": {
+      "x0": 710,
+      "y0": 1367,
+      "x1": 789,
+      "y1": 1399
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Arif Yahya.",
+    "color": "green",
+    "position": {
+      "x0": 339,
+      "y0": 1364,
+      "x1": 494,
+      "y1": 1406
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Moh",
+    "color": "green",
+    "position": {
+      "x0": 271,
+      "y0": 1366,
+      "x1": 338,
+      "y1": 1399
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "\"Implementasi",
+    "color": "green",
+    "position": {
+      "x0": 496,
+      "y0": 1365,
+      "x1": 707,
+      "y1": 1406
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Yuliana,",
+    "color": "green",
+    "position": {
+      "x0": 150,
+      "y0": 1365,
+      "x1": 267,
+      "y1": 1403
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Arif",
+    "color": "green",
+    "position": {
+      "x0": 340,
+      "y0": 1365,
+      "x1": 397,
+      "y1": 1398
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Lailani,",
+    "color": "green",
+    "position": {
+      "x0": 375,
+      "y0": 1325,
+      "x1": 477,
+      "y1": 1362
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Astuti,",
+    "color": "green",
+    "position": {
+      "x0": 656,
+      "y0": 1326,
+      "x1": 752,
+      "y1": 1361
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Ade",
+    "color": "green",
+    "position": {
+      "x0": 310,
+      "y0": 1325,
+      "x1": 372,
+      "y1": 1360
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Vidia",
+    "color": "green",
+    "position": {
+      "x0": 150,
+      "y0": 1325,
+      "x1": 226,
+      "y1": 1360
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Dyah",
+    "color": "green",
+    "position": {
+      "x0": 579,
+      "y0": 1325,
+      "x1": 655,
+      "y1": 1367
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Rohmi",
+    "color": "green",
+    "position": {
+      "x0": 480,
+      "y0": 1326,
+      "x1": 576,
+      "y1": 1359
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Cipher",
+    "color": "green",
+    "position": {
+      "x0": 401,
+      "y0": 1448,
+      "x1": 501,
+      "y1": 1487
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Significant pada Bit Vigenére Cipher",
+    "color": "green",
+    "position": {
+      "x0": 270,
+      "y0": 1407,
+      "x1": 425,
+      "y1": 1487
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Digital dengan Berbasis Application",
+    "color": "green",
+    "position": {
+      "x0": 502,
+      "y0": 1406,
+      "x1": 792,
+      "y1": 1487
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Significant Enkripsi Vigenére",
+    "color": "green",
+    "position": {
+      "x0": 151,
+      "y0": 1406,
+      "x1": 302,
+      "y1": 1487
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Vidia,",
+    "color": "green",
+    "position": {
+      "x0": 226,
+      "y0": 1325,
+      "x1": 309,
+      "y1": 1362
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "core.ac.uk",
+    "color": "green",
+    "position": {
+      "x0": 150,
+      "y0": 764,
+      "x1": 302,
+      "y1": 798
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "eprints.iain-surakarta.ac.id",
+    "color": "green",
+    "position": {
+      "x0": 152,
+      "y0": 669,
+      "x1": 222,
+      "y1": 706
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "eprints.iain-surakarta.ac.id",
+    "color": "green",
+    "position": {
+      "x0": 150,
+      "y0": 666,
+      "x1": 532,
+      "y1": 708
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "eprints.iain-surakarta.ac.id",
+    "color": "green",
+    "position": {
+      "x0": 188,
+      "y0": 668,
+      "x1": 345,
+      "y1": 700
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "text-id.123dok.com",
+    "color": "blue",
+    "position": {
+      "x0": 152,
+      "y0": 1100,
+      "x1": 212,
+      "y1": 1127
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "text-id.123dok.com",
+    "color": "blue",
+    "position": {
+      "x0": 152,
+      "y0": 1094,
+      "x1": 427,
+      "y1": 1128
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "text-id.123dok.com",
+    "color": "cyan",
+    "position": {
+      "x0": 152,
+      "y0": 1094,
+      "x1": 255,
+      "y1": 1128
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "&",
+    "color": "blue",
+    "position": {
+      "x0": 77,
+      "y0": 571,
+      "x1": 132,
+      "y1": 629
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "123dok.com",
+    "color": "blue",
+    "position": {
+      "x0": 153,
+      "y0": 568,
+      "x1": 331,
+      "y1": 602
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Utara",
+    "color": "lavender",
+    "position": {
+      "x0": 295,
+      "y0": 1232,
+      "x1": 380,
+      "y1": 1266
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Sumatera Student",
+    "color": "lavender",
+    "position": {
+      "x0": 151,
+      "y0": 1232,
+      "x1": 294,
+      "y1": 1266
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Submitted",
+    "color": "magenta",
+    "position": {
+      "x0": 241,
+      "y0": 1197,
+      "x1": 302,
+      "y1": 1225
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Negeri",
+    "color": "lavender",
+    "position": {
+      "x0": 588,
+      "y0": 1191,
+      "x1": 687,
+      "y1": 1233
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Makassar Student",
+    "color": "magenta",
+    "position": {
+      "x0": 151,
+      "y0": 476,
+      "x1": 294,
+      "y1": 511
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Universitas",
+    "color": "magenta",
+    "position": {
+      "x0": 342,
+      "y0": 437,
+      "x1": 504,
+      "y1": 470
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Muhammadiyah Universitas",
+    "color": "magenta",
+    "position": {
+      "x0": 342,
+      "y0": 435,
+      "x1": 741,
+      "y1": 478
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Submitted to",
+    "color": "magenta",
+    "position": {
+      "x0": 150,
+      "y0": 435,
+      "x1": 341,
+      "y1": 470
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "peas",
+    "color": "magenta",
+    "position": {
+      "x0": 77,
+      "y0": 1195,
+      "x1": 132,
+      "y1": 1251
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Islam",
+    "color": "lavender",
+    "position": {
+      "x0": 505,
+      "y0": 1192,
+      "x1": 586,
+      "y1": 1225
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Islam Universitas",
+    "color": "lavender",
+    "position": {
+      "x0": 342,
+      "y0": 1192,
+      "x1": 586,
+      "y1": 1226
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Submitted to",
+    "color": "lavender",
+    "position": {
+      "x0": 151,
+      "y0": 1191,
+      "x1": 341,
+      "y1": 1226
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "digilibadmin.unismuh.ac.id",
+    "color": "red",
+    "position": {
+      "x0": 333,
+      "y0": 339,
+      "x1": 535,
+      "y1": 372
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "digilibadmin.unismuh.ac.id",
+    "color": "red",
+    "position": {
+      "x0": 150,
+      "y0": 339,
+      "x1": 331,
+      "y1": 379
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "14,",
+    "color": "red",
+    "position": {
+      "x0": 86,
+      "y0": 151,
+      "x1": 117,
+      "y1": 224
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "14,",
+    "color": "red",
+    "position": {
+      "x0": 128,
+      "y0": 151,
+      "x1": 183,
+      "y1": 224
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "digilibadmin.unismuh.ac.id",
+    "color": "red",
+    "position": {
+      "x0": 463,
+      "y0": 342,
+      "x1": 535,
+      "y1": 371
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Berbasis",
+    "color": "light_yellow",
+    "position": {
+      "x0": 526,
+      "y0": 1447,
+      "x1": 582,
+      "y1": 1479
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "pada Vigenére",
+    "color": "light_yellow",
+    "position": {
+      "x0": 351,
+      "y0": 1412,
+      "x1": 377,
+      "y1": 1479
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Surabaya",
+    "color": "light_yellow",
+    "position": {
+      "x0": 152,
+      "y0": 906,
+      "x1": 204,
+      "y1": 937
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Submitted",
+    "color": "peach",
+    "position": {
+      "x0": 184,
+      "y0": 862,
+      "x1": 246,
+      "y1": 896
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "eprints.iain-surakarta.ac.id",
+    "color": "light_cyan",
+    "position": {
+      "x0": 352,
+      "y0": 667,
+      "x1": 411,
+      "y1": 699
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Universitas",
+    "color": "lavender",
+    "position": {
+      "x0": 446,
+      "y0": 438,
+      "x1": 502,
+      "y1": 470
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Muhammadiyah",
+    "color": "lavender",
+    "position": {
+      "x0": 638,
+      "y0": 437,
+      "x1": 728,
+      "y1": 469
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Muhammadiyah",
+    "color": "lavender",
+    "position": {
+      "x0": 506,
+      "y0": 437,
+      "x1": 573,
+      "y1": 469
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Surabaya",
+    "color": "peach",
+    "position": {
+      "x0": 231,
+      "y0": 911,
+      "x1": 283,
+      "y1": 945
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Student Paper",
+    "color": "light_gray",
+    "position": {
+      "x0": 158,
+      "y0": 1271,
+      "x1": 267,
+      "y1": 1294
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Student Paper",
+    "color": "light_gray",
+    "position": {
+      "x0": 181,
+      "y0": 941,
+      "x1": 274,
+      "y1": 964
+    }
+  },
+  {
+    "page_number": 25,
+    "text": "Internet Source",
+    "color": "light_gray",
+    "position": {
+      "x0": 157,
+      "y0": 376,
+      "x1": 265,
+      "y1": 396
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "=",
+    "color": "yellow",
+    "position": {
+      "x0": 77,
+      "y0": 921,
+      "x1": 132,
+      "y1": 978
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "repository.um-palembang.ac.id Source",
+    "color": "yellow",
+    "position": {
+      "x0": 151,
+      "y0": 918,
+      "x1": 596,
+      "y1": 960
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "jurnal.umt.ac.id",
+    "color": "green",
+    "position": {
+      "x0": 167,
+      "y0": 1318,
+      "x1": 230,
+      "y1": 1344
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "jurnal.umt.ac.id",
+    "color": "green",
+    "position": {
+      "x0": 306,
+      "y0": 1312,
+      "x1": 375,
+      "y1": 1344
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "2025",
+    "color": "green",
+    "position": {
+      "x0": 585,
+      "y0": 139,
+      "x1": 660,
+      "y1": 173
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "Observasi",
+    "color": "green",
+    "position": {
+      "x0": 151,
+      "y0": 139,
+      "x1": 296,
+      "y1": 173
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "Informatika),",
+    "color": "green",
+    "position": {
+      "x0": 399,
+      "y0": 138,
+      "x1": 582,
+      "y1": 178
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "Teknik",
+    "color": "green",
+    "position": {
+      "x0": 303,
+      "y0": 140,
+      "x1": 395,
+      "y1": 172
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "dan",
+    "color": "green",
+    "position": {
+      "x0": 616,
+      "y0": 99,
+      "x1": 676,
+      "y1": 132
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "ProTekinfo(Pengembangan",
+    "color": "green",
+    "position": {
+      "x0": 258,
+      "y0": 98,
+      "x1": 538,
+      "y1": 139
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "Interface\",",
+    "color": "green",
+    "position": {
+      "x0": 353,
+      "y0": 58,
+      "x1": 495,
+      "y1": 92
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "Programming",
+    "color": "green",
+    "position": {
+      "x0": 153,
+      "y0": 59,
+      "x1": 325,
+      "y1": 97
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "jurnal.umt.ac.id",
+    "color": "green",
+    "position": {
+      "x0": 148,
+      "y0": 1311,
+      "x1": 377,
+      "y1": 1352
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "Riset",
+    "color": "green",
+    "position": {
+      "x0": 542,
+      "y0": 99,
+      "x1": 615,
+      "y1": 133
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "Interface\", Programming ProTekinfo(Pengembangan Observasi Teknik Informatika),",
+    "color": "green",
+    "position": {
+      "x0": 151,
+      "y0": 59,
+      "x1": 538,
+      "y1": 173
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "=",
+    "color": "green",
+    "position": {
+      "x0": 77,
+      "y0": 823,
+      "x1": 132,
+      "y1": 879
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "jurnal.untan.ac.id",
+    "color": "green",
+    "position": {
+      "x0": 148,
+      "y0": 819,
+      "x1": 403,
+      "y1": 862
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "journal.unismuh.ac.id",
+    "color": "green",
+    "position": {
+      "x0": 149,
+      "y0": 723,
+      "x1": 256,
+      "y1": 763
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "journal.unismuh.ac.id",
+    "color": "green",
+    "position": {
+      "x0": 303,
+      "y0": 723,
+      "x1": 461,
+      "y1": 756
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "a",
+    "color": "green",
+    "position": {
+      "x0": 77,
+      "y0": 725,
+      "x1": 132,
+      "y1": 782
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "jurnal.umt.ac.id",
+    "color": "green",
+    "position": {
+      "x0": 234,
+      "y0": 1315,
+      "x1": 303,
+      "y1": 1345
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "journal.unismuh.ac.id Internet Source",
+    "color": "cyan",
+    "position": {
+      "x0": 148,
+      "y0": 722,
+      "x1": 462,
+      "y1": 764
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "= N",
+    "color": "blue",
+    "position": {
+      "x0": 77,
+      "y0": 333,
+      "x1": 132,
+      "y1": 389
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "sinta.unud.ac.id",
+    "color": "blue",
+    "position": {
+      "x0": 288,
+      "y0": 1116,
+      "x1": 345,
+      "y1": 1148
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "sinta.unud.ac.id",
+    "color": "blue",
+    "position": {
+      "x0": 151,
+      "y0": 1115,
+      "x1": 380,
+      "y1": 1149
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "journalpedia.com",
+    "color": "cyan",
+    "position": {
+      "x0": 277,
+      "y0": 331,
+      "x1": 334,
+      "y1": 362
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "N",
+    "color": "blue",
+    "position": {
+      "x0": 79,
+      "y0": 1120,
+      "x1": 132,
+      "y1": 1173
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "journalpedia.com Internet Source",
+    "color": "blue",
+    "position": {
+      "x0": 148,
+      "y0": 329,
+      "x1": 404,
+      "y1": 372
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "=",
+    "color": "blue",
+    "position": {
+      "x0": 77,
+      "y0": 627,
+      "x1": 132,
+      "y1": 683
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "ejournal.unjaya.ac.id",
+    "color": "blue",
+    "position": {
+      "x0": 150,
+      "y0": 623,
+      "x1": 448,
+      "y1": 666
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "publikasiilmiah.unwahas.ac.id",
+    "color": "blue",
+    "position": {
+      "x0": 364,
+      "y0": 1414,
+      "x1": 575,
+      "y1": 1443
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "publikasiilmiah.unwahas.ac.id",
+    "color": "blue",
+    "position": {
+      "x0": 277,
+      "y0": 1410,
+      "x1": 366,
+      "y1": 1442
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "publikasiilmiah.unwahas.ac.id",
+    "color": "blue",
+    "position": {
+      "x0": 223,
+      "y0": 1410,
+      "x1": 275,
+      "y1": 1442
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "publikasiilmiah.unwahas.ac.id",
+    "color": "blue",
+    "position": {
+      "x0": 152,
+      "y0": 1409,
+      "x1": 221,
+      "y1": 1448
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "=",
+    "color": "blue",
+    "position": {
+      "x0": 77,
+      "y0": 234,
+      "x1": 132,
+      "y1": 291
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "idoc.pub",
+    "color": "blue",
+    "position": {
+      "x0": 151,
+      "y0": 232,
+      "x1": 280,
+      "y1": 273
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "publikasiilmiah.unwahas.ac.id",
+    "color": "blue",
+    "position": {
+      "x0": 151,
+      "y0": 1409,
+      "x1": 576,
+      "y1": 1450
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "ejournal.unjaya.ac.id",
+    "color": "magenta",
+    "position": {
+      "x0": 376,
+      "y0": 624,
+      "x1": 448,
+      "y1": 658
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "lib.unnes.ac.id",
+    "color": "magenta",
+    "position": {
+      "x0": 151,
+      "y0": 525,
+      "x1": 359,
+      "y1": 560
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "=",
+    "color": "lavender",
+    "position": {
+      "x0": 77,
+      "y0": 1215,
+      "x1": 131,
+      "y1": 1272
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "docplayer.info",
+    "color": "lavender",
+    "position": {
+      "x0": 150,
+      "y0": 1211,
+      "x1": 358,
+      "y1": 1254
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "University",
+    "color": "red",
+    "position": {
+      "x0": 481,
+      "y0": 428,
+      "x1": 628,
+      "y1": 467
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "=",
+    "color": "red",
+    "position": {
+      "x0": 78,
+      "y0": 430,
+      "x1": 131,
+      "y1": 486
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "Surabaya",
+    "color": "red",
+    "position": {
+      "x0": 342,
+      "y0": 428,
+      "x1": 479,
+      "y1": 467
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "Submitted",
+    "color": "red",
+    "position": {
+      "x0": 241,
+      "y0": 428,
+      "x1": 303,
+      "y1": 461
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "Submitted",
+    "color": "red",
+    "position": {
+      "x0": 152,
+      "y0": 428,
+      "x1": 211,
+      "y1": 460
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "Submitted",
+    "color": "red",
+    "position": {
+      "x0": 151,
+      "y0": 428,
+      "x1": 303,
+      "y1": 462
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "repository.unpkediri.ac.id",
+    "color": "red",
+    "position": {
+      "x0": 394,
+      "y0": 1017,
+      "x1": 477,
+      "y1": 1049
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "repository.unpkediri.ac.id",
+    "color": "red",
+    "position": {
+      "x0": 152,
+      "y0": 1016,
+      "x1": 516,
+      "y1": 1057
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "ite} =",
+    "color": "red",
+    "position": {
+      "x0": 88,
+      "y0": 1021,
+      "x1": 130,
+      "y1": 1063
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "repository.um-palembang.ac.id",
+    "color": "peach",
+    "position": {
+      "x0": 153,
+      "y0": 926,
+      "x1": 217,
+      "y1": 960
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "repository.um-palembang.ac.id",
+    "color": "peach",
+    "position": {
+      "x0": 218,
+      "y0": 920,
+      "x1": 308,
+      "y1": 959
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "repository.um-palembang.ac.id",
+    "color": "light_yellow",
+    "position": {
+      "x0": 323,
+      "y0": 920,
+      "x1": 431,
+      "y1": 959
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "repository.um-palembang.ac.id",
+    "color": "peach",
+    "position": {
+      "x0": 448,
+      "y0": 919,
+      "x1": 591,
+      "y1": 959
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "journal.unismuh.ac.id",
+    "color": "light_cyan",
+    "position": {
+      "x0": 284,
+      "y0": 723,
+      "x1": 372,
+      "y1": 756
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "journal.unismuh.ac.id",
+    "color": "light_cyan",
+    "position": {
+      "x0": 228,
+      "y0": 723,
+      "x1": 289,
+      "y1": 756
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "publikasiilmiah.unwahas.ac.id",
+    "color": "light_blue",
+    "position": {
+      "x0": 448,
+      "y0": 1410,
+      "x1": 519,
+      "y1": 1442
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "publikasiilmiah.unwahas.ac.id",
+    "color": "light_blue",
+    "position": {
+      "x0": 190,
+      "y0": 1409,
+      "x1": 389,
+      "y1": 1442
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "repository.unpkediri.ac.id",
+    "color": "peach",
+    "position": {
+      "x0": 273,
+      "y0": 1023,
+      "x1": 353,
+      "y1": 1056
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "repository.um-palembang.ac.id",
+    "color": "peach",
+    "position": {
+      "x0": 310,
+      "y0": 925,
+      "x1": 371,
+      "y1": 959
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "repository.um-palembang.ac.id",
+    "color": "peach",
+    "position": {
+      "x0": 372,
+      "y0": 919,
+      "x1": 441,
+      "y1": 952
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "Source Internet",
+    "color": "light_gray",
+    "position": {
+      "x0": 156,
+      "y0": 956,
+      "x1": 285,
+      "y1": 977
+    }
+  },
+  {
+    "page_number": 26,
+    "text": "Student",
+    "color": "light_gray",
+    "position": {
+      "x0": 152,
+      "y0": 466,
+      "x1": 222,
+      "y1": 488
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "30",
+    "color": "yellow",
+    "position": {
+      "x0": 77,
+      "y0": 862,
+      "x1": 132,
+      "y1": 919
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "I. i.ac.id j",
+    "color": "yellow",
+    "position": {
+      "x0": 150,
+      "y0": 859,
+      "x1": 403,
+      "y1": 902
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "2022",
+    "color": "green",
+    "position": {
+      "x0": 462,
+      "y0": 767,
+      "x1": 538,
+      "y1": 801
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "Ekonomi),",
+    "color": "green",
+    "position": {
+      "x0": 316,
+      "y0": 766,
+      "x1": 461,
+      "y1": 805
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "Pendidikan",
+    "color": "green",
+    "position": {
+      "x0": 151,
+      "y0": 766,
+      "x1": 315,
+      "y1": 801
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "(Jurnal",
+    "color": "green",
+    "position": {
+      "x0": 570,
+      "y0": 728,
+      "x1": 668,
+      "y1": 766
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "(Jurnal",
+    "color": "green",
+    "position": {
+      "x0": 428,
+      "y0": 726,
+      "x1": 669,
+      "y1": 767
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "KEWIRAUSAHAAN\",",
+    "color": "green",
+    "position": {
+      "x0": 151,
+      "y0": 727,
+      "x1": 427,
+      "y1": 764
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "KULIAH",
+    "color": "green",
+    "position": {
+      "x0": 422,
+      "y0": 687,
+      "x1": 532,
+      "y1": 720
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "MATA",
+    "color": "green",
+    "position": {
+      "x0": 332,
+      "y0": 687,
+      "x1": 421,
+      "y1": 721
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "PADA",
+    "color": "green",
+    "position": {
+      "x0": 247,
+      "y0": 687,
+      "x1": 331,
+      "y1": 721
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "ISLAM",
+    "color": "green",
+    "position": {
+      "x0": 151,
+      "y0": 686,
+      "x1": 244,
+      "y1": 721
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "NILAI-NILAI",
+    "color": "green",
+    "position": {
+      "x0": 631,
+      "y0": 646,
+      "x1": 795,
+      "y1": 680
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "YANG",
+    "color": "green",
+    "position": {
+      "x0": 407,
+      "y0": 647,
+      "x1": 495,
+      "y1": 680
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "DISERTAI",
+    "color": "green",
+    "position": {
+      "x0": 497,
+      "y0": 646,
+      "x1": 629,
+      "y1": 680
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "KEWIRAUSAHAAN YANG",
+    "color": "green",
+    "position": {
+      "x0": 151,
+      "y0": 646,
+      "x1": 496,
+      "y1": 680
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "AJAR",
+    "color": "green",
+    "position": {
+      "x0": 493,
+      "y0": 605,
+      "x1": 566,
+      "y1": 644
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "BAHAN AJAR",
+    "color": "green",
+    "position": {
+      "x0": 385,
+      "y0": 604,
+      "x1": 566,
+      "y1": 644
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "\"IMPLEMENTAS!",
+    "color": "green",
+    "position": {
+      "x0": 151,
+      "y0": 604,
+      "x1": 383,
+      "y1": 639
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "Ira Vahlia,",
+    "color": "green",
+    "position": {
+      "x0": 365,
+      "y0": 564,
+      "x1": 508,
+      "y1": 601
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "Sholiha.",
+    "color": "green",
+    "position": {
+      "x0": 672,
+      "y0": 564,
+      "x1": 790,
+      "y1": 598
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "Sangidatus Sholiha. AJAR DIGITAL",
+    "color": "green",
+    "position": {
+      "x0": 510,
+      "y0": 564,
+      "x1": 684,
+      "y1": 638
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "Afwan, Bahtiar",
+    "color": "green",
+    "position": {
+      "x0": 151,
+      "y0": 562,
+      "x1": 362,
+      "y1": 601
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "Afwan,",
+    "color": "green",
+    "position": {
+      "x0": 261,
+      "y0": 563,
+      "x1": 362,
+      "y1": 599
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "A",
+    "color": "green",
+    "position": {
+      "x0": 151,
+      "y0": 472,
+      "x1": 229,
+      "y1": 498
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "hgate.net A",
+    "color": "green",
+    "position": {
+      "x0": 149,
+      "y0": 465,
+      "x1": 474,
+      "y1": 507
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "PADA MATA KULIAH",
+    "color": "green",
+    "position": {
+      "x0": 246,
+      "y0": 686,
+      "x1": 533,
+      "y1": 721
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "Ira Vahlia, Sangidatus Sholiha. BAHAN AJAR DIGITAL",
+    "color": "green",
+    "position": {
+      "x0": 384,
+      "y0": 563,
+      "x1": 790,
+      "y1": 644
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "hgate.net",
+    "color": "green",
+    "position": {
+      "x0": 370,
+      "y0": 468,
+      "x1": 474,
+      "y1": 499
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "acid",
+    "color": "cyan",
+    "position": {
+      "x0": 334,
+      "y0": 79,
+      "x1": 423,
+      "y1": 113
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "mm",
+    "color": "blue",
+    "position": {
+      "x0": 77,
+      "y0": 371,
+      "x1": 132,
+      "y1": 428
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "repository.poltekkes-tjk.ac.id P J",
+    "color": "blue",
+    "position": {
+      "x0": 151,
+      "y0": 367,
+      "x1": 561,
+      "y1": 410
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "acid",
+    "color": "blue",
+    "position": {
+      "x0": 150,
+      "y0": 73,
+      "x1": 478,
+      "y1": 115
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "repository.poltekkes-tjk.ac.id J",
+    "color": "magenta",
+    "position": {
+      "x0": 447,
+      "y0": 369,
+      "x1": 560,
+      "y1": 409
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "jom.fti.budiluhur.ac.id Jom.",
+    "color": "red",
+    "position": {
+      "x0": 151,
+      "y0": 175,
+      "x1": 247,
+      "y1": 211
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "jom.fti.budiluhur.ac.id",
+    "color": "red",
+    "position": {
+      "x0": 331,
+      "y0": 177,
+      "x1": 390,
+      "y1": 204
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "25",
+    "color": "red",
+    "position": {
+      "x0": 78,
+      "y0": 176,
+      "x1": 131,
+      "y1": 232
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "jom.fti.budiluhur.ac.id",
+    "color": "red",
+    "position": {
+      "x0": 249,
+      "y0": 172,
+      "x1": 393,
+      "y1": 206
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "jom.fti.budiluhur.ac.id",
+    "color": "red",
+    "position": {
+      "x0": 395,
+      "y0": 174,
+      "x1": 467,
+      "y1": 205
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "jurnal.pnk.ac.id",
+    "color": "red",
+    "position": {
+      "x0": 149,
+      "y0": 963,
+      "x1": 230,
+      "y1": 997
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "jurnal.pnk.ac.id",
+    "color": "red",
+    "position": {
+      "x0": 234,
+      "y0": 957,
+      "x1": 338,
+      "y1": 996
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "jurnal.pnk.ac.id",
+    "color": "red",
+    "position": {
+      "x0": 148,
+      "y0": 956,
+      "x1": 372,
+      "y1": 997
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "i.ac.id",
+    "color": "peach",
+    "position": {
+      "x0": 325,
+      "y0": 861,
+      "x1": 389,
+      "y1": 894
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "Pendidikan",
+    "color": "light_green",
+    "position": {
+      "x0": 217,
+      "y0": 767,
+      "x1": 294,
+      "y1": 799
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "KEWIRAUSAHAAN\",",
+    "color": "light_green",
+    "position": {
+      "x0": 202,
+      "y0": 729,
+      "x1": 273,
+      "y1": 761
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "KEWIRAUSAHAAN\",",
+    "color": "light_green",
+    "position": {
+      "x0": 333,
+      "y0": 728,
+      "x1": 394,
+      "y1": 761
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "KEWIRAUSAHAAN\",",
+    "color": "light_green",
+    "position": {
+      "x0": 275,
+      "y0": 728,
+      "x1": 331,
+      "y1": 761
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "KEWIRAUSAHAAN\",",
+    "color": "light_green",
+    "position": {
+      "x0": 153,
+      "y0": 728,
+      "x1": 200,
+      "y1": 761
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "NILAI-NILAI",
+    "color": "light_green",
+    "position": {
+      "x0": 664,
+      "y0": 647,
+      "x1": 712,
+      "y1": 679
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "KEWIRAUSAHAAN",
+    "color": "light_green",
+    "position": {
+      "x0": 334,
+      "y0": 647,
+      "x1": 394,
+      "y1": 678
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "KEWIRAUSAHAAN",
+    "color": "light_green",
+    "position": {
+      "x0": 175,
+      "y0": 647,
+      "x1": 252,
+      "y1": 679
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "DIGITAL",
+    "color": "light_green",
+    "position": {
+      "x0": 611,
+      "y0": 605,
+      "x1": 685,
+      "y1": 638
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "Bahtiar",
+    "color": "light_green",
+    "position": {
+      "x0": 172,
+      "y0": 565,
+      "x1": 261,
+      "y1": 597
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "Sangidatus",
+    "color": "light_green",
+    "position": {
+      "x0": 510,
+      "y0": 564,
+      "x1": 644,
+      "y1": 604
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "Afwan,",
+    "color": "light_green",
+    "position": {
+      "x0": 260,
+      "y0": 564,
+      "x1": 307,
+      "y1": 597
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "A",
+    "color": "light_cyan",
+    "position": {
+      "x0": 203,
+      "y0": 472,
+      "x1": 319,
+      "y1": 498
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "hgate.net",
+    "color": "light_cyan",
+    "position": {
+      "x0": 311,
+      "y0": 465,
+      "x1": 370,
+      "y1": 503
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "I. i.ac.id",
+    "color": "peach",
+    "position": {
+      "x0": 232,
+      "y0": 862,
+      "x1": 329,
+      "y1": 894
+    }
+  },
+  {
+    "page_number": 27,
+    "text": "j",
+    "color": "peach",
+    "position": {
+      "x0": 156,
+      "y0": 862,
+      "x1": 222,
+      "y1": 900
+    }
+  }
+]

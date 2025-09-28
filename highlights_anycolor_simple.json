@@ -1,0 +1,394 @@
+[
+  {
+    "text": "A, Latar Belakang Era digital telah",
+    "color": "pink"
+  },
+  {
+    "text": "20: Bit Least Significant (LSB) adalah teknik digunakan dalam yang umum enkripsi dan dekripsi Seperti dinyatakan oleh (Nur yang Cara Aminullah 2022) kerja metode LSB yaitu mengubah bit Agsal al., et Khir (bit paling tidak signifikan) dari data piksel yang (cover image) yang berpengaruh signifikan dengan bit dari gumbar salah satu yang ini merupakan sebelumnya, Metode teknik steganografi umum",
+    "color": "pink"
+  },
+  {
+    "text": "digital. Penelitian",
+    "color": "pink"
+  },
+  {
+    "text": "dengan Quick Response (QR) Code sebagal dan metode steganograft Least Significant Bit (LSB) watermark penyisipan teknik data",
+    "color": "pink"
+  },
+  {
+    "text": "dan ekstraksi watermark akurat. secara 8 B. Rumusan Masalah Berdasarkan latar belakang yang telah diuraikan, maka rumusan masalah dalam penelitian ini adalah sebagai berikut: implementasi stem watermarking tak terlihat pada bahan ajar code",
+    "color": "pink"
+  },
+  {
+    "text": "bab yang sebagai BAB | PENDAHULUAN Bab ini menerangkan singkat dan jelas mengenai latar secara penulisan penelitian tugas akhir, rumusan masalah, tujuan dan manfaat, batasan permasalahan, metodologi yang digunakan dan sistematika penulisan, BAB II TINJAUAN PUSTAKA Pada bab ini membahas tentang teori-teori yang penulis dalam melandasi melaksanakan penelitian, BAB II] METODE PENELITIAN Membabhas metode penelitian dan alat digunakan untuk tentang yang pembuatan sistem.",
+    "color": "pink"
+  },
+  {
+    "text": "LSB tidak dapat dipertahankan",
+    "color": "pink"
+  },
+  {
+    "text": "sieganografi dan QR Code. ‘Ruang Lingkup Penelitian Penelitian ini dibatasi pada 1.",
+    "color": "pink"
+  },
+  {
+    "text": "litian ini Digital",
+    "color": "pink"
+  },
+  {
+    "text": "Watermarking teknik penyisipan informasi Watermarking adalah dalam data digital (seperti citra, audio, video) dengan atau cipta, autentikasi",
+    "color": "pink"
+  },
+  {
+    "text": "Landasan Teori A, Ajar 1. Bahan Digital Bahan ajar",
+    "color": "pink"
+  },
+  {
+    "text": "PUSTAKA",
+    "color": "pink"
+  },
+  {
+    "text": "Metode Least Bit (LSB) Significant Least Significant Bit (LSB) domain spasial paling dan yang umum",
+    "color": "pink"
+  },
+  {
+    "text": "Steganografi berasal dari bahasa Yunani yang berarti \"tulisan Ini seni menyembunyikan adalah ilmu dan keberadaan pesan rahasia dalam lain (disebut di object media peaampung) atau media cover sedemikian keberadaan tidak terdeteksi oleh tersebut rupa pesan",
+    "color": "pink"
+  },
+  {
+    "text": "ke dalam bahan ajar digital. dalam",
+    "color": "cyan"
+  },
+  {
+    "text": "dut (Harits M al., et jumlah yang",
+    "color": "pink"
+  },
+  {
+    "text": "jenis kode batang dua dimensi yang informasi alfanumerik, jenis (numerik, biner)",
+    "color": "pink"
+  },
+  {
+    "text": "al., 2021). et Quick Response (OR) Code QR Code adalah jenis ‘menyimpan informasi berbagai jenis",
+    "color": "pink"
+  },
+  {
+    "text": "Peneliti (Alveda etal,",
+    "color": "pink"
+  },
+  {
+    "text": "Penelitian Terkait Peneliti memperolch banyak inspirasi dan referensi untuk int dari dengan ini. Penelitian sebelumnya terkait meliputi: pada skripsi yang Tabel Penelitian Terkait 1.",
+    "color": "pink"
+  },
+  {
+    "text": "Mengguyakan steganografi Least Significant Bit (LSB) untuk menyisipkan",
+    "color": "pink"
+  },
+  {
+    "text": "ar 1:",
+    "color": "pink"
+  },
+  {
+    "text": "B. Alatdan Bahan ‘Alat penelitian",
+    "color": "pink"
+  },
+  {
+    "text": "JUNI JULI Iv",
+    "color": "pink"
+  },
+  {
+    "text": "Informatika Fakultas Teknik. jangka waktu kurang lebih 2 dilakukan",
+    "color": "pink"
+  },
+  {
+    "text": "A. Tempat dan Waktu Penelitian ‘Tempat Pengljtian adalah objek akan dilakukan suatu tempat atau yang Penentuan lokasi penelitian merupakan langkah penting dalam penelitian. suatu penelitian karena memudahkan peneliti untuk melakukan penelitian. proses dipilih peneliti Lokusi penelitian adalah di Universitas Muhammadiyah yang",
+    "color": "pink"
+  },
+  {
+    "text": "BABIN METODE PENELITIAN",
+    "color": "pink"
+  },
+  {
+    "text": "(extracting) (Embedding) Penyisipan ini",
+    "color": "pink"
+  },
+  {
+    "text": "Least Significant Bit (LSB). steganografi o utama, yaitu Proses dibagi menjadi dua tahapan ini dan ckstraksi (extracting) Proses (Embedding) 1. Penyisipan ini",
+    "color": "pink"
+  },
+  {
+    "text": "gh terihat (iwisible menggunakan algoritma diterapkan",
+    "color": "pink"
+  },
+  {
+    "text": "C. Perancangan Sistem Perancangan sistem dalam penelitian ini",
+    "color": "pink"
+  },
+  {
+    "text": "terdiri dari dan observasi telah yang telah diberikan. digital yang guru",
+    "color": "pink"
+  },
+  {
+    "text": "(stego image) yang mengandung telah data namun",
+    "color": "pink"
+  },
+  {
+    "text": "observasi Melakukan visual untuk antara citra asli (cover image) dan citra hasil penyisipan (stego image)",
+    "color": "pink"
+  },
+  {
+    "text": "Gambar 3. Flowchart Proses Ekstraksi ‘Sistem Teknik Pengujian sistem bertujuan untuk mengetahui kinerja adalah diimplementasikan. Fokus pengujian pada aspek yang",
+    "color": "pink"
+  },
+  {
+    "text": "dengan",
+    "color": "pink"
+  },
+  {
+    "text": "Digital dengan Berbasis Application",
+    "color": "pink"
+  },
+  {
+    "text": "Significant pada Bit Citra Enkripsi Vigenére Cipher",
+    "color": "pink"
+  },
+  {
+    "text": "Least",
+    "color": "pink"
+  },
+  {
+    "text": "\"Implementasi",
+    "color": "pink"
+  },
+  {
+    "text": "Yuliana,",
+    "color": "pink"
+  },
+  {
+    "text": "Arif Yahya. pada Bit Citra",
+    "color": "pink"
+  },
+  {
+    "text": "Dyah Astuti,",
+    "color": "pink"
+  },
+  {
+    "text": "Rohmi",
+    "color": "pink"
+  },
+  {
+    "text": "Lailani,",
+    "color": "pink"
+  },
+  {
+    "text": "Ade",
+    "color": "pink"
+  },
+  {
+    "text": "Vidia Vidia,",
+    "color": "pink"
+  },
+  {
+    "text": "Utara",
+    "color": "pink"
+  },
+  {
+    "text": "Sumatera Student",
+    "color": "pink"
+  },
+  {
+    "text": "Negeri",
+    "color": "pink"
+  },
+  {
+    "text": "Islam Universitas",
+    "color": "pink"
+  },
+  {
+    "text": "Submitted to",
+    "color": "pink"
+  },
+  {
+    "text": "text-id.123dok.com",
+    "color": "pink"
+  },
+  {
+    "text": "peas",
+    "color": "magenta"
+  },
+  {
+    "text": "Surabaya Student Paper",
+    "color": "pink"
+  },
+  {
+    "text": "17 Agustus",
+    "color": "pink"
+  },
+  {
+    "text": "Universitas",
+    "color": "pink"
+  },
+  {
+    "text": "core.ac.uk",
+    "color": "pink"
+  },
+  {
+    "text": "eprints.iain-surakarta.ac.id",
+    "color": "cyan"
+  },
+  {
+    "text": "123dok.com",
+    "color": "pink"
+  },
+  {
+    "text": "Makassar Student",
+    "color": "pink"
+  },
+  {
+    "text": "Muhammadiyah Universitas",
+    "color": "pink"
+  },
+  {
+    "text": "digilibadmin.unismuh.ac.id Internet Source",
+    "color": "pink"
+  },
+  {
+    "text": "PRIMARY SOURCES",
+    "color": "pink"
+  },
+  {
+    "text": "14,",
+    "color": "pink"
+  },
+  {
+    "text": "publikasiilmiah.unwahas.ac.id",
+    "color": "pink"
+  },
+  {
+    "text": "N",
+    "color": "yellow"
+  },
+  {
+    "text": "jurnal.umt.ac.id Internet Source",
+    "color": "pink"
+  },
+  {
+    "text": "docplayer.info",
+    "color": "pink"
+  },
+  {
+    "text": "N",
+    "color": "blue"
+  },
+  {
+    "text": "sinta.unud.ac.id",
+    "color": "pink"
+  },
+  {
+    "text": "repository.unpkediri.ac.id",
+    "color": "pink"
+  },
+  {
+    "text": "repository.um-palembang.ac.id Source",
+    "color": "pink"
+  },
+  {
+    "text": "jurnal.untan.ac.id",
+    "color": "pink"
+  },
+  {
+    "text": "journal.unismuh.ac.id Internet Source",
+    "color": "cyan"
+  },
+  {
+    "text": "ejournal.unjaya.ac.id",
+    "color": "pink"
+  },
+  {
+    "text": "lib.unnes.ac.id",
+    "color": "pink"
+  },
+  {
+    "text": "University",
+    "color": "pink"
+  },
+  {
+    "text": "Submitted Surabaya to Student Paper",
+    "color": "pink"
+  },
+  {
+    "text": "journalpedia.com Internet Source",
+    "color": "pink"
+  },
+  {
+    "text": "idoc.pub",
+    "color": "pink"
+  },
+  {
+    "text": "Informatika),",
+    "color": "pink"
+  },
+  {
+    "text": "dan Riset",
+    "color": "pink"
+  },
+  {
+    "text": "Interface\", Programming ProTekinfo(Pengembangan Observasi Teknik Informatika),",
+    "color": "pink"
+  },
+  {
+    "text": "Interface\",",
+    "color": "pink"
+  },
+  {
+    "text": "jurnal.pnk.ac.id",
+    "color": "pink"
+  },
+  {
+    "text": "I. i.ac.id j",
+    "color": "pink"
+  },
+  {
+    "text": "Ekonomi),",
+    "color": "cyan"
+  },
+  {
+    "text": "Pendidikan",
+    "color": "cyan"
+  },
+  {
+    "text": "(Jurnal",
+    "color": "cyan"
+  },
+  {
+    "text": "KEWIRAUSAHAAN\",",
+    "color": "cyan"
+  },
+  {
+    "text": "Ira Vahlia,",
+    "color": "cyan"
+  },
+  {
+    "text": "Ira Vahlia, Sangidatus Sholiha. BAHAN AJAR DIGITAL",
+    "color": "cyan"
+  },
+  {
+    "text": "Afwan, Bahtiar",
+    "color": "cyan"
+  },
+  {
+    "text": "hgate.net A",
+    "color": "cyan"
+  },
+  {
+    "text": "repository.poltekkes-tjk.ac.id P J",
+    "color": "pink"
+  },
+  {
+    "text": "jom.fti.budiluhur.ac.id Jom.",
+    "color": "pink"
+  },
+  {
+    "text": "acid",
+    "color": "pink"
+  }
+]

@@ -1,5 +1,10 @@
 # Core dependencies
 python-docx>=0.8.11
+PyMuPDF>=1.24.0
+opencv-python>=4.9.0
+numpy>=1.26.0
+pytesseract>=0.3.10
+Pillow>=10.0.0
 
 # CLI enhancements (optional)
 rich>=13.0.0
