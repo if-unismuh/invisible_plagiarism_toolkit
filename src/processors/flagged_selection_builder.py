@@ -59,10 +59,10 @@ def hash_text(t: str) -> str:
 
 def recommend_techniques(length: int) -> List[str]:
     if length <= 25:
-        return ["zero_width"]
+        return ["zero_width", "spacing_variant"]
     if length <= 120:
-        return ["unicode_substitution", "zero_width"]
-    return ["unicode_substitution"]
+        return ["unicode_substitution", "zero_width", "paraphrase", "spacing_variant"]
+    return ["unicode_substitution", "paraphrase", "spacing_variant"]
 
 
 def load_segments(path: Path) -> List[Dict[str, Any]]:

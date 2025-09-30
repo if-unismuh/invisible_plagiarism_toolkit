@@ -1,0 +1,23 @@
+{
+  "strategi": ["pendekatan", "metode", "taktik"],
+  "penelitian": ["kajian", "riset", "studi"],
+  "menunjukkan": ["menggambarkan", "memperlihatkan", "menandakan"],
+  "meningkatkan": ["memperkuat", "mengoptimalkan", "menambah"],
+  "kualitas": ["mutu", "standar", "tingkat"],
+  "menggunakan": ["memanfaatkan", "menerapkan", "mengandalkan"],
+  "hasil": ["temuan", "keluaran", "luaran"],
+  "analisis": ["pengkajian", "penelaahan", "evaluasi"],
+  "perbandingan": ["komparasi", "perimbangan", "pertimbangan"],
+  "persentase": ["prosentase", "proporsi", "porsi"],
+  "data": ["informasi", "rekaman", "catatan"],
+  "proses": ["tahapan", "alur", "prosedur"],
+  "konsep": ["gagasan", "ide", "pemikiran"],
+  "mendukung": ["menopang", "mengokohkan", "memperkuat"],
+  "menyimpulkan": ["merangkum", "menegaskan", "menyatakan"],
+  "penting": ["krusial", "esensial", "utama"],
+  "tujuan": ["sasaran", "maksud", "orientasi"],
+  "diperoleh": ["didapatkan", "dikumpulkan", "dihimpun"],
+  "temuan": ["hasil", "penemuan", "identifikasi"],
+  "mengarahkan": ["membimbing", "menuntun", "mengendalikan"],
+  "mencapai": ["meraih", "menggapai", "memenuhi"]
+}

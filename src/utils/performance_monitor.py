@@ -49,6 +49,8 @@ class PerformanceMonitor:
         self.system_info = self._get_system_info()
         self.monitoring_active = False
         self._monitor_thread = None
+        self._start_time: Optional[float] = None
+        self._start_timestamp: Optional[datetime] = None
         
     def _get_system_info(self) -> SystemResources:
         """Get system resource information"""
@@ -74,12 +76,37 @@ class PerformanceMonitor:
             daemon=True
         )
         self._monitor_thread.start()
-    
+
     def stop_monitoring(self):
         """Stop background monitoring"""
         self.monitoring_active = False
         if self._monitor_thread:
             self._monitor_thread.join(timeout=2.0)
+
+    # ------------------------------------------------------------------
+    # Compatibility helpers for existing CLI usage
+    # ------------------------------------------------------------------
+    def start(self, interval: float = 1.0) -> None:
+        """Start timer and optional background monitor (CLI compatibility)."""
+        self._start_time = time.perf_counter()
+        self._start_timestamp = datetime.now()
+        self.start_monitoring(interval=interval)
+
+    def stop(self) -> None:
+        """Stop timer and monitoring thread (CLI compatibility)."""
+        self.stop_monitoring()
+
+    def get_current_time(self) -> str:
+        """Return human-readable start timestamp used in reports."""
+        if self._start_timestamp:
+            return self._start_timestamp.isoformat()
+        return datetime.now().isoformat()
+
+    def get_elapsed_time(self) -> float:
+        """Return elapsed time since `start()` was invoked."""
+        if self._start_time is None:
+            return 0.0
+        return time.perf_counter() - self._start_time
     
     def _monitor_loop(self, interval: float):
         """Background monitoring loop"""

@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Invisible Plagiarism Toolkit — Hasil Analisis</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg-gradient: radial-gradient(circle at 15% 20%, #1a2a6c 0%, #050b23 45%, #02040f 100%);
+      --card-bg: rgba(6, 12, 32, 0.78);
+      --border: rgba(255, 255, 255, 0.12);
+      --text: #f2f6ff;
+      --text-muted: rgba(242, 246, 255, 0.7);
+      --accent: #5ef0ff;
+      --accent-strong: #35bfd0;
+      --shadow: 0 20px 60px rgba(4, 16, 38, 0.55);
+      --radius-lg: 26px;
+      --radius-sm: 16px;
+      font-family: "Segoe UI", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 56px 22px;
+      background: var(--bg-gradient);
+      color: var(--text);
+    }
+
+    .layout {
+      width: min(1200px, 100%);
+      display: grid;
+      gap: 22px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      letter-spacing: -0.02em;
+    }
+
+    header a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(94, 240, 255, 0.4);
+      padding-bottom: 2px;
+      font-size: 0.95rem;
+    }
+
+    .manipulated-overview {
+      margin-top: 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(94, 240, 255, 0.18);
+      background: rgba(94, 240, 255, 0.05);
+      padding: 14px 16px;
+      display: grid;
+      gap: 10px;
+      font-size: 0.85rem;
+    }
+
+    .manipulated-overview h3 {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+
+    .manipulated-overview pre {
+      margin: 0;
+      padding: 6px 8px;
+      border-radius: 10px;
+      background: rgba(4, 12, 28, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.78rem;
+      color: rgba(235, 244, 255, 0.9);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: 26px 28px;
+      backdrop-filter: blur(16px);
+    }
+
+    .meta-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .meta-item strong {
+      color: var(--text);
+      font-size: 1.05rem;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+      font-size: 0.82rem;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .chip-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .links {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+      font-size: 0.92rem;
+    }
+
+    .links a {
+      color: var(--accent);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px dashed rgba(94, 240, 255, 0.4);
+      padding-bottom: 2px;
+    }
+
+    .primary-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      color: #041120 !important;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      border: none;
+      box-shadow: 0 16px 30px rgba(30, 200, 220, 0.28);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+      margin-top: 18px;
+      width: fit-content;
+    }
+
+    .primary-button[hidden] {
+      display: none;
+    }
+
+    .primary-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 22px 40px rgba(30, 200, 220, 0.35);
+    }
+
+    .search-bar {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .search-bar input {
+      flex: 1 1 220px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.05);
+      padding: 12px 18px;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .filter-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text-muted);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: background 150ms ease, color 150ms ease, border 150ms ease;
+    }
+
+    .filter-btn.active {
+      background: rgba(94, 240, 255, 0.18);
+      color: var(--accent);
+      border-color: rgba(94, 240, 255, 0.5);
+    }
+
+    .segments-list {
+      display: grid;
+      gap: 16px;
+      max-height: 520px;
+      overflow: auto;
+      padding-right: 6px;
+    }
+
+    .segment {
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(3, 6, 18, 0.65);
+      padding: 18px 20px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .segment-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .segment-badges {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .segment-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.78rem;
+    }
+
+    .segment-badge.applied {
+      background: rgba(94, 240, 255, 0.14);
+      border-color: rgba(94, 240, 255, 0.35);
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .segment-preview {
+      margin-top: 8px;
+      border-radius: 14px;
+      border: 1px solid rgba(94, 240, 255, 0.18);
+      background: rgba(94, 240, 255, 0.06);
+      padding: 10px 12px;
+    }
+
+    .segment-preview summary {
+      cursor: pointer;
+      font-size: 0.82rem;
+      color: var(--accent);
+      list-style: none;
+    }
+
+    .segment-preview summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .segment-preview summary::before {
+      content: '▸';
+      display: inline-block;
+      margin-right: 6px;
+      transition: transform 150ms ease;
+    }
+
+    .segment-preview[open] summary::before {
+      transform: rotate(90deg);
+    }
+
+    .preview-block {
+      margin-top: 10px;
+      display: grid;
+      gap: 6px;
+      font-size: 0.8rem;
+    }
+
+    .preview-block pre {
+      margin: 0;
+      padding: 8px 10px;
+      border-radius: 10px;
+      background: rgba(4, 12, 28, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: rgba(235, 244, 255, 0.9);
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+    }
+
+    .segment-text {
+      font-size: 0.98rem;
+      line-height: 1.55;
+      color: rgba(242, 246, 255, 0.92);
+      white-space: pre-wrap;
+    }
+
+    .empty-state {
+      text-align: center;
+      color: var(--text-muted);
+      padding: 40px 20px;
+      border: 1px dashed rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius-sm);
+    }
+
+    .error {
+      color: #ff9aa9;
+      background: rgba(255, 154, 169, 0.08);
+      border: 1px solid rgba(255, 154, 169, 0.3);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 780px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .segments-list {
+        max-height: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <header>
+      <h1>Highlight Terflag</h1>
+      <a href="/">← Kembali ke Portal Upload</a>
+    </header>
+
+    <div class="grid">
+      <section class="card" id="job-meta">
+        <h2 style="margin-top:0">Informasi Job</h2>
+        <div id="job-meta-items"></div>
+        <div class="links" id="job-links"></div>
+        <a id="processed-button" class="primary-button" href="#" hidden>⬇ Unduh Dokumen Terproses</a>
+      </section>
+
+      <section class="card" id="color-summary">
+        <h2 style="margin-top:0">Distribusi Warna</h2>
+        <p style="margin-top:0;color:var(--text-muted);font-size:0.9rem;">Highlight diprioritaskan berdasarkan warna Turnitin. Gunakan filter di bawah untuk fokus ke warna tertentu.</p>
+        <div class="chips" id="color-chips"></div>
+      </section>
+    </div>
+
+    <section class="card">
+      <div class="search-bar">
+        <input type="search" id="search-input" placeholder="Cari kata atau kalimat yang diflag..." />
+        <div class="filter-group" id="filter-group"></div>
+      </div>
+      <div class="segments-list" id="segments-list">
+        <div class="empty-state" id="segments-empty">Memuat data highlight...</div>
+      </div>
+    </section>
+
+    <div class="error" id="error-message" hidden></div>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const jobId = urlParams.get('job') || urlParams.get('job_id');
+
+    const metaContainer = document.getElementById('job-meta-items');
+    const linksContainer = document.getElementById('job-links');
+    const chipsContainer = document.getElementById('color-chips');
+    const filterGroup = document.getElementById('filter-group');
+    const segmentsList = document.getElementById('segments-list');
+    const segmentsEmpty = document.getElementById('segments-empty');
+    const errorMessage = document.getElementById('error-message');
+    const searchInput = document.getElementById('search-input');
+    const processedButton = document.getElementById('processed-button');
+
+    let segments = [];
+    let activeColor = 'all';
+
+    if (!jobId) {
+      showError('Parameter job_id tidak ditemukan pada URL. Gunakan tautan dari portal upload.');
+    } else {
+      loadSummary(jobId);
+    }
+
+    async function loadSummary(id) {
+      try {
+        const response = await fetch(`/api/jobs/${id}/summary`);
+        if (!response.ok) {
+          throw new Error('Ringkasan tidak ditemukan. Pastikan job sudah selesai diproses.');
+        }
+        const data = await response.json();
+        renderSummary(data);
+        await loadSegments(id);
+      } catch (error) {
+        showError(error.message || 'Gagal memuat ringkasan job.');
+      }
+    }
+
+    async function loadSegments(id) {
+      try {
+        const response = await fetch(`/api/jobs/${id}/files/priority`, {
+          method: 'GET',
+          cache: 'no-store'
+        });
+        if (response.status === 404) {
+          segmentsList.innerHTML = '';
+          const empty = document.createElement('div');
+          empty.className = 'empty-state';
+          empty.textContent = 'Detail highlight tidak tersedia untuk job ini.';
+          segmentsList.appendChild(empty);
+          return;
+        }
+        if (!response.ok) {
+          throw new Error('Tidak dapat memuat daftar highlight.');
+        }
+        const text = await response.text();
+        segments = JSON.parse(text);
+        renderSegments();
+      } catch (error) {
+        showError(error.message || 'Gagal memuat daftar highlight.');
+      }
+    }
+
+    function renderSummary(summary, files = {}) {
+      metaContainer.innerHTML = '';
+      const items = [
+        { label: 'Job ID', value: summary.job_reference || jobId },
+        { label: 'Mode', value: capitalize(summary.mode || 'n/a') },
+        { label: 'Timestamp', value: formatDate(summary.timestamp) },
+        { label: 'Durasi', value: formatDuration(summary.processing_time) },
+        { label: 'Total Highlight', value: summary.total_highlights?.toLocaleString('id-ID') || '0' },
+        { label: 'Prioritas Dipilih', value: summary.total_priority?.toLocaleString('id-ID') || '0' },
+        { label: 'Segmen Dimanipulasi', value: summary.manipulated_segment_count?.toLocaleString('id-ID') || '0' },
+      ];
+      items.forEach(item => {
+        const row = document.createElement('div');
+        row.className = 'meta-item';
+        row.innerHTML = `<span>${item.label}</span><strong>${item.value}</strong>`;
+        metaContainer.appendChild(row);
+      });
+
+      linksContainer.innerHTML = '';
+      const links = [
+        { label: 'Lihat PDF Asli', key: 'original_pdf', defaultPath: `/api/jobs/${jobId}/files/pdf` },
+        { label: 'Unduh DOCX Hasil', key: 'processed_document', defaultPath: `/api/jobs/${jobId}/files/processed` },
+        { label: 'Lihat Laporan Analisis', key: 'report', defaultPath: `/api/jobs/${jobId}/files/report` },
+        { label: 'Unduh Ringkasan JSON', key: 'job_reference', defaultPath: `/api/jobs/${jobId}/files/analysis` },
+      ];
+
+      links.forEach(link => {
+        if (link.key === 'job_reference' || summary[link.key]) {
+          const anchor = document.createElement('a');
+          anchor.href = summary[link.key] ? `/api/jobs/${jobId}/files/${mapKeyToType(link.key)}` : link.defaultPath;
+          anchor.target = '_blank';
+          anchor.rel = 'noopener';
+          anchor.textContent = link.label;
+          linksContainer.appendChild(anchor);
+        }
+      });
+
+      const distribution = summary.color_distribution || {};
+      const entries = Object.entries(distribution).sort((a, b) => b[1] - a[1]);
+      chipsContainer.innerHTML = '';
+      entries.forEach(([color, count]) => {
+        const chip = document.createElement('span');
+        chip.className = 'chip';
+        const dot = document.createElement('span');
+        dot.className = 'chip-dot';
+        dot.style.background = colorPalette(color);
+        chip.appendChild(dot);
+        chip.appendChild(document.createTextNode(`${capitalize(color)} · ${count}`));
+        chipsContainer.appendChild(chip);
+      });
+
+      const processedJobId = summary.job_reference || jobId;
+      const processedUrl = (files.processed_document) || (summary.processed_document ? `/api/jobs/${processedJobId}/files/processed` : null);
+      setPrimaryButton(processedButton, processedUrl);
+
+      const overview = document.getElementById('manipulated-overview');
+      if (overview) {
+        overview.remove();
+      }
+      if (Array.isArray(summary.manipulated_segments) && summary.manipulated_segments.length) {
+        const previewBox = document.createElement('div');
+        previewBox.className = 'manipulated-overview';
+        previewBox.id = 'manipulated-overview';
+        const title = document.createElement('h3');
+        title.textContent = 'Contoh Segmen Dimanipulasi';
+        previewBox.appendChild(title);
+
+        summary.manipulated_segments.slice(0, 3).forEach(segment => {
+          const samples = Array.isArray(segment.samples) ? segment.samples : [];
+          if (!samples.length) return;
+          const sample = samples[0];
+          const originalPre = document.createElement('pre');
+          originalPre.innerHTML = `<strong>Original:</strong> ${escapeHTML(sample.original || '')}`;
+          const manipulatedPre = document.createElement('pre');
+          manipulatedPre.innerHTML = `<strong>Manipulasi:</strong> ${escapeHTML(sample.manipulated || '')}`;
+          previewBox.appendChild(originalPre);
+          previewBox.appendChild(manipulatedPre);
+        });
+
+        metaContainer.parentElement.appendChild(previewBox);
+      }
+
+      renderFilters(entries.map(([color]) => color));
+    }
+
+    function setPrimaryButton(button, url) {
+      if (!button) return;
+      if (url) {
+        button.href = url;
+        button.setAttribute('download', '');
+        button.hidden = false;
+      } else {
+        button.removeAttribute('href');
+        button.hidden = true;
+      }
+    }
+
+    function renderFilters(colors) {
+      filterGroup.innerHTML = '';
+      const allBtn = createFilterButton('Semua', 'all');
+      filterGroup.appendChild(allBtn);
+      colors.forEach(color => {
+        filterGroup.appendChild(createFilterButton(capitalize(color), color));
+      });
+      setActiveFilter('all');
+    }
+
+    function createFilterButton(label, value) {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'filter-btn';
+      button.textContent = label;
+      button.dataset.value = value;
+      button.addEventListener('click', () => {
+        setActiveFilter(value);
+        renderSegments();
+      });
+      return button;
+    }
+
+    function setActiveFilter(value) {
+      activeColor = value;
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.value === value);
+      });
+    }
+
+    function renderSegments() {
+      const searchTerm = (searchInput.value || '').toLowerCase();
+      const filtered = segments.filter(seg => {
+        const matchesColor = activeColor === 'all' || seg.color === activeColor;
+        const matchesSearch = !searchTerm || (seg.text || '').toLowerCase().includes(searchTerm);
+        return matchesColor && matchesSearch;
+      });
+
+      segmentsList.innerHTML = '';
+      if (!filtered.length) {
+        const empty = document.createElement('div');
+        empty.className = 'empty-state';
+        empty.textContent = 'Tidak ada highlight yang cocok dengan filter saat ini.';
+        segmentsList.appendChild(empty);
+        return;
+      }
+
+      filtered.forEach(seg => {
+        const item = document.createElement('article');
+        item.className = 'segment';
+
+        const header = document.createElement('div');
+        header.className = 'segment-header';
+        header.innerHTML = `<span>Halaman ${seg.page || '-'} · Panjang ${seg.length || 0} karakter</span>`;
+
+        const badgeGroup = document.createElement('div');
+        badgeGroup.className = 'segment-badges';
+        const colorBadge = document.createElement('span');
+        colorBadge.className = 'segment-badge';
+        const dot = document.createElement('span');
+        dot.className = 'chip-dot';
+        dot.style.background = colorPalette(seg.color);
+        colorBadge.appendChild(dot);
+        colorBadge.appendChild(document.createTextNode(capitalize(seg.color || 'unknown')));
+        badgeGroup.appendChild(colorBadge);
+
+        if (Array.isArray(seg.recommended_techniques)) {
+          seg.recommended_techniques.forEach(tech => {
+            const techBadge = document.createElement('span');
+            techBadge.className = 'segment-badge';
+            techBadge.textContent = tech.replace(/_/g, ' ');
+            badgeGroup.appendChild(techBadge);
+          });
+        }
+
+        if (seg.manipulated) {
+          const appliedBadge = document.createElement('span');
+          appliedBadge.className = 'segment-badge applied';
+          appliedBadge.textContent = 'applied';
+          badgeGroup.appendChild(appliedBadge);
+        }
+
+        header.appendChild(badgeGroup);
+
+        const text = document.createElement('div');
+        text.className = 'segment-text';
+        text.textContent = seg.text || '';
+
+        item.appendChild(header);
+        item.appendChild(text);
+
+        if (seg.manipulated && Array.isArray(seg.manipulated_samples) && seg.manipulated_samples.length) {
+          const details = document.createElement('details');
+          details.className = 'segment-preview';
+          const summary = document.createElement('summary');
+          summary.textContent = 'Lihat pratinjau manipulasi';
+          details.appendChild(summary);
+
+          seg.manipulated_samples.slice(0, 3).forEach(sample => {
+            const block = document.createElement('div');
+            block.className = 'preview-block';
+
+            const originalLabel = document.createElement('span');
+            originalLabel.textContent = 'Original:';
+            const originalPre = document.createElement('pre');
+            originalPre.innerHTML = escapeHTML(sample.original || '');
+
+            const manipulatedLabel = document.createElement('span');
+            manipulatedLabel.textContent = 'Setelah manipulasi:';
+            const manipulatedPre = document.createElement('pre');
+            manipulatedPre.innerHTML = escapeHTML(sample.manipulated || '');
+
+            block.appendChild(originalLabel);
+            block.appendChild(originalPre);
+            block.appendChild(manipulatedLabel);
+            block.appendChild(manipulatedPre);
+            details.appendChild(block);
+          });
+
+          item.appendChild(details);
+        }
+
+        segmentsList.appendChild(item);
+      });
+    }
+
+    const debouncedRender = debounce(() => renderSegments(), 150);
+    searchInput.addEventListener('input', debouncedRender);
+
+    function showError(message) {
+      errorMessage.hidden = false;
+      errorMessage.textContent = message;
+      segmentsList.innerHTML = '';
+      segmentsList.appendChild(segmentsEmpty);
+      segmentsEmpty.textContent = 'Tidak dapat memuat data highlight.';
+    }
+
+    function capitalize(str) {
+      if (!str) return '';
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
+    function formatDate(iso) {
+      if (!iso) return '-';
+      try {
+        const date = new Date(iso);
+        return date.toLocaleString('id-ID', {
+          dateStyle: 'medium',
+          timeStyle: 'medium'
+        });
+      } catch (error) {
+        return iso;
+      }
+    }
+
+    function formatDuration(seconds) {
+      if (!seconds && seconds !== 0) return '-';
+      const s = Number(seconds);
+      if (Number.isNaN(s)) return seconds;
+      const minutes = Math.floor(s / 60);
+      const leftover = Math.round(s % 60);
+      if (minutes <= 0) return `${leftover}s`;
+      return `${minutes}m ${leftover}s`;
+    }
+
+    function colorPalette(color) {
+      const mapping = {
+        red: '#ff6b81',
+        green: '#3dd598',
+        blue: '#3a8bff',
+        magenta: '#d66bff',
+        cyan: '#48e5ff',
+        yellow: '#ffe66b',
+        orange: '#ff9f43',
+        pink: '#ff7eb9',
+        gray: '#a5b1c2',
+        light: '#dfe4ea',
+        dark: '#4b4b4b',
+        other: '#5ef0ff'
+      };
+      return mapping[color] || '#5ef0ff';
+    }
+
+    function escapeHTML(value) {
+      if (!value && value !== 0) return '';
+      return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function mapKeyToType(key) {
+      switch (key) {
+        case 'original_pdf':
+          return 'pdf';
+        case 'processed_document':
+          return 'processed';
+        case 'report':
+          return 'report';
+        default:
+          return 'analysis';
+      }
+    }
+
+    function debounce(fn, delay) {
+      let timeout;
+      return function(...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => fn.apply(this, args), delay);
+      };
+    }
+  </script>
+</body>
+</html>

@@ -12,6 +12,7 @@
 
 🔤 **Unicode Steganography**: Visually identical character substitution (Latin → Cyrillic/Greek)  
 👻 **Invisible Characters**: Strategic insertion of zero-width and minimal-width characters  
+🧵 **Spacing Variants**: Hair space, ZWNJ/ZWJ, dan thin-space acak di antara kata/tanda baca  
 📑 **Header Manipulation**: Targeted modification of document headers and key sections  
 📋 **Metadata Manipulation**: Document properties and hidden content modification  
 🔍 **Verification System**: Invisibility verification and detection risk assessment  
@@ -87,6 +88,19 @@ python main.py --check-deps
    cp original_document.docx workspace/input/original/
    cp turnitin_report.pdf workspace/input/turnitin/
    ```
+
+### Web Upload Portal (Prototype)
+
+- Gunakan halaman `web/index.html` untuk antarmuka modern yang memudahkan pengunggahan dokumen DOCX dan laporan PDF Turnitin.
+- Backend FastAPI di `web/server.py` menyimpan file ke `workspace/input/original` dan `workspace/input/turnitin`, lalu menjalankan `python main.py --mode <pilihan>`.
+- Jalankan server dengan:
+  ```bash
+  uvicorn web.server:app --reload --port 8000
+  ```
+- Portal menampilkan status progres (`queued`, `processing`, `completed`, `failed`) dengan log ringkas dari CLI untuk memudahkan troubleshooting.
+- Setelah job selesai, gunakan tautan "Buka Halaman Hasil" atau kunjungi `/result?job=<job_id>` untuk melihat daftar highlight yang diflag lengkap dengan filter warna dan pencarian.
+- Halaman hasil menyediakan tombol unduh DOCX yang sudah dimanipulasi (unicode/zero-width/header/metadata) beserta pratinjau per segmen untuk melihat perubahan yang diterapkan.
+ - Teknik spacing baru menambahkan hair space/ZWNJ/ZWJ secara granular per highlight sehingga pola ruang tampil alami.
 
 2. **Process Documents**:
    ```bash

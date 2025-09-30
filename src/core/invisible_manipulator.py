@@ -16,6 +16,8 @@ import shutil
 from datetime import datetime
 from pathlib import Path
 import logging
+from typing import Dict, List
+
 import docx
 import unicodedata
 from .metadata_manipulator import MetadataManipulator, MetadataOptions
@@ -43,6 +45,7 @@ class InvisibleManipulator:
         self.unicode_mappings = self.load_data_file('data/unicode_mappings.json')
         self.invisible_chars = self.load_data_file('data/invisible_chars.json')
         self.header_patterns = self.load_data_file('data/header_patterns.json')
+        self.paraphrase_map = self.load_data_file('data/paraphrase_synonyms.json')
 
         # Fallback: initialize UnicodeSteg if mapping keys mismatch expected usage
         self.steg = UnicodeSteg()
@@ -64,6 +67,7 @@ class InvisibleManipulator:
             'chars_substituted': 0,
             'invisible_chars_inserted': 0,
             'metadata_modified': 0,
+            'spacing_variants_inserted': 0,
             'processing_time': 0
         }
     
@@ -92,6 +96,13 @@ class InvisibleManipulator:
             u = config['invisible_techniques'].get('unicode_substitution', {})
             if 'substitution_rate' in u:
                 u['substitution_rate'] = max(0.0, min(0.2, float(u['substitution_rate'])))
+            p = config['invisible_techniques'].get('paraphrase', {})
+            if 'replacement_rate' in p:
+                p['replacement_rate'] = max(0.0, min(1.0, float(p['replacement_rate'])))
+            s = config['invisible_techniques'].get('spacing_variants', {})
+            for key in ('hair_space_rate', 'zwnj_rate', 'zwj_rate', 'after_punctuation_rate'):
+                if key in s:
+                    s[key] = max(0.0, min(0.5, float(s[key])))
         except Exception as e:
             self.logger.warning("Rate normalization failed: %s", e)
     
@@ -117,6 +128,17 @@ class InvisibleManipulator:
                 "unicode_substitution": {
                     "enabled": True,
                     "substitution_rate": 0.03
+                },
+                "paraphrase": {
+                    "enabled": True,
+                    "replacement_rate": 0.25
+                },
+                "spacing_variants": {
+                    "enabled": True,
+                    "hair_space_rate": 0.12,
+                    "zwnj_rate": 0.08,
+                    "zwj_rate": 0.05,
+                    "after_punctuation_rate": 0.10
                 },
                 "metadata_manipulation": {
                     "enabled": True
@@ -347,22 +369,19 @@ class InvisibleManipulator:
         
         if not self.config['invisible_techniques']['unicode_substitution']['enabled']:
             return
-        
+
         headers = analysis['headers']
         high_priority_headers = [h for h in headers if h['priority'] in ['highest', 'high']]
-        
+
         for header_info in high_priority_headers:
             paragraph = doc.paragraphs[header_info['index']]
-            original_text = paragraph.text
-            
-            # Apply Unicode substitution for headers
-            manipulated_text = self.apply_unicode_substitution_to_text(original_text)
-            
-            if manipulated_text != original_text:
-                paragraph.text = manipulated_text
+            changed = self._transform_paragraph_runs(
+                paragraph,
+                self.apply_unicode_substitution_to_text
+            )
+            if changed:
                 self.stats['headers_modified'] += 1
-                
-                self.logger.debug("Header modified: %s -> %s", original_text, manipulated_text)
+                self.logger.debug("Header modified at index %s", header_info['index'])
     
     def apply_unicode_substitution_to_text(self, text):
         """Apply Unicode character substitution"""
@@ -404,13 +423,10 @@ class InvisibleManipulator:
 
         for section_info in key_sections:
             paragraph = doc.paragraphs[section_info['index']]
-            original_text = paragraph.text
-
-            # Apply substitution with lower rate for content
-            manipulated_text = self.apply_unicode_substitution_to_text(original_text)
-
-            if manipulated_text != original_text:
-                paragraph.text = manipulated_text
+            self._transform_paragraph_runs(
+                paragraph,
+                self.apply_unicode_substitution_to_text
+            )
     
     def apply_invisible_characters(self, doc, analysis):
         """Insert invisible characters strategically"""
@@ -442,14 +458,13 @@ class InvisibleManipulator:
         for para_index in target_paragraphs:
             if para_index < len(doc.paragraphs):
                 paragraph = doc.paragraphs[para_index]
-                original_text = paragraph.text
-
-                # Insert invisible characters
-                new_text = self.insert_invisible_chars(original_text, zero_width_chars, insertion_rate)
-                
-                if new_text != original_text:
-                    paragraph.text = new_text
-                    self.stats['invisible_chars_inserted'] += new_text.count('\u200B') + new_text.count('\u200C')
+                inserted = self._transform_paragraph_runs_with_counter(
+                    paragraph,
+                    lambda text: self.insert_invisible_chars(text, zero_width_chars, insertion_rate),
+                    self._count_invisible_chars
+                )
+                if inserted:
+                    self.stats['invisible_chars_inserted'] += inserted
     
     def insert_invisible_chars(self, text, invisible_chars, insertion_rate):
         """Insert invisible characters into text"""
@@ -470,6 +485,115 @@ class InvisibleManipulator:
                     consecutive = 0
         
         return result
+
+    def apply_paraphrase_to_text(self, text: str, replacement_rate: float) -> str:
+        """Lightweight paraphrasing by swapping words via synonym map."""
+        if not self.paraphrase_map or replacement_rate <= 0:
+            return text
+
+        tokens = re.findall(r"\w+|\s+|[^\w\s]", text, flags=re.UNICODE)
+        if not tokens:
+            return text
+
+        result_tokens = []
+        for token in tokens:
+            if re.match(r"\w+", token, flags=re.UNICODE):
+                lower = token.lower()
+                synonyms = self.paraphrase_map.get(lower)
+                if synonyms and random.random() < replacement_rate:
+                    replacement = random.choice(synonyms)
+                    if token[0].isupper():
+                        replacement = replacement.capitalize()
+                    result_tokens.append(replacement)
+                else:
+                    result_tokens.append(token)
+            else:
+                result_tokens.append(token)
+        return ''.join(result_tokens)
+
+    def apply_spacing_variants_to_text(self, text: str, spacing_cfg: Dict[str, float]) -> str:
+        if not spacing_cfg or not text:
+            return text
+        hair_rate = spacing_cfg.get('hair_space_rate', 0.0)
+        zwnj_rate = spacing_cfg.get('zwnj_rate', 0.0)
+        zwj_rate = spacing_cfg.get('zwj_rate', 0.0)
+        punct_rate = spacing_cfg.get('after_punctuation_rate', 0.0)
+        minimal = self.invisible_chars.get('minimal_width', {}) if self.invisible_chars else {}
+        zero = self.invisible_chars.get('zero_width', {}) if self.invisible_chars else {}
+        hair = minimal.get('HAIR_SPACE')
+        thin = minimal.get('THIN_SPACE')
+        zwnj = zero.get('ZWNJ')
+        zwj = zero.get('ZWJ')
+        if not any([hair, thin, zwnj, zwj]) or all(rate <= 0 for rate in (hair_rate, zwnj_rate, zwj_rate, punct_rate)):
+            return text
+
+        result = []
+        for char in text:
+            result.append(char)
+            if char == ' ':
+                if hair and random.random() < hair_rate:
+                    result.append(hair)
+                elif thin and random.random() < hair_rate / 2:
+                    result.append(thin)
+                if zwnj and random.random() < zwnj_rate:
+                    result.append(zwnj)
+                if zwj and random.random() < zwj_rate:
+                    result.append(zwj)
+            elif char in ',.;:!?':
+                if hair and random.random() < punct_rate:
+                    result.append(hair)
+                if zwnj and random.random() < punct_rate / 2:
+                    result.append(zwnj)
+        return ''.join(result)
+
+    @staticmethod
+    def _count_invisible_chars(text_before, text_after):
+        invisible_units = ['\u200B', '\u200C', '\u200D', '\u2060']
+        before = sum(text_before.count(ch) for ch in invisible_units)
+        after = sum(text_after.count(ch) for ch in invisible_units)
+        return max(0, after - before)
+
+    @staticmethod
+    def _count_spacing_variants(text_before, text_after):
+        spacing_units = ['\u2009', '\u200A', '\u2006', '\u200C', '\u200D']
+        before = sum(text_before.count(ch) for ch in spacing_units)
+        after = sum(text_after.count(ch) for ch in spacing_units)
+        return max(0, after - before)
+
+    def _transform_paragraph_runs(self, paragraph, transformer):
+        """Apply transformer function to each run while preserving formatting."""
+        changed = False
+        for run in paragraph.runs:
+            original = run.text
+            transformed = transformer(original)
+            if transformed != original:
+                run.text = transformed
+                changed = True
+        # Some paragraphs may have no runs (e.g., tables). Fallback to paragraph.text
+        if not paragraph.runs:
+            original = paragraph.text
+            transformed = transformer(original)
+            if transformed != original:
+                paragraph.text = transformed
+                changed = True
+        return changed
+
+    def _transform_paragraph_runs_with_counter(self, paragraph, transformer, counter_fn):
+        """Transform runs and accumulate count using provided counter function."""
+        total_added = 0
+        for run in paragraph.runs:
+            original = run.text
+            transformed = transformer(original)
+            if transformed != original:
+                run.text = transformed
+                total_added += counter_fn(original, transformed)
+        if not paragraph.runs:
+            original = paragraph.text
+            transformed = transformer(original)
+            if transformed != original:
+                paragraph.text = transformed
+                total_added += counter_fn(original, transformed)
+        return total_added
     
     def apply_metadata_manipulation(self, doc):
         """Manipulate document metadata"""
@@ -505,9 +629,10 @@ class InvisibleManipulator:
     def print_manipulation_stats(self):
         """Print manipulation statistics"""
         self.logger.info(
-            "Stats: docs=%s headers=%s chars_sub=%s inv_chars=%s metadata=%s time=%.2fs",
+            "Stats: docs=%s headers=%s chars_sub=%s inv_chars=%s spacing=%s metadata=%s time=%.2fs",
             self.stats['total_documents'], self.stats['headers_modified'], self.stats['chars_substituted'],
-            self.stats['invisible_chars_inserted'], self.stats['metadata_modified'], self.stats['processing_time']
+            self.stats['invisible_chars_inserted'], self.stats['spacing_variants_inserted'],
+            self.stats['metadata_modified'], self.stats['processing_time']
         )
     
     def verify_invisibility(self, original_path, modified_path):

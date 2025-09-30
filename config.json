@@ -12,10 +12,12 @@
       "target_chars": ["a", "e", "o", "p", "c", "x", "y"],
       "substitution_rate": 0.03
     },
-    "spacing_manipulation": {
+    "spacing_variants": {
       "enabled": true,
-      "micro_adjustments": true,
-      "spacing_variance": 0.1
+      "hair_space_rate": 0.12,
+      "zwnj_rate": 0.08,
+      "zwj_rate": 0.05,
+      "after_punctuation_rate": 0.10
     },
     "metadata_manipulation": {
       "enabled": true,

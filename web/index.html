@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Invisible Plagiarism Toolkit &mdash; Upload Portal</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg-gradient: radial-gradient(circle at 20% 20%, #1f3c88 0%, #0b1b33 35%, #050b16 100%);
+      --card-bg: rgba(10, 15, 28, 0.75);
+      --card-border: rgba(255, 255, 255, 0.12);
+      --accent: #5ef0ff;
+      --accent-strong: #35bfd0;
+      --text: #f0f4ff;
+      --text-muted: rgba(240, 244, 255, 0.7);
+      --shadow: 0 24px 60px rgba(5, 10, 30, 0.55);
+      --radius-lg: 28px;
+      --radius-sm: 14px;
+      font-family: "Segoe UI", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 24px;
+      background: var(--bg-gradient);
+      color: var(--text);
+    }
+
+    .glass-card {
+      width: min(980px, 100%);
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(18px);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: 42px 48px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-glow {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 75% -10%, rgba(94, 240, 255, 0.22), transparent 55%),
+                  radial-gradient(circle at -5% 105%, rgba(111, 90, 255, 0.18), transparent 60%);
+      mix-blend-mode: screen;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 36px;
+      position: relative;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.1rem, 4vw, 2.8rem);
+      letter-spacing: -0.02em;
+    }
+
+    header p {
+      margin: 0;
+      max-width: 640px;
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    form {
+      display: grid;
+      gap: 32px;
+    }
+
+    .input-grid {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .dropzone {
+      position: relative;
+      border: 1px dashed rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius-sm);
+      padding: 32px 28px;
+      display: grid;
+      gap: 14px;
+      align-content: flex-start;
+      transition: border-color 150ms ease, transform 150ms ease, background 150ms ease;
+      background: rgba(255, 255, 255, 0.02);
+      cursor: pointer;
+      min-height: 200px;
+    }
+
+    .dropzone:hover,
+    .dropzone.dragging {
+      border-color: rgba(94, 240, 255, 0.5);
+      background: rgba(94, 240, 255, 0.05);
+      transform: translateY(-2px);
+    }
+
+    .dropzone h2 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .dropzone p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .dropzone input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .file-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(94, 240, 255, 0.12);
+      border: 1px solid rgba(94, 240, 255, 0.25);
+      color: var(--accent);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      transition: transform 150ms ease;
+    }
+
+    .file-pill svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    .file-pill:hover {
+      transform: translateY(-1px);
+    }
+
+    .mode-selector {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .radio-card {
+      position: relative;
+      border-radius: 22px;
+      padding: 18px 22px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.03);
+      flex: 1 1 220px;
+      min-width: 200px;
+      cursor: pointer;
+      transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+    }
+
+    .radio-card input {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .radio-card:hover {
+      border-color: rgba(94, 240, 255, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .radio-card input:checked + .radio-content {
+      border: 1px solid rgba(94, 240, 255, 0.55);
+      background: rgba(94, 240, 255, 0.08);
+      box-shadow: 0 12px 30px rgba(10, 40, 70, 0.35);
+    }
+
+    .radio-content {
+      border-radius: 18px;
+      padding: 12px 10px;
+      border: 1px solid transparent;
+      transition: inherit;
+    }
+
+    .radio-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .radio-label span {
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .radio-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    button {
+      border: none;
+      border-radius: 999px;
+      padding: 16px 24px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.015em;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      color: #041120;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+      box-shadow: 0 18px 38px rgba(30, 200, 220, 0.32);
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 24px 40px rgba(30, 200, 220, 0.42);
+    }
+
+    .helper-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .status-panel {
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(94, 240, 255, 0.18);
+      background: rgba(255, 255, 255, 0.04);
+      padding: 20px 22px;
+      display: grid;
+      gap: 12px;
+      transition: opacity 180ms ease;
+    }
+
+    .status-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      padding: 6px 12px;
+      border: 1px solid rgba(94, 240, 255, 0.3);
+      background: rgba(94, 240, 255, 0.12);
+      color: var(--accent);
+    }
+
+    .status-badge[data-status="queued"],
+    .status-badge[data-status="processing"] {
+      border-color: rgba(94, 240, 255, 0.4);
+      background: rgba(94, 240, 255, 0.15);
+      color: var(--accent);
+    }
+
+    .status-badge[data-status="completed"] {
+      border-color: rgba(101, 255, 198, 0.45);
+      background: rgba(101, 255, 198, 0.16);
+      color: #69f8ce;
+    }
+
+    .status-badge[data-status="failed"] {
+      border-color: rgba(255, 103, 120, 0.45);
+      background: rgba(255, 103, 120, 0.16);
+      color: #ff8795;
+    }
+
+    .status-detail {
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .status-log {
+      max-height: 240px;
+      overflow: auto;
+      border-radius: 12px;
+      background: rgba(4, 10, 24, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 12px 14px;
+    }
+
+    .status-log pre {
+      margin: 0;
+      font-size: 0.8rem;
+      white-space: pre-wrap;
+      word-break: break-word;
+      color: rgba(211, 224, 255, 0.85);
+      font-family: "JetBrains Mono", "Fira Code", "SFMono-Regular", ui-monospace, monospace;
+    }
+
+    .error-text {
+      color: #ff9aa9;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    .flag-summary {
+      display: grid;
+      gap: 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(94, 240, 255, 0.18);
+      background: rgba(255, 255, 255, 0.02);
+      padding: 18px 20px;
+    }
+
+    .flag-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .flag-heading span {
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .flag-distribution {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .flag-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.78rem;
+    }
+
+    .flag-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .flag-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .flag-item {
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+      padding: 12px 14px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .flag-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .flag-item-text {
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    .flag-preview {
+      display: block;
+      margin-top: 6px;
+      font-size: 0.75rem;
+      color: rgba(240, 244, 255, 0.6);
+    }
+
+    .flag-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.85rem;
+    }
+
+    .flag-links a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(94, 240, 255, 0.35);
+      padding-bottom: 2px;
+    }
+
+    .flag-links a:hover {
+      color: var(--accent-strong);
+      border-bottom-style: solid;
+    }
+
+    .progress-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .progress-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.03);
+      font-size: 0.82rem;
+    }
+
+    .progress-item[data-state="done"] {
+      border-color: rgba(94, 240, 255, 0.32);
+      background: rgba(94, 240, 255, 0.08);
+      color: var(--accent);
+    }
+
+    .progress-item time {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      min-width: 110px;
+      text-align: right;
+    }
+
+    .loading-spinner {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid rgba(94, 240, 255, 0.2);
+      border-top-color: var(--accent);
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    footer {
+      margin-top: 18px;
+      font-size: 0.8rem;
+      color: rgba(240, 244, 255, 0.55);
+      text-align: center;
+    }
+
+    @media (max-width: 680px) {
+      body {
+        padding: 42px 18px;
+      }
+
+      .glass-card {
+        padding: 32px 24px 36px;
+      }
+
+      .radio-label span:last-child {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="glass-card">
+    <div class="card-glow"></div>
+    <header>
+      <h1>Invisible Plagiarism Toolkit</h1>
+      <p>
+        Unggah dokumen asli (DOCX) dan laporan Turnitin (PDF) Anda di sini. Portal ini
+        mempersiapkan berkas untuk pipeline manipulasi tak terlihat sebelum Anda menjalankan
+        perintah CLI seperti <code>python main.py --mode balanced</code>.
+      </p>
+    </header>
+
+    <form action="/api/process" method="POST" enctype="multipart/form-data">
+      <section class="input-grid">
+        <label class="dropzone" id="docx-dropzone">
+          <input type="file" name="original_doc" accept=".docx" required />
+          <h2>Original Document</h2>
+          <p>Seret & lepaskan atau klik untuk memilih dokumen Word (DOCX).</p>
+          <div class="file-pill" data-placeholder="Belum ada file">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2a1 1 0 0 1 1 1v5h3a1 1 0 0 1 .7 1.71l-4.7 4.7a1 1 0 0 1-1.4 0l-4.7-4.7A1 1 0 0 1 4 8h3V3a1 1 0 0 1 1-1zM4 16a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1z"/></svg>
+            <span>Pilih file DOCX</span>
+          </div>
+        </label>
+
+        <label class="dropzone" id="pdf-dropzone">
+          <input type="file" name="turnitin_pdf" accept="application/pdf" required />
+          <h2>Turnitin Report</h2>
+          <p>Unggah laporan Turnitin dalam format PDF untuk analisis highlight warna.</p>
+          <div class="file-pill" data-placeholder="Belum ada file">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7.4a3 3 0 0 0-.88-2.12l-3.4-3.4A3 3 0 0 0 11.6 1H5zm8 11.5a.75.75 0 1 1-1.5 0V12H9.75v1.5a.75.75 0 1 1-1.5 0v-1.5H7a2 2 0 0 1 0-4h.25V7a.75.75 0 1 1 1.5 0v1.5h1.75V7a.75.75 0 1 1 1.5 0v1.5H13a2 2 0 1 1 0 4h-.25zM7 10.5a.5.5 0 1 0 0-1h-.25a.5.5 0 0 0 0 1zm6-1h-.25a.5.5 0 0 0 0 1H13a.5.5 0 0 0 0-1z"/></svg>
+            <span>Pilih file PDF</span>
+          </div>
+        </label>
+      </section>
+
+      <section>
+        <h2 style="margin:0 0 12px;font-size:1.05rem;letter-spacing:0.02em;">Processing Mode</h2>
+        <div class="mode-selector" role="radiogroup" aria-label="Processing mode">
+          <label class="radio-card">
+            <input type="radio" name="mode" value="stealth" />
+            <div class="radio-content">
+              <div class="radio-label">
+                <span>Stealth</span>
+                <span>Min perubahan</span>
+              </div>
+              <p class="radio-meta">Fokus pada invisibilitas maksimal dengan modifikasi minimal.</p>
+            </div>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="mode" value="balanced" checked />
+            <div class="radio-content">
+              <div class="radio-label">
+                <span>Balanced</span>
+                <span>Rekomendasi</span>
+              </div>
+              <p class="radio-meta">Perpaduan terbaik antara invisibilitas dan tingkat manipulasi.</p>
+            </div>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="mode" value="aggressive" />
+            <div class="radio-content">
+              <div class="radio-label">
+                <span>Aggressive</span>
+                <span>Maksimal</span>
+              </div>
+              <p class="radio-meta">Modifikasi terbesar untuk bypass deteksi secara ekstensif.</p>
+            </div>
+          </label>
+        </div>
+      </section>
+
+      <div class="actions">
+        <button type="submit">Siapkan Dokumen</button>
+        <p class="helper-text">
+          File yang diunggah akan ditempatkan di <code>workspace/input/original</code> dan
+          <code>workspace/input/turnitin</code> sebelum pipeline CLI dijalankan.
+        </p>
+        <div class="status-panel" id="status-panel" hidden>
+          <div class="status-heading">
+            <span>Progress</span>
+            <span class="status-badge" id="status-badge" data-status="queued">
+              <span class="loading-spinner" id="status-spinner"></span>
+              <span class="status-text">Queued</span>
+            </span>
+          </div>
+          <div class="status-detail" id="status-detail">
+            Menunggu respon server...
+          </div>
+          <div class="status-detail" id="status-job" style="font-size:0.8rem;color:var(--text-muted);"></div>
+          <div class="status-log" id="status-log" hidden>
+            <pre id="status-log-text"></pre>
+          </div>
+          <div class="error-text" id="status-error" hidden></div>
+          <ul class="progress-list" id="progress-list"></ul>
+          <div class="flag-summary" id="flag-summary" hidden>
+            <div class="flag-heading">
+              <span>Highlight Prioritas</span>
+              <div class="flag-distribution" id="flag-distribution"></div>
+            </div>
+            <ul class="flag-list" id="flag-list"></ul>
+            <div class="flag-links" id="flag-links">
+              <a href="#" id="flag-pdf-link" target="_blank" rel="noopener">Lihat PDF Asli</a>
+              <a href="#" id="flag-report-link" target="_blank" rel="noopener">Lihat Laporan Analisis</a>
+              <a href="#" id="flag-processed-link" target="_blank" rel="noopener">Unduh DOCX Hasil</a>
+              <a href="#" id="flag-result-link" target="_blank" rel="noopener">Buka Halaman Hasil</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <footer>
+      Invisible Plagiarism Toolkit &bull; Upload portal prototipe &bull; 2024
+    </footer>
+  </div>
+
+  <script>
+    const form = document.querySelector('form');
+    const submitButton = form.querySelector('button[type="submit"]');
+    const statusPanel = document.getElementById('status-panel');
+    const statusBadge = document.getElementById('status-badge');
+    const statusText = statusBadge.querySelector('.status-text');
+    const statusSpinner = document.getElementById('status-spinner');
+    const statusDetail = document.getElementById('status-detail');
+    const statusJob = document.getElementById('status-job');
+    const statusLog = document.getElementById('status-log');
+    const statusLogText = document.getElementById('status-log-text');
+    const statusError = document.getElementById('status-error');
+    const flagSummary = document.getElementById('flag-summary');
+    const flagDistribution = document.getElementById('flag-distribution');
+    const flagList = document.getElementById('flag-list');
+    const flagLinks = document.getElementById('flag-links');
+    const flagPdfLink = document.getElementById('flag-pdf-link');
+    const flagReportLink = document.getElementById('flag-report-link');
+    const flagProcessedLink = document.getElementById('flag-processed-link');
+    const flagResultLink = document.getElementById('flag-result-link');
+    const progressList = document.getElementById('progress-list');
+
+    function setupDropzone(zoneId) {
+      const label = document.getElementById(zoneId);
+      const input = label.querySelector('input[type="file"]');
+      const pill = label.querySelector('.file-pill');
+      const placeholder = pill.getAttribute('data-placeholder');
+
+      input.addEventListener('change', () => {
+        const file = input.files && input.files[0];
+        pill.querySelector('span').textContent = file ? file.name : placeholder;
+      });
+
+      ['dragenter', 'dragover'].forEach(evt => {
+        label.addEventListener(evt, e => {
+          e.preventDefault();
+          label.classList.add('dragging');
+        });
+      });
+
+      ['dragleave', 'drop'].forEach(evt => {
+        label.addEventListener(evt, e => {
+          e.preventDefault();
+          label.classList.remove('dragging');
+        });
+      });
+    }
+
+    setupDropzone('docx-dropzone');
+    setupDropzone('pdf-dropzone');
+
+    form.addEventListener('submit', async event => {
+      event.preventDefault();
+      statusPanel.hidden = false;
+      statusLog.hidden = true;
+      statusError.hidden = true;
+      flagSummary.hidden = true;
+      flagList.innerHTML = '';
+      flagDistribution.innerHTML = '';
+      setLink(flagResultLink, null);
+      progressList.innerHTML = '';
+      updateStatusUI('queued', 'Mengunggah berkas...');
+      statusJob.textContent = '';
+
+      submitButton.disabled = true;
+      submitButton.textContent = 'Memproses...';
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch('/api/process', {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (!response.ok) {
+          const data = await response.json().catch(() => ({}));
+          throw new Error(data.detail || 'Gagal memulai pipeline.');
+        }
+
+        const data = await response.json();
+        statusJob.textContent = `Job ID: ${data.job_id}`;
+        updateStatusUI(data.status || 'queued', data.detail || 'Job diterima.');
+        pollStatus(data.job_id);
+      } catch (error) {
+        updateStatusUI('failed', 'Tidak dapat mengunggah berkas.');
+        statusError.hidden = false;
+        statusError.textContent = error.message || 'Terjadi kesalahan.';
+        submitButton.disabled = false;
+        submitButton.textContent = 'Siapkan Dokumen';
+      }
+    });
+
+    async function pollStatus(jobId) {
+      try {
+        const response = await fetch(`/api/status/${jobId}?t=${Date.now()}`, {
+          method: 'GET',
+          cache: 'no-store',
+        });
+
+        if (!response.ok) {
+          throw new Error('Gagal mengambil status terbaru.');
+        }
+
+        const data = await response.json();
+        updateStatusUI(data.status, data.detail);
+        if (data.result?.progress) {
+          renderProgress(data.result.progress);
+        }
+
+        if (data.status === 'completed') {
+          submitButton.disabled = false;
+          submitButton.textContent = 'Siapkan Dokumen';
+          statusSpinner.style.display = 'none';
+          statusLog.hidden = false;
+          statusLogText.textContent = data.result?.stdout || 'Pipeline selesai tanpa output tambahan.';
+          if (data.result?.analysis_summary) {
+            renderAnalysis(data.result.analysis_summary, data.result.files || {});
+          }
+          if (data.result?.progress) {
+            renderProgress(data.result.progress);
+          }
+        } else if (data.status === 'failed') {
+          submitButton.disabled = false;
+          submitButton.textContent = 'Siapkan Dokumen';
+          statusSpinner.style.display = 'none';
+          statusError.hidden = false;
+          statusError.textContent = data.error || 'Pipeline gagal dijalankan.';
+          if (data.result?.progress) {
+            renderProgress(data.result.progress);
+          }
+        } else {
+          statusSpinner.style.display = '';
+          await wait(2000);
+          pollStatus(jobId);
+        }
+      } catch (error) {
+        statusSpinner.style.display = 'none';
+        statusError.hidden = false;
+        statusError.textContent = error.message || 'Gagal memperbarui status.';
+        submitButton.disabled = false;
+        submitButton.textContent = 'Siapkan Dokumen';
+      }
+    }
+
+    function updateStatusUI(status, detail) {
+      statusBadge.dataset.status = status;
+      statusText.textContent = status.charAt(0).toUpperCase() + status.slice(1);
+      statusDetail.textContent = detail;
+      if (status === 'completed' || status === 'failed') {
+        statusSpinner.style.display = 'none';
+      } else {
+        statusSpinner.style.display = '';
+      }
+    }
+
+    function wait(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    function renderAnalysis(summary, files) {
+      try {
+        const distribution = summary.color_distribution || {};
+        const entries = Object.entries(distribution).sort((a, b) => b[1] - a[1]);
+        flagDistribution.innerHTML = '';
+        entries.slice(0, 8).forEach(([color, count]) => {
+          const chip = document.createElement('span');
+          chip.className = 'flag-chip';
+          const dot = document.createElement('span');
+          dot.className = 'flag-dot';
+          dot.style.background = colorPalette(color);
+          chip.appendChild(dot);
+          chip.appendChild(document.createTextNode(`${color} · ${count}`));
+          flagDistribution.appendChild(chip);
+        });
+
+        flagList.innerHTML = '';
+        (summary.priority_samples || []).forEach(sample => {
+          const item = document.createElement('li');
+          item.className = 'flag-item';
+
+          const header = document.createElement('div');
+          header.className = 'flag-item-header';
+          const labelParts = [`Halaman ${sample.page || '-'}`, sample.color || 'n/a'];
+          if (sample.manipulated) {
+            labelParts.push('applied');
+          }
+          header.innerHTML = `<span>${labelParts.join(' · ')}</span><span>${sample.length || 0} karakter</span>`;
+
+          const text = document.createElement('div');
+          text.className = 'flag-item-text';
+          text.textContent = sample.text || '';
+
+          if (sample.manipulated && Array.isArray(sample.manipulated_samples) && sample.manipulated_samples.length) {
+            const preview = document.createElement('span');
+            preview.className = 'flag-preview';
+            const example = sample.manipulated_samples[0];
+            preview.textContent = `Contoh manipulasi: ${(example?.original || '').slice(0, 80)} → ${(example?.manipulated || '').slice(0, 80)}`;
+            text.appendChild(preview);
+          }
+
+          item.appendChild(header);
+          item.appendChild(text);
+          flagList.appendChild(item);
+        });
+
+        setLink(flagPdfLink, files.original_pdf || (summary.original_pdf ? `/api/jobs/${summary.job_reference}/files/pdf` : null));
+        setLink(flagReportLink, files.report || (summary.report ? `/api/jobs/${summary.job_reference}/files/report` : null));
+        setLink(flagProcessedLink, files.processed_document || (summary.processed_document ? `/api/jobs/${summary.job_reference}/files/processed` : null));
+        setLink(flagResultLink, `/result?job=${encodeURIComponent(summary.job_reference || jobId)}`);
+
+        flagSummary.hidden = false;
+      } catch (error) {
+        console.warn('Gagal merender ringkasan highlight', error);
+      }
+    }
+
+    function renderProgress(progress) {
+      if (!progress || !Array.isArray(progress.history)) {
+        return;
+      }
+      progressList.innerHTML = '';
+      progress.history.forEach((entry, idx) => {
+        const item = document.createElement('li');
+        item.className = 'progress-item';
+        if (idx < progress.history.length - 1 || (progress.current && progress.current === entry.message)) {
+          item.dataset.state = 'done';
+        }
+        const message = document.createElement('span');
+        message.textContent = entry.message || '';
+        const time = document.createElement('time');
+        time.textContent = formatTime(entry.timestamp);
+        item.appendChild(message);
+        item.appendChild(time);
+        progressList.appendChild(item);
+      });
+    }
+
+    function colorPalette(color) {
+      const mapping = {
+        red: '#ff6b81',
+        green: '#3dd598',
+        blue: '#3a8bff',
+        magenta: '#d66bff',
+        cyan: '#48e5ff',
+        yellow: '#ffe66b',
+        orange: '#ff9f43',
+        pink: '#ff7eb9',
+        gray: '#a5b1c2',
+        light: '#dfe4ea',
+      };
+      return mapping[color] || '#5ef0ff';
+    }
+
+    function setLink(anchor, url) {
+      if (url) {
+        anchor.href = url;
+        anchor.style.display = '';
+      } else {
+        anchor.removeAttribute('href');
+        anchor.style.display = 'none';
+      }
+    }
+
+    function formatTime(timestamp) {
+      if (!timestamp) return '';
+      const date = new Date(timestamp);
+      if (Number.isNaN(date.getTime())) return '';
+      return date.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    }
+  </script>
+</body>
+</html>

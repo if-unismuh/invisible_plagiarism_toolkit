@@ -1,0 +1,95 @@
+{
+  "job_reference": "069913ce0c0a45d4b7f29ef9989706a4",
+  "mode": "aggressive",
+  "timestamp": "2025-09-29T09:52:18.481138",
+  "processing_time": 292.37856073800003,
+  "original_pdf": "workspace/input/turnitin/069913ce0c0a45d4b7f29ef9989706a4.pdf",
+  "processed_document": "workspace/output/processed/069913ce0c0a45d4b7f29ef9989706a4_aggressive_processed.docx",
+  "report": "workspace/output/reports/processing_report_069913ce0c0a45d4b7f29ef9989706a4.json",
+  "priority_segments_file": "workspace/output/analysis/priority_segments_069913ce0c0a45d4b7f29ef9989706a4.json",
+  "total_highlights": 1993,
+  "total_priority": 1480,
+  "color_distribution": {
+    "blue": 173,
+    "magenta": 237,
+    "gray": 37,
+    "orange": 86,
+    "light": 130,
+    "green": 656,
+    "yellow": 261,
+    "cyan": 144,
+    "red": 269
+  },
+  "priority_samples": [
+    {
+      "id": 1,
+      "page": 2,
+      "color": "blue",
+      "length": 68,
+      "text": "mengadakan flashsale sebanyak tiga kali sehari. Masih banyak program"
+    },
+    {
+      "id": 2,
+      "page": 2,
+      "color": "blue",
+      "length": 68,
+      "text": "menghapus layanan bebas biaya ongkos kirim bagi pembeli. Shopee juga"
+    },
+    {
+      "id": 3,
+      "page": 2,
+      "color": "blue",
+      "length": 30,
+      "text": "dengan Shopee tidak pemah yang"
+    },
+    {
+      "id": 4,
+      "page": 2,
+      "color": "blue",
+      "length": 9,
+      "text": "pelanggan"
+    },
+    {
+      "id": 5,
+      "page": 2,
+      "color": "magenta",
+      "length": 59,
+      "text": "Shopee fasilitas free karena memiliki ongkir (ongkos kirim)"
+    },
+    {
+      "id": 6,
+      "page": 2,
+      "color": "blue",
+      "length": 117,
+      "text": "Kesehatan, rumah dan produk dibutuhkan konsumen lainnya. tangga yang Baan satu membuat pembeli dak bosan di yang para"
+    },
+    {
+      "id": 7,
+      "page": 2,
+      "color": "blue",
+      "length": 56,
+      "text": "berbagai kelompok produk mulai dari elektronik, pakaian,"
+    },
+    {
+      "id": 8,
+      "page": 2,
+      "color": "blue",
+      "length": 66,
+      "text": "Shopee sudah dirasakan oleh pembeli. Dari segi produk, menyediakan"
+    },
+    {
+      "id": 9,
+      "page": 2,
+      "color": "blue",
+      "length": 60,
+      "text": "jumlah 56 dengan pengunjung sebesar juta pengunjung. menjadi"
+    },
+    {
+      "id": 10,
+      "page": 2,
+      "color": "magenta",
+      "length": 62,
+      "text": "menjadi kedua memiliki paling banyak pelanggan e-commerce yang"
+    }
+  ]
+}
