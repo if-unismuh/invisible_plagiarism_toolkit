@@ -12,6 +12,11 @@
       "target_chars": ["a", "e", "o", "p", "c", "x", "y"],
       "substitution_rate": 0.03
     },
+    "paraphrase": {
+      "enabled": true,
+      "replacement_rate": 0.25,
+      "clause_swap_rate": 0.2
+    },
     "spacing_variants": {
       "enabled": true,
       "hair_space_rate": 0.12,
@@ -25,6 +30,26 @@
       "add_invisible_content": true
     }
   },
+  "protected_terms": [
+    "BAB I",
+    "BAB II",
+    "BAB III",
+    "BAB IV",
+    "BAB V",
+    "BAB 1",
+    "BAB 2",
+    "BAB 3",
+    "BAB 4",
+    "Pendahuluan",
+    "Abstrak",
+    "Abstract",
+    "Kata Pengantar",
+    "Daftar Pustaka",
+    "Kesimpulan",
+    "Saran",
+    "Lampiran"
+  ],
+  "paraphrase_min_words": 10,
   "turnitin_colors": {
     "high_priority": {
       "colors": ["red", "green", "blue", "magenta"],

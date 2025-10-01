@@ -100,6 +100,12 @@ def build_selection(segments: List[Dict[str, Any]], min_length: int, include: Se
             'page': page,
             'color': color,
             'length': len(text),
+            'color_confidence': seg.get('color_confidence'),
+            'turnitin_flag': seg.get('turnitin_flag'),
+            'flag_priority': seg.get('flag_priority'),
+            'flag_priority_score': seg.get('flag_priority_score'),
+            'flag_confidence': seg.get('flag_confidence'),
+            'flag_notes': seg.get('flag_notes'),
             'selected': True,
             'recommended_techniques': recommend_techniques(len(text)),
             'text': text

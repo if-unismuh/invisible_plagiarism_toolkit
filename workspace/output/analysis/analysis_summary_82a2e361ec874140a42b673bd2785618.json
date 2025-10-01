@@ -1,0 +1,598 @@
+{
+  "job_reference": "82a2e361ec874140a42b673bd2785618",
+  "mode": "balanced",
+  "timestamp": "2025-09-30T12:12:25.785139",
+  "processing_time": 148.4084689880001,
+  "original_pdf": "workspace/input/turnitin/82a2e361ec874140a42b673bd2785618.pdf",
+  "processed_document": "workspace/output/processed/82a2e361ec874140a42b673bd2785618_balanced_processed.docx",
+  "report": "workspace/output/reports/processing_report_82a2e361ec874140a42b673bd2785618.json",
+  "priority_segments_file": "workspace/output/analysis/priority_segments_82a2e361ec874140a42b673bd2785618.json",
+  "total_highlights": 214,
+  "total_priority": 107,
+  "color_distribution": {
+    "cyan": 18,
+    "blue": 15,
+    "light": 23,
+    "orange": 23,
+    "green": 42,
+    "yellow": 50,
+    "magenta": 26,
+    "red": 17
+  },
+  "manipulated_segment_count": 32,
+  "manipulated_segment_ids": [
+    1,
+    3,
+    8,
+    11,
+    14,
+    16,
+    22,
+    24,
+    25,
+    30,
+    33,
+    34,
+    35,
+    37,
+    45,
+    46,
+    51,
+    52,
+    53,
+    54,
+    56,
+    60,
+    64,
+    65,
+    67,
+    72,
+    74,
+    76,
+    78,
+    83,
+    93,
+    97
+  ],
+  "priority_samples": [
+    {
+      "id": 1,
+      "page": 2,
+      "color": "cyan",
+      "length": 11,
+      "text": "Era digital",
+      "manipulated": true,
+      "manipulated_samples": [
+        {
+          "original": "Era digital",
+          "manipulated": "Era digital"
+        },
+        {
+          "original": "era digital",
+          "manipulated": "era digital"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "page": 2,
+      "color": "blue",
+      "length": 17,
+      "text": "A. Latar Belakang",
+      "manipulated": false,
+      "manipulated_samples": []
+    },
+    {
+      "id": 3,
+      "page": 2,
+      "color": "blue",
+      "length": 11,
+      "text": "PENDAHULUAN",
+      "manipulated": true,
+      "manipulated_samples": [
+        {
+          "original": "PENDAHULUAN",
+          "manipulated": "PENDAHULUAN"
+        },
+        {
+          "original": "PENDAHULUAN",
+          "manipulated": "PENDAHULUAN"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "page": 3,
+      "color": "blue",
+      "length": 218,
+      "text": "signifikan) khir (bit paling tidak dari data piksel citra yang penampung signifikan image) tidgly berpengaruh dengan bit dari gambar (cover yang sebelumnya. Metode ini merupakan salah teknik steganografi Satu Yang umum",
+      "manipulated": false,
+      "manipulated_samples": []
+    },
+    {
+      "id": 5,
+      "page": 3,
+      "color": "cyan",
+      "length": 22,
+      "text": "signifikan) tidak dari",
+      "manipulated": false,
+      "manipulated_samples": []
+    },
+    {
+      "id": 6,
+      "page": 3,
+      "color": "blue",
+      "length": 141,
+      "text": "informasi, enkripsi dan dekripsi si: Seperti dinyatakan oleh (Nur yang kerja metode LSB yaitu mengubah bit Agsal Aminullah al., 2022) et Cara",
+      "manipulated": false,
+      "manipulated_samples": []
+    },
+    {
+      "id": 7,
+      "page": 4,
+      "color": "orange",
+      "length": 16,
+      "text": "digital. Manfaat",
+      "manipulated": false,
+      "manipulated_samples": []
+    },
+    {
+      "id": 8,
+      "page": 4,
+      "color": "cyan",
+      "length": 10,
+      "text": "penyisipan",
+      "manipulated": true,
+      "manipulated_samples": [
+        {
+          "original": "Penyisipan",
+          "manipulated": "Penyisipan"
+        },
+        {
+          "original": "penyisipan",
+          "manipulated": "penyisipan"
+        },
+        {
+          "original": "penyisipan",
+          "manipulated": "penyisipan"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "page": 4,
+      "color": "cyan",
+      "length": 99,
+      "text": "gggneeabungkan Quick Response (QR) Code sebagai steganografi Significant dan metode Least Bit (LSB)",
+      "manipulated": false,
+      "manipulated_samples": []
+    },
+    {
+      "id": 10,
+      "page": 4,
+      "color": "green",
+      "length": 12,
+      "text": "1. Bagaimana",
+      "manipulated": false,
+      "manipulated_samples": []
+    }
+  ],
+  "manipulated_segments": [
+    {
+      "id": 1,
+      "samples": [
+        {
+          "original": "Era digital",
+          "manipulated": "Era digital"
+        },
+        {
+          "original": "era digital",
+          "manipulated": "era digital"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "samples": [
+        {
+          "original": "PENDAHULUAN",
+          "manipulated": "PENDAHULUAN"
+        },
+        {
+          "original": "PENDAHULUAN",
+          "manipulated": "PENDAHULUAN"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "samples": [
+        {
+          "original": "Penyisipan",
+          "manipulated": "Penyisipan"
+        },
+        {
+          "original": "penyisipan",
+          "manipulated": "penyisipan"
+        },
+        {
+          "original": "penyisipan",
+          "manipulated": "penyisipan"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "samples": [
+        {
+          "original": "dalam penelitian ini adalah sebagai berikut:",
+          "manipulated": "dalam penelitian ini adalah sebagai berikut: "
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "samples": [
+        {
+          "original": "pembuatan sistem.",
+          "manipulated": "pembuatan sistem."
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "samples": [
+        {
+          "original": "BAB III METODE PENELITIAN",
+          "manipulated": "BAB  III METODE PENELITIAN"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "samples": [
+        {
+          "original": "Bab ini menerangkan secara singkat dan jelas mengenai latar belakang",
+          "manipulated": "Bab ini menerangkan secara singkat  dan ‌jelas mengenaі latar вelakang"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "samples": [
+        {
+          "original": "LSB tidak dapat dipertahankan",
+          "manipulated": "LЅB tidak dapat dipertahankan"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "samples": [
+        {
+          "original": "Penelitian ini dibatasi pada",
+          "manipulated": "Penelitian  ‍ini dibatasi pada"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "samples": [
+        {
+          "original": "BAHAN AJAR",
+          "manipulated": "BAHAN AJAR"
+        },
+        {
+          "original": "BAHAN AJAR",
+          "manipulated": "BAHAN  AJAR"
+        },
+        {
+          "original": "bahan ajar",
+          "manipulated": "bahan ajar"
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "samples": [
+        {
+          "original": "TINJAUAN PUSTAKA",
+          "manipulated": "TINJAUAN PUSTAKA"
+        },
+        {
+          "original": "TINJAUAN PUSTAKA",
+          "manipulated": "TINJAUAN ‍PUSTAKA"
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "samples": [
+        {
+          "original": "Least Significant Bit (LSB)",
+          "manipulated": "Least ‍Significant Bit (LSB)"
+        },
+        {
+          "original": "Least Significant Bit (LSB)",
+          "manipulated": "Least  Significant  Bit (LSB)"
+        },
+        {
+          "original": "Least Significant Bit (LSB)",
+          "manipulated": "Least Significant Bit (LSB)"
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "samples": [
+        {
+          "original": "tidak terdeteksi oleh",
+          "manipulated": "tidak terdeteksi  oleh"
+        },
+        {
+          "original": "tidak terdeteksi oleh",
+          "manipulated": "tidak ‌terdeteksi oleh"
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "samples": [
+        {
+          "original": "seni menyembunyikan",
+          "manipulated": "seni menyembunyikan"
+        },
+        {
+          "original": "seni menyembunyikan",
+          "manipulated": "seni ‌​menyembunyikan"
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "samples": [
+        {
+          "original": "Tujuan/Kasus",
+          "manipulated": "Tujuan/Kasus"
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "samples": [
+        {
+          "original": "Penelitian Terkait",
+          "manipulated": "Penelitian Terkait"
+        },
+        {
+          "original": "Penelitian Terkait",
+          "manipulated": "Penelitian Terkait"
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "samples": [
+        {
+          "original": "penulisan laporan",
+          "manipulated": "penulisan ‌laporan"
+        },
+        {
+          "original": "Penulisan Laporan",
+          "manipulated": "Penulisan  Laporan"
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "samples": [
+        {
+          "original": "IMPLEMENTASI SISTEM",
+          "manipulated": "IMPLEMENTASI  SISTEM"
+        },
+        {
+          "original": "IMPLEMENTASI SISTEM",
+          "manipulated": "IMPLEMENTASI SISTEM"
+        },
+        {
+          "original": "implementasi sistem",
+          "manipulated": "implementasi  sistem"
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "samples": [
+        {
+          "original": "Desain Sistem",
+          "manipulated": "Desain Sistem"
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "samples": [
+        {
+          "original": "Analisis Sistem",
+          "manipulated": "Analisis Sistem"
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "samples": [
+        {
+          "original": "bulan, yaitu dimulai pada",
+          "manipulated": "bulan,  yaitu dimulai pada"
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "samples": [
+        {
+          "original": "penelitian.",
+          "manipulated": "penelitian."
+        },
+        {
+          "original": "penelitian.",
+          "manipulated": "penelitian.‌"
+        },
+        {
+          "original": "penelitian.",
+          "manipulated": "penelitian.​"
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "samples": [
+        {
+          "original": "METODE PENELITIAN",
+          "manipulated": "METODE PENELITIAN"
+        },
+        {
+          "original": "metode penelitian",
+          "manipulated": "metode penelitian"
+        },
+        {
+          "original": "METODE PENELITIAN",
+          "manipulated": "METODE ‍PENELITIAN"
+        }
+      ]
+    },
+    {
+      "id": 65,
+      "samples": [
+        {
+          "original": "(embedding)",
+          "manipulated": "(embedding)"
+        },
+        {
+          "original": "(embedding)",
+          "manipulated": "(embedding)"
+        },
+        {
+          "original": "(Embedding)",
+          "manipulated": "(Embedding)"
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "samples": [
+        {
+          "original": "steganografi Least Significant Bit (LSB).",
+          "manipulated": "ѕteganografi Least Significant Bit (LSB)."
+        },
+        {
+          "original": "steganografi Least Significant Bit (LSB).",
+          "manipulated": "steganografi Lеast ‌Significant Bit (LSB)."
+        }
+      ]
+    },
+    {
+      "id": 72,
+      "samples": [
+        {
+          "original": "(stego image) yang",
+          "manipulated": "(stego ﻿image)  ‌﻿yang"
+        }
+      ]
+    },
+    {
+      "id": 74,
+      "samples": [
+        {
+          "original": "Pengujian Sistem",
+          "manipulated": "Pengujian Sistem"
+        },
+        {
+          "original": "Pengujian sistem",
+          "manipulated": "Pengujian sistem"
+        },
+        {
+          "original": "Pengujian Sistem",
+          "manipulated": "Pengujian ‌Sistem"
+        }
+      ]
+    },
+    {
+      "id": 76,
+      "samples": [
+        {
+          "original": "Significant",
+          "manipulated": "Significant"
+        },
+        {
+          "original": "Significant",
+          "manipulated": "Significant"
+        },
+        {
+          "original": "Significant",
+          "manipulated": "Significant"
+        }
+      ]
+    },
+    {
+      "id": 78,
+      "samples": [
+        {
+          "original": "UNIVERSITAS",
+          "manipulated": "UNIVERSITAS"
+        },
+        {
+          "original": "Universitas",
+          "manipulated": "Universitas"
+        },
+        {
+          "original": "Universitas",
+          "manipulated": "Universitas"
+        }
+      ]
+    },
+    {
+      "id": 83,
+      "samples": [
+        {
+          "original": "MUHAMMADIYAH",
+          "manipulated": "MUHAMMADIYAH"
+        },
+        {
+          "original": "Muhammadiyah",
+          "manipulated": "Muhammadiyah"
+        },
+        {
+          "original": "Muhammadiyah",
+          "manipulated": "Muhammadiyah"
+        }
+      ]
+    },
+    {
+      "id": 93,
+      "samples": [
+        {
+          "original": "programming",
+          "manipulated": "programming"
+        }
+      ]
+    },
+    {
+      "id": 97,
+      "samples": [
+        {
+          "original": "pendidikan",
+          "manipulated": "pendidikan"
+        },
+        {
+          "original": "pendidikan",
+          "manipulated": "pendidikan"
+        },
+        {
+          "original": "pendidikan",
+          "manipulated": "pendidikan"
+        }
+      ]
+    }
+  ]
+}

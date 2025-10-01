@@ -23,6 +23,7 @@ import unicodedata
 from .metadata_manipulator import MetadataManipulator, MetadataOptions
 from .unicode_steganography import UnicodeSteg
 from .detection_analyzer import compare_docx_invisibility
+from utils.paraphraser import paraphrase_text
 
 class InvisibleManipulator:
     def __init__(self, config_file='config.json', verbose: bool = False):
@@ -46,6 +47,7 @@ class InvisibleManipulator:
         self.invisible_chars = self.load_data_file('data/invisible_chars.json')
         self.header_patterns = self.load_data_file('data/header_patterns.json')
         self.paraphrase_map = self.load_data_file('data/paraphrase_synonyms.json')
+        self.paraphrase_phrases = self.load_data_file('data/paraphrase_phrases.json')
 
         # Fallback: initialize UnicodeSteg if mapping keys mismatch expected usage
         self.steg = UnicodeSteg()
@@ -131,7 +133,8 @@ class InvisibleManipulator:
                 },
                 "paraphrase": {
                     "enabled": True,
-                    "replacement_rate": 0.25
+                    "replacement_rate": 0.25,
+                    "clause_swap_rate": 0.25
                 },
                 "spacing_variants": {
                     "enabled": True,
@@ -487,29 +490,14 @@ class InvisibleManipulator:
         return result
 
     def apply_paraphrase_to_text(self, text: str, replacement_rate: float) -> str:
-        """Lightweight paraphrasing by swapping words via synonym map."""
-        if not self.paraphrase_map or replacement_rate <= 0:
-            return text
-
-        tokens = re.findall(r"\w+|\s+|[^\w\s]", text, flags=re.UNICODE)
-        if not tokens:
-            return text
-
-        result_tokens = []
-        for token in tokens:
-            if re.match(r"\w+", token, flags=re.UNICODE):
-                lower = token.lower()
-                synonyms = self.paraphrase_map.get(lower)
-                if synonyms and random.random() < replacement_rate:
-                    replacement = random.choice(synonyms)
-                    if token[0].isupper():
-                        replacement = replacement.capitalize()
-                    result_tokens.append(replacement)
-                else:
-                    result_tokens.append(token)
-            else:
-                result_tokens.append(token)
-        return ''.join(result_tokens)
+        clause_rate = self.config['invisible_techniques'].get('paraphrase', {}).get('clause_swap_rate', 0.2)
+        return paraphrase_text(
+            text,
+            self.paraphrase_map,
+            self.paraphrase_phrases,
+            replacement_rate,
+            clause_rate,
+        )
 
     def apply_spacing_variants_to_text(self, text: str, spacing_cfg: Dict[str, float]) -> str:
         if not spacing_cfg or not text:

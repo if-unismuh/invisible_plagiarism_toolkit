@@ -1,0 +1,1137 @@
+{
+  "job_reference": "5a39f9ca669149419ba71053510a5d36",
+  "mode": "aggressive",
+  "timestamp": "2025-10-01T07:26:52.972211",
+  "processing_time": 156.609966342,
+  "original_pdf": "workspace/input/turnitin/5a39f9ca669149419ba71053510a5d36.pdf",
+  "processed_document": "workspace/output/processed/5a39f9ca669149419ba71053510a5d36_aggressive_processed.docx",
+  "report": "workspace/output/reports/processing_report_5a39f9ca669149419ba71053510a5d36.json",
+  "priority_segments_file": "workspace/output/analysis/priority_segments_5a39f9ca669149419ba71053510a5d36.json",
+  "total_highlights": 217,
+  "total_priority": 169,
+  "color_distribution": {
+    "cyan": 18,
+    "blue": 40,
+    "orange": 23,
+    "green": 42,
+    "yellow": 50,
+    "magenta": 26,
+    "red": 18
+  },
+  "manipulated_segment_count": 66,
+  "manipulated_segment_ids": [
+    1,
+    3,
+    5,
+    11,
+    14,
+    17,
+    19,
+    25,
+    28,
+    29,
+    31,
+    33,
+    36,
+    39,
+    40,
+    41,
+    43,
+    44,
+    45,
+    47,
+    54,
+    55,
+    58,
+    60,
+    61,
+    62,
+    66,
+    67,
+    68,
+    69,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    78,
+    82,
+    86,
+    87,
+    88,
+    89,
+    90,
+    92,
+    99,
+    100,
+    101,
+    104,
+    105,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    123,
+    127,
+    131,
+    132,
+    141,
+    143,
+    145,
+    150,
+    154,
+    158
+  ],
+  "priority_samples": [
+    {
+      "id": 1,
+      "page": 2,
+      "color": "cyan",
+      "length": 11,
+      "text": "Era digital",
+      "manipulated": true,
+      "manipulated_samples": [
+        {
+          "original": "Era digital",
+          "manipulated": "Era digital"
+        },
+        {
+          "original": "era digital",
+          "manipulated": "era  ‌digital"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "page": 2,
+      "color": "blue",
+      "length": 17,
+      "text": "A. Latar Belakang",
+      "manipulated": false,
+      "manipulated_samples": []
+    },
+    {
+      "id": 3,
+      "page": 2,
+      "color": "blue",
+      "length": 11,
+      "text": "PENDAHULUAN",
+      "manipulated": true,
+      "manipulated_samples": [
+        {
+          "original": "PENDAHULUAN",
+          "manipulated": "PENDAHULUAN"
+        },
+        {
+          "original": "PENDAHULUAN",
+          "manipulated": "PENDAHULUAN"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "page": 2,
+      "color": "cyan",
+      "length": 6,
+      "text": "a BABI",
+      "manipulated": false,
+      "manipulated_samples": []
+    },
+    {
+      "id": 5,
+      "page": 3,
+      "color": "blue",
+      "length": 15,
+      "text": "digunakan untuk",
+      "manipulated": true,
+      "manipulated_samples": [
+        {
+          "original": "digunakan untuk",
+          "manipulated": "digunakan untuk"
+        },
+        {
+          "original": "digunakan untuk",
+          "manipulated": "digunakan  untuk"
+        },
+        {
+          "original": "digunakan untuk",
+          "manipulated": "digunakan ‍untuk"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "page": 3,
+      "color": "blue",
+      "length": 218,
+      "text": "signifikan) khir (bit paling tidak dari data piksel citra yang penampung signifikan image) tidgly berpengaruh dengan bit dari gambar (cover yang sebelumnya. Metode ini merupakan salah teknik steganografi Satu Yang umum",
+      "manipulated": false,
+      "manipulated_samples": []
+    },
+    {
+      "id": 7,
+      "page": 3,
+      "color": "cyan",
+      "length": 22,
+      "text": "signifikan) tidak dari",
+      "manipulated": false,
+      "manipulated_samples": []
+    },
+    {
+      "id": 8,
+      "page": 3,
+      "color": "blue",
+      "length": 141,
+      "text": "informasi, enkripsi dan dekripsi si: Seperti dinyatakan oleh (Nur yang kerja metode LSB yaitu mengubah bit Agsal Aminullah al., 2022) et Cara",
+      "manipulated": false,
+      "manipulated_samples": []
+    },
+    {
+      "id": 9,
+      "page": 3,
+      "color": "blue",
+      "length": 67,
+      "text": "Significant adalah teknik digunakan dalam Least Bit (LSB) yang umum",
+      "manipulated": false,
+      "manipulated_samples": []
+    },
+    {
+      "id": 10,
+      "page": 4,
+      "color": "orange",
+      "length": 16,
+      "text": "digital. Manfaat",
+      "manipulated": false,
+      "manipulated_samples": []
+    }
+  ],
+  "manipulated_segments": [
+    {
+      "id": 1,
+      "samples": [
+        {
+          "original": "Era digital",
+          "manipulated": "Era digital"
+        },
+        {
+          "original": "era digital",
+          "manipulated": "era  ‌digital"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "samples": [
+        {
+          "original": "PENDAHULUAN",
+          "manipulated": "PENDAHULUAN"
+        },
+        {
+          "original": "PENDAHULUAN",
+          "manipulated": "PENDAHULUAN"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "samples": [
+        {
+          "original": "digunakan untuk",
+          "manipulated": "digunakan untuk"
+        },
+        {
+          "original": "digunakan untuk",
+          "manipulated": "digunakan  untuk"
+        },
+        {
+          "original": "digunakan untuk",
+          "manipulated": "digunakan ‍untuk"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "samples": [
+        {
+          "original": "Penyisipan",
+          "manipulated": "Penyisipan"
+        },
+        {
+          "original": "penyisipan",
+          "manipulated": "penyisipan"
+        },
+        {
+          "original": "penyisipan",
+          "manipulated": "penyisipan"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "samples": [
+        {
+          "original": "dalam penelitian ini adalah sebagai berikut:",
+          "manipulated": "dalam peнelitian ini adalah sebagai berikut:"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "samples": [
+        {
+          "original": "pembuatan sistem.",
+          "manipulated": "pembuatan sistem."
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "samples": [
+        {
+          "original": "BAB III METODE PENELITIAN",
+          "manipulated": "BAB III ﻿METODE PENELITIAN"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "samples": [
+        {
+          "original": "Bab ini menerangkan secara singkat dan jelas mengenai latar belakang",
+          "manipulated": "Bab іni menerangkan  secara singkaт dan jelas mengenai latar  belakang"
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "samples": [
+        {
+          "original": "LSB tidak dapat dipertahankan",
+          "manipulated": "LSB  tidak ‌dapat dipertahankan"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "samples": [
+        {
+          "original": "Penelitian ini dibatasi pada",
+          "manipulated": "Peнelitian ini dibatаsi pada"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "samples": [
+        {
+          "original": "Citra digital adalah gambar dua dimensi yang",
+          "manipulated": "Citra ​digital ﻿adalah gambar ‌dua dimensi yang"
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "samples": [
+        {
+          "original": "video)",
+          "manipulated": "video)"
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "samples": [
+        {
+          "original": "BAHAN AJAR",
+          "manipulated": "BAHAN AJAR"
+        },
+        {
+          "original": "BAHAN AJAR",
+          "manipulated": "BAHAN  AJAR"
+        },
+        {
+          "original": "bahan ajar",
+          "manipulated": "bahan ajar"
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "samples": [
+        {
+          "original": "TINJAUAN PUSTAKA",
+          "manipulated": "TINJAUAN  PUSTAKA"
+        },
+        {
+          "original": "TINJAUAN PUSTAKA",
+          "manipulated": "TINJAUAN PUSTAKA"
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "samples": [
+        {
+          "original": "BAB II",
+          "manipulated": "BAB  ‌II"
+        },
+        {
+          "original": "BAB II",
+          "manipulated": "BAB ​II"
+        },
+        {
+          "original": "BAB II",
+          "manipulated": "BAB II"
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "samples": [
+        {
+          "original": "dan sederhana.",
+          "manipulated": "dan ​sederhana."
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "samples": [
+        {
+          "original": "metode steganografi",
+          "manipulated": "metode ‍steganografi"
+        },
+        {
+          "original": "metode steganografi",
+          "manipulated": "metode steganografi"
+        },
+        {
+          "original": "metode steganografi",
+          "manipulated": "metode steganografi"
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "samples": [
+        {
+          "original": "Least Significant Bit (LSB)",
+          "manipulated": "Least Significant  Bit (LSB)"
+        },
+        {
+          "original": "Least Significant Bit (LSB)",
+          "manipulated": "Lеast  Significant Bit ‍(LSB)"
+        },
+        {
+          "original": "Least Significant Bit (LSB)",
+          "manipulated": "Least  Significant ﻿Bit (LSB)"
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "samples": [
+        {
+          "original": "tidak terdeteksi oleh",
+          "manipulated": "tidak terdeteksi oleh"
+        },
+        {
+          "original": "tidak terdeteksi oleh",
+          "manipulated": "tidak terdeteksi ﻿oleh"
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "samples": [
+        {
+          "original": "seni menyembunyikan",
+          "manipulated": "seni menyembunyikan"
+        },
+        {
+          "original": "seni menyembunyikan",
+          "manipulated": "seni menyembunyikan"
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "samples": [
+        {
+          "original": "informasi",
+          "manipulated": "informasi"
+        },
+        {
+          "original": "informasi",
+          "manipulated": "informasi"
+        },
+        {
+          "original": "informasi",
+          "manipulated": "informasi"
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "samples": [
+        {
+          "original": "menyimpan",
+          "manipulated": "menyimpan"
+        },
+        {
+          "original": "menyimpan",
+          "manipulated": "menyimpan"
+        },
+        {
+          "original": "menyimpan",
+          "manipulated": "menyimpan"
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "samples": [
+        {
+          "original": "(QR) Code",
+          "manipulated": "(QR) Code"
+        },
+        {
+          "original": "(QR) code",
+          "manipulated": "(QR)  code"
+        },
+        {
+          "original": "(QR) Code",
+          "manipulated": "(QR) ‍Code"
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "samples": [
+        {
+          "original": "Tujuan/Kasus",
+          "manipulated": "Tujuan/Kasus"
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "samples": [
+        {
+          "original": "Peneliti",
+          "manipulated": "Peneliti"
+        },
+        {
+          "original": "Peneliti",
+          "manipulated": "Peneliti"
+        },
+        {
+          "original": "peneliti",
+          "manipulated": "peneliti"
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "samples": [
+        {
+          "original": "Penelitian Terkait",
+          "manipulated": "Penelitian  Terkait"
+        },
+        {
+          "original": "Penelitian Terkait",
+          "manipulated": "Penelitian Terkait"
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "samples": [
+        {
+          "original": "(LSB) untuk",
+          "manipulated": "(LSB) ‍untuk"
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "samples": [
+        {
+          "original": "Significant Bit",
+          "manipulated": "Significant Bit"
+        },
+        {
+          "original": "Significant Bit",
+          "manipulated": "Significant Bit"
+        },
+        {
+          "original": "Significant Bit",
+          "manipulated": "Significant  Bit"
+        }
+      ]
+    },
+    {
+      "id": 68,
+      "samples": [
+        {
+          "original": "steganografi Least",
+          "manipulated": "steganografi  Least"
+        },
+        {
+          "original": "steganografi Least",
+          "manipulated": "steganografi ​Least"
+        },
+        {
+          "original": "steganografi Least",
+          "manipulated": "steganografi Least"
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "samples": [
+        {
+          "original": "METODE",
+          "manipulated": "METODE"
+        },
+        {
+          "original": "METODE",
+          "manipulated": "METODE"
+        },
+        {
+          "original": "metode",
+          "manipulated": "metode"
+        }
+      ]
+    },
+    {
+      "id": 71,
+      "samples": [
+        {
+          "original": "digunakan",
+          "manipulated": "digunakan"
+        },
+        {
+          "original": "digunakan",
+          "manipulated": "digunakan"
+        },
+        {
+          "original": "digunakan",
+          "manipulated": "digunakan"
+        }
+      ]
+    },
+    {
+      "id": 72,
+      "samples": [
+        {
+          "original": "penulisan laporan",
+          "manipulated": "penulisan laporan"
+        },
+        {
+          "original": "Penulisan Laporan",
+          "manipulated": "Penulisan Laporan"
+        }
+      ]
+    },
+    {
+      "id": 73,
+      "samples": [
+        {
+          "original": "SISTEM",
+          "manipulated": "SISTEM"
+        },
+        {
+          "original": "SISTEM",
+          "manipulated": "SISTEM"
+        },
+        {
+          "original": "sistem",
+          "manipulated": "sistem"
+        }
+      ]
+    },
+    {
+      "id": 74,
+      "samples": [
+        {
+          "original": "IMPLEMENTASI SISTEM",
+          "manipulated": "IMPLEMENTASI SISTEM"
+        },
+        {
+          "original": "IMPLEMENTASI SISTEM",
+          "manipulated": "IMPLEMENTASI SISTEM"
+        },
+        {
+          "original": "implementasi sistem",
+          "manipulated": "implementasi  sistem"
+        }
+      ]
+    },
+    {
+      "id": 75,
+      "samples": [
+        {
+          "original": "Desain Sistem",
+          "manipulated": "Desain Sistem"
+        }
+      ]
+    },
+    {
+      "id": 76,
+      "samples": [
+        {
+          "original": "Analisis Sistem",
+          "manipulated": "Analisis Sistem"
+        }
+      ]
+    },
+    {
+      "id": 78,
+      "samples": [
+        {
+          "original": "bulan, yaitu dimulai pada",
+          "manipulated": "bulan,  yaitu  dimulai pada"
+        }
+      ]
+    },
+    {
+      "id": 82,
+      "samples": [
+        {
+          "original": "penelitian.",
+          "manipulated": "penelitian."
+        },
+        {
+          "original": "penelitian.",
+          "manipulated": "penelitian."
+        },
+        {
+          "original": "penelitian.",
+          "manipulated": "penelitian.‍"
+        }
+      ]
+    },
+    {
+      "id": 86,
+      "samples": [
+        {
+          "original": "METODE PENELITIAN",
+          "manipulated": "METODE PENELITIAN"
+        },
+        {
+          "original": "metode penelitian",
+          "manipulated": "metode penelitian"
+        },
+        {
+          "original": "METODE PENELITIAN",
+          "manipulated": "METODE PENELITIAN"
+        }
+      ]
+    },
+    {
+      "id": 87,
+      "samples": [
+        {
+          "original": "BAB III",
+          "manipulated": "BAB III"
+        },
+        {
+          "original": "BAB III",
+          "manipulated": "BAB III"
+        }
+      ]
+    },
+    {
+      "id": 88,
+      "samples": [
+        {
+          "original": "(embedding)",
+          "manipulated": "(embedding)"
+        },
+        {
+          "original": "(embedding)",
+          "manipulated": "(embedding)"
+        },
+        {
+          "original": "(Embedding)",
+          "manipulated": "(Embedding)"
+        }
+      ]
+    },
+    {
+      "id": 89,
+      "samples": [
+        {
+          "original": "proses",
+          "manipulated": "proses"
+        },
+        {
+          "original": "Proses",
+          "manipulated": "Proses"
+        },
+        {
+          "original": "Proses",
+          "manipulated": "Proses"
+        }
+      ]
+    },
+    {
+      "id": 90,
+      "samples": [
+        {
+          "original": "(extracting)",
+          "manipulated": "(extracting)"
+        },
+        {
+          "original": "(extracting)",
+          "manipulated": "(extracting)"
+        },
+        {
+          "original": "(Extracting)",
+          "manipulated": "(Extracting)"
+        }
+      ]
+    },
+    {
+      "id": 92,
+      "samples": [
+        {
+          "original": "steganografi Least Significant Bit (LSB).",
+          "manipulated": "ѕteganografi Leаst ‍Significant Bit (LSB).‌"
+        },
+        {
+          "original": "steganografi Least Significant Bit (LSB).",
+          "manipulated": "stegaнogrаfi Least  ‍Significant ‌Bit (LSB). "
+        }
+      ]
+    },
+    {
+      "id": 99,
+      "samples": [
+        {
+          "original": "mengandung",
+          "manipulated": "mengandung"
+        },
+        {
+          "original": "mengandung",
+          "manipulated": "mengandung"
+        },
+        {
+          "original": "mengandung",
+          "manipulated": "mengandung"
+        }
+      ]
+    },
+    {
+      "id": 100,
+      "samples": [
+        {
+          "original": "identik dengan",
+          "manipulated": "identik dengan"
+        },
+        {
+          "original": "identik dengan",
+          "manipulated": "identik dengan"
+        }
+      ]
+    },
+    {
+      "id": 101,
+      "samples": [
+        {
+          "original": "(stego image) yang",
+          "manipulated": "(stego image) yang"
+        }
+      ]
+    },
+    {
+      "id": 104,
+      "samples": [
+        {
+          "original": "Pengujian Sistem",
+          "manipulated": "Pengujian ‍Sistem"
+        },
+        {
+          "original": "Pengujian sistem",
+          "manipulated": "Pengujian sistem"
+        },
+        {
+          "original": "Pengujian Sistem",
+          "manipulated": "Pengujian Sistem"
+        }
+      ]
+    },
+    {
+      "id": 105,
+      "samples": [
+        {
+          "original": "tingkat",
+          "manipulated": "tingkat"
+        },
+        {
+          "original": "tingkat",
+          "manipulated": "tingkat"
+        },
+        {
+          "original": "tingkat",
+          "manipulated": "tingkat"
+        }
+      ]
+    },
+    {
+      "id": 107,
+      "samples": [
+        {
+          "original": "berbasis",
+          "manipulated": "berbasis"
+        },
+        {
+          "original": "berbasis",
+          "manipulated": "berbasis"
+        }
+      ]
+    },
+    {
+      "id": 108,
+      "samples": [
+        {
+          "original": "Cipher",
+          "manipulated": "Cipher"
+        },
+        {
+          "original": "Cipher",
+          "manipulated": "Cipher"
+        }
+      ]
+    },
+    {
+      "id": 109,
+      "samples": [
+        {
+          "original": "Vigenere",
+          "manipulated": "Vigenere"
+        },
+        {
+          "original": "Vigenere",
+          "manipulated": "Vigenere"
+        }
+      ]
+    },
+    {
+      "id": 110,
+      "samples": [
+        {
+          "original": "enkripsi",
+          "manipulated": "enkripsi"
+        },
+        {
+          "original": "enkripsi",
+          "manipulated": "enkripsi"
+        },
+        {
+          "original": "enkripsi",
+          "manipulated": "enkripsi"
+        }
+      ]
+    },
+    {
+      "id": 111,
+      "samples": [
+        {
+          "original": "Significant",
+          "manipulated": "Significant"
+        },
+        {
+          "original": "Significant",
+          "manipulated": "Significant"
+        },
+        {
+          "original": "Significant",
+          "manipulated": "Significant"
+        }
+      ]
+    },
+    {
+      "id": 112,
+      "samples": [
+        {
+          "original": "dengan",
+          "manipulated": "dengan"
+        },
+        {
+          "original": "Dengan",
+          "manipulated": "Dengan"
+        },
+        {
+          "original": "dengan",
+          "manipulated": "dengan"
+        }
+      ]
+    },
+    {
+      "id": 113,
+      "samples": [
+        {
+          "original": "DIGITAL",
+          "manipulated": "DIGITAL"
+        },
+        {
+          "original": "DIGITAL",
+          "manipulated": "DIGITAL"
+        },
+        {
+          "original": "digital",
+          "manipulated": "digital"
+        }
+      ]
+    },
+    {
+      "id": 123,
+      "samples": [
+        {
+          "original": "UNIVERSITAS",
+          "manipulated": "UNIVERSITAS"
+        },
+        {
+          "original": "Universitas",
+          "manipulated": "Universitas"
+        },
+        {
+          "original": "Universitas",
+          "manipulated": "Universitas"
+        }
+      ]
+    },
+    {
+      "id": 127,
+      "samples": [
+        {
+          "original": "Agustus",
+          "manipulated": "Agustus"
+        }
+      ]
+    },
+    {
+      "id": 131,
+      "samples": [
+        {
+          "original": "MAKASSAR",
+          "manipulated": "MAKASSAR"
+        },
+        {
+          "original": "Makassar",
+          "manipulated": "Makassar"
+        },
+        {
+          "original": "Makassar",
+          "manipulated": "Makassar"
+        }
+      ]
+    },
+    {
+      "id": 132,
+      "samples": [
+        {
+          "original": "MUHAMMADIYAH",
+          "manipulated": "MUHAMMADIYAH"
+        },
+        {
+          "original": "Muhammadiyah",
+          "manipulated": "Muhammadiyah"
+        },
+        {
+          "original": "Muhammadiyah",
+          "manipulated": "Muhammadiyah"
+        }
+      ]
+    },
+    {
+      "id": 141,
+      "samples": [
+        {
+          "original": "TEKNIK",
+          "manipulated": "TEKNIK"
+        },
+        {
+          "original": "Teknik",
+          "manipulated": "Teknik"
+        },
+        {
+          "original": "teknik",
+          "manipulated": "teknik"
+        }
+      ]
+    },
+    {
+      "id": 143,
+      "samples": [
+        {
+          "original": "observasi",
+          "manipulated": "observasi"
+        },
+        {
+          "original": "observasi",
+          "manipulated": "observasi"
+        }
+      ]
+    },
+    {
+      "id": 145,
+      "samples": [
+        {
+          "original": "programming",
+          "manipulated": "programming"
+        }
+      ]
+    },
+    {
+      "id": 150,
+      "samples": [
+        {
+          "original": "pendidikan",
+          "manipulated": "pendidikan"
+        },
+        {
+          "original": "pendidikan",
+          "manipulated": "pendidikan"
+        },
+        {
+          "original": "pendidikan",
+          "manipulated": "pendidikan"
+        }
+      ]
+    },
+    {
+      "id": 154,
+      "samples": [
+        {
+          "original": "kuliah",
+          "manipulated": "kuliah"
+        }
+      ]
+    },
+    {
+      "id": 158,
+      "samples": [
+        {
+          "original": "DIGITAL",
+          "manipulated": "DIGITAL"
+        },
+        {
+          "original": "DIGITAL",
+          "manipulated": "DIGITAL"
+        },
+        {
+          "original": "digital",
+          "manipulated": "digital"
+        }
+      ]
+    }
+  ]
+}

@@ -306,6 +306,11 @@ async def result_view() -> FileResponse:
     return FileResponse(ROOT_DIR / "web" / "result.html")
 
 
+@app.get("/flags")
+async def flags_view() -> FileResponse:
+    return FileResponse(ROOT_DIR / "web" / "flags.html")
+
+
 def _load_summary(job_id: str) -> Dict[str, Any]:
     summary_path = ROOT_DIR / "workspace" / "output" / "analysis" / f"analysis_summary_{job_id}.json"
     if not summary_path.exists():

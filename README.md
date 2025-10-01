@@ -100,7 +100,9 @@ python main.py --check-deps
 - Portal menampilkan status progres (`queued`, `processing`, `completed`, `failed`) dengan log ringkas dari CLI untuk memudahkan troubleshooting.
 - Setelah job selesai, gunakan tautan "Buka Halaman Hasil" atau kunjungi `/result?job=<job_id>` untuk melihat daftar highlight yang diflag lengkap dengan filter warna dan pencarian.
 - Halaman hasil menyediakan tombol unduh DOCX yang sudah dimanipulasi (unicode/zero-width/header/metadata) beserta pratinjau per segmen untuk melihat perubahan yang diterapkan.
- - Teknik spacing baru menambahkan hair space/ZWNJ/ZWJ secara granular per highlight sehingga pola ruang tampil alami.
+- Teknik spacing baru menambahkan hair space/ZWNJ/ZWJ secara granular per highlight sehingga pola ruang tampil alami.
+- Untuk audit manual, buka `/flags?job=<job_id>` guna melihat tabel fokus semua highlight, warna, sumber deteksi, dan contoh manipulasi.
+- Parafrasa otomatis hanya berlaku untuk segmen panjang; header/kata kunci penting ("BAB I Pendahuluan", "Daftar Pustaka", dsb.) dilindungi via `protected_terms`.
 
 2. **Process Documents**:
    ```bash

@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Invisible Plagiarism Toolkit &mdash; Upload Portal</title>
+  <title>Invisible Plagiarism Toolkit — Upload</title>
   <style>
     :root {
       color-scheme: light dark;
       --bg-gradient: radial-gradient(circle at 20% 20%, #1f3c88 0%, #0b1b33 35%, #050b16 100%);
-      --card-bg: rgba(10, 15, 28, 0.75);
-      --card-border: rgba(255, 255, 255, 0.12);
+      --card-bg: rgba(10, 15, 28, 0.78);
+      --card-border: rgba(255, 255, 255, 0.1);
       --accent: #5ef0ff;
       --accent-strong: #35bfd0;
       --text: #f0f4ff;
       --text-muted: rgba(240, 244, 255, 0.7);
       --shadow: 0 24px 60px rgba(5, 10, 30, 0.55);
       --radius-lg: 28px;
-      --radius-sm: 14px;
+      --radius-sm: 16px;
       font-family: "Segoe UI", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
     }
 
@@ -35,8 +35,15 @@
       color: var(--text);
     }
 
+    .layout {
+      width: min(1150px, 100%);
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(260px, 1.2fr);
+      gap: 26px;
+    }
+
     .glass-card {
-      width: min(980px, 100%);
+      width: 100%;
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       backdrop-filter: blur(18px);
@@ -56,26 +63,23 @@
       mix-blend-mode: screen;
     }
 
-    header {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 36px;
-      position: relative;
+    .hero {
+      display: grid;
+      gap: 16px;
+      margin-bottom: 32px;
     }
 
-    header h1 {
+    .hero h1 {
       margin: 0;
-      font-size: clamp(2.1rem, 4vw, 2.8rem);
+      font-size: clamp(2.2rem, 4vw, 3rem);
       letter-spacing: -0.02em;
     }
 
-    header p {
+    .hero p {
       margin: 0;
-      max-width: 640px;
       color: var(--text-muted);
-      font-size: 1rem;
-      line-height: 1.6;
+      font-size: 1.02rem;
+      line-height: 1.65;
     }
 
     form {
@@ -198,11 +202,7 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 8px;
-    }
-
-    .radio-label span {
-      font-weight: 600;
-      letter-spacing: 0.01em;
+      font-size: 0.95rem;
     }
 
     .radio-meta {
@@ -212,10 +212,8 @@
     }
 
     .actions {
-      display: flex;
-      flex-direction: column;
+      display: grid;
       gap: 12px;
-      align-items: stretch;
     }
 
     button {
@@ -240,8 +238,34 @@
     .helper-text {
       font-size: 0.9rem;
       color: var(--text-muted);
-      text-align: center;
       line-height: 1.6;
+    }
+
+    .download-card {
+      display: grid;
+      gap: 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(94, 240, 255, 0.18);
+      border-radius: var(--radius-sm);
+      padding: 18px 20px;
+    }
+
+    .download-card a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(94, 240, 255, 0.12);
+      border: 1px solid rgba(94, 240, 255, 0.3);
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .download-card a:hover {
+      background: rgba(94, 240, 255, 0.2);
     }
 
     .status-panel {
@@ -325,109 +349,6 @@
       line-height: 1.5;
     }
 
-    .flag-summary {
-      display: grid;
-      gap: 12px;
-      border-radius: var(--radius-sm);
-      border: 1px solid rgba(94, 240, 255, 0.18);
-      background: rgba(255, 255, 255, 0.02);
-      padding: 18px 20px;
-    }
-
-    .flag-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 12px;
-    }
-
-    .flag-heading span {
-      font-size: 0.95rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-    }
-
-    .flag-distribution {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .flag-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      font-size: 0.78rem;
-    }
-
-    .flag-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-    }
-
-    .flag-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: grid;
-      gap: 10px;
-    }
-
-    .flag-item {
-      border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(255, 255, 255, 0.03);
-      padding: 12px 14px;
-      display: grid;
-      gap: 6px;
-    }
-
-    .flag-item-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.82rem;
-      color: var(--text-muted);
-    }
-
-    .flag-item-text {
-      font-size: 0.88rem;
-      line-height: 1.5;
-    }
-
-    .flag-preview {
-      display: block;
-      margin-top: 6px;
-      font-size: 0.75rem;
-      color: rgba(240, 244, 255, 0.6);
-    }
-
-    .flag-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      font-size: 0.85rem;
-    }
-
-    .flag-links a {
-      color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px dashed rgba(94, 240, 255, 0.35);
-      padding-bottom: 2px;
-    }
-
-    .flag-links a:hover {
-      color: var(--accent-strong);
-      border-bottom-style: solid;
-    }
-
     .progress-list {
       margin: 0;
       padding: 0;
@@ -481,6 +402,12 @@
       text-align: center;
     }
 
+    @media (max-width: 1040px) {
+      .layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
     @media (max-width: 680px) {
       body {
         padding: 42px 18px;
@@ -497,119 +424,133 @@
   </style>
 </head>
 <body>
-  <div class="glass-card">
-    <div class="card-glow"></div>
-    <header>
-      <h1>Invisible Plagiarism Toolkit</h1>
-      <p>
-        Unggah dokumen asli (DOCX) dan laporan Turnitin (PDF) Anda di sini. Portal ini
-        mempersiapkan berkas untuk pipeline manipulasi tak terlihat sebelum Anda menjalankan
-        perintah CLI seperti <code>python main.py --mode balanced</code>.
-      </p>
-    </header>
-
-    <form action="/api/process" method="POST" enctype="multipart/form-data">
-      <section class="input-grid">
-        <label class="dropzone" id="docx-dropzone">
-          <input type="file" name="original_doc" accept=".docx" required />
-          <h2>Original Document</h2>
-          <p>Seret & lepaskan atau klik untuk memilih dokumen Word (DOCX).</p>
-          <div class="file-pill" data-placeholder="Belum ada file">
-            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2a1 1 0 0 1 1 1v5h3a1 1 0 0 1 .7 1.71l-4.7 4.7a1 1 0 0 1-1.4 0l-4.7-4.7A1 1 0 0 1 4 8h3V3a1 1 0 0 1 1-1zM4 16a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1z"/></svg>
-            <span>Pilih file DOCX</span>
-          </div>
-        </label>
-
-        <label class="dropzone" id="pdf-dropzone">
-          <input type="file" name="turnitin_pdf" accept="application/pdf" required />
-          <h2>Turnitin Report</h2>
-          <p>Unggah laporan Turnitin dalam format PDF untuk analisis highlight warna.</p>
-          <div class="file-pill" data-placeholder="Belum ada file">
-            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7.4a3 3 0 0 0-.88-2.12l-3.4-3.4A3 3 0 0 0 11.6 1H5zm8 11.5a.75.75 0 1 1-1.5 0V12H9.75v1.5a.75.75 0 1 1-1.5 0v-1.5H7a2 2 0 0 1 0-4h.25V7a.75.75 0 1 1 1.5 0v1.5h1.75V7a.75.75 0 1 1 1.5 0v1.5H13a2 2 0 1 1 0 4h-.25zM7 10.5a.5.5 0 1 0 0-1h-.25a.5.5 0 0 0 0 1zm6-1h-.25a.5.5 0 0 0 0 1H13a.5.5 0 0 0 0-1z"/></svg>
-            <span>Pilih file PDF</span>
-          </div>
-        </label>
-      </section>
-
-      <section>
-        <h2 style="margin:0 0 12px;font-size:1.05rem;letter-spacing:0.02em;">Processing Mode</h2>
-        <div class="mode-selector" role="radiogroup" aria-label="Processing mode">
-          <label class="radio-card">
-            <input type="radio" name="mode" value="stealth" />
-            <div class="radio-content">
-              <div class="radio-label">
-                <span>Stealth</span>
-                <span>Min perubahan</span>
-              </div>
-              <p class="radio-meta">Fokus pada invisibilitas maksimal dengan modifikasi minimal.</p>
-            </div>
-          </label>
-          <label class="radio-card">
-            <input type="radio" name="mode" value="balanced" checked />
-            <div class="radio-content">
-              <div class="radio-label">
-                <span>Balanced</span>
-                <span>Rekomendasi</span>
-              </div>
-              <p class="radio-meta">Perpaduan terbaik antara invisibilitas dan tingkat manipulasi.</p>
-            </div>
-          </label>
-          <label class="radio-card">
-            <input type="radio" name="mode" value="aggressive" />
-            <div class="radio-content">
-              <div class="radio-label">
-                <span>Aggressive</span>
-                <span>Maksimal</span>
-              </div>
-              <p class="radio-meta">Modifikasi terbesar untuk bypass deteksi secara ekstensif.</p>
-            </div>
-          </label>
-        </div>
-      </section>
-
-      <div class="actions">
-        <button type="submit">Siapkan Dokumen</button>
-        <p class="helper-text">
-          File yang diunggah akan ditempatkan di <code>workspace/input/original</code> dan
-          <code>workspace/input/turnitin</code> sebelum pipeline CLI dijalankan.
+  <div class="layout">
+    <div class="glass-card">
+      <div class="card-glow"></div>
+      <div class="hero">
+        <h1>Invisible Plagiarism Toolkit</h1>
+        <p>
+          Unggah dokumen Word dan laporan Turnitin untuk diproses dengan teknik anti-deteksi.
+          Sistem akan mengekstrak highlight, menerapkan manipulasi selektif, lalu menyediakan
+          hasil akhir beserta laporan lengkap.
         </p>
-        <div class="status-panel" id="status-panel" hidden>
+      </div>
+
+      <form action="/api/process" method="POST" enctype="multipart/form-data">
+        <section class="input-grid">
+          <label class="dropzone" id="docx-dropzone">
+            <input type="file" name="original_doc" accept=".docx" required />
+            <h2>Original Document</h2>
+            <p>Seret & lepaskan atau klik untuk memilih dokumen Word (DOCX).</p>
+            <div class="file-pill" data-placeholder="Belum ada file">
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2a1 1 0 0 1 1 1v5h3a1 1 0 0 1 .7 1.71l-4.7 4.7a1 1 0 0 1-1.4 0l-4.7-4.7A1 1 0 0 1 4 8h3V3a1 1 0 0 1 1-1zM4 16a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1z"/></svg>
+              <span>Pilih file DOCX</span>
+            </div>
+          </label>
+
+          <label class="dropzone" id="pdf-dropzone">
+            <input type="file" name="turnitin_pdf" accept="application/pdf" required />
+            <h2>Turnitin Report</h2>
+            <p>Unggah laporan Turnitin dalam format PDF untuk analisis highlight warna.</p>
+            <div class="file-pill" data-placeholder="Belum ada file">
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7.4a3 3 0 0 0-.88-2.12l-3.4-3.4A3 3 0 0 0 11.6 1H5zm8 11.5a.75.75 0 1 1-1.5 0V12H9.75v1.5a.75.75 0 1 1-1.5 0v-1.5H7a2 2 0 0 1 0-4h.25V7a.75.75 0 1 1 1.5 0v1.5h1.75V7a.75.75 0 1 1 1.5 0v1.5H13a2 2 0 1 1 0 4h-.25zM7 10.5a.5.5 0 1 0 0-1h-.25a.5.5 0 0 0 0 1zm6-1h-.25a.5.5 0 0 0 0 1H13a.5.5 0 0 0 0-1z"/></svg>
+              <span>Pilih file PDF</span>
+            </div>
+          </label>
+        </section>
+
+        <section>
+          <h2 style="margin:0 0 12px;font-size:1.05rem;letter-spacing:0.02em;">Processing Mode</h2>
+          <div class="mode-selector" role="radiogroup" aria-label="Processing mode">
+            <label class="radio-card">
+              <input type="radio" name="mode" value="stealth" />
+              <div class="radio-content">
+                <div class="radio-label">
+                  <span>Stealth</span>
+                  <span>Min perubahan</span>
+                </div>
+                <p class="radio-meta">Fokus pada invisibilitas maksimal dengan modifikasi minimal.</p>
+              </div>
+            </label>
+            <label class="radio-card">
+              <input type="radio" name="mode" value="balanced" checked />
+              <div class="radio-content">
+                <div class="radio-label">
+                  <span>Balanced</span>
+                  <span>Rekomendasi</span>
+                </div>
+                <p class="radio-meta">Perpaduan terbaik antara invisibilitas dan tingkat manipulasi.</p>
+              </div>
+            </label>
+            <label class="radio-card">
+              <input type="radio" name="mode" value="aggressive" />
+              <div class="radio-content">
+                <div class="radio-label">
+                  <span>Aggressive</span>
+                  <span>Maksimal</span>
+                </div>
+                <p class="radio-meta">Modifikasi terbesar untuk bypass deteksi secara ekstensif.</p>
+              </div>
+            </label>
+          </div>
+        </section>
+
+        <div class="actions">
+          <button type="submit">Siapkan Dokumen</button>
+          <p class="helper-text">
+            File yang diunggah akan ditempatkan di <code>workspace/input/original</code> dan
+            <code>workspace/input/turnitin</code> sebelum pipeline CLI dijalankan.
+          </p>
+        </div>
+
+        <section class="status-panel" id="status-panel" hidden>
           <div class="status-heading">
-            <span>Progress</span>
+            <span>Status Proses</span>
             <span class="status-badge" id="status-badge" data-status="queued">
               <span class="loading-spinner" id="status-spinner"></span>
               <span class="status-text">Queued</span>
             </span>
           </div>
-          <div class="status-detail" id="status-detail">
-            Menunggu respon server...
-          </div>
+          <div class="status-detail" id="status-detail">Menunggu respon server...</div>
           <div class="status-detail" id="status-job" style="font-size:0.8rem;color:var(--text-muted);"></div>
           <div class="status-log" id="status-log" hidden>
             <pre id="status-log-text"></pre>
           </div>
           <div class="error-text" id="status-error" hidden></div>
           <ul class="progress-list" id="progress-list"></ul>
-          <div class="flag-summary" id="flag-summary" hidden>
-            <div class="flag-heading">
-              <span>Highlight Prioritas</span>
-              <div class="flag-distribution" id="flag-distribution"></div>
-            </div>
-            <ul class="flag-list" id="flag-list"></ul>
-            <div class="flag-links" id="flag-links">
-              <a href="#" id="flag-pdf-link" target="_blank" rel="noopener">Lihat PDF Asli</a>
-              <a href="#" id="flag-report-link" target="_blank" rel="noopener">Lihat Laporan Analisis</a>
-              <a href="#" id="flag-processed-link" target="_blank" rel="noopener">Unduh DOCX Hasil</a>
-              <a href="#" id="flag-result-link" target="_blank" rel="noopener">Buka Halaman Hasil</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </form>
+        </section>
+      </form>
 
-    <footer>
-      Invisible Plagiarism Toolkit &bull; Upload portal prototipe &bull; 2024
-    </footer>
+      <footer>
+        Invisible Plagiarism Toolkit &bull; Upload portal prototipe &bull; 2024
+      </footer>
+    </div>
+
+    <aside class="glass-card" style="padding:36px 32px; display:grid; gap:24px;">
+      <section>
+        <h2 style="margin:0 0 12px; font-size:1.15rem; letter-spacing:0.03em;">Teknik yang Diterapkan</h2>
+        <ul style="margin:0; padding-left:18px; display:grid; gap:10px; color:var(--text-muted); font-size:0.92rem; line-height:1.6;">
+          <li><strong>Parafrase Selektif</strong>: hanya segmen panjang non-protected yang diubah kalimatnya.</li>
+          <li><strong>Invisible Manipulation</strong>: substitusi Unicode + sisipan karakter tak terlihat.</li>
+          <li><strong>Spacing Variants</strong>: hair space, ZWNJ/ZWJ, dan thin-space untuk memecah pola.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 style="margin:0 0 12px; font-size:1.15rem; letter-spacing:0.03em;">Alur Cepat</h2>
+        <ol style="margin:0; padding-left:18px; display:grid; gap:10px; color:var(--text-muted); font-size:0.92rem; line-height:1.6;">
+          <li>Unggah DOCX asli beserta PDF highlight Turnitin.</li>
+          <li>Pilih mode proses: stealth, balanced, atau aggressive.</li>
+          <li>Pantau progress; setelah selesai unduh DOCX hasil manipulasi.</li>
+        </ol>
+      </section>
+
+      <section class="download-card" id="download-card" hidden>
+        <h2 style="margin:0; font-size:1.05rem; letter-spacing:0.02em;">Download Hasil</h2>
+        <a id="download-docx" href="#" target="_blank" rel="noopener">⬇ Unduh DOCX Terproses</a>
+        <span style="color:var(--text-muted); font-size:0.85rem;">Dokumen ini sudah menerapkan kombinasi teknik invisible & parafrase sesuai highlight.</span>
+      </section>
+    </aside>
   </div>
 
   <script>
@@ -624,14 +565,8 @@
     const statusLog = document.getElementById('status-log');
     const statusLogText = document.getElementById('status-log-text');
     const statusError = document.getElementById('status-error');
-    const flagSummary = document.getElementById('flag-summary');
-    const flagDistribution = document.getElementById('flag-distribution');
-    const flagList = document.getElementById('flag-list');
-    const flagLinks = document.getElementById('flag-links');
-    const flagPdfLink = document.getElementById('flag-pdf-link');
-    const flagReportLink = document.getElementById('flag-report-link');
-    const flagProcessedLink = document.getElementById('flag-processed-link');
-    const flagResultLink = document.getElementById('flag-result-link');
+    const downloadCard = document.getElementById('download-card');
+    const downloadDocxLink = document.getElementById('download-docx');
     const progressList = document.getElementById('progress-list');
 
     function setupDropzone(zoneId) {
@@ -663,47 +598,49 @@
     setupDropzone('docx-dropzone');
     setupDropzone('pdf-dropzone');
 
-    form.addEventListener('submit', async event => {
-      event.preventDefault();
-      statusPanel.hidden = false;
-      statusLog.hidden = true;
-      statusError.hidden = true;
-      flagSummary.hidden = true;
-      flagList.innerHTML = '';
-      flagDistribution.innerHTML = '';
-      setLink(flagResultLink, null);
-      progressList.innerHTML = '';
-      updateStatusUI('queued', 'Mengunggah berkas...');
-      statusJob.textContent = '';
+    if (form) {
+      form.addEventListener('submit', async event => {
+        event.preventDefault();
+        if (statusPanel) statusPanel.hidden = false;
+        if (statusLog) statusLog.hidden = true;
+        if (statusError) statusError.hidden = true;
+        if (downloadCard) downloadCard.hidden = true;
+        if (downloadDocxLink) setLink(downloadDocxLink, null);
+        if (progressList) progressList.innerHTML = '';
+        updateStatusUI('queued', 'Mengunggah berkas...');
+        if (statusJob) statusJob.textContent = '';
 
-      submitButton.disabled = true;
-      submitButton.textContent = 'Memproses...';
+        submitButton.disabled = true;
+        submitButton.textContent = 'Memproses...';
 
-      const formData = new FormData(form);
+        const formData = new FormData(form);
 
-      try {
-        const response = await fetch('/api/process', {
-          method: 'POST',
-          body: formData,
-        });
+        try {
+          const response = await fetch('/api/process', {
+            method: 'POST',
+            body: formData,
+          });
 
-        if (!response.ok) {
-          const data = await response.json().catch(() => ({}));
-          throw new Error(data.detail || 'Gagal memulai pipeline.');
+          if (!response.ok) {
+            const data = await response.json().catch(() => ({}));
+            throw new Error(data.detail || 'Gagal memulai pipeline.');
+          }
+
+          const data = await response.json();
+          if (statusJob) statusJob.textContent = `Job ID: ${data.job_id}`;
+          updateStatusUI(data.status || 'queued', data.detail || 'Job diterima.');
+          pollStatus(data.job_id);
+        } catch (error) {
+          updateStatusUI('failed', 'Tidak dapat mengunggah berkas.');
+          if (statusError) {
+            statusError.hidden = false;
+            statusError.textContent = error.message || 'Terjadi kesalahan.';
+          }
+          submitButton.disabled = false;
+          submitButton.textContent = 'Siapkan Dokumen';
         }
-
-        const data = await response.json();
-        statusJob.textContent = `Job ID: ${data.job_id}`;
-        updateStatusUI(data.status || 'queued', data.detail || 'Job diterima.');
-        pollStatus(data.job_id);
-      } catch (error) {
-        updateStatusUI('failed', 'Tidak dapat mengunggah berkas.');
-        statusError.hidden = false;
-        statusError.textContent = error.message || 'Terjadi kesalahan.';
-        submitButton.disabled = false;
-        submitButton.textContent = 'Siapkan Dokumen';
-      }
-    });
+      });
+    }
 
     async function pollStatus(jobId) {
       try {
@@ -728,11 +665,10 @@
           statusSpinner.style.display = 'none';
           statusLog.hidden = false;
           statusLogText.textContent = data.result?.stdout || 'Pipeline selesai tanpa output tambahan.';
-          if (data.result?.analysis_summary) {
-            renderAnalysis(data.result.analysis_summary, data.result.files || {});
-          }
-          if (data.result?.progress) {
-            renderProgress(data.result.progress);
+          const processedUrl = data.result?.files?.processed_document;
+          if (processedUrl) {
+            setLink(downloadDocxLink, processedUrl);
+            downloadCard.hidden = false;
           }
         } else if (data.status === 'failed') {
           submitButton.disabled = false;
@@ -740,9 +676,6 @@
           statusSpinner.style.display = 'none';
           statusError.hidden = false;
           statusError.textContent = data.error || 'Pipeline gagal dijalankan.';
-          if (data.result?.progress) {
-            renderProgress(data.result.progress);
-          }
         } else {
           statusSpinner.style.display = '';
           await wait(2000);
@@ -772,63 +705,6 @@
       return new Promise(resolve => setTimeout(resolve, ms));
     }
 
-    function renderAnalysis(summary, files) {
-      try {
-        const distribution = summary.color_distribution || {};
-        const entries = Object.entries(distribution).sort((a, b) => b[1] - a[1]);
-        flagDistribution.innerHTML = '';
-        entries.slice(0, 8).forEach(([color, count]) => {
-          const chip = document.createElement('span');
-          chip.className = 'flag-chip';
-          const dot = document.createElement('span');
-          dot.className = 'flag-dot';
-          dot.style.background = colorPalette(color);
-          chip.appendChild(dot);
-          chip.appendChild(document.createTextNode(`${color} · ${count}`));
-          flagDistribution.appendChild(chip);
-        });
-
-        flagList.innerHTML = '';
-        (summary.priority_samples || []).forEach(sample => {
-          const item = document.createElement('li');
-          item.className = 'flag-item';
-
-          const header = document.createElement('div');
-          header.className = 'flag-item-header';
-          const labelParts = [`Halaman ${sample.page || '-'}`, sample.color || 'n/a'];
-          if (sample.manipulated) {
-            labelParts.push('applied');
-          }
-          header.innerHTML = `<span>${labelParts.join(' · ')}</span><span>${sample.length || 0} karakter</span>`;
-
-          const text = document.createElement('div');
-          text.className = 'flag-item-text';
-          text.textContent = sample.text || '';
-
-          if (sample.manipulated && Array.isArray(sample.manipulated_samples) && sample.manipulated_samples.length) {
-            const preview = document.createElement('span');
-            preview.className = 'flag-preview';
-            const example = sample.manipulated_samples[0];
-            preview.textContent = `Contoh manipulasi: ${(example?.original || '').slice(0, 80)} → ${(example?.manipulated || '').slice(0, 80)}`;
-            text.appendChild(preview);
-          }
-
-          item.appendChild(header);
-          item.appendChild(text);
-          flagList.appendChild(item);
-        });
-
-        setLink(flagPdfLink, files.original_pdf || (summary.original_pdf ? `/api/jobs/${summary.job_reference}/files/pdf` : null));
-        setLink(flagReportLink, files.report || (summary.report ? `/api/jobs/${summary.job_reference}/files/report` : null));
-        setLink(flagProcessedLink, files.processed_document || (summary.processed_document ? `/api/jobs/${summary.job_reference}/files/processed` : null));
-        setLink(flagResultLink, `/result?job=${encodeURIComponent(summary.job_reference || jobId)}`);
-
-        flagSummary.hidden = false;
-      } catch (error) {
-        console.warn('Gagal merender ringkasan highlight', error);
-      }
-    }
-
     function renderProgress(progress) {
       if (!progress || !Array.isArray(progress.history)) {
         return;
@@ -848,22 +724,6 @@
         item.appendChild(time);
         progressList.appendChild(item);
       });
-    }
-
-    function colorPalette(color) {
-      const mapping = {
-        red: '#ff6b81',
-        green: '#3dd598',
-        blue: '#3a8bff',
-        magenta: '#d66bff',
-        cyan: '#48e5ff',
-        yellow: '#ffe66b',
-        orange: '#ff9f43',
-        pink: '#ff7eb9',
-        gray: '#a5b1c2',
-        light: '#dfe4ea',
-      };
-      return mapping[color] || '#5ef0ff';
     }
 
     function setLink(anchor, url) {

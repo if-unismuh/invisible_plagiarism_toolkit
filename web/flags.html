@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flagged Segments Viewer</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: radial-gradient(circle at 10% 10%, #172346 0%, #060b1c 45%, #010410 100%);
+      --card: rgba(10, 18, 36, 0.78);
+      --border: rgba(255, 255, 255, 0.12);
+      --text: #f4f7ff;
+      --muted: rgba(244, 247, 255, 0.7);
+      --accent: #5ef0ff;
+      --accent-strong: #35bfd0;
+      --shadow: 0 20px 60px rgba(6, 14, 30, 0.55);
+      font-family: "Segoe UI", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      padding: 48px 28px;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      gap: 20px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: clamp(1.9rem, 4vw, 2.6rem);
+      letter-spacing: -0.01em;
+    }
+
+    header a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(94, 240, 255, 0.4);
+      padding-bottom: 2px;
+      font-size: 0.95rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 24px 26px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .meta-grid {
+      display: grid;
+      gap: 10px;
+      font-size: 0.92rem;
+    }
+
+    .meta-item {
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+    }
+
+    .meta-item strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .filters {
+      display: grid;
+      gap: 14px;
+    }
+
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .filters input[type="search"] {
+      flex: 1 1 260px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.04);
+      padding: 12px 18px;
+      color: var(--text);
+    }
+
+    .filters label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .legend {
+      display: inline-flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      font-size: 0.78rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.86rem;
+    }
+
+    thead {
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    th, td {
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    tr:hover {
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .color-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(94, 240, 255, 0.3);
+      background: rgba(94, 240, 255, 0.1);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.05);
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    .tech-chip {
+      border-color: rgba(94, 240, 255, 0.25);
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-size: 0.72rem;
+    }
+
+    .tech-chip.paraphrase {
+      background: rgba(255, 210, 110, 0.1);
+      border-color: rgba(255, 210, 110, 0.35);
+      color: #ffd26e;
+    }
+
+    .tech-chip.invisible {
+      background: rgba(94, 240, 255, 0.1);
+      border-color: rgba(94, 240, 255, 0.35);
+      color: var(--accent);
+    }
+
+    .tech-chip.spacing {
+      background: rgba(167, 128, 255, 0.12);
+      border-color: rgba(167, 128, 255, 0.35);
+      color: #c4a4ff;
+    }
+
+    details {
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 8px 12px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-size: 0.8rem;
+      color: var(--accent);
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::before {
+      content: '▸';
+      display: inline-block;
+      margin-right: 6px;
+      transition: transform 150ms ease;
+    }
+
+    details[open] summary::before {
+      transform: rotate(90deg);
+    }
+
+    pre {
+      margin: 4px 0 0;
+      padding: 8px 10px;
+      border-radius: 10px;
+      background: rgba(4, 12, 28, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: rgba(235, 244, 255, 0.9);
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+    }
+
+    .empty {
+      text-align: center;
+      color: var(--muted);
+      padding: 40px 20px;
+      border: 1px dashed rgba(255, 255, 255, 0.2);
+      border-radius: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Flagged Segments</h1>
+      <a href="/">← Kembali ke Portal Upload</a>
+    </header>
+
+    <section class="card" id="meta-card">
+      <h2 style="margin-top:0">Ringkasan Job</h2>
+      <div class="meta-grid" id="meta-grid"></div>
+    </section>
+
+    <section class="card">
+      <div class="filters">
+        <div class="filter-row">
+          <input type="search" id="search" placeholder="Cari teks highlight..." />
+          <label><input type="checkbox" id="filter-manipulated" /> Hanya yang dimanipulasi</label>
+          <label><input type="checkbox" id="filter-selected" /> Hanya yang selected</label>
+        </div>
+        <div class="filter-row">
+          <label><input type="checkbox" id="filter-paraphrase" /> Perlu parafrase</label>
+          <label><input type="checkbox" id="filter-invisible" /> Teknik invisible</label>
+          <label><input type="checkbox" id="filter-spacing" /> Variasi spasi</label>
+        </div>
+        <div class="legend">
+          <span class="chip tech-chip paraphrase">Parafrase</span>
+          <span class="chip tech-chip invisible">Unicode / Zero-width</span>
+          <span class="chip tech-chip spacing">Spacing Variant</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="table-card">
+      <table>
+        <thead>
+          <tr>
+            <th>Halaman</th>
+            <th>Warna</th>
+            <th>Segmen</th>
+            <th>Info</th>
+          </tr>
+        </thead>
+        <tbody id="segments-body">
+          <tr><td colspan="4" class="empty">Memuat data highlight...</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <div class="card" id="error-card" style="display:none;color:#ff9aa9;"></div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const jobId = params.get('job') || params.get('job_id');
+
+    const metaGrid = document.getElementById('meta-grid');
+    const tableBody = document.getElementById('segments-body');
+    const errorCard = document.getElementById('error-card');
+    const searchInput = document.getElementById('search');
+    const filterManipulated = document.getElementById('filter-manipulated');
+    const filterSelected = document.getElementById('filter-selected');
+    const filterParaphrase = document.getElementById('filter-paraphrase');
+    const filterInvisible = document.getElementById('filter-invisible');
+    const filterSpacing = document.getElementById('filter-spacing');
+
+    let segments = [];
+    let summary = null;
+
+    if (!jobId) {
+      showError('Parameter job_id tidak ditemukan. Gunakan tautan dengan ?job=<id>.');
+    } else {
+      loadData(jobId);
+    }
+
+    async function loadData(id) {
+      try {
+        const [summaryResp, segmentsResp] = await Promise.all([
+          fetch(`/api/jobs/${id}/summary`),
+          fetch(`/api/jobs/${id}/files/priority`, { cache: 'no-store' })
+        ]);
+
+        if (!summaryResp.ok) throw new Error('Ringkasan job tidak ditemukan.');
+        summary = await summaryResp.json();
+
+        if (segmentsResp.status === 404) {
+          segments = [];
+        } else if (segmentsResp.ok) {
+          segments = await segmentsResp.json();
+        } else {
+          throw new Error('Gagal memuat daftar highlight.');
+        }
+        renderMeta(summary, segments);
+        renderSegments();
+      } catch (error) {
+        showError(error.message || 'Gagal memuat data highlight.');
+      }
+    }
+
+    function renderMeta(data, segmentList = []) {
+      metaGrid.innerHTML = '';
+      const paraphraseCount = segmentList.filter(seg => Array.isArray(seg.recommended_techniques) && seg.recommended_techniques.includes('paraphrase')).length;
+      const invisibleCount = segmentList.filter(seg => {
+        if (!Array.isArray(seg.recommended_techniques)) return false;
+        return seg.recommended_techniques.includes('unicode_substitution') || seg.recommended_techniques.includes('zero_width');
+      }).length;
+      const spacingCount = segmentList.filter(seg => Array.isArray(seg.recommended_techniques) && seg.recommended_techniques.includes('spacing_variant')).length;
+
+      const items = [
+        ['Job ID', data.job_reference || jobId],
+        ['Mode', capitalize(data.mode || 'n/a')],
+        ['Total Highlight', (data.total_highlights || 0).toLocaleString('id-ID')],
+        ['Segmen Selected', (data.total_priority || 0).toLocaleString('id-ID')],
+        ['Segmen Dimanipulasi', (data.manipulated_segment_count || 0).toLocaleString('id-ID')],
+        ['Direkomendasikan Parafrase', paraphraseCount.toLocaleString('id-ID')],
+        ['Teknik Invisible', invisibleCount.toLocaleString('id-ID')],
+        ['Variasi Spasi', spacingCount.toLocaleString('id-ID')]
+      ];
+      items.forEach(([label, value]) => {
+        const row = document.createElement('div');
+        row.className = 'meta-item';
+        row.innerHTML = `<span>${label}</span><strong>${value}</strong>`;
+        metaGrid.appendChild(row);
+      });
+    }
+
+    function renderSegments() {
+      const query = (searchInput.value || '').toLowerCase();
+      const onlyManipulated = filterManipulated.checked;
+      const onlySelected = filterSelected.checked;
+      const onlyParaphrase = filterParaphrase.checked;
+      const onlyInvisible = filterInvisible.checked;
+      const onlySpacing = filterSpacing.checked;
+
+      const filtered = segments.filter(seg => {
+        const text = (seg.text || '').toLowerCase();
+        if (query && !text.includes(query)) return false;
+        if (onlyManipulated && !seg.manipulated) return false;
+        if (onlySelected && seg.selected === false) return false;
+        const techniques = Array.isArray(seg.recommended_techniques) ? seg.recommended_techniques : [];
+        if (onlyParaphrase && !techniques.includes('paraphrase')) return false;
+        if (onlyInvisible && !(techniques.includes('unicode_substitution') || techniques.includes('zero_width'))) return false;
+        if (onlySpacing && !techniques.includes('spacing_variant')) return false;
+        return true;
+      });
+
+      tableBody.innerHTML = '';
+      if (!filtered.length) {
+        const row = document.createElement('tr');
+        const cell = document.createElement('td');
+        cell.colSpan = 4;
+        cell.className = 'empty';
+        cell.textContent = 'Tidak ada highlight yang cocok dengan filter saat ini.';
+        row.appendChild(cell);
+        tableBody.appendChild(row);
+        return;
+      }
+
+      filtered.forEach(seg => {
+        const row = document.createElement('tr');
+
+        const pageCell = document.createElement('td');
+        pageCell.textContent = seg.page || seg.page_number || '-';
+        row.appendChild(pageCell);
+
+        const colorCell = document.createElement('td');
+        const pill = document.createElement('span');
+        pill.className = 'color-pill';
+        const dot = document.createElement('span');
+        dot.className = 'pill-dot';
+        dot.style.background = colorPalette(seg.color || 'other');
+        pill.appendChild(dot);
+        pill.appendChild(document.createTextNode(seg.color || 'other'));
+        colorCell.appendChild(pill);
+        if (Array.isArray(seg.color_sources) && seg.color_sources.length) {
+          const chipsWrap = document.createElement('div');
+          seg.color_sources.forEach(src => {
+            const chip = document.createElement('span');
+            chip.className = 'chip';
+            chip.textContent = src;
+            chipsWrap.appendChild(chip);
+          });
+          colorCell.appendChild(document.createElement('br'));
+          colorCell.appendChild(chipsWrap);
+        }
+        row.appendChild(colorCell);
+
+        const textCell = document.createElement('td');
+        textCell.textContent = seg.text || '';
+        row.appendChild(textCell);
+
+        const infoCell = document.createElement('td');
+        const info = [];
+        if (seg.selected === false) info.push('tidak selected');
+        if (seg.manipulated) info.push('dimanipulasi');
+        if (Array.isArray(seg.sources) && seg.sources.length) info.push(`deteksi: ${seg.sources.join(', ')}`);
+        if (info.length) {
+          const infoSpan = document.createElement('div');
+          infoSpan.className = 'chip';
+          infoSpan.textContent = info.join(' · ');
+          infoCell.appendChild(infoSpan);
+        }
+
+        const techniques = Array.isArray(seg.recommended_techniques) ? seg.recommended_techniques : [];
+        if (techniques.length) {
+          const techWrap = document.createElement('div');
+          techniques.forEach(tech => {
+            const chip = document.createElement('span');
+            chip.className = 'chip tech-chip ' + techniqueClass(tech);
+            chip.textContent = techniqueLabel(tech);
+            techWrap.appendChild(chip);
+          });
+          infoCell.appendChild(techWrap);
+        }
+
+        if (seg.manipulated && Array.isArray(seg.manipulated_samples) && seg.manipulated_samples.length) {
+          const details = document.createElement('details');
+          const summary = document.createElement('summary');
+          summary.textContent = 'Pratinjau perubahan';
+          details.appendChild(summary);
+          seg.manipulated_samples.slice(0, 3).forEach(sample => {
+            const originalPre = document.createElement('pre');
+            originalPre.textContent = `Original: ${sample.original || ''}`;
+            const manipulatedPre = document.createElement('pre');
+            manipulatedPre.textContent = `Manipulasi: ${sample.manipulated || ''}`;
+            details.appendChild(originalPre);
+            details.appendChild(manipulatedPre);
+          });
+          infoCell.appendChild(details);
+        }
+        row.appendChild(infoCell);
+
+        tableBody.appendChild(row);
+      });
+    }
+
+    searchInput.addEventListener('input', () => renderSegments());
+    filterManipulated.addEventListener('change', () => renderSegments());
+    filterSelected.addEventListener('change', () => renderSegments());
+    filterParaphrase.addEventListener('change', () => renderSegments());
+    filterInvisible.addEventListener('change', () => renderSegments());
+    filterSpacing.addEventListener('change', () => renderSegments());
+    filterParaphrase.addEventListener('change', () => renderSegments());
+    filterInvisible.addEventListener('change', () => renderSegments());
+    filterSpacing.addEventListener('change', () => renderSegments());
+
+    function showError(message) {
+      errorCard.textContent = message;
+      errorCard.style.display = 'block';
+    }
+
+    function capitalize(str) {
+      if (!str) return '';
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
+    function colorPalette(color) {
+      const mapping = {
+        red: '#ff6b81',
+        green: '#3dd598',
+        blue: '#3a8bff',
+        magenta: '#d66bff',
+        cyan: '#48e5ff',
+        yellow: '#ffe66b',
+        orange: '#ff9f43',
+        pink: '#ff7eb9',
+        gray: '#a5b1c2',
+        light: '#dfe4ea',
+        dark: '#4b4b4b',
+        other: '#5ef0ff'
+      };
+      return mapping[color] || '#5ef0ff';
+    }
+
+    function techniqueLabel(key) {
+      switch (key) {
+        case 'paraphrase':
+          return 'Parafrase';
+        case 'unicode_substitution':
+          return 'Unicode';
+        case 'zero_width':
+          return 'Zero-width';
+        case 'spacing_variant':
+          return 'Spacing';
+        default:
+          return key;
+      }
+    }
+
+    function techniqueClass(key) {
+      switch (key) {
+        case 'paraphrase':
+          return 'paraphrase';
+        case 'spacing_variant':
+          return 'spacing';
+        case 'unicode_substitution':
+        case 'zero_width':
+          return 'invisible';
+        default:
+          return '';
+      }
+    }
+
+    function techniqueLabel(key) {
+      switch (key) {
+        case 'paraphrase':
+          return 'Parafrase';
+        case 'unicode_substitution':
+          return 'Unicode';
+        case 'zero_width':
+          return 'Zero-width';
+        case 'spacing_variant':
+          return 'Spacing';
+        default:
+          return key;
+      }
+    }
+
+    function techniqueClass(key) {
+      switch (key) {
+        case 'paraphrase':
+          return 'paraphrase';
+        case 'spacing_variant':
+          return 'spacing';
+        case 'unicode_substitution':
+        case 'zero_width':
+          return 'invisible';
+        default:
+          return '';
+      }
+    }
+
+    searchInput.addEventListener('input', () => renderSegments());
+    filterManipulated.addEventListener('change', () => renderSegments());
+    filterSelected.addEventListener('change', () => renderSegments());
+  </script>
+</body>
+</html>

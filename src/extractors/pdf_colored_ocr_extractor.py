@@ -31,13 +31,86 @@ Catatan: Tidak mencoba mengklasifikasikan warna highlight Turnitin eksak; hanya 
 from __future__ import annotations
 import argparse, json
 from pathlib import Path
-from typing import List, Dict, Any, Tuple
+from typing import List, Dict, Any, Tuple, Optional
 import fitz  # PyMuPDF
 import numpy as np
 import cv2  # type: ignore
 import pytesseract  # type: ignore
 
 ColorName = str
+
+# ------------------------------------------------------------
+# Turnitin color profiling (approximate palette taken from common highlights)
+# ------------------------------------------------------------
+
+TURNITIN_COLOR_PROFILES = {
+    "red": (232, 80, 80),
+    "magenta": (190, 90, 200),
+    "blue": (86, 125, 228),
+    "green": (104, 204, 140),
+    "yellow": (248, 236, 130),
+    "orange": (244, 170, 104),
+    "cyan": (135, 205, 228),
+    "purple": (170, 96, 220),
+    "pink": (232, 140, 200),
+    "gray": (198, 198, 198),
+}
+
+_TURNITIN_COLOR_LAB = {
+    name: cv2.cvtColor(
+        np.array([[profile]], dtype=np.uint8),
+        cv2.COLOR_RGB2LAB,
+    )[0][0].astype(np.float32)
+    for name, profile in TURNITIN_COLOR_PROFILES.items()
+}
+
+
+def _mean_rgb_from_mask(img: np.ndarray, mask: np.ndarray) -> Optional[np.ndarray]:
+    """Compute average RGB value inside mask; return None if mask empty."""
+    if img.size == 0:
+        return None
+    mask_bool = mask.astype(bool)
+    if not mask_bool.any():
+        return None
+    pixels = img[mask_bool]
+    if pixels.size == 0:
+        return None
+    return pixels.reshape(-1, 3).mean(axis=0)
+
+
+def match_turnitin_color(
+    mean_rgb: Optional[np.ndarray],
+    mean_hsv: Tuple[float, float, float],
+) -> Tuple[str, float, str, float]:
+    """Return best-fit Turnitin color, confidence, palette match, and distance."""
+    hsv_color = hsv_to_name(mean_hsv[0], mean_hsv[1], mean_hsv[2])
+    if mean_rgb is None:
+        return hsv_color, 0.0, hsv_color, 999.0
+
+    try:
+        lab_color = cv2.cvtColor(
+            np.array([[mean_rgb]], dtype=np.float32),
+            cv2.COLOR_RGB2LAB,
+        )[0][0].astype(np.float32)
+    except Exception:
+        return hsv_color, 0.0, hsv_color, 999.0
+
+    best_name = hsv_color
+    best_distance = float("inf")
+    for name, profile_lab in _TURNITIN_COLOR_LAB.items():
+        dist = float(np.linalg.norm(lab_color - profile_lab))
+        if dist < best_distance:
+            best_distance = dist
+            best_name = name
+
+    # Determine confidence; tighten threshold for fallback to hue heuristic
+    confidence = max(0.0, min(1.0, 1.0 - (best_distance / 85.0)))
+    distance_threshold = 60.0
+    if best_distance > distance_threshold and hsv_color not in {"light", "gray"}:
+        # Hue-based name feels more reliable when palette distance is large
+        return hsv_color, confidence * 0.5, best_name, best_distance
+
+    return best_name, confidence, best_name, best_distance
 
 # ------------------------------------------------------------
 # Color naming helpers
@@ -127,10 +200,14 @@ def extract_colored_regions(
             # Compute mean color inside contour
             contour_mask = cv2.drawContours(np.zeros(mask_u8.shape, dtype=np.uint8), [cnt], -1, 255, -1)
             mean_hsv = cv2.mean(hsv, mask=contour_mask)[:3]
-            color_name = hsv_to_name(mean_hsv[0], mean_hsv[1], mean_hsv[2])
+            mean_rgb = _mean_rgb_from_mask(img, contour_mask)
+            color_name, confidence, palette_name, distance = match_turnitin_color(mean_rgb, mean_hsv)
             boxes.append({
                 'bbox': (x, y, x + w, y + h),
                 'color': color_name,
+                'color_confidence': confidence,
+                'color_profile': palette_name,
+                'color_distance': distance,
             })
 
         if merge and boxes:
