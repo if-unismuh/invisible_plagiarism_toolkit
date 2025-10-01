@@ -227,6 +227,13 @@ def run_job(job: JobState, doc_path: Path, pdf_path: Path) -> None:
                     files_payload["priority_segments"] = f"/api/jobs/{job.job_id}/files/priority"
             except json.JSONDecodeError:
                 analysis_summary = None
+        if "processed_document" not in files_payload:
+            try:
+                fallback_processed = _guess_processed_path(job.job_id, job.mode)
+            except FileNotFoundError:
+                fallback_processed = None
+            if fallback_processed is not None:
+                files_payload["processed_document"] = f"/api/jobs/{job.job_id}/files/processed"
 
         if return_code == 0:
             progress["current"] = "Pipeline selesai tanpa error."
@@ -332,6 +339,78 @@ def _resolve_summary_path(job_id: str, key: str) -> Path:
     return path
 
 
+def _guess_processed_path(job_id: str, mode: str | None) -> Path:
+    processed_dir = ROOT_DIR / "workspace" / "output" / "processed"
+    candidates: list[Path] = []
+    if mode:
+        candidates.append(processed_dir / f"{job_id}_{mode}_processed.docx")
+    candidates.extend(sorted(processed_dir.glob(f"{job_id}_*_processed.docx")))
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+    raise FileNotFoundError
+
+
+def _guess_changes_path(job_id: str) -> Path:
+    """Find change log JSON file for a job"""
+    processed_dir = ROOT_DIR / "workspace" / "output" / "processed"
+    
+    # Common patterns for change log files
+    patterns = [
+        f"{job_id}_*_processed.changes.json",
+        f"*_{job_id}_*.changes.json", 
+        f"{job_id}*.changes.json",
+        f"changes_{job_id}.json",
+        f"{job_id}_changes.json",
+    ]
+    
+    for pattern in patterns:
+        candidates = list(processed_dir.glob(pattern))
+        if candidates:
+            # Return the most recent one
+            return max(candidates, key=lambda p: p.stat().st_mtime)
+    
+    # Also check logs directory
+    logs_dir = ROOT_DIR / "logs"
+    if logs_dir.exists():
+        for pattern in patterns:
+            candidates = list(logs_dir.glob(pattern))
+            if candidates:
+                return max(candidates, key=lambda p: p.stat().st_mtime)
+    
+    raise FileNotFoundError
+
+
+def _guess_analysis_path(job_id: str) -> Path:
+    """Find analysis report file for a job"""
+    processed_dir = ROOT_DIR / "workspace" / "output" / "processed"
+    
+    # Common patterns for analysis files
+    patterns = [
+        f"{job_id}_*_analysis.json",
+        f"{job_id}_analysis.json",
+        f"analysis_{job_id}.json",
+        f"{job_id}_*_report.json",
+        f"{job_id}_report.json",
+        f"report_{job_id}.json",
+    ]
+    
+    for pattern in patterns:
+        candidates = list(processed_dir.glob(pattern))
+        if candidates:
+            return max(candidates, key=lambda p: p.stat().st_mtime)
+    
+    # Also check logs directory
+    logs_dir = ROOT_DIR / "logs"
+    if logs_dir.exists():
+        for pattern in patterns:
+            candidates = list(logs_dir.glob(pattern))
+            if candidates:
+                return max(candidates, key=lambda p: p.stat().st_mtime)
+    
+    raise FileNotFoundError
+
+
 @app.get("/api/jobs/{job_id}/files/{file_type}")
 async def download_job_file(job_id: str, file_type: str) -> FileResponse:
     key_map = {
@@ -340,16 +419,35 @@ async def download_job_file(job_id: str, file_type: str) -> FileResponse:
         "report": "report",
         "analysis": None,
         "priority": "priority_segments_file",
+        "changes": None,  # Change log JSON
+        "changelog": None,  # Alternative name
     }
     if file_type not in key_map:
         raise HTTPException(status_code=404, detail="Jenis file tidak dikenal.")
+    
     if file_type == "analysis":
-        path = ROOT_DIR / "workspace" / "output" / "analysis" / f"analysis_summary_{job_id}.json"
+        try:
+            path = _guess_analysis_path(job_id)
+        except FileNotFoundError:
+            # Fallback to default analysis path
+            path = ROOT_DIR / "workspace" / "output" / "analysis" / f"analysis_summary_{job_id}.json"
+    elif file_type in ["changes", "changelog"]:
+        # Look for change log JSON file
+        path = _guess_changes_path(job_id)
     else:
         try:
             path = _resolve_summary_path(job_id, key_map[file_type])
         except FileNotFoundError:
-            raise HTTPException(status_code=404, detail="File tidak ditemukan.")
+            if file_type == "processed":
+                with _jobs_lock:
+                    job = _jobs.get(job_id)
+                mode = job.mode if job else None
+                try:
+                    path = _guess_processed_path(job_id, mode)
+                except FileNotFoundError as exc:
+                    raise HTTPException(status_code=404, detail="File tidak ditemukan.") from exc
+            else:
+                raise HTTPException(status_code=404, detail="File tidak ditemukan.")
 
     if not path.exists():
         raise HTTPException(status_code=404, detail="File tidak ditemukan.")

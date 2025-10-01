@@ -546,9 +546,35 @@
       </section>
 
       <section class="download-card" id="download-card" hidden>
-        <h2 style="margin:0; font-size:1.05rem; letter-spacing:0.02em;">Download Hasil</h2>
-        <a id="download-docx" href="#" target="_blank" rel="noopener">⬇ Unduh DOCX Terproses</a>
-        <span style="color:var(--text-muted); font-size:0.85rem;">Dokumen ini sudah menerapkan kombinasi teknik invisible & parafrase sesuai highlight.</span>
+        <h2 style="margin:0; font-size:1.05rem; letter-spacing:0.02em;">📥 Download Hasil</h2>
+        
+        <div style="display:grid; gap:12px;">
+          <a id="download-docx" href="#" target="_blank" rel="noopener" style="display:none;">
+            📄 Unduh DOCX Terproses
+          </a>
+          
+          <a id="download-changes" href="#" target="_blank" rel="noopener" style="display:none;">
+            📊 Unduh Change Log (JSON)
+          </a>
+          
+          <a id="download-analysis" href="#" target="_blank" rel="noopener" style="display:none;">
+            📈 Unduh Analysis Report
+          </a>
+          
+          <a id="download-report" href="#" target="_blank" rel="noopener" style="display:none;">
+            📋 Unduh Full Report
+          </a>
+        </div>
+        
+        <div style="color:var(--text-muted); font-size:0.85rem; line-height:1.5; margin-top:8px;">
+          <p style="margin:0;">✅ Dokumen sudah menerapkan teknik invisible manipulation</p>
+          <p style="margin:4px 0 0;">⚠️ Review change log sebelum submission final</p>
+        </div>
+        
+        <div id="download-stats" style="background:rgba(94,240,255,0.08); border:1px solid rgba(94,240,255,0.2); border-radius:12px; padding:12px; margin-top:12px; font-size:0.85rem; display:none;">
+          <div style="font-weight:600; margin-bottom:6px;">📊 Processing Statistics:</div>
+          <div id="stats-content" style="display:grid; gap:4px; color:var(--text-muted);"></div>
+        </div>
       </section>
     </aside>
   </div>
@@ -567,6 +593,11 @@
     const statusError = document.getElementById('status-error');
     const downloadCard = document.getElementById('download-card');
     const downloadDocxLink = document.getElementById('download-docx');
+    const downloadChangesLink = document.getElementById('download-changes');
+    const downloadAnalysisLink = document.getElementById('download-analysis'); 
+    const downloadReportLink = document.getElementById('download-report');
+    const downloadStats = document.getElementById('download-stats');
+    const statsContent = document.getElementById('stats-content');
     const progressList = document.getElementById('progress-list');
 
     function setupDropzone(zoneId) {
@@ -605,7 +636,14 @@
         if (statusLog) statusLog.hidden = true;
         if (statusError) statusError.hidden = true;
         if (downloadCard) downloadCard.hidden = true;
+        if (downloadStats) downloadStats.style.display = 'none';
+        
+        // Reset all download links
         if (downloadDocxLink) setLink(downloadDocxLink, null);
+        if (downloadChangesLink) setLink(downloadChangesLink, null);
+        if (downloadAnalysisLink) setLink(downloadAnalysisLink, null);
+        if (downloadReportLink) setLink(downloadReportLink, null);
+        
         if (progressList) progressList.innerHTML = '';
         updateStatusUI('queued', 'Mengunggah berkas...');
         if (statusJob) statusJob.textContent = '';
@@ -665,11 +703,7 @@
           statusSpinner.style.display = 'none';
           statusLog.hidden = false;
           statusLogText.textContent = data.result?.stdout || 'Pipeline selesai tanpa output tambahan.';
-          const processedUrl = data.result?.files?.processed_document;
-          if (processedUrl) {
-            setLink(downloadDocxLink, processedUrl);
-            downloadCard.hidden = false;
-          }
+          await ensureDownloadCard(jobId, data.result?.files, data.result);
         } else if (data.status === 'failed') {
           submitButton.disabled = false;
           submitButton.textContent = 'Siapkan Dokumen';
@@ -726,14 +760,184 @@
       });
     }
 
-    function setLink(anchor, url) {
+    async function ensureDownloadCard(jobId, files, result) {
+      let hasAnyDownload = false;
+      
+      // 1. Processed document (main result)
+      let processedUrl = null;
+      if (files && typeof files.processed_document === 'string' && files.processed_document.trim()) {
+        processedUrl = files.processed_document;
+      } else if (await summaryIndicatesProcessed(jobId)) {
+        processedUrl = `/api/jobs/${jobId}/files/processed`;
+      } else if (await processedFileAvailable(jobId)) {
+        processedUrl = `/api/jobs/${jobId}/files/processed`;
+      }
+      
+      if (processedUrl) {
+        setLink(downloadDocxLink, processedUrl, '📄 Unduh DOCX Terproses');
+        hasAnyDownload = true;
+      }
+      
+      // 2. Change log JSON (if available)
+      const changeLogUrl = await checkChangeLogAvailable(jobId);
+      if (changeLogUrl) {
+        setLink(downloadChangesLink, changeLogUrl, '📊 Unduh Change Log (JSON)');
+        hasAnyDownload = true;
+      }
+      
+      // 3. Analysis report
+      if (files && files.analysis) {
+        setLink(downloadAnalysisLink, files.analysis, '📈 Unduh Analysis Report');
+        hasAnyDownload = true;
+      } else if (await analysisFileAvailable(jobId)) {
+        setLink(downloadAnalysisLink, `/api/jobs/${jobId}/files/analysis`, '📈 Unduh Analysis Report');
+        hasAnyDownload = true;
+      }
+      
+      // 4. Full report (if available)
+      if (files && files.report) {
+        setLink(downloadReportLink, files.report, '📋 Unduh Full Report');
+        hasAnyDownload = true;
+      }
+      
+      // 5. Show statistics if available
+      if (result && result.analysis_summary) {
+        showProcessingStats(result.analysis_summary);
+      }
+      
+      if (hasAnyDownload) {
+        downloadCard.hidden = false;
+      }
+    }
+
+    async function processedFileAvailable(jobId) {
+      try {
+        const response = await fetch(`/api/jobs/${jobId}/files/processed`, {
+          method: 'HEAD',
+          cache: 'no-store',
+        });
+        return response.ok;
+      } catch (error) {
+        return false;
+      }
+    }
+
+    function setLink(anchor, url, text) {
       if (url) {
         anchor.href = url;
+        anchor.setAttribute('download', '');
         anchor.style.display = '';
+        if (text) anchor.textContent = text;
       } else {
         anchor.removeAttribute('href');
         anchor.style.display = 'none';
       }
+    }
+    
+    async function checkChangeLogAvailable(jobId) {
+      try {
+        // Try to find change log file in output directory
+        const response = await fetch(`/api/jobs/${jobId}/files/processed`, {
+          method: 'HEAD',
+          cache: 'no-store',
+        });
+        if (response.ok) {
+          // If processed file exists, try change log with same name
+          return `/api/jobs/${jobId}/files/changes`;
+        }
+      } catch (error) {
+        // Fallback: try common change log patterns
+        const patterns = [
+          `/api/jobs/${jobId}/files/changes.json`,
+          `/api/jobs/${jobId}/files/changelog`,
+        ];
+        
+        for (const pattern of patterns) {
+          try {
+            const response = await fetch(pattern, { method: 'HEAD', cache: 'no-store' });
+            if (response.ok) return pattern;
+          } catch (e) {
+            continue;
+          }
+        }
+      }
+      return null;
+    }
+    
+    async function analysisFileAvailable(jobId) {
+      try {
+        const response = await fetch(`/api/jobs/${jobId}/files/analysis`, {
+          method: 'HEAD',
+          cache: 'no-store',
+        });
+        return response.ok;
+      } catch (error) {
+        return false;
+      }
+    }
+    
+    function showProcessingStats(summary) {
+      if (!summary || !statsContent) return;
+      
+      const stats = [];
+      
+      if (summary.total_highlights !== undefined) {
+        stats.push(`🎯 Total highlights: ${summary.total_highlights}`);
+      }
+      
+      if (summary.processed_segments !== undefined) {
+        stats.push(`⚙️ Processed segments: ${summary.processed_segments}`);
+      }
+      
+      if (summary.unicode_substitutions !== undefined) {
+        stats.push(`🔤 Unicode substitutions: ${summary.unicode_substitutions}`);
+      }
+      
+      if (summary.invisible_insertions !== undefined) {
+        stats.push(`👻 Invisible insertions: ${summary.invisible_insertions}`);
+      }
+      
+      if (summary.processing_time !== undefined) {
+        stats.push(`⏱️ Processing time: ${summary.processing_time}s`);
+      }
+      
+      if (stats.length > 0) {
+        statsContent.innerHTML = stats.map(stat => `<div>${stat}</div>`).join('');
+        downloadStats.style.display = 'block';
+      }
+    }
+
+    const summaryCache = new Map();
+
+    async function summaryIndicatesProcessed(jobId) {
+      if (summaryCache.has(jobId)) {
+        return summaryCache.get(jobId);
+      }
+      try {
+        const response = await fetch(`/api/jobs/${jobId}/summary`, { cache: 'no-store' });
+        if (!response.ok) {
+          summaryCache.set(jobId, false);
+          return false;
+        }
+        const summary = await response.json();
+        const hasProcessed = Boolean(resolveSummaryFile(summary, 'processed_document'));
+        summaryCache.set(jobId, hasProcessed);
+        return hasProcessed;
+      } catch (error) {
+        summaryCache.set(jobId, false);
+        return false;
+      }
+    }
+
+    function resolveSummaryFile(summary, key) {
+      if (!summary || !key) return null;
+      if (summary[key]) return summary[key];
+      if (summary.output_files && summary.output_files[key]) return summary.output_files[key];
+      if (summary.files && summary.files[key]) return summary.files[key];
+      const altKey = `${key}_path`;
+      if (summary[altKey]) return summary[altKey];
+      if (summary.output_files && summary.output_files[altKey]) return summary.output_files[altKey];
+      return null;
     }
 
     function formatTime(timestamp) {

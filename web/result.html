@@ -425,12 +425,25 @@
 
     async function loadSummary(id) {
       try {
-        const response = await fetch(`/api/jobs/${id}/summary`);
-        if (!response.ok) {
+        const [summaryResponse, statusResponse] = await Promise.all([
+          fetch(`/api/jobs/${id}/summary`),
+          fetch(`/api/status/${id}`)
+        ]);
+
+        if (!summaryResponse.ok) {
           throw new Error('Ringkasan tidak ditemukan. Pastikan job sudah selesai diproses.');
         }
-        const data = await response.json();
-        renderSummary(data);
+
+        const summaryData = await summaryResponse.json();
+        let files = {};
+        if (statusResponse.ok) {
+          const statusData = await statusResponse.json();
+          if (statusData?.result?.files) {
+            files = statusData.result.files;
+          }
+        }
+
+        renderSummary(summaryData, files);
         await loadSegments(id);
       } catch (error) {
         showError(error.message || 'Gagal memuat ringkasan job.');
@@ -462,6 +475,23 @@
       }
     }
 
+    function resolveSummaryFile(summary, key) {
+      if (!summary || !key) return null;
+      if (summary[key]) return summary[key];
+      if (summary.output_files && summary.output_files[key]) {
+        return summary.output_files[key];
+      }
+      if (summary.files && summary.files[key]) {
+        return summary.files[key];
+      }
+      const altKey = `${key}_path`;
+      if (summary[altKey]) return summary[altKey];
+      if (summary.output_files && summary.output_files[altKey]) {
+        return summary.output_files[altKey];
+      }
+      return null;
+    }
+
     function renderSummary(summary, files = {}) {
       metaContainer.innerHTML = '';
       const items = [
@@ -481,22 +511,33 @@
       });
 
       linksContainer.innerHTML = '';
+      const processedJobId = summary.job_reference || jobId;
       const links = [
-        { label: 'Lihat PDF Asli', key: 'original_pdf', defaultPath: `/api/jobs/${jobId}/files/pdf` },
-        { label: 'Unduh DOCX Hasil', key: 'processed_document', defaultPath: `/api/jobs/${jobId}/files/processed` },
-        { label: 'Lihat Laporan Analisis', key: 'report', defaultPath: `/api/jobs/${jobId}/files/report` },
-        { label: 'Unduh Ringkasan JSON', key: 'job_reference', defaultPath: `/api/jobs/${jobId}/files/analysis` },
+        { label: 'Lihat PDF Asli', key: 'original_pdf' },
+        { label: 'Unduh DOCX Hasil', key: 'processed_document' },
+        { label: 'Lihat Laporan Analisis', key: 'report' },
+        { label: 'Unduh Ringkasan JSON', key: 'job_reference' },
       ];
 
       links.forEach(link => {
-        if (link.key === 'job_reference' || summary[link.key]) {
-          const anchor = document.createElement('a');
-          anchor.href = summary[link.key] ? `/api/jobs/${jobId}/files/${mapKeyToType(link.key)}` : link.defaultPath;
-          anchor.target = '_blank';
-          anchor.rel = 'noopener';
-          anchor.textContent = link.label;
-          linksContainer.appendChild(anchor);
+        const resolved = resolveSummaryFile(summary, link.key);
+        const fileEndpoint = files[link.key];
+        const isSummaryLink = link.key === 'job_reference';
+        if (!isSummaryLink && !resolved && !fileEndpoint) {
+          return;
         }
+
+        const anchor = document.createElement('a');
+        const mappedType = mapKeyToType(link.key);
+        if (typeof fileEndpoint === 'string' && fileEndpoint.trim()) {
+          anchor.href = fileEndpoint;
+        } else if (resolved || isSummaryLink) {
+          anchor.href = `/api/jobs/${processedJobId}/files/${mappedType}`;
+        }
+        anchor.target = '_blank';
+        anchor.rel = 'noopener';
+        anchor.textContent = link.label;
+        linksContainer.appendChild(anchor);
       });
 
       const distribution = summary.color_distribution || {};
@@ -512,9 +553,13 @@
         chip.appendChild(document.createTextNode(`${capitalize(color)} · ${count}`));
         chipsContainer.appendChild(chip);
       });
-
-      const processedJobId = summary.job_reference || jobId;
-      const processedUrl = (files.processed_document) || (summary.processed_document ? `/api/jobs/${processedJobId}/files/processed` : null);
+      const summaryResolved = resolveSummaryFile(summary, 'processed_document') ? `/api/jobs/${processedJobId}/files/processed` : null;
+      let processedUrl = (typeof files.processed_document === 'string' && files.processed_document.trim())
+        ? files.processed_document
+        : summaryResolved;
+      if (!processedUrl && await processedFileAvailable(processedJobId)) {
+        processedUrl = `/api/jobs/${processedJobId}/files/processed`;
+      }
       setPrimaryButton(processedButton, processedUrl);
 
       const overview = document.getElementById('manipulated-overview');
@@ -556,6 +601,18 @@
       } else {
         button.removeAttribute('href');
         button.hidden = true;
+      }
+    }
+
+    async function processedFileAvailable(jobId) {
+      try {
+        const response = await fetch(`/api/jobs/${jobId}/files/processed`, {
+          method: 'HEAD',
+          cache: 'no-store',
+        });
+        return response.ok;
+      } catch (error) {
+        return false;
       }
     }
 
