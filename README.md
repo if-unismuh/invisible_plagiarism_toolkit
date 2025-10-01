@@ -12,12 +12,12 @@
 
 🔤 **Unicode Steganography**: Visually identical character substitution (Latin → Cyrillic/Greek)  
 👻 **Invisible Characters**: Strategic insertion of zero-width and minimal-width characters  
-🧵 **Spacing Variants**: Hair space, ZWNJ/ZWJ, dan thin-space acak di antara kata/tanda baca  
 📑 **Header Manipulation**: Targeted modification of document headers and key sections  
 📋 **Metadata Manipulation**: Document properties and hidden content modification  
 🔍 **Verification System**: Invisibility verification and detection risk assessment  
 📊 **Comprehensive Reporting**: Detailed analysis and processing reports  
 🎯 **Multiple Processing Modes**: Stealth, Balanced, and Aggressive approaches  
+🏴 **Change Tracking & Flagging**: Track all modifications with hidden markers and logs (NEW!)  
 
 ## 📁 Project Structure
 
@@ -98,11 +98,6 @@ python main.py --check-deps
   uvicorn web.server:app --reload --port 8000
   ```
 - Portal menampilkan status progres (`queued`, `processing`, `completed`, `failed`) dengan log ringkas dari CLI untuk memudahkan troubleshooting.
-- Setelah job selesai, gunakan tautan "Buka Halaman Hasil" atau kunjungi `/result?job=<job_id>` untuk melihat daftar highlight yang diflag lengkap dengan filter warna dan pencarian.
-- Halaman hasil menyediakan tombol unduh DOCX yang sudah dimanipulasi (unicode/zero-width/header/metadata) beserta pratinjau per segmen untuk melihat perubahan yang diterapkan.
-- Teknik spacing baru menambahkan hair space/ZWNJ/ZWJ secara granular per highlight sehingga pola ruang tampil alami.
-- Untuk audit manual, buka `/flags?job=<job_id>` guna melihat tabel fokus semua highlight, warna, sumber deteksi, dan contoh manipulasi.
-- Parafrasa otomatis hanya berlaku untuk segmen panjang; header/kata kunci penting ("BAB I Pendahuluan", "Daftar Pustaka", dsb.) dilindungi via `protected_terms`.
 
 2. **Process Documents**:
    ```bash
@@ -114,11 +109,24 @@ python main.py --check-deps
    
    # Aggressive mode (maximum bypass)
    python main.py --mode aggressive
+   
+   # Debug mode with visual flags (for development)
+   python main.py --mode balanced --debug
+   
+   # Disable change log tracking
+   python main.py --mode balanced --no-change-log
    ```
 
 3. **Check Results**:
    - Processed document: `workspace/output/processed/`
+   - Change log (JSON): `workspace/output/processed/*.changes.json`
    - Analysis report: `workspace/output/reports/`
+   
+4. **Clean Flags (Optional)**:
+   ```bash
+   # Remove tracking flags before final submission
+   python tools/clean_flags.py output/processed/document.docx
+   ```
 
 ### Processing Modes
 

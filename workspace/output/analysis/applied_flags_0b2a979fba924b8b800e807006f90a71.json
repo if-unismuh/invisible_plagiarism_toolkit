@@ -1,0 +1,2860 @@
+[
+  {
+    "id": 1,
+    "page": 2,
+    "color": "cyan",
+    "length": 11,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Institution Repositories",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Matches campus or partner institutional archives. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "Era digital",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "Era digital",
+        "manipulated": "Era ‌digital",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "era digital",
+        "manipulated": "era digital",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "page": 2,
+    "color": "blue",
+    "length": 11,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Internet Sources",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Content found on public web sources indexed by Turnitin. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "PENDAHULUAN",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "PENDAHULUAN",
+        "manipulated": "PENDAHULUAN",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "PENDAHULUAN",
+        "manipulated": "PENDAHULUAN",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "page": 3,
+    "color": "blue",
+    "length": 15,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Internet Sources",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Content found on public web sources indexed by Turnitin. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "digunakan untuk",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "digunakan untuk",
+        "manipulated": "digunakan untuk",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "digunakan untuk",
+        "manipulated": "digunakan ‌untuk",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "digunakan untuk",
+        "manipulated": "digunakan ‌untuk",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "page": 4,
+    "color": "cyan",
+    "length": 10,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Institution Repositories",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Matches campus or partner institutional archives. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "penyisipan",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "Penyisipan",
+        "manipulated": "Penyisipan",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "penyisipan",
+        "manipulated": "penyisipan",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "penyisipan",
+        "manipulated": "penyisipan",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "page": 4,
+    "color": "green",
+    "length": 44,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Publications / Journals",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Matches academic publications or journal articles. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "unicode_substitution",
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "dalam penelitian ini adalah sebagai berikut:",
+    "applied_techniques": [
+      "unicode_substitution",
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "dalam penelitian ini adalah sebagai berikut:",
+        "manipulated": "dalam peнelіtian ini аdalah sebаgai  berikut:",
+        "techniques": [
+          "unicode_substitution",
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "page": 5,
+    "color": "green",
+    "length": 17,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Publications / Journals",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Matches academic publications or journal articles. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "pembuatan sistem.",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "pembuatan sistem.",
+        "manipulated": "pembuatan ​sistem.",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "page": 5,
+    "color": "green",
+    "length": 25,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Publications / Journals",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Matches academic publications or journal articles. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "BAB III METODE PENELITIAN",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "BAB III METODE PENELITIAN",
+        "manipulated": "BAB  III ‌METODE PENELITIAN",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "page": 5,
+    "color": "yellow",
+    "length": 68,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Quoted Text",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Typically text that appears inside quotations. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "unicode_substitution",
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "Bab ini menerangkan secara singkat dan jelas mengenai latar belakang",
+    "applied_techniques": [
+      "unicode_substitution",
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "Bab ini menerangkan secara singkat dan jelas mengenai latar belakang",
+        "manipulated": "Bab ini menеrangкаn ‌seсara  singkat  dan jelas ‌mengenai latar ﻿belakang",
+        "techniques": [
+          "unicode_substitution",
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "page": 5,
+    "color": "orange",
+    "length": 29,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Institution Database",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Matches curated institution-specific databases. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "unicode_substitution",
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "LSB tidak dapat dipertahankan",
+    "applied_techniques": [
+      "unicode_substitution",
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "LSB tidak dapat dipertahankan",
+        "manipulated": "LSB tidak dapat ​dipertahankan",
+        "techniques": [
+          "unicode_substitution",
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "page": 5,
+    "color": "magenta",
+    "length": 28,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Self-Plagiarism",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Segments overlapping with the author's previous submissions. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "unicode_substitution",
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "Penelitian ini dibatasi pada",
+    "applied_techniques": [
+      "unicode_substitution",
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "Penelitian ini dibatasi pada",
+        "manipulated": "Penelitian ini dibаtasi  ‌pada",
+        "techniques": [
+          "unicode_substitution",
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "page": 6,
+    "color": "blue",
+    "length": 44,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Internet Sources",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Content found on public web sources indexed by Turnitin. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "unicode_substitution",
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "Citra digital adalah gambar dua dimensi yang",
+    "applied_techniques": [
+      "unicode_substitution",
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "Citra digital adalah gambar dua dimensi yang",
+        "manipulated": "Citra  ‌digital adalah gambar ﻿dua dimensi  yang",
+        "techniques": [
+          "unicode_substitution",
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "page": 6,
+    "color": "green",
+    "length": 6,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Publications / Journals",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Matches academic publications or journal articles. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "Video)",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "video)",
+        "manipulated": "video)",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "page": 6,
+    "color": "magenta",
+    "length": 10,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Self-Plagiarism",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Segments overlapping with the author's previous submissions. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "Bahan ajar",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "BAHAN AJAR",
+        "manipulated": "BAHAN  AJAR",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "BAHAN AJAR",
+        "manipulated": "BAHAN AJAR",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "bahan ajar",
+        "manipulated": "bahan ‌ajar",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "page": 6,
+    "color": "magenta",
+    "length": 16,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Self-Plagiarism",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Segments overlapping with the author's previous submissions. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "TINJAUAN PUSTAKA",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "TINJAUAN PUSTAKA",
+        "manipulated": "TINJAUAN ﻿PUSTAKA",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "TINJAUAN PUSTAKA",
+        "manipulated": "TINJAUAN  PUSTAKA",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "page": 6,
+    "color": "cyan",
+    "length": 6,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Institution Repositories",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Matches campus or partner institutional archives. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "BAB II",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "BAB II",
+        "manipulated": "BAB  ‌II",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "BAB II",
+        "manipulated": "BAB  ‍II",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "BAB II",
+        "manipulated": "BAB II",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "page": 7,
+    "color": "blue",
+    "length": 14,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Internet Sources",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Content found on public web sources indexed by Turnitin. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "dan sederhana.",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "dan sederhana.",
+        "manipulated": "dan sederhana. ",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "page": 7,
+    "color": "blue",
+    "length": 19,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Internet Sources",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Content found on public web sources indexed by Turnitin. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "metode steganografi",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "metode steganografi",
+        "manipulated": "metode steganografi",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "metode steganografi",
+        "manipulated": "metode steganografi",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "metode steganografi",
+        "manipulated": "metode steganografi",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "page": 7,
+    "color": "blue",
+    "length": 27,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Internet Sources",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Content found on public web sources indexed by Turnitin. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "unicode_substitution",
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "Least Significant Bit (LSB)",
+    "applied_techniques": [
+      "unicode_substitution",
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "Least Significant Bit (LSB)",
+        "manipulated": "Least Sіgnificant Bit (LSB)",
+        "techniques": [
+          "unicode_substitution",
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "Least Significant Bit (LSB)",
+        "manipulated": "Leаst Significant Bit (LSВ)",
+        "techniques": [
+          "unicode_substitution",
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "Least Significant Bit (LSB)",
+        "manipulated": "Leasт Sіgnіficant Bit (LSB)",
+        "techniques": [
+          "unicode_substitution",
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "page": 7,
+    "color": "yellow",
+    "length": 21,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Quoted Text",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Typically text that appears inside quotations. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "tidak terdeteksi oleh",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "tidak terdeteksi oleh",
+        "manipulated": "tidak  ‌terdeteksi oleh",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "tidak terdeteksi oleh",
+        "manipulated": "tidak terdeteksi ‌oleh",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "page": 7,
+    "color": "blue",
+    "length": 19,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Internet Sources",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Content found on public web sources indexed by Turnitin. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "seni menyembunyikan",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "seni menyembunyikan",
+        "manipulated": "seni  ‌‌menyembunyikan",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "seni menyembunyikan",
+        "manipulated": "seni menyembunyikan",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 54,
+    "page": 8,
+    "color": "green",
+    "length": 9,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Publications / Journals",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Matches academic publications or journal articles. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "informasi",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "informasi",
+        "manipulated": "informasi",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "informasi",
+        "manipulated": "informasi",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "informasi",
+        "manipulated": "informasi",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 55,
+    "page": 8,
+    "color": "green",
+    "length": 9,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Publications / Journals",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Matches academic publications or journal articles. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "menyimpan",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "menyimpan",
+        "manipulated": "menyimpan",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "menyimpan",
+        "manipulated": "menyimpan",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "menyimpan",
+        "manipulated": "menyimpan",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 58,
+    "page": 8,
+    "color": "green",
+    "length": 9,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Publications / Journals",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Matches academic publications or journal articles. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "(QR) Code",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "(QR) Code",
+        "manipulated": "(QR) Code",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "(QR) code",
+        "manipulated": "(QR) code",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "(QR) Code",
+        "manipulated": "(QR) Code",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 60,
+    "page": 9,
+    "color": "magenta",
+    "length": 12,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Self-Plagiarism",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Segments overlapping with the author's previous submissions. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "Tujuan/Kasus",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "Tujuan/Kasus",
+        "manipulated": "Tujuan/Kasus",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 61,
+    "page": 9,
+    "color": "magenta",
+    "length": 8,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Self-Plagiarism",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Segments overlapping with the author's previous submissions. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "Peneliti",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "Peneliti",
+        "manipulated": "Peneliti",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "Peneliti",
+        "manipulated": "Peneliti",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "peneliti",
+        "manipulated": "peneliti",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 62,
+    "page": 9,
+    "color": "magenta",
+    "length": 18,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Self-Plagiarism",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Segments overlapping with the author's previous submissions. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "Penelitian Terkait",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "Penelitian Terkait",
+        "manipulated": "Penelitian  Terkait",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "Penelitian Terkait",
+        "manipulated": "Penelitian Terkait",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 66,
+    "page": 10,
+    "color": "blue",
+    "length": 11,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Internet Sources",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Content found on public web sources indexed by Turnitin. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "(LSB) untuk",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "(LSB) untuk",
+        "manipulated": "(LSB) untuk",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 67,
+    "page": 10,
+    "color": "blue",
+    "length": 15,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Internet Sources",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Content found on public web sources indexed by Turnitin. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "Significant Bit",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "Significant Bit",
+        "manipulated": "Significant Bit",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "Significant Bit",
+        "manipulated": "Significant  Bit",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "Significant Bit",
+        "manipulated": "Significant  ‍Bit",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 68,
+    "page": 10,
+    "color": "blue",
+    "length": 18,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Internet Sources",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Content found on public web sources indexed by Turnitin. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "steganografi Least",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "steganografi Least",
+        "manipulated": "steganografi ‍Least",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "steganografi Least",
+        "manipulated": "steganografi Least",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "steganografi Least",
+        "manipulated": "steganografi  Least",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 69,
+    "page": 10,
+    "color": "blue",
+    "length": 6,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Internet Sources",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Content found on public web sources indexed by Turnitin. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "metode",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "METODE",
+        "manipulated": "METODE",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "METODE",
+        "manipulated": "METODE",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "metode",
+        "manipulated": "metode",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 71,
+    "page": 16,
+    "color": "magenta",
+    "length": 9,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Self-Plagiarism",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Segments overlapping with the author's previous submissions. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "digunakan",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "digunakan",
+        "manipulated": "digunakan",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "digunakan",
+        "manipulated": "digunakan",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "digunakan",
+        "manipulated": "digunakan",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 72,
+    "page": 16,
+    "color": "magenta",
+    "length": 17,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Self-Plagiarism",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Segments overlapping with the author's previous submissions. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "Penulisan Laporan",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "penulisan laporan",
+        "manipulated": "penulisan laporan",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "Penulisan Laporan",
+        "manipulated": "Penulisan  Laporan",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 73,
+    "page": 16,
+    "color": "blue",
+    "length": 6,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Internet Sources",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Content found on public web sources indexed by Turnitin. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "Sistem",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "SISTEM",
+        "manipulated": "SISTEM",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "SISTEM",
+        "manipulated": "SISTEM",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "sistem",
+        "manipulated": "sistem",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 74,
+    "page": 16,
+    "color": "magenta",
+    "length": 19,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Self-Plagiarism",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Segments overlapping with the author's previous submissions. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "Implementasi Sistem",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "IMPLEMENTASI SISTEM",
+        "manipulated": "IMPLEMENTASI SISTEM",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "IMPLEMENTASI SISTEM",
+        "manipulated": "IMPLEMENTASI SISTEM",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "implementasi sistem",
+        "manipulated": "implementasi ‌sistem",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 75,
+    "page": 16,
+    "color": "magenta",
+    "length": 13,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Self-Plagiarism",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Segments overlapping with the author's previous submissions. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "Desain Sistem",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "Desain Sistem",
+        "manipulated": "Desain  Sistem",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 76,
+    "page": 16,
+    "color": "magenta",
+    "length": 15,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Self-Plagiarism",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Segments overlapping with the author's previous submissions. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "Analisis Sistem",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "Analisis Sistem",
+        "manipulated": "Analisis Sistem",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 78,
+    "page": 16,
+    "color": "blue",
+    "length": 25,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Internet Sources",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Content found on public web sources indexed by Turnitin. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "bulan, yaitu dimulai pada",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "bulan, yaitu dimulai pada",
+        "manipulated": "bulan, yaitu ‌dimulai pada",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 82,
+    "page": 16,
+    "color": "cyan",
+    "length": 11,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Institution Repositories",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Matches campus or partner institutional archives. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "penelitian.",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "penelitian.",
+        "manipulated": "penelitian. ‌",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "penelitian.",
+        "manipulated": "penelitian.",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "penelitian.",
+        "manipulated": "penelitian.",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 86,
+    "page": 16,
+    "color": "cyan",
+    "length": 17,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Institution Repositories",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Matches campus or partner institutional archives. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "METODE PENELITIAN",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "METODE PENELITIAN",
+        "manipulated": "METODE ‍PENELITIAN",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "metode penelitian",
+        "manipulated": "metode penelitian",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "METODE PENELITIAN",
+        "manipulated": "METODE PENELITIAN",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 87,
+    "page": 16,
+    "color": "cyan",
+    "length": 7,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Institution Repositories",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Matches campus or partner institutional archives. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "BAB III",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "BAB III",
+        "manipulated": "BAB III",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "BAB III",
+        "manipulated": "BAB  III",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 88,
+    "page": 17,
+    "color": "green",
+    "length": 11,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Publications / Journals",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Matches academic publications or journal articles. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "(Embedding)",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "(embedding)",
+        "manipulated": "(embedding)",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "(embedding)",
+        "manipulated": "(embedding)",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "(Embedding)",
+        "manipulated": "(Embedding)",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 89,
+    "page": 17,
+    "color": "green",
+    "length": 6,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Publications / Journals",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Matches academic publications or journal articles. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "Proses",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "proses",
+        "manipulated": "proses",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "Proses",
+        "manipulated": "Proses",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "Proses",
+        "manipulated": "Proses",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 90,
+    "page": 17,
+    "color": "blue",
+    "length": 12,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Internet Sources",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Content found on public web sources indexed by Turnitin. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "(extracting)",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "(extracting)",
+        "manipulated": "(extracting)",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "(extracting)",
+        "manipulated": "(extracting)",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "(Extracting)",
+        "manipulated": "(Extracting)",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 92,
+    "page": 17,
+    "color": "orange",
+    "length": 41,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Institution Database",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Matches curated institution-specific databases. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "unicode_substitution",
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "steganografi Least Significant Bit (LSB).",
+    "applied_techniques": [
+      "unicode_substitution",
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "steganografi Least Significant Bit (LSB).",
+        "manipulated": "sтeganografi ​Least Significant Bit (LSB).",
+        "techniques": [
+          "unicode_substitution",
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "steganografi Least Significant Bit (LSB).",
+        "manipulated": "steganografi Leаst Signifiсant ﻿Bit (LSB).",
+        "techniques": [
+          "unicode_substitution",
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 99,
+    "page": 18,
+    "color": "blue",
+    "length": 10,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Internet Sources",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Content found on public web sources indexed by Turnitin. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "mengandung",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "mengandung",
+        "manipulated": "mengandung",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "mengandung",
+        "manipulated": "mengandung",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "mengandung",
+        "manipulated": "mengandung",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 100,
+    "page": 18,
+    "color": "blue",
+    "length": 14,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Internet Sources",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Content found on public web sources indexed by Turnitin. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "identik dengan",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "identik dengan",
+        "manipulated": "identik ‍dengan",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "identik dengan",
+        "manipulated": "identik ‍﻿dengan",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 101,
+    "page": 18,
+    "color": "green",
+    "length": 18,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Publications / Journals",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Matches academic publications or journal articles. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "(stego image) yang",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "(stego image) yang",
+        "manipulated": "(stego image) yang",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 104,
+    "page": 21,
+    "color": "cyan",
+    "length": 16,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Institution Repositories",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Matches campus or partner institutional archives. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "Pengujian Sistem",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "Pengujian Sistem",
+        "manipulated": "Pengujian Sistem",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "Pengujian sistem",
+        "manipulated": "Pengujian sistem",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "Pengujian Sistem",
+        "manipulated": "Pengujian  Sistem",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 105,
+    "page": 22,
+    "color": "blue",
+    "length": 7,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Internet Sources",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Content found on public web sources indexed by Turnitin. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "tingkat",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "tingkat",
+        "manipulated": "tingkat",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "tingkat",
+        "manipulated": "tingkat",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "tingkat",
+        "manipulated": "tingkat",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 107,
+    "page": 25,
+    "color": "yellow",
+    "length": 8,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Quoted Text",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Typically text that appears inside quotations. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "Berbasis",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "berbasis",
+        "manipulated": "berbasis",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "berbasis",
+        "manipulated": "berbasis",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 108,
+    "page": 25,
+    "color": "orange",
+    "length": 6,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Institution Database",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Matches curated institution-specific databases. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "Cipher",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "Cipher",
+        "manipulated": "Cipher",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "Cipher",
+        "manipulated": "Cipher",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 109,
+    "page": 25,
+    "color": "yellow",
+    "length": 8,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Quoted Text",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Typically text that appears inside quotations. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "Vigenere",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "Vigenere",
+        "manipulated": "Vigenere",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "Vigenere",
+        "manipulated": "Vigenere",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 110,
+    "page": 25,
+    "color": "yellow",
+    "length": 8,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Quoted Text",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Typically text that appears inside quotations. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "Enkripsi",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "enkripsi",
+        "manipulated": "enkripsi",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "enkripsi",
+        "manipulated": "enkripsi",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "enkripsi",
+        "manipulated": "enkripsi",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 111,
+    "page": 25,
+    "color": "yellow",
+    "length": 11,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Quoted Text",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Typically text that appears inside quotations. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "Significant",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "Significant",
+        "manipulated": "Significant",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "Significant",
+        "manipulated": "Significant",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "Significant",
+        "manipulated": "Significant",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 112,
+    "page": 25,
+    "color": "yellow",
+    "length": 6,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Quoted Text",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Typically text that appears inside quotations. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "dengan",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "dengan",
+        "manipulated": "dengan",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "Dengan",
+        "manipulated": "Dengan",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "dengan",
+        "manipulated": "dengan",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 113,
+    "page": 25,
+    "color": "yellow",
+    "length": 7,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Quoted Text",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Typically text that appears inside quotations. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "Digital",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "DIGITAL",
+        "manipulated": "DIGITAL",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "DIGITAL",
+        "manipulated": "DIGITAL",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "digital",
+        "manipulated": "digital",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 123,
+    "page": 25,
+    "color": "red",
+    "length": 11,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Student Papers",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Matches submissions from other students in the Turnitin index. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "Universitas",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "UNIVERSITAS",
+        "manipulated": "UNIVERSITAS",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "Universitas",
+        "manipulated": "Universitas",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "Universitas",
+        "manipulated": "Universitas",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 127,
+    "page": 25,
+    "color": "orange",
+    "length": 7,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Institution Database",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Matches curated institution-specific databases. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "Agustus",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "Agustus",
+        "manipulated": "Agustus",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 131,
+    "page": 25,
+    "color": "green",
+    "length": 8,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Publications / Journals",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Matches academic publications or journal articles. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "Makassar",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "MAKASSAR",
+        "manipulated": "MAKASSAR",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "Makassar",
+        "manipulated": "Makassar",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "Makassar",
+        "manipulated": "Makassar",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 132,
+    "page": 25,
+    "color": "green",
+    "length": 12,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Publications / Journals",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Matches academic publications or journal articles. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "Muhammadiyah",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "MUHAMMADIYAH",
+        "manipulated": "MUHAMMADIYAH",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "Muhammadiyah",
+        "manipulated": "Muhammadiyah",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "Muhammadiyah",
+        "manipulated": "Muhammadiyah",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 141,
+    "page": 26,
+    "color": "orange",
+    "length": 6,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Institution Database",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Matches curated institution-specific databases. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "Teknik",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "TEKNIK",
+        "manipulated": "TEKNIK",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "Teknik",
+        "manipulated": "Teknik",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "teknik",
+        "manipulated": "teknik",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 143,
+    "page": 26,
+    "color": "orange",
+    "length": 9,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Institution Database",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Matches curated institution-specific databases. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "Observasi",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "observasi",
+        "manipulated": "observasi",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "observasi",
+        "manipulated": "observasi",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 145,
+    "page": 26,
+    "color": "yellow",
+    "length": 11,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Quoted Text",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Typically text that appears inside quotations. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "Programming",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "programming",
+        "manipulated": "programming",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 150,
+    "page": 27,
+    "color": "yellow",
+    "length": 10,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Quoted Text",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Typically text that appears inside quotations. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "Pendidikan",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "pendidikan",
+        "manipulated": "pendidikan",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "pendidikan",
+        "manipulated": "pendidikan",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "pendidikan",
+        "manipulated": "pendidikan",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 154,
+    "page": 27,
+    "color": "yellow",
+    "length": 6,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Quoted Text",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Typically text that appears inside quotations. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "KULIAH",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "kuliah",
+        "manipulated": "kuliah",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 158,
+    "page": 27,
+    "color": "yellow",
+    "length": 7,
+    "color_confidence": 0.0,
+    "turnitin_flag": "Quoted Text",
+    "flag_priority": "low",
+    "flag_priority_score": 1,
+    "flag_confidence": 0.0,
+    "flag_notes": "Typically text that appears inside quotations. (Adjusted: confidence < 0.20)",
+    "selected": true,
+    "recommended_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "text": "DIGITAL",
+    "applied_techniques": [
+      "zero_width",
+      "spacing_variant"
+    ],
+    "manipulated": true,
+    "manipulated_samples": [
+      {
+        "original": "DIGITAL",
+        "manipulated": "DIGITAL",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "DIGITAL",
+        "manipulated": "DIGITAL",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      },
+      {
+        "original": "digital",
+        "manipulated": "digital",
+        "techniques": [
+          "zero_width",
+          "spacing_variant"
+        ]
+      }
+    ]
+  }
+]

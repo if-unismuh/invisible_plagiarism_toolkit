@@ -1,0 +1,1829 @@
+{
+  "job_reference": "0b2a979fba924b8b800e807006f90a71",
+  "mode": "aggressive",
+  "timestamp": "2025-10-01T11:33:46.251223",
+  "processing_time": 150.1518909509996,
+  "original_pdf": "workspace/input/turnitin/0b2a979fba924b8b800e807006f90a71.pdf",
+  "processed_document": "workspace/output/processed/0b2a979fba924b8b800e807006f90a71_aggressive_processed.docx",
+  "report": "workspace/output/reports/processing_report_0b2a979fba924b8b800e807006f90a71.json",
+  "priority_segments_file": "workspace/output/analysis/priority_segments_0b2a979fba924b8b800e807006f90a71.json",
+  "applied_flags_file": "workspace/output/analysis/applied_flags_0b2a979fba924b8b800e807006f90a71.json",
+  "total_highlights": 217,
+  "total_priority": 169,
+  "color_distribution": {
+    "cyan": 18,
+    "blue": 40,
+    "orange": 23,
+    "green": 42,
+    "yellow": 50,
+    "magenta": 26,
+    "red": 18
+  },
+  "flag_priority_distribution": {
+    "low": 217
+  },
+  "flag_label_distribution": {
+    "Institution Repositories": 18,
+    "Internet Sources": 40,
+    "Institution Database": 23,
+    "Publications / Journals": 42,
+    "Quoted Text": 50,
+    "Self-Plagiarism": 26,
+    "Student Papers": 18
+  },
+  "manipulated_segment_count": 66,
+  "manipulated_segment_ids": [
+    1,
+    3,
+    5,
+    11,
+    14,
+    17,
+    19,
+    25,
+    28,
+    29,
+    31,
+    33,
+    36,
+    39,
+    40,
+    41,
+    43,
+    44,
+    45,
+    47,
+    54,
+    55,
+    58,
+    60,
+    61,
+    62,
+    66,
+    67,
+    68,
+    69,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    78,
+    82,
+    86,
+    87,
+    88,
+    89,
+    90,
+    92,
+    99,
+    100,
+    101,
+    104,
+    105,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    123,
+    127,
+    131,
+    132,
+    141,
+    143,
+    145,
+    150,
+    154,
+    158
+  ],
+  "priority_samples": [
+    {
+      "id": 1,
+      "page": 2,
+      "color": "cyan",
+      "turnitin_flag": "Institution Repositories",
+      "flag_priority": "low",
+      "flag_confidence": 0.0,
+      "applied_techniques": [
+        "zero_width",
+        "spacing_variant"
+      ],
+      "length": 11,
+      "text": "Era digital",
+      "manipulated": true,
+      "manipulated_samples": [
+        {
+          "original": "Era digital",
+          "manipulated": "Era ‌digital",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "era digital",
+          "manipulated": "era digital",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "page": 2,
+      "color": "blue",
+      "turnitin_flag": "Internet Sources",
+      "flag_priority": "low",
+      "flag_confidence": 0.0,
+      "applied_techniques": [],
+      "length": 17,
+      "text": "A. Latar Belakang",
+      "manipulated": false,
+      "manipulated_samples": []
+    },
+    {
+      "id": 3,
+      "page": 2,
+      "color": "blue",
+      "turnitin_flag": "Internet Sources",
+      "flag_priority": "low",
+      "flag_confidence": 0.0,
+      "applied_techniques": [
+        "zero_width",
+        "spacing_variant"
+      ],
+      "length": 11,
+      "text": "PENDAHULUAN",
+      "manipulated": true,
+      "manipulated_samples": [
+        {
+          "original": "PENDAHULUAN",
+          "manipulated": "PENDAHULUAN",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "PENDAHULUAN",
+          "manipulated": "PENDAHULUAN",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "page": 2,
+      "color": "cyan",
+      "turnitin_flag": "Institution Repositories",
+      "flag_priority": "low",
+      "flag_confidence": 0.0,
+      "applied_techniques": [],
+      "length": 6,
+      "text": "a BABI",
+      "manipulated": false,
+      "manipulated_samples": []
+    },
+    {
+      "id": 5,
+      "page": 3,
+      "color": "blue",
+      "turnitin_flag": "Internet Sources",
+      "flag_priority": "low",
+      "flag_confidence": 0.0,
+      "applied_techniques": [
+        "zero_width",
+        "spacing_variant"
+      ],
+      "length": 15,
+      "text": "digunakan untuk",
+      "manipulated": true,
+      "manipulated_samples": [
+        {
+          "original": "digunakan untuk",
+          "manipulated": "digunakan untuk",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "digunakan untuk",
+          "manipulated": "digunakan ‌untuk",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "digunakan untuk",
+          "manipulated": "digunakan ‌untuk",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "page": 3,
+      "color": "blue",
+      "turnitin_flag": "Internet Sources",
+      "flag_priority": "low",
+      "flag_confidence": 0.0,
+      "applied_techniques": [],
+      "length": 218,
+      "text": "signifikan) khir (bit paling tidak dari data piksel citra yang penampung signifikan image) tidgly berpengaruh dengan bit dari gambar (cover yang sebelumnya. Metode ini merupakan salah teknik steganografi Satu Yang umum",
+      "manipulated": false,
+      "manipulated_samples": []
+    },
+    {
+      "id": 7,
+      "page": 3,
+      "color": "cyan",
+      "turnitin_flag": "Institution Repositories",
+      "flag_priority": "low",
+      "flag_confidence": 0.0,
+      "applied_techniques": [],
+      "length": 22,
+      "text": "signifikan) tidak dari",
+      "manipulated": false,
+      "manipulated_samples": []
+    },
+    {
+      "id": 8,
+      "page": 3,
+      "color": "blue",
+      "turnitin_flag": "Internet Sources",
+      "flag_priority": "low",
+      "flag_confidence": 0.0,
+      "applied_techniques": [],
+      "length": 141,
+      "text": "informasi, enkripsi dan dekripsi si: Seperti dinyatakan oleh (Nur yang kerja metode LSB yaitu mengubah bit Agsal Aminullah al., 2022) et Cara",
+      "manipulated": false,
+      "manipulated_samples": []
+    },
+    {
+      "id": 9,
+      "page": 3,
+      "color": "blue",
+      "turnitin_flag": "Internet Sources",
+      "flag_priority": "low",
+      "flag_confidence": 0.0,
+      "applied_techniques": [],
+      "length": 67,
+      "text": "Significant adalah teknik digunakan dalam Least Bit (LSB) yang umum",
+      "manipulated": false,
+      "manipulated_samples": []
+    },
+    {
+      "id": 10,
+      "page": 4,
+      "color": "orange",
+      "turnitin_flag": "Institution Database",
+      "flag_priority": "low",
+      "flag_confidence": 0.0,
+      "applied_techniques": [],
+      "length": 16,
+      "text": "digital. Manfaat",
+      "manipulated": false,
+      "manipulated_samples": []
+    }
+  ],
+  "manipulated_segments": [
+    {
+      "id": 1,
+      "samples": [
+        {
+          "original": "Era digital",
+          "manipulated": "Era ‌digital",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "era digital",
+          "manipulated": "era digital",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "samples": [
+        {
+          "original": "PENDAHULUAN",
+          "manipulated": "PENDAHULUAN",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "PENDAHULUAN",
+          "manipulated": "PENDAHULUAN",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "samples": [
+        {
+          "original": "digunakan untuk",
+          "manipulated": "digunakan untuk",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "digunakan untuk",
+          "manipulated": "digunakan ‌untuk",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "digunakan untuk",
+          "manipulated": "digunakan ‌untuk",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "samples": [
+        {
+          "original": "Penyisipan",
+          "manipulated": "Penyisipan",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "penyisipan",
+          "manipulated": "penyisipan",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "penyisipan",
+          "manipulated": "penyisipan",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "samples": [
+        {
+          "original": "dalam penelitian ini adalah sebagai berikut:",
+          "manipulated": "dalam peнelіtian ini аdalah sebаgai  berikut:",
+          "techniques": [
+            "unicode_substitution",
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "samples": [
+        {
+          "original": "pembuatan sistem.",
+          "manipulated": "pembuatan ​sistem.",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "samples": [
+        {
+          "original": "BAB III METODE PENELITIAN",
+          "manipulated": "BAB  III ‌METODE PENELITIAN",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "samples": [
+        {
+          "original": "Bab ini menerangkan secara singkat dan jelas mengenai latar belakang",
+          "manipulated": "Bab ini menеrangкаn ‌seсara  singkat  dan jelas ‌mengenai latar ﻿belakang",
+          "techniques": [
+            "unicode_substitution",
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "samples": [
+        {
+          "original": "LSB tidak dapat dipertahankan",
+          "manipulated": "LSB tidak dapat ​dipertahankan",
+          "techniques": [
+            "unicode_substitution",
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "samples": [
+        {
+          "original": "Penelitian ini dibatasi pada",
+          "manipulated": "Penelitian ini dibаtasi  ‌pada",
+          "techniques": [
+            "unicode_substitution",
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "samples": [
+        {
+          "original": "Citra digital adalah gambar dua dimensi yang",
+          "manipulated": "Citra  ‌digital adalah gambar ﻿dua dimensi  yang",
+          "techniques": [
+            "unicode_substitution",
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "samples": [
+        {
+          "original": "video)",
+          "manipulated": "video)",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "samples": [
+        {
+          "original": "BAHAN AJAR",
+          "manipulated": "BAHAN  AJAR",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "BAHAN AJAR",
+          "manipulated": "BAHAN AJAR",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "bahan ajar",
+          "manipulated": "bahan ‌ajar",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "samples": [
+        {
+          "original": "TINJAUAN PUSTAKA",
+          "manipulated": "TINJAUAN ﻿PUSTAKA",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "TINJAUAN PUSTAKA",
+          "manipulated": "TINJAUAN  PUSTAKA",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "samples": [
+        {
+          "original": "BAB II",
+          "manipulated": "BAB  ‌II",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "BAB II",
+          "manipulated": "BAB  ‍II",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "BAB II",
+          "manipulated": "BAB II",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "samples": [
+        {
+          "original": "dan sederhana.",
+          "manipulated": "dan sederhana. ",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "samples": [
+        {
+          "original": "metode steganografi",
+          "manipulated": "metode steganografi",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "metode steganografi",
+          "manipulated": "metode steganografi",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "metode steganografi",
+          "manipulated": "metode steganografi",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "samples": [
+        {
+          "original": "Least Significant Bit (LSB)",
+          "manipulated": "Least Sіgnificant Bit (LSB)",
+          "techniques": [
+            "unicode_substitution",
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "Least Significant Bit (LSB)",
+          "manipulated": "Leаst Significant Bit (LSВ)",
+          "techniques": [
+            "unicode_substitution",
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "Least Significant Bit (LSB)",
+          "manipulated": "Leasт Sіgnіficant Bit (LSB)",
+          "techniques": [
+            "unicode_substitution",
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "samples": [
+        {
+          "original": "tidak terdeteksi oleh",
+          "manipulated": "tidak  ‌terdeteksi oleh",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "tidak terdeteksi oleh",
+          "manipulated": "tidak terdeteksi ‌oleh",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "samples": [
+        {
+          "original": "seni menyembunyikan",
+          "manipulated": "seni  ‌‌menyembunyikan",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "seni menyembunyikan",
+          "manipulated": "seni menyembunyikan",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "samples": [
+        {
+          "original": "informasi",
+          "manipulated": "informasi",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "informasi",
+          "manipulated": "informasi",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "informasi",
+          "manipulated": "informasi",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "samples": [
+        {
+          "original": "menyimpan",
+          "manipulated": "menyimpan",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "menyimpan",
+          "manipulated": "menyimpan",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "menyimpan",
+          "manipulated": "menyimpan",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "samples": [
+        {
+          "original": "(QR) Code",
+          "manipulated": "(QR) Code",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "(QR) code",
+          "manipulated": "(QR) code",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "(QR) Code",
+          "manipulated": "(QR) Code",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "samples": [
+        {
+          "original": "Tujuan/Kasus",
+          "manipulated": "Tujuan/Kasus",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "samples": [
+        {
+          "original": "Peneliti",
+          "manipulated": "Peneliti",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "Peneliti",
+          "manipulated": "Peneliti",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "peneliti",
+          "manipulated": "peneliti",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "samples": [
+        {
+          "original": "Penelitian Terkait",
+          "manipulated": "Penelitian  Terkait",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "Penelitian Terkait",
+          "manipulated": "Penelitian Terkait",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "samples": [
+        {
+          "original": "(LSB) untuk",
+          "manipulated": "(LSB) untuk",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "samples": [
+        {
+          "original": "Significant Bit",
+          "manipulated": "Significant Bit",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "Significant Bit",
+          "manipulated": "Significant  Bit",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "Significant Bit",
+          "manipulated": "Significant  ‍Bit",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 68,
+      "samples": [
+        {
+          "original": "steganografi Least",
+          "manipulated": "steganografi ‍Least",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "steganografi Least",
+          "manipulated": "steganografi Least",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "steganografi Least",
+          "manipulated": "steganografi  Least",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "samples": [
+        {
+          "original": "METODE",
+          "manipulated": "METODE",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "METODE",
+          "manipulated": "METODE",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "metode",
+          "manipulated": "metode",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 71,
+      "samples": [
+        {
+          "original": "digunakan",
+          "manipulated": "digunakan",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "digunakan",
+          "manipulated": "digunakan",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "digunakan",
+          "manipulated": "digunakan",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 72,
+      "samples": [
+        {
+          "original": "penulisan laporan",
+          "manipulated": "penulisan laporan",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "Penulisan Laporan",
+          "manipulated": "Penulisan  Laporan",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 73,
+      "samples": [
+        {
+          "original": "SISTEM",
+          "manipulated": "SISTEM",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "SISTEM",
+          "manipulated": "SISTEM",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "sistem",
+          "manipulated": "sistem",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 74,
+      "samples": [
+        {
+          "original": "IMPLEMENTASI SISTEM",
+          "manipulated": "IMPLEMENTASI SISTEM",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "IMPLEMENTASI SISTEM",
+          "manipulated": "IMPLEMENTASI SISTEM",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "implementasi sistem",
+          "manipulated": "implementasi ‌sistem",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 75,
+      "samples": [
+        {
+          "original": "Desain Sistem",
+          "manipulated": "Desain  Sistem",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 76,
+      "samples": [
+        {
+          "original": "Analisis Sistem",
+          "manipulated": "Analisis Sistem",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 78,
+      "samples": [
+        {
+          "original": "bulan, yaitu dimulai pada",
+          "manipulated": "bulan, yaitu ‌dimulai pada",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 82,
+      "samples": [
+        {
+          "original": "penelitian.",
+          "manipulated": "penelitian. ‌",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "penelitian.",
+          "manipulated": "penelitian.",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "penelitian.",
+          "manipulated": "penelitian.",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 86,
+      "samples": [
+        {
+          "original": "METODE PENELITIAN",
+          "manipulated": "METODE ‍PENELITIAN",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "metode penelitian",
+          "manipulated": "metode penelitian",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "METODE PENELITIAN",
+          "manipulated": "METODE PENELITIAN",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 87,
+      "samples": [
+        {
+          "original": "BAB III",
+          "manipulated": "BAB III",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "BAB III",
+          "manipulated": "BAB  III",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 88,
+      "samples": [
+        {
+          "original": "(embedding)",
+          "manipulated": "(embedding)",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "(embedding)",
+          "manipulated": "(embedding)",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "(Embedding)",
+          "manipulated": "(Embedding)",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 89,
+      "samples": [
+        {
+          "original": "proses",
+          "manipulated": "proses",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "Proses",
+          "manipulated": "Proses",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "Proses",
+          "manipulated": "Proses",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 90,
+      "samples": [
+        {
+          "original": "(extracting)",
+          "manipulated": "(extracting)",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "(extracting)",
+          "manipulated": "(extracting)",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "(Extracting)",
+          "manipulated": "(Extracting)",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 92,
+      "samples": [
+        {
+          "original": "steganografi Least Significant Bit (LSB).",
+          "manipulated": "sтeganografi ​Least Significant Bit (LSB).",
+          "techniques": [
+            "unicode_substitution",
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "steganografi Least Significant Bit (LSB).",
+          "manipulated": "steganografi Leаst Signifiсant ﻿Bit (LSB).",
+          "techniques": [
+            "unicode_substitution",
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 99,
+      "samples": [
+        {
+          "original": "mengandung",
+          "manipulated": "mengandung",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "mengandung",
+          "manipulated": "mengandung",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "mengandung",
+          "manipulated": "mengandung",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 100,
+      "samples": [
+        {
+          "original": "identik dengan",
+          "manipulated": "identik ‍dengan",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "identik dengan",
+          "manipulated": "identik ‍﻿dengan",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 101,
+      "samples": [
+        {
+          "original": "(stego image) yang",
+          "manipulated": "(stego image) yang",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 104,
+      "samples": [
+        {
+          "original": "Pengujian Sistem",
+          "manipulated": "Pengujian Sistem",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "Pengujian sistem",
+          "manipulated": "Pengujian sistem",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "Pengujian Sistem",
+          "manipulated": "Pengujian  Sistem",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 105,
+      "samples": [
+        {
+          "original": "tingkat",
+          "manipulated": "tingkat",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "tingkat",
+          "manipulated": "tingkat",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "tingkat",
+          "manipulated": "tingkat",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 107,
+      "samples": [
+        {
+          "original": "berbasis",
+          "manipulated": "berbasis",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "berbasis",
+          "manipulated": "berbasis",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 108,
+      "samples": [
+        {
+          "original": "Cipher",
+          "manipulated": "Cipher",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "Cipher",
+          "manipulated": "Cipher",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 109,
+      "samples": [
+        {
+          "original": "Vigenere",
+          "manipulated": "Vigenere",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "Vigenere",
+          "manipulated": "Vigenere",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 110,
+      "samples": [
+        {
+          "original": "enkripsi",
+          "manipulated": "enkripsi",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "enkripsi",
+          "manipulated": "enkripsi",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "enkripsi",
+          "manipulated": "enkripsi",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 111,
+      "samples": [
+        {
+          "original": "Significant",
+          "manipulated": "Significant",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "Significant",
+          "manipulated": "Significant",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "Significant",
+          "manipulated": "Significant",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 112,
+      "samples": [
+        {
+          "original": "dengan",
+          "manipulated": "dengan",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "Dengan",
+          "manipulated": "Dengan",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "dengan",
+          "manipulated": "dengan",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 113,
+      "samples": [
+        {
+          "original": "DIGITAL",
+          "manipulated": "DIGITAL",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "DIGITAL",
+          "manipulated": "DIGITAL",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "digital",
+          "manipulated": "digital",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 123,
+      "samples": [
+        {
+          "original": "UNIVERSITAS",
+          "manipulated": "UNIVERSITAS",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "Universitas",
+          "manipulated": "Universitas",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "Universitas",
+          "manipulated": "Universitas",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 127,
+      "samples": [
+        {
+          "original": "Agustus",
+          "manipulated": "Agustus",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 131,
+      "samples": [
+        {
+          "original": "MAKASSAR",
+          "manipulated": "MAKASSAR",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "Makassar",
+          "manipulated": "Makassar",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "Makassar",
+          "manipulated": "Makassar",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 132,
+      "samples": [
+        {
+          "original": "MUHAMMADIYAH",
+          "manipulated": "MUHAMMADIYAH",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "Muhammadiyah",
+          "manipulated": "Muhammadiyah",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "Muhammadiyah",
+          "manipulated": "Muhammadiyah",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 141,
+      "samples": [
+        {
+          "original": "TEKNIK",
+          "manipulated": "TEKNIK",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "Teknik",
+          "manipulated": "Teknik",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "teknik",
+          "manipulated": "teknik",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 143,
+      "samples": [
+        {
+          "original": "observasi",
+          "manipulated": "observasi",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "observasi",
+          "manipulated": "observasi",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 145,
+      "samples": [
+        {
+          "original": "programming",
+          "manipulated": "programming",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 150,
+      "samples": [
+        {
+          "original": "pendidikan",
+          "manipulated": "pendidikan",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "pendidikan",
+          "manipulated": "pendidikan",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "pendidikan",
+          "manipulated": "pendidikan",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 154,
+      "samples": [
+        {
+          "original": "kuliah",
+          "manipulated": "kuliah",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158,
+      "samples": [
+        {
+          "original": "DIGITAL",
+          "manipulated": "DIGITAL",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "DIGITAL",
+          "manipulated": "DIGITAL",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        },
+        {
+          "original": "digital",
+          "manipulated": "digital",
+          "techniques": [
+            "zero_width",
+            "spacing_variant"
+          ]
+        }
+      ]
+    }
+  ]
+}

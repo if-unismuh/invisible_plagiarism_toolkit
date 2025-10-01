@@ -101,6 +101,12 @@
     "max_changes_per_paragraph": 5,
     "avoid_obvious_patterns": true
   },
+  "debug": {
+    "enable_visual_flags": false,
+    "enable_comments": true,
+    "enable_change_log": true,
+    "export_change_log": true
+  },
   "target_elements": {
     "headers": {
       "priority": "highest",

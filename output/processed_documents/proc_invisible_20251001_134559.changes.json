@@ -1,0 +1,40 @@
+{
+  "metadata": {
+    "timestamp": "2025-10-01T13:45:59.904001",
+    "total_changes": 2,
+    "visual_flags_enabled": false,
+    "comments_enabled": true
+  },
+  "statistics": {
+    "total_changes": 2,
+    "changes_by_type": {
+      "header_modification": 1,
+      "metadata_change": 1
+    },
+    "first_change": "2025-10-01T13:45:59.891466",
+    "last_change": "2025-10-01T13:45:59.891999"
+  },
+  "changes": [
+    {
+      "timestamp": "2025-10-01T13:45:59.891466",
+      "type": "header_modification",
+      "location": "paragraph_0_header",
+      "original": "BAB I",
+      "modified": "BAB І",
+      "details": {
+        "priority": "highest",
+        "type": "chapter"
+      }
+    },
+    {
+      "timestamp": "2025-10-01T13:45:59.891999",
+      "type": "metadata_change",
+      "location": "document_metadata",
+      "original": "[Original metadata]",
+      "modified": "[Modified metadata]",
+      "details": {
+        "changes_count": 1
+      }
+    }
+  ]
+}

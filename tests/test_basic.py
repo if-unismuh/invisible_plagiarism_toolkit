@@ -1,6 +1,11 @@
 import os
+import sys
 from pathlib import Path
-from invisible_manipulator import InvisibleManipulator
+
+# Add src to path
+sys.path.insert(0, str(Path(__file__).parent.parent / 'src'))
+
+from core.invisible_manipulator import InvisibleManipulator
 
 def test_unicode_mapping_normalized():
     manip = InvisibleManipulator(verbose=False)
