@@ -13,11 +13,9 @@ from typing import Dict, Any
 
 # Import project modules
 import sys
-sys.path.append('..')
-from invisible_manipulator import InvisibleManipulator
-from unicode_steganography import UnicodeSteg
-from advanced_analyzer import AdvancedAnalyzer
-from schemas import ProcessingConfig, validate_config_file
+sys.path.insert(0, str(Path(__file__).parent.parent / 'src'))
+from core.invisible_manipulator import InvisibleManipulator
+from core.unicode_steganography import UnicodeSteg
 
 class TestFixtures:
     """Test data and fixtures"""

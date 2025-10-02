@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import asyncio
 import json
+import logging
 import os
 import shutil
 import subprocess
@@ -15,6 +16,13 @@ from typing import Any, Dict
 from fastapi import BackgroundTasks, FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
+
+# Setup logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
 WORKSPACE_ORIGINAL = ROOT_DIR / "workspace" / "input" / "original"
@@ -58,8 +66,14 @@ app.add_middleware(
 
 @app.on_event("startup")
 async def ensure_workspace() -> None:
-    for directory in (WORKSPACE_ORIGINAL, WORKSPACE_TURNITIN):
-        directory.mkdir(parents=True, exist_ok=True)
+    """Ensure workspace directories exist on startup"""
+    try:
+        for directory in (WORKSPACE_ORIGINAL, WORKSPACE_TURNITIN):
+            directory.mkdir(parents=True, exist_ok=True)
+        logger.info(f"Workspace directories initialized at {ROOT_DIR / 'workspace'}")
+    except Exception as e:
+        logger.error(f"Failed to initialize workspace: {e}")
+        raise
 
 
 @app.post("/api/process")
@@ -92,15 +106,19 @@ async def process_documents(
 
     # Persist files to disk
     try:
+        logger.info(f"Saving uploads for job {job_id}: {original_doc.filename}, {turnitin_pdf.filename}")
         await save_upload(original_doc, doc_target)
         await save_upload(turnitin_pdf, pdf_target)
+        logger.info(f"Files saved successfully for job {job_id}")
     except Exception as exc:  # pragma: no cover - safety net
+        logger.error(f"Failed to save files for job {job_id}: {exc}")
         raise HTTPException(status_code=500, detail=f"Gagal menyimpan file: {exc}") from exc
 
     job = JobState(job_id, mode)
     with _jobs_lock:
         _jobs[job_id] = job
 
+    logger.info(f"Job {job_id} created with mode '{mode}', starting background processing")
     background_tasks.add_task(run_job, job, doc_target, pdf_target)
 
     return JSONResponse({"job_id": job_id, "status": job.status, "detail": job.detail})
@@ -141,7 +159,20 @@ async def purge_existing(directory: Path, suffix: str) -> None:
 
 
 def run_job(job: JobState, doc_path: Path, pdf_path: Path) -> None:
+    """Run processing job in background"""
+    logger.info(f"Starting job {job.job_id} with mode '{job.mode}'")
     update_job(job, status="processing", detail="Menjalankan pipeline CLI...")
+
+    # Verify files exist before starting
+    if not doc_path.exists():
+        logger.error(f"Document file not found: {doc_path}")
+        update_job(job, status="failed", detail="File dokumen tidak ditemukan", error=f"File tidak ditemukan: {doc_path}")
+        return
+
+    if not pdf_path.exists():
+        logger.error(f"PDF file not found: {pdf_path}")
+        update_job(job, status="failed", detail="File PDF tidak ditemukan", error=f"File tidak ditemukan: {pdf_path}")
+        return
 
     cmd = [
         sys.executable,
@@ -152,6 +183,8 @@ def run_job(job: JobState, doc_path: Path, pdf_path: Path) -> None:
 
     env = os.environ.copy()
     env["IPT_JOB_ID"] = job.job_id
+
+    logger.info(f"Executing command: {' '.join(cmd)}")
 
     progress: Dict[str, Any] = {
         "current": "Menjalankan pipeline CLI...",
@@ -236,6 +269,7 @@ def run_job(job: JobState, doc_path: Path, pdf_path: Path) -> None:
                 files_payload["processed_document"] = f"/api/jobs/{job.job_id}/files/processed"
 
         if return_code == 0:
+            logger.info(f"Job {job.job_id} completed successfully")
             progress["current"] = "Pipeline selesai tanpa error."
             progress["history"].append({
                 "message": "Pipeline selesai tanpa error.",
@@ -256,6 +290,9 @@ def run_job(job: JobState, doc_path: Path, pdf_path: Path) -> None:
                 },
             )
         else:
+            logger.error(f"Job {job.job_id} failed with return code {return_code}")
+            error_msg = "".join(stderr_lines[-400:]) or "Terjadi kesalahan."
+            logger.error(f"Job {job.job_id} error details: {error_msg[:200]}")
             update_job(
                 job,
                 status="failed",
@@ -265,9 +302,10 @@ def run_job(job: JobState, doc_path: Path, pdf_path: Path) -> None:
                     "stderr": "".join(stderr_lines[-200:]),
                     "progress": progress,
                 },
-                error="".join(stderr_lines[-400:]) or "Terjadi kesalahan."
+                error=error_msg
             )
     except Exception as exc:  # pragma: no cover - safety net
+        logger.exception(f"Job {job.job_id} raised exception: {exc}")
         update_job(job, status="failed", detail="Eksekusi pipeline gagal.", error=str(exc))
 
 

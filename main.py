@@ -32,8 +32,11 @@ from typing import Optional, List, Dict, Any
 sys.path.insert(0, str(Path(__file__).parent / 'src'))
 
 from core.invisible_manipulator import InvisibleManipulator
+from core.risk_analyzer import RiskAnalyzer
 from extractors.pdf_colored_ocr_extractor import extract_colored_regions
 from processors.flagged_selection_builder import build_selection, load_segments
+from processors.targeted_text_matcher import TargetedTextMatcher, match_highlights_to_docx
+from processors.header_protector import HeaderProtector
 # from processors.targeted_invisible_applier import load_selection as load_flagged_selection
 from utils.logger_config import setup_logger
 from utils.performance_monitor import PerformanceMonitor
@@ -192,46 +195,182 @@ class PlagiarismBypassCLI:
         self.logger.info(f"Filtered to {len(selection)} priority segments ({mode} mode)")
         return selection
     
-    def apply_manipulations(self, original_docx: Path, selections: List[Dict[str, Any]], 
-                          mode: str = "balanced") -> Optional[Path]:
-        """Apply invisible manipulations to original document"""
-        
-        # Mode settings for manipulation rates
-        rates = {
-            "stealth": {"unicode": 0.02, "zero_width": 0.03},
-            "balanced": {"unicode": 0.04, "zero_width": 0.06},
-            "aggressive": {"unicode": 0.07, "zero_width": 0.10}
-        }
-        
-        config = rates.get(mode, rates["balanced"])
-        
+    def apply_manipulations(self, original_docx: Path, highlights: List[Dict[str, Any]],
+                          mode: str = "balanced", use_targeted: bool = True) -> Optional[Path]:
+        """
+        Apply invisible manipulations to original document
+
+        Args:
+            original_docx: Path to original DOCX file
+            highlights: List of highlights extracted from Turnitin PDF
+            mode: Processing mode (stealth/balanced/aggressive)
+            use_targeted: If True, only modify paragraphs that match highlights
+
+        Returns:
+            Path to processed document or None if failed
+        """
+
         # Output path
         output_path = self.workspace / "output" / "processed" / f"{original_docx.stem}_{mode}_processed.docx"
-        
+
         try:
-            # Use InvisibleManipulator for comprehensive processing
-            manipulator = InvisibleManipulator(verbose=True)
-            
-            # Enable debug flags if needed (passed from CLI args later)
-            # This will be updated when we call process_documents
-            
-            # Apply full manipulation pipeline
-            result = manipulator.apply_invisible_manipulation(
-                str(original_docx),
-                str(output_path),
-                dry_run=False
-            )
-            
-            if result and result.get('output_file'):
-                self.logger.info(f"Document processed successfully: {output_path.name}")
-                return Path(result['output_file'])
-            else:
-                self.logger.error("Document processing failed")
-                return None
-                
+            if use_targeted and highlights:
+                self.logger.info("Using TARGETED manipulation (only modifying flagged paragraphs)")
+
+                # Step 1: Match highlights to exact paragraphs in DOCX
+                self.logger.info("Matching highlights to document paragraphs...")
+                matches = match_highlights_to_docx(
+                    str(original_docx),
+                    highlights,
+                    min_similarity=0.80  # 80% similarity threshold
+                )
+
+                if not matches:
+                    self.logger.warning("No paragraph matches found! Falling back to full document processing")
+                    use_targeted = False
+                else:
+                    self.logger.info(f"Found {len(matches)} paragraph matches to modify")
+
+                    # Step 2: Apply targeted manipulations
+                    return self._apply_targeted_manipulations(
+                        original_docx, matches, output_path, mode
+                    )
+
+            if not use_targeted:
+                # Fallback: Full document processing (original behavior)
+                self.logger.info("Using FULL document manipulation")
+                manipulator = InvisibleManipulator(verbose=True)
+
+                result = manipulator.apply_invisible_manipulation(
+                    str(original_docx),
+                    str(output_path),
+                    dry_run=False
+                )
+
+                if result and result.get('output_file'):
+                    self.logger.info(f"Document processed successfully: {output_path.name}")
+                    return Path(result['output_file'])
+                else:
+                    self.logger.error("Document processing failed")
+                    return None
+
         except Exception as e:
             self.logger.error(f"Manipulation failed: {e}")
+            import traceback
+            self.logger.error(traceback.format_exc())
             return None
+
+    def _apply_targeted_manipulations(self, original_docx: Path, matches: List[Dict[str, Any]],
+                                     output_path: Path, mode: str) -> Optional[Path]:
+        """Apply manipulations only to matched paragraphs"""
+        import docx
+        from core.unicode_steganography import UnicodeSteg
+
+        try:
+            # Load document
+            doc = docx.Document(str(original_docx))
+            steg = UnicodeSteg()
+
+            # Mode settings
+            rates = {
+                "stealth": {"unicode": 0.02, "zero_width": 0.03, "max_changes": 2},
+                "balanced": {"unicode": 0.04, "zero_width": 0.06, "max_changes": 3},
+                "aggressive": {"unicode": 0.07, "zero_width": 0.10, "max_changes": 5}
+            }
+            config = rates.get(mode, rates["balanced"])
+
+            modified_count = 0
+            total_changes = 0
+
+            # STEP 1: Protect ALL standard headers first (BAB I, PENDAHULUAN, etc.)
+            self.logger.info("🛡️  Protecting standard headers...")
+            protector = HeaderProtector()
+            header_stats = protector.protect_all_headers(doc, aggressiveness=mode)
+
+            self.logger.info(f"   - Headers found: {header_stats['total_headers_found']}")
+            self.logger.info(f"   - Headers protected: {header_stats['headers_protected']}")
+            self.logger.info(f"   - Header changes: {header_stats['total_changes']}")
+
+            # STEP 2: Process each matched paragraph (flagged by Turnitin)
+            for match in matches:
+                para_idx = match['paragraph_index']
+                paragraph = doc.paragraphs[para_idx]
+                original_text = paragraph.text
+
+                if not original_text.strip():
+                    continue
+
+                self.logger.debug(f"Processing paragraph {para_idx}: {len(original_text)} chars")
+
+                # Apply Unicode substitution
+                modified_text, stats = steg.apply_strategic_substitution(
+                    original_text,
+                    aggressiveness=config['unicode']
+                )
+                sub_count = stats.get('total_changes', 0)
+
+                self.logger.debug(f"Unicode substitutions: {sub_count}")
+
+                # Apply invisible characters
+                modified_text_with_invisible = self._insert_invisible_chars(
+                    modified_text,
+                    rate=config['zero_width']
+                )
+
+                # Update paragraph runs (preserve formatting)
+                if modified_text_with_invisible != original_text:
+                    # Clear existing runs
+                    for run in paragraph.runs:
+                        run.text = ''
+
+                    # Add new text as single run
+                    if paragraph.runs:
+                        paragraph.runs[0].text = modified_text_with_invisible
+                    else:
+                        paragraph.add_run(modified_text_with_invisible)
+
+                    modified_count += 1
+                    total_changes += sub_count
+
+                    self.logger.debug(f"✓ Modified paragraph {para_idx}: {sub_count} changes")
+                else:
+                    self.logger.debug(f"✗ No changes for paragraph {para_idx}")
+
+            # Save document
+            doc.save(str(output_path))
+
+            self.logger.info(f"✅ Targeted manipulation complete:")
+            self.logger.info(f"   - Headers protected: {header_stats['headers_protected']}")
+            self.logger.info(f"   - Flagged paragraphs modified: {modified_count}/{len(matches)}")
+            self.logger.info(f"   - Total changes: {total_changes + header_stats['total_changes']}")
+            self.logger.info(f"   - Output: {output_path.name}")
+
+            return output_path
+
+        except Exception as e:
+            self.logger.error(f"Targeted manipulation failed: {e}")
+            import traceback
+            self.logger.error(traceback.format_exc())
+            return None
+
+    def _insert_invisible_chars(self, text: str, rate: float = 0.05) -> str:
+        """Insert zero-width characters into text"""
+        import random
+
+        zero_width_chars = ['\u200B', '\u200C', '\u200D', '\uFEFF']
+        words = text.split()
+        modified_words = []
+
+        for word in words:
+            if random.random() < rate and len(word) > 3:
+                # Insert zero-width char in middle of word
+                mid = len(word) // 2
+                char = random.choice(zero_width_chars)
+                word = word[:mid] + char + word[mid:]
+
+            modified_words.append(word)
+
+        return ' '.join(modified_words)
     
     def generate_report(self, original_file: Path, turnitin_file: Path, 
                        processed_file: Optional[Path], highlights: List[Dict[str, Any]],
@@ -318,26 +457,53 @@ class PlagiarismBypassCLI:
             self.logger.error("No priority highlights selected")
             return False
         
-        # Apply manipulations
-        processed_file = self.apply_manipulations(original_file, selections, mode)
+        # Apply manipulations (now using TARGETED approach)
+        # Pass highlights instead of selections for better paragraph matching
+        processed_file = self.apply_manipulations(
+            original_file,
+            highlights,  # Use all highlights for matching
+            mode,
+            use_targeted=True  # Enable targeted modification
+        )
         if not processed_file:
             self.logger.error("Document manipulation failed")
             return False
         
         # Generate report
         report_path = self.generate_report(
-            original_file, turnitin_file, processed_file, 
+            original_file, turnitin_file, processed_file,
             highlights, selections, mode
         )
-        
+
+        # Analyze detection risk
+        self.logger.info("Analyzing detection risk...")
+        risk_analyzer = RiskAnalyzer()
+
+        # Load changes log if exists
+        changes_log_path = processed_file.with_suffix('.changes.json')
+        changes_log = None
+        if changes_log_path.exists():
+            with open(changes_log_path, 'r', encoding='utf-8') as f:
+                changes_log = json.load(f)
+
+        risk_score = risk_analyzer.analyze_document(str(processed_file), changes_log)
+        risk_report = risk_analyzer.generate_report(
+            risk_score,
+            output_path=str(self.workspace / "output" / "reports" / f"risk_analysis_{mode}.txt")
+        )
+
         # Final summary
         self.logger.info("=" * 60)
         self.logger.info("✅ PROCESSING COMPLETED SUCCESSFULLY")
         self.logger.info("=" * 60)
         self.logger.info(f"📄 Processed Document: {processed_file}")
         self.logger.info(f"📊 Report: {report_path}")
+        self.logger.info(f"🔍 Risk Analysis: {risk_score.risk_level} ({risk_score.overall_score:.1f}/100)")
         self.logger.info(f"⏱️  Processing Time: {self.monitor.get_elapsed_time():.2f}s")
-        
+
+        # Print risk report
+        print("\n" + risk_report)
+
         return True
 
 def create_cli_parser() -> argparse.ArgumentParser:
@@ -392,7 +558,19 @@ Before running:
         action='store_true',
         help='Disable embedded change log in output document'
     )
-    
+
+    parser.add_argument(
+        '--analyze-risk',
+        metavar='FILE',
+        help='Analyze detection risk for an existing document'
+    )
+
+    parser.add_argument(
+        '--dry-run',
+        action='store_true',
+        help='Preview changes without modifying files (dry-run mode)'
+    )
+
     return parser
 
 def main():
@@ -411,11 +589,34 @@ def main():
         else:
             print("❌ Missing dependencies")
             return 1
-    
+
+    # Analyze risk for existing document
+    if args.analyze_risk:
+        doc_path = Path(args.analyze_risk)
+        if not doc_path.exists():
+            print(f"❌ File not found: {doc_path}")
+            return 1
+
+        print(f"🔍 Analyzing detection risk for: {doc_path.name}")
+
+        # Look for changes log
+        changes_log_path = doc_path.with_suffix('.changes.json')
+        changes_log = None
+        if changes_log_path.exists():
+            with open(changes_log_path, 'r', encoding='utf-8') as f:
+                changes_log = json.load(f)
+            print(f"📊 Found change log: {changes_log_path.name}")
+
+        analyzer = RiskAnalyzer()
+        risk_score = analyzer.analyze_document(str(doc_path), changes_log)
+        risk_report = analyzer.generate_report(risk_score)
+
+        print("\n" + risk_report)
+        return 0
+
     # Update config for debug mode if enabled
     if args.debug:
         print("🐛 Debug mode enabled - visual flags will be added to document")
-        import json
         config_path = Path("config.json")
         if config_path.exists():
             with open(config_path, 'r') as f:
@@ -423,10 +624,9 @@ def main():
             config.setdefault('debug', {})['enable_visual_flags'] = True
             with open(config_path, 'w') as f:
                 json.dump(config, f, indent=2)
-    
+
     if args.no_change_log:
         print("📝 Change log disabled")
-        import json
         config_path = Path("config.json")
         if config_path.exists():
             with open(config_path, 'r') as f:

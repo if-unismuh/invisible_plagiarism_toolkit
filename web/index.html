@@ -1,950 +1,509 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Invisible Plagiarism Toolkit — Upload</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invisible Plagiarism Toolkit v1.2</title>
   <style>
-    :root {
-      color-scheme: light dark;
-      --bg-gradient: radial-gradient(circle at 20% 20%, #1f3c88 0%, #0b1b33 35%, #050b16 100%);
-      --card-bg: rgba(10, 15, 28, 0.78);
-      --card-border: rgba(255, 255, 255, 0.1);
-      --accent: #5ef0ff;
-      --accent-strong: #35bfd0;
-      --text: #f0f4ff;
-      --text-muted: rgba(240, 244, 255, 0.7);
-      --shadow: 0 24px 60px rgba(5, 10, 30, 0.55);
-      --radius-lg: 28px;
-      --radius-sm: 16px;
-      font-family: "Segoe UI", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
-    }
-
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
     body {
-      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 60px 24px;
-      background: var(--bg-gradient);
-      color: var(--text);
+      padding: 20px;
     }
 
-    .layout {
-      width: min(1150px, 100%);
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(260px, 1.2fr);
-      gap: 26px;
-    }
-
-    .glass-card {
+    .container {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      max-width: 900px;
       width: 100%;
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      backdrop-filter: blur(18px);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow);
-      padding: 42px 48px 48px;
-      position: relative;
       overflow: hidden;
     }
 
-    .card-glow {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background: radial-gradient(circle at 75% -10%, rgba(94, 240, 255, 0.22), transparent 55%),
-                  radial-gradient(circle at -5% 105%, rgba(111, 90, 255, 0.18), transparent 60%);
-      mix-blend-mode: screen;
-    }
-
-    .hero {
-      display: grid;
-      gap: 16px;
-      margin-bottom: 32px;
-    }
-
-    .hero h1 {
-      margin: 0;
-      font-size: clamp(2.2rem, 4vw, 3rem);
-      letter-spacing: -0.02em;
-    }
-
-    .hero p {
-      margin: 0;
-      color: var(--text-muted);
-      font-size: 1.02rem;
-      line-height: 1.65;
-    }
-
-    form {
-      display: grid;
-      gap: 32px;
-    }
-
-    .input-grid {
-      display: grid;
-      gap: 24px;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    }
-
-    .dropzone {
-      position: relative;
-      border: 1px dashed rgba(255, 255, 255, 0.18);
-      border-radius: var(--radius-sm);
-      padding: 32px 28px;
-      display: grid;
-      gap: 14px;
-      align-content: flex-start;
-      transition: border-color 150ms ease, transform 150ms ease, background 150ms ease;
-      background: rgba(255, 255, 255, 0.02);
-      cursor: pointer;
-      min-height: 200px;
-    }
-
-    .dropzone:hover,
-    .dropzone.dragging {
-      border-color: rgba(94, 240, 255, 0.5);
-      background: rgba(94, 240, 255, 0.05);
-      transform: translateY(-2px);
-    }
-
-    .dropzone h2 {
-      margin: 0;
-      font-size: 1.1rem;
-    }
-
-    .dropzone p {
-      margin: 0;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-
-    .dropzone input[type="file"] {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      cursor: pointer;
-    }
-
-    .file-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(94, 240, 255, 0.12);
-      border: 1px solid rgba(94, 240, 255, 0.25);
-      color: var(--accent);
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-size: 0.88rem;
-      transition: transform 150ms ease;
-    }
-
-    .file-pill svg {
-      width: 16px;
-      height: 16px;
-      fill: currentColor;
-    }
-
-    .file-pill:hover {
-      transform: translateY(-1px);
-    }
-
-    .mode-selector {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-    }
-
-    .radio-card {
-      position: relative;
-      border-radius: 22px;
-      padding: 18px 22px;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      background: rgba(255, 255, 255, 0.03);
-      flex: 1 1 220px;
-      min-width: 200px;
-      cursor: pointer;
-      transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
-    }
-
-    .radio-card input {
-      position: absolute;
-      opacity: 0;
-    }
-
-    .radio-card:hover {
-      border-color: rgba(94, 240, 255, 0.4);
-      transform: translateY(-2px);
-    }
-
-    .radio-card input:checked + .radio-content {
-      border: 1px solid rgba(94, 240, 255, 0.55);
-      background: rgba(94, 240, 255, 0.08);
-      box-shadow: 0 12px 30px rgba(10, 40, 70, 0.35);
-    }
-
-    .radio-content {
-      border-radius: 18px;
-      padding: 12px 10px;
-      border: 1px solid transparent;
-      transition: inherit;
-    }
-
-    .radio-label {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 8px;
-      font-size: 0.95rem;
-    }
-
-    .radio-meta {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    .actions {
-      display: grid;
-      gap: 12px;
-    }
-
-    button {
-      border: none;
-      border-radius: 999px;
-      padding: 16px 24px;
-      font-size: 1.05rem;
-      font-weight: 600;
-      letter-spacing: 0.015em;
-      cursor: pointer;
-      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-      color: #041120;
-      transition: transform 180ms ease, box-shadow 180ms ease;
-      box-shadow: 0 18px 38px rgba(30, 200, 220, 0.32);
-    }
-
-    button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 24px 40px rgba(30, 200, 220, 0.42);
-    }
-
-    .helper-text {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    .download-card {
-      display: grid;
-      gap: 14px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(94, 240, 255, 0.18);
-      border-radius: var(--radius-sm);
-      padding: 18px 20px;
-    }
-
-    .download-card a {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: rgba(94, 240, 255, 0.12);
-      border: 1px solid rgba(94, 240, 255, 0.3);
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
-      letter-spacing: 0.01em;
-    }
-
-    .download-card a:hover {
-      background: rgba(94, 240, 255, 0.2);
-    }
-
-    .status-panel {
-      border-radius: var(--radius-sm);
-      border: 1px solid rgba(94, 240, 255, 0.18);
-      background: rgba(255, 255, 255, 0.04);
-      padding: 20px 22px;
-      display: grid;
-      gap: 12px;
-      transition: opacity 180ms ease;
-    }
-
-    .status-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.92rem;
-      color: var(--text-muted);
-    }
-
-    .status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.8rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      border-radius: 999px;
-      padding: 6px 12px;
-      border: 1px solid rgba(94, 240, 255, 0.3);
-      background: rgba(94, 240, 255, 0.12);
-      color: var(--accent);
-    }
-
-    .status-badge[data-status="queued"],
-    .status-badge[data-status="processing"] {
-      border-color: rgba(94, 240, 255, 0.4);
-      background: rgba(94, 240, 255, 0.15);
-      color: var(--accent);
-    }
-
-    .status-badge[data-status="completed"] {
-      border-color: rgba(101, 255, 198, 0.45);
-      background: rgba(101, 255, 198, 0.16);
-      color: #69f8ce;
-    }
-
-    .status-badge[data-status="failed"] {
-      border-color: rgba(255, 103, 120, 0.45);
-      background: rgba(255, 103, 120, 0.16);
-      color: #ff8795;
-    }
-
-    .status-detail {
-      font-size: 0.92rem;
-      line-height: 1.5;
-    }
-
-    .status-log {
-      max-height: 240px;
-      overflow: auto;
-      border-radius: 12px;
-      background: rgba(4, 10, 24, 0.7);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      padding: 12px 14px;
-    }
-
-    .status-log pre {
-      margin: 0;
-      font-size: 0.8rem;
-      white-space: pre-wrap;
-      word-break: break-word;
-      color: rgba(211, 224, 255, 0.85);
-      font-family: "JetBrains Mono", "Fira Code", "SFMono-Regular", ui-monospace, monospace;
-    }
-
-    .error-text {
-      color: #ff9aa9;
-      font-size: 0.85rem;
-      line-height: 1.5;
-    }
-
-    .progress-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 10px;
-    }
-
-    .progress-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      background: rgba(255, 255, 255, 0.03);
-      font-size: 0.82rem;
-    }
-
-    .progress-item[data-state="done"] {
-      border-color: rgba(94, 240, 255, 0.32);
-      background: rgba(94, 240, 255, 0.08);
-      color: var(--accent);
-    }
-
-    .progress-item time {
-      color: var(--text-muted);
-      font-size: 0.75rem;
-      min-width: 110px;
-      text-align: right;
-    }
-
-    .loading-spinner {
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      border: 2px solid rgba(94, 240, 255, 0.2);
-      border-top-color: var(--accent);
-      animation: spin 0.8s linear infinite;
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    footer {
-      margin-top: 18px;
-      font-size: 0.8rem;
-      color: rgba(240, 244, 255, 0.55);
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 40px;
       text-align: center;
     }
 
-    @media (max-width: 1040px) {
-      .layout {
-        grid-template-columns: minmax(0, 1fr);
-      }
+    .header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      font-weight: 700;
     }
 
-    @media (max-width: 680px) {
-      body {
-        padding: 42px 18px;
+    .header p {
+      font-size: 1.1em;
+      opacity: 0.95;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.9em;
+      margin-top: 10px;
+    }
+
+    .content {
+      padding: 40px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .feature-card {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 12px;
+      border-left: 4px solid #667eea;
+    }
+
+    .feature-card h3 {
+      color: #667eea;
+      margin-bottom: 10px;
+      font-size: 1.1em;
+    }
+
+    .feature-card p {
+      color: #666;
+      font-size: 0.95em;
+      line-height: 1.6;
+    }
+
+    .upload-section {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      padding: 40px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+    }
+
+    .upload-section h2 {
+      color: #333;
+      margin-bottom: 25px;
+      font-size: 1.8em;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 10px;
+      color: #333;
+      font-weight: 600;
+      font-size: 1.05em;
+    }
+
+    .file-input-wrapper {
+      position: relative;
+      background: white;
+      border: 2px dashed #667eea;
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .file-input-wrapper:hover {
+      border-color: #764ba2;
+      background: #f8f9ff;
+    }
+
+    .file-input-wrapper input[type="file"] {
+      position: absolute;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      left: 0;
+      top: 0;
+    }
+
+    .file-label {
+      color: #667eea;
+      font-weight: 500;
+    }
+
+    .file-name {
+      color: #666;
+      font-size: 0.9em;
+      margin-top: 10px;
+    }
+
+    .mode-selector {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .mode-option {
+      background: white;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .mode-option input[type="radio"] {
+      display: none;
+    }
+
+    .mode-option:hover {
+      border-color: #667eea;
+    }
+
+    .mode-option input[type="radio"]:checked + .mode-content {
+      border-color: #667eea;
+    }
+
+    .mode-option input[type="radio"]:checked ~ * {
+      color: #667eea;
+    }
+
+    .mode-content {
+      border: 2px solid transparent;
+      border-radius: 8px;
+      padding: 10px;
+    }
+
+    .mode-name {
+      font-weight: 700;
+      font-size: 1.1em;
+      margin-bottom: 5px;
+    }
+
+    .mode-desc {
+      font-size: 0.85em;
+      color: #666;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      padding: 18px 50px;
+      font-size: 1.2em;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .status {
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 10px;
+      display: none;
+    }
+
+    .status.success {
+      background: #d4edda;
+      border: 1px solid #c3e6cb;
+      color: #155724;
+      display: block;
+    }
+
+    .status.error {
+      background: #f8d7da;
+      border: 1px solid #f5c6cb;
+      color: #721c24;
+      display: block;
+    }
+
+    .status.processing {
+      background: #d1ecf1;
+      border: 1px solid #bee5eb;
+      color: #0c5460;
+      display: block;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      background: #e0e0e0;
+      border-radius: 3px;
+      overflow: hidden;
+      margin-top: 15px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+      width: 0%;
+      transition: width 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    .footer {
+      background: #f8f9fa;
+      padding: 30px 40px;
+      text-align: center;
+      color: #666;
+      font-size: 0.9em;
+    }
+
+    .footer a {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 1.8em;
       }
 
-      .glass-card {
-        padding: 32px 24px 36px;
+      .mode-selector {
+        grid-template-columns: 1fr;
       }
 
-      .radio-label span:last-child {
-        display: none;
+      .features {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 <body>
-  <div class="layout">
-    <div class="glass-card">
-      <div class="card-glow"></div>
-      <div class="hero">
-        <h1>Invisible Plagiarism Toolkit</h1>
-        <p>
-          Unggah dokumen Word dan laporan Turnitin untuk diproses dengan teknik anti-deteksi.
-          Sistem akan mengekstrak highlight, menerapkan manipulasi selektif, lalu menyediakan
-          hasil akhir beserta laporan lengkap.
-        </p>
-      </div>
-
-      <form action="/api/process" method="POST" enctype="multipart/form-data">
-        <section class="input-grid">
-          <label class="dropzone" id="docx-dropzone">
-            <input type="file" name="original_doc" accept=".docx" required />
-            <h2>Original Document</h2>
-            <p>Seret & lepaskan atau klik untuk memilih dokumen Word (DOCX).</p>
-            <div class="file-pill" data-placeholder="Belum ada file">
-              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2a1 1 0 0 1 1 1v5h3a1 1 0 0 1 .7 1.71l-4.7 4.7a1 1 0 0 1-1.4 0l-4.7-4.7A1 1 0 0 1 4 8h3V3a1 1 0 0 1 1-1zM4 16a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1z"/></svg>
-              <span>Pilih file DOCX</span>
-            </div>
-          </label>
-
-          <label class="dropzone" id="pdf-dropzone">
-            <input type="file" name="turnitin_pdf" accept="application/pdf" required />
-            <h2>Turnitin Report</h2>
-            <p>Unggah laporan Turnitin dalam format PDF untuk analisis highlight warna.</p>
-            <div class="file-pill" data-placeholder="Belum ada file">
-              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7.4a3 3 0 0 0-.88-2.12l-3.4-3.4A3 3 0 0 0 11.6 1H5zm8 11.5a.75.75 0 1 1-1.5 0V12H9.75v1.5a.75.75 0 1 1-1.5 0v-1.5H7a2 2 0 0 1 0-4h.25V7a.75.75 0 1 1 1.5 0v1.5h1.75V7a.75.75 0 1 1 1.5 0v1.5H13a2 2 0 1 1 0 4h-.25zM7 10.5a.5.5 0 1 0 0-1h-.25a.5.5 0 0 0 0 1zm6-1h-.25a.5.5 0 0 0 0 1H13a.5.5 0 0 0 0-1z"/></svg>
-              <span>Pilih file PDF</span>
-            </div>
-          </label>
-        </section>
-
-        <section>
-          <h2 style="margin:0 0 12px;font-size:1.05rem;letter-spacing:0.02em;">Processing Mode</h2>
-          <div class="mode-selector" role="radiogroup" aria-label="Processing mode">
-            <label class="radio-card">
-              <input type="radio" name="mode" value="stealth" />
-              <div class="radio-content">
-                <div class="radio-label">
-                  <span>Stealth</span>
-                  <span>Min perubahan</span>
-                </div>
-                <p class="radio-meta">Fokus pada invisibilitas maksimal dengan modifikasi minimal.</p>
-              </div>
-            </label>
-            <label class="radio-card">
-              <input type="radio" name="mode" value="balanced" checked />
-              <div class="radio-content">
-                <div class="radio-label">
-                  <span>Balanced</span>
-                  <span>Rekomendasi</span>
-                </div>
-                <p class="radio-meta">Perpaduan terbaik antara invisibilitas dan tingkat manipulasi.</p>
-              </div>
-            </label>
-            <label class="radio-card">
-              <input type="radio" name="mode" value="aggressive" />
-              <div class="radio-content">
-                <div class="radio-label">
-                  <span>Aggressive</span>
-                  <span>Maksimal</span>
-                </div>
-                <p class="radio-meta">Modifikasi terbesar untuk bypass deteksi secara ekstensif.</p>
-              </div>
-            </label>
-          </div>
-        </section>
-
-        <div class="actions">
-          <button type="submit">Siapkan Dokumen</button>
-          <p class="helper-text">
-            File yang diunggah akan ditempatkan di <code>workspace/input/original</code> dan
-            <code>workspace/input/turnitin</code> sebelum pipeline CLI dijalankan.
-          </p>
-        </div>
-
-        <section class="status-panel" id="status-panel" hidden>
-          <div class="status-heading">
-            <span>Status Proses</span>
-            <span class="status-badge" id="status-badge" data-status="queued">
-              <span class="loading-spinner" id="status-spinner"></span>
-              <span class="status-text">Queued</span>
-            </span>
-          </div>
-          <div class="status-detail" id="status-detail">Menunggu respon server...</div>
-          <div class="status-detail" id="status-job" style="font-size:0.8rem;color:var(--text-muted);"></div>
-          <div class="status-log" id="status-log" hidden>
-            <pre id="status-log-text"></pre>
-          </div>
-          <div class="error-text" id="status-error" hidden></div>
-          <ul class="progress-list" id="progress-list"></ul>
-        </section>
-      </form>
-
-      <footer>
-        Invisible Plagiarism Toolkit &bull; Upload portal prototipe &bull; 2024
-      </footer>
+  <div class="container">
+    <div class="header">
+      <h1>🔮 Invisible Plagiarism Toolkit</h1>
+      <p>Atasi False Positive Turnitin untuk Skripsi/Thesis</p>
+      <span class="badge">v1.2.0 - Header Protection + Targeted Processing</span>
     </div>
 
-    <aside class="glass-card" style="padding:36px 32px; display:grid; gap:24px;">
-      <section>
-        <h2 style="margin:0 0 12px; font-size:1.15rem; letter-spacing:0.03em;">Teknik yang Diterapkan</h2>
-        <ul style="margin:0; padding-left:18px; display:grid; gap:10px; color:var(--text-muted); font-size:0.92rem; line-height:1.6;">
-          <li><strong>Parafrase Selektif</strong>: hanya segmen panjang non-protected yang diubah kalimatnya.</li>
-          <li><strong>Invisible Manipulation</strong>: substitusi Unicode + sisipan karakter tak terlihat.</li>
-          <li><strong>Spacing Variants</strong>: hair space, ZWNJ/ZWJ, dan thin-space untuk memecah pola.</li>
-        </ul>
-      </section>
+    <div class="content">
+      <div class="features">
+        <div class="feature-card">
+          <h3>🛡️ Header Protection</h3>
+          <p>Auto-protect BAB I, PENDAHULUAN, dll. Headers WAJIB tidak di-flag lagi!</p>
+        </div>
+        <div class="feature-card">
+          <h3>🎯 Targeted Processing</h3>
+          <p>Hanya modifikasi paragraf yang di-flag Turnitin. 75% lebih efisien!</p>
+        </div>
+        <div class="feature-card">
+          <h3>📊 Risk Analysis</h3>
+          <p>Analisis otomatis detection risk. Target: &lt;40 untuk thesis!</p>
+        </div>
+      </div>
 
-      <section>
-        <h2 style="margin:0 0 12px; font-size:1.15rem; letter-spacing:0.03em;">Alur Cepat</h2>
-        <ol style="margin:0; padding-left:18px; display:grid; gap:10px; color:var(--text-muted); font-size:0.92rem; line-height:1.6;">
-          <li>Unggah DOCX asli beserta PDF highlight Turnitin.</li>
-          <li>Pilih mode proses: stealth, balanced, atau aggressive.</li>
-          <li>Pantau progress; setelah selesai unduh DOCX hasil manipulasi.</li>
-        </ol>
-      </section>
+      <div class="upload-section">
+        <h2>📤 Upload Dokumen</h2>
 
-      <section class="download-card" id="download-card" hidden>
-        <h2 style="margin:0; font-size:1.05rem; letter-spacing:0.02em;">📥 Download Hasil</h2>
-        
-        <div style="display:grid; gap:12px;">
-          <a id="download-docx" href="#" target="_blank" rel="noopener" style="display:none;">
-            📄 Unduh DOCX Terproses
-          </a>
-          
-          <a id="download-changes" href="#" target="_blank" rel="noopener" style="display:none;">
-            📊 Unduh Change Log (JSON)
-          </a>
-          
-          <a id="download-analysis" href="#" target="_blank" rel="noopener" style="display:none;">
-            📈 Unduh Analysis Report
-          </a>
-          
-          <a id="download-report" href="#" target="_blank" rel="noopener" style="display:none;">
-            📋 Unduh Full Report
-          </a>
-        </div>
-        
-        <div style="color:var(--text-muted); font-size:0.85rem; line-height:1.5; margin-top:8px;">
-          <p style="margin:0;">✅ Dokumen sudah menerapkan teknik invisible manipulation</p>
-          <p style="margin:4px 0 0;">⚠️ Review change log sebelum submission final</p>
-        </div>
-        
-        <div id="download-stats" style="background:rgba(94,240,255,0.08); border:1px solid rgba(94,240,255,0.2); border-radius:12px; padding:12px; margin-top:12px; font-size:0.85rem; display:none;">
-          <div style="font-weight:600; margin-bottom:6px;">📊 Processing Statistics:</div>
-          <div id="stats-content" style="display:grid; gap:4px; color:var(--text-muted);"></div>
-        </div>
-      </section>
-    </aside>
+        <form id="uploadForm">
+          <div class="form-group">
+            <label>1️⃣ Dokumen DOCX Asli (Skripsi Anda)</label>
+            <div class="file-input-wrapper">
+              <input type="file" id="originalDoc" name="original_doc" accept=".docx" required />
+              <div class="file-label">
+                📄 Klik atau drag file DOCX di sini
+                <div class="file-name" id="originalName">Belum ada file dipilih</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>2️⃣ Laporan PDF Turnitin (dengan highlights)</label>
+            <div class="file-input-wrapper">
+              <input type="file" id="turnitinPdf" name="turnitin_pdf" accept=".pdf" required />
+              <div class="file-label">
+                📑 Klik atau drag file PDF di sini
+                <div class="file-name" id="pdfName">Belum ada file dipilih</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>3️⃣ Pilih Mode Processing</label>
+            <div class="mode-selector">
+              <label class="mode-option">
+                <input type="radio" name="mode" value="stealth" />
+                <div class="mode-content">
+                  <div class="mode-name">Stealth</div>
+                  <div class="mode-desc">Minimal changes<br/>Risk: 18-30 (LOW)</div>
+                </div>
+              </label>
+
+              <label class="mode-option">
+                <input type="radio" name="mode" value="balanced" checked />
+                <div class="mode-content">
+                  <div class="mode-name">⭐ Balanced</div>
+                  <div class="mode-desc">Recommended<br/>Risk: 28-40 (MEDIUM)</div>
+                </div>
+              </label>
+
+              <label class="mode-option">
+                <input type="radio" name="mode" value="aggressive" />
+                <div class="mode-content">
+                  <div class="mode-name">Aggressive</div>
+                  <div class="mode-desc">Maximum bypass<br/>Risk: 40-60 (HIGH)</div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="btn" id="submitBtn">
+            🚀 Proses Dokumen
+          </button>
+        </form>
+
+        <div id="status" class="status"></div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p><strong>Cara Kerja:</strong> Upload 2 file → Auto-protect headers → Match & modify paragraf yang di-flag → Download hasil</p>
+      <p style="margin-top: 10px;">
+        <strong>Tips:</strong> Gunakan mode Balanced untuk thesis. Risk score target: &lt;40 (MEDIUM)
+      </p>
+      <p style="margin-top: 15px;">
+        <a href="https://github.com/if-unismuh/invisible_plagiarism_toolkit" target="_blank">📚 Documentation</a> •
+        Educational Purpose Only
+      </p>
+    </div>
   </div>
 
   <script>
-    const form = document.querySelector('form');
-    const submitButton = form.querySelector('button[type="submit"]');
-    const statusPanel = document.getElementById('status-panel');
-    const statusBadge = document.getElementById('status-badge');
-    const statusText = statusBadge.querySelector('.status-text');
-    const statusSpinner = document.getElementById('status-spinner');
-    const statusDetail = document.getElementById('status-detail');
-    const statusJob = document.getElementById('status-job');
-    const statusLog = document.getElementById('status-log');
-    const statusLogText = document.getElementById('status-log-text');
-    const statusError = document.getElementById('status-error');
-    const downloadCard = document.getElementById('download-card');
-    const downloadDocxLink = document.getElementById('download-docx');
-    const downloadChangesLink = document.getElementById('download-changes');
-    const downloadAnalysisLink = document.getElementById('download-analysis'); 
-    const downloadReportLink = document.getElementById('download-report');
-    const downloadStats = document.getElementById('download-stats');
-    const statsContent = document.getElementById('stats-content');
-    const progressList = document.getElementById('progress-list');
+    // File input handlers
+    document.getElementById('originalDoc').addEventListener('change', function(e) {
+      const fileName = e.target.files[0]?.name || 'Belum ada file dipilih';
+      document.getElementById('originalName').textContent = fileName;
+    });
 
-    function setupDropzone(zoneId) {
-      const label = document.getElementById(zoneId);
-      const input = label.querySelector('input[type="file"]');
-      const pill = label.querySelector('.file-pill');
-      const placeholder = pill.getAttribute('data-placeholder');
+    document.getElementById('turnitinPdf').addEventListener('change', function(e) {
+      const fileName = e.target.files[0]?.name || 'Belum ada file dipilih';
+      document.getElementById('pdfName').textContent = fileName;
+    });
 
-      input.addEventListener('change', () => {
-        const file = input.files && input.files[0];
-        pill.querySelector('span').textContent = file ? file.name : placeholder;
-      });
+    // Form submission
+    document.getElementById('uploadForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
 
-      ['dragenter', 'dragover'].forEach(evt => {
-        label.addEventListener(evt, e => {
-          e.preventDefault();
-          label.classList.add('dragging');
-        });
-      });
+      const formData = new FormData();
+      formData.append('original_doc', document.getElementById('originalDoc').files[0]);
+      formData.append('turnitin_pdf', document.getElementById('turnitinPdf').files[0]);
+      formData.append('mode', document.querySelector('input[name="mode"]:checked').value);
 
-      ['dragleave', 'drop'].forEach(evt => {
-        label.addEventListener(evt, e => {
-          e.preventDefault();
-          label.classList.remove('dragging');
-        });
-      });
-    }
+      const submitBtn = document.getElementById('submitBtn');
+      const statusDiv = document.getElementById('status');
 
-    setupDropzone('docx-dropzone');
-    setupDropzone('pdf-dropzone');
+      submitBtn.disabled = true;
+      submitBtn.textContent = '⏳ Processing...';
 
-    if (form) {
-      form.addEventListener('submit', async event => {
-        event.preventDefault();
-        if (statusPanel) statusPanel.hidden = false;
-        if (statusLog) statusLog.hidden = true;
-        if (statusError) statusError.hidden = true;
-        if (downloadCard) downloadCard.hidden = true;
-        if (downloadStats) downloadStats.style.display = 'none';
-        
-        // Reset all download links
-        if (downloadDocxLink) setLink(downloadDocxLink, null);
-        if (downloadChangesLink) setLink(downloadChangesLink, null);
-        if (downloadAnalysisLink) setLink(downloadAnalysisLink, null);
-        if (downloadReportLink) setLink(downloadReportLink, null);
-        
-        if (progressList) progressList.innerHTML = '';
-        updateStatusUI('queued', 'Mengunggah berkas...');
-        if (statusJob) statusJob.textContent = '';
+      statusDiv.className = 'status processing';
+      statusDiv.innerHTML = `
+        <strong>🔄 Processing dimulai...</strong><br/>
+        Upload files → OCR PDF → Extract highlights → Protect headers → Match paragraphs → Apply modifications
+        <div class="progress-bar"><div class="progress-fill"></div></div>
+      `;
 
-        submitButton.disabled = true;
-        submitButton.textContent = 'Memproses...';
-
-        const formData = new FormData(form);
-
-        try {
-          const response = await fetch('/api/process', {
-            method: 'POST',
-            body: formData,
-          });
-
-          if (!response.ok) {
-            const data = await response.json().catch(() => ({}));
-            throw new Error(data.detail || 'Gagal memulai pipeline.');
-          }
-
-          const data = await response.json();
-          if (statusJob) statusJob.textContent = `Job ID: ${data.job_id}`;
-          updateStatusUI(data.status || 'queued', data.detail || 'Job diterima.');
-          pollStatus(data.job_id);
-        } catch (error) {
-          updateStatusUI('failed', 'Tidak dapat mengunggah berkas.');
-          if (statusError) {
-            statusError.hidden = false;
-            statusError.textContent = error.message || 'Terjadi kesalahan.';
-          }
-          submitButton.disabled = false;
-          submitButton.textContent = 'Siapkan Dokumen';
-        }
-      });
-    }
-
-    async function pollStatus(jobId) {
       try {
-        const response = await fetch(`/api/status/${jobId}?t=${Date.now()}`, {
-          method: 'GET',
-          cache: 'no-store',
+        const response = await fetch('/api/process', {
+          method: 'POST',
+          body: formData
         });
-
-        if (!response.ok) {
-          throw new Error('Gagal mengambil status terbaru.');
-        }
 
         const data = await response.json();
-        updateStatusUI(data.status, data.detail);
-        if (data.result?.progress) {
-          renderProgress(data.result.progress);
-        }
 
-        if (data.status === 'completed') {
-          submitButton.disabled = false;
-          submitButton.textContent = 'Siapkan Dokumen';
-          statusSpinner.style.display = 'none';
-          statusLog.hidden = false;
-          statusLogText.textContent = data.result?.stdout || 'Pipeline selesai tanpa output tambahan.';
-          await ensureDownloadCard(jobId, data.result?.files, data.result);
-        } else if (data.status === 'failed') {
-          submitButton.disabled = false;
-          submitButton.textContent = 'Siapkan Dokumen';
-          statusSpinner.style.display = 'none';
-          statusError.hidden = false;
-          statusError.textContent = data.error || 'Pipeline gagal dijalankan.';
-        } else {
-          statusSpinner.style.display = '';
-          await wait(2000);
-          pollStatus(jobId);
-        }
-      } catch (error) {
-        statusSpinner.style.display = 'none';
-        statusError.hidden = false;
-        statusError.textContent = error.message || 'Gagal memperbarui status.';
-        submitButton.disabled = false;
-        submitButton.textContent = 'Siapkan Dokumen';
-      }
-    }
-
-    function updateStatusUI(status, detail) {
-      statusBadge.dataset.status = status;
-      statusText.textContent = status.charAt(0).toUpperCase() + status.slice(1);
-      statusDetail.textContent = detail;
-      if (status === 'completed' || status === 'failed') {
-        statusSpinner.style.display = 'none';
-      } else {
-        statusSpinner.style.display = '';
-      }
-    }
-
-    function wait(ms) {
-      return new Promise(resolve => setTimeout(resolve, ms));
-    }
-
-    function renderProgress(progress) {
-      if (!progress || !Array.isArray(progress.history)) {
-        return;
-      }
-      progressList.innerHTML = '';
-      progress.history.forEach((entry, idx) => {
-        const item = document.createElement('li');
-        item.className = 'progress-item';
-        if (idx < progress.history.length - 1 || (progress.current && progress.current === entry.message)) {
-          item.dataset.state = 'done';
-        }
-        const message = document.createElement('span');
-        message.textContent = entry.message || '';
-        const time = document.createElement('time');
-        time.textContent = formatTime(entry.timestamp);
-        item.appendChild(message);
-        item.appendChild(time);
-        progressList.appendChild(item);
-      });
-    }
-
-    async function ensureDownloadCard(jobId, files, result) {
-      let hasAnyDownload = false;
-      
-      // 1. Processed document (main result)
-      let processedUrl = null;
-      if (files && typeof files.processed_document === 'string' && files.processed_document.trim()) {
-        processedUrl = files.processed_document;
-      } else if (await summaryIndicatesProcessed(jobId)) {
-        processedUrl = `/api/jobs/${jobId}/files/processed`;
-      } else if (await processedFileAvailable(jobId)) {
-        processedUrl = `/api/jobs/${jobId}/files/processed`;
-      }
-      
-      if (processedUrl) {
-        setLink(downloadDocxLink, processedUrl, '📄 Unduh DOCX Terproses');
-        hasAnyDownload = true;
-      }
-      
-      // 2. Change log JSON (if available)
-      const changeLogUrl = await checkChangeLogAvailable(jobId);
-      if (changeLogUrl) {
-        setLink(downloadChangesLink, changeLogUrl, '📊 Unduh Change Log (JSON)');
-        hasAnyDownload = true;
-      }
-      
-      // 3. Analysis report
-      if (files && files.analysis) {
-        setLink(downloadAnalysisLink, files.analysis, '📈 Unduh Analysis Report');
-        hasAnyDownload = true;
-      } else if (await analysisFileAvailable(jobId)) {
-        setLink(downloadAnalysisLink, `/api/jobs/${jobId}/files/analysis`, '📈 Unduh Analysis Report');
-        hasAnyDownload = true;
-      }
-      
-      // 4. Full report (if available)
-      if (files && files.report) {
-        setLink(downloadReportLink, files.report, '📋 Unduh Full Report');
-        hasAnyDownload = true;
-      }
-      
-      // 5. Show statistics if available
-      if (result && result.analysis_summary) {
-        showProcessingStats(result.analysis_summary);
-      }
-      
-      if (hasAnyDownload) {
-        downloadCard.hidden = false;
-      }
-    }
-
-    async function processedFileAvailable(jobId) {
-      try {
-        const response = await fetch(`/api/jobs/${jobId}/files/processed`, {
-          method: 'HEAD',
-          cache: 'no-store',
-        });
-        return response.ok;
-      } catch (error) {
-        return false;
-      }
-    }
-
-    function setLink(anchor, url, text) {
-      if (url) {
-        anchor.href = url;
-        anchor.setAttribute('download', '');
-        anchor.style.display = '';
-        if (text) anchor.textContent = text;
-      } else {
-        anchor.removeAttribute('href');
-        anchor.style.display = 'none';
-      }
-    }
-    
-    async function checkChangeLogAvailable(jobId) {
-      try {
-        // Try to find change log file in output directory
-        const response = await fetch(`/api/jobs/${jobId}/files/processed`, {
-          method: 'HEAD',
-          cache: 'no-store',
-        });
         if (response.ok) {
-          // If processed file exists, try change log with same name
-          return `/api/jobs/${jobId}/files/changes`;
+          // Poll untuk status
+          pollStatus(data.job_id);
+        } else {
+          throw new Error(data.detail || 'Processing failed');
         }
+
       } catch (error) {
-        // Fallback: try common change log patterns
-        const patterns = [
-          `/api/jobs/${jobId}/files/changes.json`,
-          `/api/jobs/${jobId}/files/changelog`,
-        ];
-        
-        for (const pattern of patterns) {
-          try {
-            const response = await fetch(pattern, { method: 'HEAD', cache: 'no-store' });
-            if (response.ok) return pattern;
-          } catch (e) {
-            continue;
+        statusDiv.className = 'status error';
+        statusDiv.innerHTML = `<strong>❌ Error:</strong> ${error.message}`;
+        submitBtn.disabled = false;
+        submitBtn.textContent = '🚀 Proses Dokumen';
+      }
+    });
+
+    async function pollStatus(jobId) {
+      const statusDiv = document.getElementById('status');
+      const submitBtn = document.getElementById('submitBtn');
+
+      const interval = setInterval(async () => {
+        try {
+          const response = await fetch(`/api/status/${jobId}`);
+          const data = await response.json();
+
+          if (data.status === 'completed') {
+            clearInterval(interval);
+            statusDiv.className = 'status success';
+            statusDiv.innerHTML = `
+              <strong>✅ Processing selesai!</strong><br/><br/>
+              📄 <a href="/api/jobs/${jobId}/files/processed" download>Download Dokumen Hasil</a><br/>
+              📊 <a href="/result?job_id=${jobId}">Lihat Detail Report</a>
+            `;
+            submitBtn.disabled = false;
+            submitBtn.textContent = '🚀 Proses Dokumen';
+          } else if (data.status === 'failed') {
+            clearInterval(interval);
+            statusDiv.className = 'status error';
+            statusDiv.innerHTML = `<strong>❌ Processing gagal:</strong><br/>${data.error || data.detail}`;
+            submitBtn.disabled = false;
+            submitBtn.textContent = '🚀 Proses Dokumen';
+          } else {
+            // Still processing
+            statusDiv.innerHTML = `
+              <strong>🔄 ${data.detail}</strong><br/>
+              Status: ${data.status}<br/>
+              <div class="progress-bar"><div class="progress-fill" style="width: 50%"></div></div>
+            `;
           }
+        } catch (error) {
+          clearInterval(interval);
+          statusDiv.className = 'status error';
+          statusDiv.innerHTML = `<strong>❌ Error checking status:</strong> ${error.message}`;
+          submitBtn.disabled = false;
+          submitBtn.textContent = '🚀 Proses Dokumen';
         }
-      }
-      return null;
-    }
-    
-    async function analysisFileAvailable(jobId) {
-      try {
-        const response = await fetch(`/api/jobs/${jobId}/files/analysis`, {
-          method: 'HEAD',
-          cache: 'no-store',
-        });
-        return response.ok;
-      } catch (error) {
-        return false;
-      }
-    }
-    
-    function showProcessingStats(summary) {
-      if (!summary || !statsContent) return;
-      
-      const stats = [];
-      
-      if (summary.total_highlights !== undefined) {
-        stats.push(`🎯 Total highlights: ${summary.total_highlights}`);
-      }
-      
-      if (summary.processed_segments !== undefined) {
-        stats.push(`⚙️ Processed segments: ${summary.processed_segments}`);
-      }
-      
-      if (summary.unicode_substitutions !== undefined) {
-        stats.push(`🔤 Unicode substitutions: ${summary.unicode_substitutions}`);
-      }
-      
-      if (summary.invisible_insertions !== undefined) {
-        stats.push(`👻 Invisible insertions: ${summary.invisible_insertions}`);
-      }
-      
-      if (summary.processing_time !== undefined) {
-        stats.push(`⏱️ Processing time: ${summary.processing_time}s`);
-      }
-      
-      if (stats.length > 0) {
-        statsContent.innerHTML = stats.map(stat => `<div>${stat}</div>`).join('');
-        downloadStats.style.display = 'block';
-      }
-    }
-
-    const summaryCache = new Map();
-
-    async function summaryIndicatesProcessed(jobId) {
-      if (summaryCache.has(jobId)) {
-        return summaryCache.get(jobId);
-      }
-      try {
-        const response = await fetch(`/api/jobs/${jobId}/summary`, { cache: 'no-store' });
-        if (!response.ok) {
-          summaryCache.set(jobId, false);
-          return false;
-        }
-        const summary = await response.json();
-        const hasProcessed = Boolean(resolveSummaryFile(summary, 'processed_document'));
-        summaryCache.set(jobId, hasProcessed);
-        return hasProcessed;
-      } catch (error) {
-        summaryCache.set(jobId, false);
-        return false;
-      }
-    }
-
-    function resolveSummaryFile(summary, key) {
-      if (!summary || !key) return null;
-      if (summary[key]) return summary[key];
-      if (summary.output_files && summary.output_files[key]) return summary.output_files[key];
-      if (summary.files && summary.files[key]) return summary.files[key];
-      const altKey = `${key}_path`;
-      if (summary[altKey]) return summary[altKey];
-      if (summary.output_files && summary.output_files[altKey]) return summary.output_files[altKey];
-      return null;
-    }
-
-    function formatTime(timestamp) {
-      if (!timestamp) return '';
-      const date = new Date(timestamp);
-      if (Number.isNaN(date.getTime())) return '';
-      return date.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      }, 2000);
     }
   </script>
 </body>

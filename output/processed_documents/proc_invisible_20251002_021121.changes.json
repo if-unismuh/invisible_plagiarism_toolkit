@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "timestamp": "2025-10-02T02:11:21.225580",
+    "total_changes": 1,
+    "visual_flags_enabled": false,
+    "comments_enabled": true
+  },
+  "statistics": {
+    "total_changes": 1,
+    "changes_by_type": {
+      "metadata_change": 1
+    },
+    "first_change": "2025-10-02T02:11:21.213263",
+    "last_change": "2025-10-02T02:11:21.213263"
+  },
+  "changes": [
+    {
+      "timestamp": "2025-10-02T02:11:21.213263",
+      "type": "metadata_change",
+      "location": "document_metadata",
+      "original": "[Original metadata]",
+      "modified": "[Modified metadata]",
+      "details": {
+        "changes_count": 1
+      }
+    }
+  ]
+}

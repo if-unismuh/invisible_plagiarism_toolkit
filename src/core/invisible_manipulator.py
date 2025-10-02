@@ -83,30 +83,103 @@ class InvisibleManipulator:
             return self.get_default_config()
 
     def validate_config(self, config: dict):
-        """Basic schema validation and normalization."""
+        """Comprehensive schema validation and normalization."""
+        # Define required structure
         required_root = ['invisible_techniques', 'safety_settings']
         for key in required_root:
             if key not in config:
                 self.logger.warning("Config missing root key '%s' - inserting defaults", key)
                 config[key] = self.get_default_config()[key]
+
+        # Validate and normalize rates
         try:
-            z = config['invisible_techniques'].get('zero_width_chars', {})
+            techniques = config.get('invisible_techniques', {})
+
+            # Zero-width characters
+            z = techniques.get('zero_width_chars', {})
             if 'insertion_rate' in z:
-                z['insertion_rate'] = max(0.0, min(0.2, float(z['insertion_rate'])))
-            u = config['invisible_techniques'].get('unicode_substitution', {})
+                rate = float(z['insertion_rate'])
+                if rate < 0.0 or rate > 1.0:
+                    self.logger.warning(f"Invalid insertion_rate {rate}, clamping to [0.0, 0.2]")
+                z['insertion_rate'] = max(0.0, min(0.2, rate))
+
+            # Unicode substitution
+            u = techniques.get('unicode_substitution', {})
             if 'substitution_rate' in u:
-                u['substitution_rate'] = max(0.0, min(0.2, float(u['substitution_rate'])))
+                rate = float(u['substitution_rate'])
+                if rate < 0.0 or rate > 1.0:
+                    self.logger.warning(f"Invalid substitution_rate {rate}, clamping to [0.0, 0.2]")
+                u['substitution_rate'] = max(0.0, min(0.2, rate))
+
+            # Paraphrase (if exists)
+            p = techniques.get('paraphrase', {})
+            if 'replacement_rate' in p:
+                rate = float(p['replacement_rate'])
+                p['replacement_rate'] = max(0.0, min(0.5, rate))
+
+            # Spacing variants (if exists)
+            s = techniques.get('spacing_variants', {})
+            for key in ['hair_space_rate', 'zwnj_rate', 'zwj_rate', 'after_punctuation_rate']:
+                if key in s:
+                    s[key] = max(0.0, min(0.3, float(s[key])))
+
+            # Safety settings validation
+            safety = config.get('safety_settings', {})
+            if 'max_changes_per_paragraph' in safety:
+                max_changes = int(safety['max_changes_per_paragraph'])
+                if max_changes < 1:
+                    self.logger.warning(f"Invalid max_changes_per_paragraph {max_changes}, setting to 5")
+                    safety['max_changes_per_paragraph'] = 5
+
+            # Ensure debug section exists
+            if 'debug' not in config:
+                config['debug'] = {
+                    'enable_visual_flags': False,
+                    'enable_comments': True,
+                    'enable_change_log': True,
+                    'export_change_log': True
+                }
+
+            self.logger.debug("Configuration validated and normalized successfully")
+
+        except ValueError as e:
+            self.logger.error(f"Invalid numeric value in config: {e}")
+            raise ValueError(f"Configuration validation failed: {e}")
         except Exception as e:
-            self.logger.warning("Rate normalization failed: %s", e)
+            self.logger.warning(f"Rate normalization failed: {e}")
     
+    def get_config_summary(self) -> dict:
+        """Get configuration summary for reporting."""
+        techniques = self.config.get('invisible_techniques', {})
+        return {
+            'unicode_substitution': {
+                'enabled': techniques.get('unicode_substitution', {}).get('enabled', False),
+                'rate': techniques.get('unicode_substitution', {}).get('substitution_rate', 0.0)
+            },
+            'zero_width_chars': {
+                'enabled': techniques.get('zero_width_chars', {}).get('enabled', False),
+                'rate': techniques.get('zero_width_chars', {}).get('insertion_rate', 0.0)
+            },
+            'paraphrase': {
+                'enabled': techniques.get('paraphrase', {}).get('enabled', False),
+                'rate': techniques.get('paraphrase', {}).get('replacement_rate', 0.0)
+            },
+            'metadata': techniques.get('metadata_manipulation', {}).get('enabled', False),
+            'debug_mode': self.config.get('debug', {}).get('enable_visual_flags', False)
+        }
+
     def load_data_file(self, file_path):
         """Load data files (mappings, patterns, etc.)"""
         try:
             with open(file_path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
+            self.logger.debug(f"Loaded data file: {file_path}")
             return data
         except FileNotFoundError:
-            print(f"⚠️ Data file {file_path} not found, using defaults")
+            self.logger.warning(f"Data file {file_path} not found, using defaults")
+            return {}
+        except json.JSONDecodeError as e:
+            self.logger.error(f"Invalid JSON in {file_path}: {e}")
             return {}
     
     def get_default_config(self):

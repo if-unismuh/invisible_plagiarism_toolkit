@@ -185,10 +185,10 @@ class UnicodeSteg:
                     substitution_log['total_changes'] += 1
         
         # Apply individual character substitutions
-        if aggressiveness > 0.05:  # Only if moderately aggressive
+        if aggressiveness > 0.01:  # Apply even for low aggressiveness
             new_result = ""
             for char in result:
-                if char in cyrillic_mapping and random.random() < aggressiveness * 0.5:
+                if char in cyrillic_mapping and random.random() < aggressiveness:
                     replacement = cyrillic_mapping[char]
                     new_result += replacement
                     substitution_log['substitutions_made'].append({
