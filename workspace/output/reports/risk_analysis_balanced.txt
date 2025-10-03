@@ -2,20 +2,18 @@
 DETECTION RISK ANALYSIS REPORT
 ======================================================================
 
-Overall Risk Score: 43.0/100
-Risk Level: HIGH
+Overall Risk Score: 36.8/100
+Risk Level: MEDIUM
 
 Metrics:
   - Unicode Substitution Density: 3.46%
-  - Invisible Character Density: 0.15%
-  - Total Modifications: 31
+  - Invisible Character Density: 0.14%
+  - Total Modifications: 0
 
 💡 Recommendations:
-  - Consider using 'stealth' mode for lower detection risk
-  - Review modifications manually for patterns
   - Risk level is acceptable for submission
 
 Interpretation:
-  🔴 High risk - Consider reducing modifications
+  ⚠️  Medium risk - Review modifications before submission
 
 ======================================================================
