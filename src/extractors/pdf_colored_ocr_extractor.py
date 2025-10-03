@@ -31,7 +31,7 @@ Catatan: Tidak mencoba mengklasifikasikan warna highlight Turnitin eksak; hanya 
 from __future__ import annotations
 import argparse, json
 from pathlib import Path
-from typing import List, Dict, Any, Tuple, Optional
+from typing import List, Dict, Any, Tuple, Optional, Set
 import fitz  # PyMuPDF
 import numpy as np
 import cv2  # type: ignore
@@ -142,6 +142,104 @@ def hsv_to_name(h: float, s: float, v: float) -> ColorName:
 # Core extraction
 # ------------------------------------------------------------
 
+def _extract_annotation_highlights(page: fitz.Page) -> List[Dict[str, Any]]:
+    """Extract highlighted text using native PDF highlight annotations."""
+    highlights: List[Dict[str, Any]] = []
+
+    try:
+        current = page.first_annot
+    except AttributeError:  # pragma: no cover - defensive against API changes
+        current = None
+
+    if not current:
+        return highlights
+
+    words = page.get_text("words") or []
+    if not words:
+        return highlights
+
+    normalized_words: List[Tuple[fitz.Rect, str, Tuple[int, int, int], float, float]] = []
+    for word in words:
+        if len(word) < 5:
+            continue
+        x0, y0, x1, y1, text, *meta = word
+        text = (text or '').strip()
+        if not text:
+            continue
+        block = meta[0] if len(meta) > 0 else 0
+        line = meta[1] if len(meta) > 1 else 0
+        word_idx = meta[2] if len(meta) > 2 else 0
+        rect = fitz.Rect(x0, y0, x1, y1)
+        normalized_words.append((rect, text, (block, line, word_idx), y0, x0))
+
+    while current:
+        try:
+            annot_type = current.type[0]
+        except Exception:  # pragma: no cover
+            annot_type = None
+
+        if annot_type == fitz.PDF_ANNOT_HIGHLIGHT:
+            vertices = current.vertices or []
+            if vertices:
+                union_rect: Optional[fitz.Rect] = None
+                collected: Dict[Tuple[int, int, int], Tuple[float, float, str]] = {}
+
+                for i in range(0, len(vertices), 4):
+                    quad = fitz.Quad(vertices[i:i + 4])
+                    rect = quad.rect
+                    union_rect = rect if union_rect is None else union_rect | rect
+
+                    for word_rect, text, word_key, top_y, left_x in normalized_words:
+                        if rect.intersects(word_rect):
+                            collected.setdefault(word_key, (top_y, left_x, text))
+
+                if collected:
+                    ordered = sorted(
+                        collected.items(),
+                        key=lambda item: (item[0][0], item[0][1], item[0][2], item[1][0], item[1][1])
+                    )
+                    segment_text = ' '.join(entry[1][2] for entry in ordered).strip()
+                    if segment_text:
+                        highlight_color = current.colors or {}
+                        rgb_components = highlight_color.get('stroke') or highlight_color.get('fill')
+
+                        mean_rgb = None
+                        mean_hsv = (0.0, 0.0, 0.0)
+                        if rgb_components and len(rgb_components) >= 3:
+                            rgb_values = np.array(rgb_components[:3], dtype=np.float32)
+                            rgb_values = np.clip(rgb_values, 0.0, 1.0)
+                            rgb_uint8 = (rgb_values * 255).astype(np.uint8).reshape(1, 1, 3)
+                            hsv = cv2.cvtColor(rgb_uint8, cv2.COLOR_RGB2HSV)[0][0]
+                            mean_hsv = (float(hsv[0]), float(hsv[1]), float(hsv[2]))
+                            mean_rgb = rgb_uint8[0][0].astype(np.float32)
+
+                        color_name, confidence, palette_name, distance = match_turnitin_color(
+                            mean_rgb,
+                            mean_hsv
+                        )
+                        if mean_rgb is None:
+                            color_name = 'unknown'
+                            palette_name = 'unknown'
+                            confidence = 0.0
+                            distance = 999.0
+
+                        highlights.append({
+                            'page_number': page.number + 1,
+                            'text': segment_text,
+                            'color': color_name,
+                            'color_confidence': confidence,
+                            'color_profile': palette_name,
+                            'color_distance': distance,
+                            'bbox': (union_rect.x0, union_rect.y0, union_rect.x1, union_rect.y1)
+                            if union_rect else None,
+                            'source': 'annotation',
+                        })
+
+        current = current.next
+
+    return highlights
+
+
 def extract_colored_regions(
     pdf_path: Path,
     min_area: int = 1200,
@@ -152,8 +250,17 @@ def extract_colored_regions(
 ) -> List[Dict[str, Any]]:
     doc = fitz.open(pdf_path)
     results: List[Dict[str, Any]] = []
+    seen_keys: Set[Tuple[int, str]] = set()
 
     for page_index, page in enumerate(doc, start=1):
+        annotation_segments = _extract_annotation_highlights(page)
+        for segment in annotation_segments:
+            key = (segment['page_number'], segment['text'])
+            if key in seen_keys:
+                continue
+            results.append(segment)
+            seen_keys.add(key)
+
         matrix = fitz.Matrix(2, 2)
         pix = page.get_pixmap(matrix=matrix, alpha=False)
         img = np.frombuffer(pix.samples, dtype=np.uint8).reshape(pix.height, pix.width, pix.n)
@@ -256,11 +363,21 @@ def extract_colored_regions(
             text = ' '.join(text.split())
             if not text:
                 continue
-            results.append({
+            segment = {
                 'page_number': page_index,
                 'text': text,
                 'color': b['color'],
-            })
+                'color_confidence': b.get('color_confidence'),
+                'color_profile': b.get('color_profile'),
+                'color_distance': b.get('color_distance'),
+                'bbox': b.get('bbox'),
+                'source': 'ocr',
+            }
+            key = (segment['page_number'], segment['text'])
+            if key in seen_keys:
+                continue
+            results.append(segment)
+            seen_keys.add(key)
 
     doc.close()
     return results

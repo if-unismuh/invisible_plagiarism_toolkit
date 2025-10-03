@@ -171,27 +171,35 @@ class PlagiarismBypassCLI:
             "medium": ["orange", "cyan", "yellow"],
             "low": ["pink", "gray", "light"]
         }
-        
+
         # Mode filtering
         if mode == "stealth":
             include_colors = set(priority_colors["high"])
             min_length = 15
+            min_confidence = 0.45
+            max_distance = 65.0
         elif mode == "balanced":
             include_colors = set(priority_colors["high"] + priority_colors["medium"])
             min_length = 10
+            min_confidence = 0.35
+            max_distance = 75.0
         else:  # aggressive
             include_colors = set(priority_colors["high"] + priority_colors["medium"] + priority_colors["low"])
             min_length = 6
-            
+            min_confidence = 0.25
+            max_distance = 85.0
+
         # Build selection
         selection = build_selection(
             highlights, 
             min_length=min_length,
             include=include_colors,
             exclude=set(),
-            dedupe=True
+            dedupe=True,
+            min_confidence=min_confidence,
+            max_color_distance=max_distance
         )
-        
+
         self.logger.info(f"Filtered to {len(selection)} priority segments ({mode} mode)")
         return selection
     

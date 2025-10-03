@@ -19,6 +19,7 @@ from core.document_flag_manager import (
     FlaggedTextBuilder,
     create_flag_manager
 )
+from processors.flagged_selection_builder import build_selection
 
 
 def test_flag_manager_initialization():
@@ -191,6 +192,72 @@ def test_change_log_section(tmp_path):
             break
     
     assert log_found == True
+
+
+def test_build_selection_confidence_filter():
+    """Ensure low-confidence segments are filtered out"""
+    segments = [
+        {
+            'text': 'Valid segment',
+            'color': 'red',
+            'color_confidence': 0.7,
+            'color_distance': 40.0,
+            'page_number': 1
+        },
+        {
+            'text': 'Noisy segment',
+            'color': 'red',
+            'color_confidence': 0.2,
+            'color_distance': 40.0,
+            'page_number': 1
+        }
+    ]
+
+    selection = build_selection(
+        segments,
+        min_length=5,
+        include=set(),
+        exclude=set(),
+        dedupe=False,
+        min_confidence=0.4,
+        max_color_distance=None
+    )
+
+    assert len(selection) == 1
+    assert selection[0]['text'] == 'Valid segment'
+
+
+def test_build_selection_distance_filter():
+    """Ensure segments beyond distance threshold are skipped"""
+    segments = [
+        {
+            'text': 'Accurate color',
+            'color': 'yellow',
+            'color_confidence': 0.5,
+            'color_distance': 40.0,
+            'page_number': 2
+        },
+        {
+            'text': 'Uncertain color',
+            'color': 'yellow',
+            'color_confidence': 0.6,
+            'color_distance': 120.0,
+            'page_number': 2
+        }
+    ]
+
+    selection = build_selection(
+        segments,
+        min_length=5,
+        include=set(),
+        exclude=set(),
+        dedupe=False,
+        min_confidence=0.0,
+        max_color_distance=80.0
+    )
+
+    assert len(selection) == 1
+    assert selection[0]['text'] == 'Accurate color'
 
 
 def test_visual_flags_enabled():

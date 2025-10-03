@@ -50,7 +50,7 @@ import json
 import argparse
 import hashlib
 from pathlib import Path
-from typing import List, Dict, Any, Set
+from typing import List, Dict, Any, Set, Optional
 
 
 def hash_text(t: str) -> str:
@@ -73,7 +73,15 @@ def load_segments(path: Path) -> List[Dict[str, Any]]:
     return data
 
 
-def build_selection(segments: List[Dict[str, Any]], min_length: int, include: Set[str], exclude: Set[str], dedupe: bool) -> List[Dict[str, Any]]:
+def build_selection(
+    segments: List[Dict[str, Any]],
+    min_length: int,
+    include: Set[str],
+    exclude: Set[str],
+    dedupe: bool,
+    min_confidence: float = 0.0,
+    max_color_distance: Optional[float] = None,
+) -> List[Dict[str, Any]]:
     seen_hashes = set()
     output = []
     idx = 1
@@ -89,6 +97,12 @@ def build_selection(segments: List[Dict[str, Any]], min_length: int, include: Se
         if include and color not in include:
             continue
         if exclude and color in exclude:
+            continue
+        confidence = seg.get('color_confidence')
+        if min_confidence > 0.0 and confidence is not None and confidence < min_confidence:
+            continue
+        distance = seg.get('color_distance')
+        if max_color_distance is not None and distance is not None and distance > max_color_distance:
             continue
         h = hash_text(text) if dedupe else None
         if dedupe and h in seen_hashes:
@@ -108,7 +122,10 @@ def build_selection(segments: List[Dict[str, Any]], min_length: int, include: Se
             'flag_notes': seg.get('flag_notes'),
             'selected': True,
             'recommended_techniques': recommend_techniques(len(text)),
-            'text': text
+            'text': text,
+            'color_confidence': confidence,
+            'color_distance': distance,
+            'source': seg.get('source')
         }
         output.append(entry)
         idx += 1
@@ -123,6 +140,8 @@ def main():
     ap.add_argument('--include-colors', default='', help='Daftar warna yang disertakan, pisah koma (kosong=semua)')
     ap.add_argument('--exclude-colors', default='', help='Daftar warna yang dikecualikan, pisah koma')
     ap.add_argument('--dedupe', action='store_true', help='Aktifkan deduplikasi berdasarkan hash teks')
+    ap.add_argument('--min-confidence', type=float, default=0.0, help='Ambang minimum color_confidence untuk disertakan')
+    ap.add_argument('--max-color-distance', type=float, default=None, help='Ambang maksimum color_distance (kosong=tanpa batas)')
     ap.add_argument('--pretty', action='store_true', help='Output JSON indented')
 
     args = ap.parse_args()
@@ -134,7 +153,16 @@ def main():
     exclude = {c.strip() for c in args.exclude_colors.split(',') if c.strip()} if args.exclude_colors else set()
 
     segments = load_segments(src)
-    selection = build_selection(segments, args.min_length, include, exclude, args.dedupe)
+    selection = build_selection(
+        segments,
+        args.min_length,
+        include,
+        exclude,
+        args.dedupe,
+        min_confidence=max(0.0, args.min_confidence),
+        max_color_distance=args.max_color_distance if (args.max_color_distance is None or args.max_color_distance >= 0)
+        else None
+    )
 
     out_path = Path(args.output)
     with out_path.open('w', encoding='utf-8') as f:
