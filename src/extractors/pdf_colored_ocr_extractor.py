@@ -37,6 +37,13 @@ import numpy as np
 import cv2  # type: ignore
 import pytesseract  # type: ignore
 
+# Import improved OCR extractor
+try:
+    from .improved_ocr_extractor import ImprovedOCRExtractor
+    IMPROVED_OCR_AVAILABLE = True
+except ImportError:
+    IMPROVED_OCR_AVAILABLE = False
+
 ColorName = str
 
 # ------------------------------------------------------------
@@ -323,28 +330,49 @@ def extract_colored_regions(
         if not boxes:
             continue
 
-        # OCR once (word-level)
-        try:
-            ocr = pytesseract.image_to_data(img, output_type=pytesseract.Output.DICT, lang=ocr_lang)
-        except pytesseract.TesseractError:
-            # Fallback tanpa spesifikasi bahasa
-            ocr = pytesseract.image_to_data(img, output_type=pytesseract.Output.DICT)
+        # OCR once (word-level) - with improved preprocessing if available
         words = []
-        for i in range(len(ocr['text'])):
-            word = (ocr['text'][i] or '').strip()
-            if not word:
-                continue
+        use_improved = IMPROVED_OCR_AVAILABLE
+
+        if use_improved:
+            # Use improved OCR extractor with preprocessing
             try:
-                conf = float(ocr['conf'][i])
-            except Exception:
-                continue
-            if conf < 40:
-                continue
-            x = ocr['left'][i]
-            y = ocr['top'][i]
-            w = ocr['width'][i]
-            h = ocr['height'][i]
-            words.append((x, y, x + w, y + h, word))
+                ocr_extractor = ImprovedOCRExtractor(lang=ocr_lang)
+                word_dicts = ocr_extractor.extract_text_from_full_page(img, preprocessing="balanced")
+
+                for wd in word_dicts:
+                    x0, y0, x1, y1 = wd['bbox']
+                    word_text = wd['text']
+                    words.append((x0, y0, x1, y1, word_text))
+
+            except Exception as e:
+                # Fallback to original OCR
+                use_improved = False
+
+        if not use_improved:
+            # Original OCR method (fallback)
+            try:
+                ocr = pytesseract.image_to_data(img, output_type=pytesseract.Output.DICT, lang=ocr_lang)
+            except pytesseract.TesseractError:
+                # Fallback tanpa spesifikasi bahasa
+                ocr = pytesseract.image_to_data(img, output_type=pytesseract.Output.DICT)
+
+            for i in range(len(ocr['text'])):
+                word = (ocr['text'][i] or '').strip()
+                if not word:
+                    continue
+                try:
+                    conf = float(ocr['conf'][i])
+                except Exception:
+                    continue
+                # Lower threshold jika menggunakan fallback
+                if conf < 30:  # Lowered from 40 to 30
+                    continue
+                x = ocr['left'][i]
+                y = ocr['top'][i]
+                w = ocr['width'][i]
+                h = ocr['height'][i]
+                words.append((x, y, x + w, y + h, word))
 
         for b in boxes:
             x0, y0, x1, y1 = b['bbox']

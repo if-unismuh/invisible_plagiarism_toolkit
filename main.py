@@ -37,6 +37,7 @@ from extractors.pdf_colored_ocr_extractor import extract_colored_regions
 from processors.flagged_selection_builder import build_selection, load_segments
 from processors.targeted_text_matcher import TargetedTextMatcher, match_highlights_to_docx
 from processors.header_protector import HeaderProtector
+from processors.smart_flag_analyzer import SmartFlagAnalyzer, filter_segments_smart
 # from processors.targeted_invisible_applier import load_selection as load_flagged_selection
 from utils.logger_config import setup_logger
 from utils.performance_monitor import PerformanceMonitor
@@ -161,10 +162,10 @@ class PlagiarismBypassCLI:
             self.logger.error(f"Highlight extraction failed: {e}")
             return []
     
-    def filter_priority_highlights(self, highlights: List[Dict[str, Any]], 
+    def filter_priority_highlights(self, highlights: List[Dict[str, Any]],
                                  mode: str = "balanced") -> List[Dict[str, Any]]:
-        """Filter highlights by Turnitin color priorities"""
-        
+        """Filter highlights by Turnitin color priorities + SMART ANALYSIS"""
+
         # Turnitin color priorities
         priority_colors = {
             "high": ["red", "green", "blue", "magenta"],
@@ -173,25 +174,27 @@ class PlagiarismBypassCLI:
         }
 
         # Mode filtering
+        # Note: Color confidence/distance filters are relaxed because OCR color detection
+        # is imprecise. We rely more on smart analysis to filter false positives.
         if mode == "stealth":
             include_colors = set(priority_colors["high"])
             min_length = 15
-            min_confidence = 0.45
-            max_distance = 65.0
+            min_confidence = 0.0  # Relaxed from 0.45 - smart analysis will filter
+            max_distance = None  # Relaxed from 65.0 - smart analysis will filter
         elif mode == "balanced":
             include_colors = set(priority_colors["high"] + priority_colors["medium"])
             min_length = 10
-            min_confidence = 0.35
-            max_distance = 75.0
+            min_confidence = 0.0  # Relaxed from 0.35 - smart analysis will filter
+            max_distance = None  # Relaxed from 75.0 - smart analysis will filter
         else:  # aggressive
             include_colors = set(priority_colors["high"] + priority_colors["medium"] + priority_colors["low"])
             min_length = 6
-            min_confidence = 0.25
-            max_distance = 85.0
+            min_confidence = 0.0  # Relaxed from 0.25 - smart analysis will filter
+            max_distance = None  # Relaxed from 85.0 - smart analysis will filter
 
         # Build selection
         selection = build_selection(
-            highlights, 
+            highlights,
             min_length=min_length,
             include=include_colors,
             exclude=set(),
@@ -200,8 +203,28 @@ class PlagiarismBypassCLI:
             max_color_distance=max_distance
         )
 
-        self.logger.info(f"Filtered to {len(selection)} priority segments ({mode} mode)")
-        return selection
+        self.logger.info(f"Initial filter: {len(selection)} segments ({mode} mode)")
+
+        # ✨ NEW: Apply SMART ANALYSIS to avoid false positives
+        self.logger.info("🧠 Applying smart analysis to filter false positives...")
+        analyzer = SmartFlagAnalyzer()
+        to_modify, to_skip = filter_segments_smart(selection, analyzer)
+
+        # Log statistics
+        stats = analyzer.get_statistics(analyzer.batch_analyze(selection))
+        self.logger.info(f"   - Total analyzed: {stats['total_segments']}")
+        self.logger.info(f"   - Should SKIP (legitimate): {stats['should_skip']}")
+        self.logger.info(f"   - Should MODIFY (flagged): {stats['should_modify']}")
+        self.logger.info(f"   - Avg confidence: {stats['avg_confidence']:.2f}")
+
+        # Show breakdown
+        self.logger.info("   - By content type:")
+        for ctype, count in stats['by_content_type'].items():
+            self.logger.info(f"     * {ctype}: {count}")
+
+        self.logger.info(f"✅ Smart filtering complete: {len(to_modify)} segments to modify")
+
+        return to_modify  # Only return segments that actually need modification
     
     def apply_manipulations(self, original_docx: Path, highlights: List[Dict[str, Any]],
                           mode: str = "balanced", use_targeted: bool = True) -> Optional[Path]:

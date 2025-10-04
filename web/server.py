@@ -351,6 +351,11 @@ async def result_view() -> FileResponse:
     return FileResponse(ROOT_DIR / "web" / "result.html")
 
 
+@app.get("/result_simple.html")
+async def result_simple_view() -> FileResponse:
+    return FileResponse(ROOT_DIR / "web" / "result_simple.html")
+
+
 @app.get("/flags")
 async def flags_view() -> FileResponse:
     return FileResponse(ROOT_DIR / "web" / "flags.html")
